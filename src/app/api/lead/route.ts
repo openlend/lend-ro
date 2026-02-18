@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { insertLead, initDb } from '@/lib/db';
 
 const LEAD_EMAIL = 'open@lend.ro';
 
@@ -164,24 +165,6 @@ export async function POST(request: Request) {
       ip: clientIP,
     });
 
-    // Save lead to JSON file (fallback storage)
-    const fs = require('fs');
-    const path = require('path');
-    const leadsDir = path.join(process.cwd(), 'data', 'leads');
-    
-    try {
-      if (!fs.existsSync(leadsDir)) {
-        fs.mkdirSync(leadsDir, { recursive: true });
-      }
-      
-      const leadFile = path.join(leadsDir, `lead-${leadData.id}.json`);
-      fs.writeFileSync(leadFile, JSON.stringify(leadData, null, 2));
-      console.log('[LEAD SAVED]', leadFile);
-    } catch (err) {
-      console.error('[LEAD SAVE ERROR]', err);
-      // Continue even if file save fails
-    }
-
     // Send email via Brevo SMTP
     let emailSent = false;
     if (process.env.BREVO_SMTP_KEY) {
@@ -196,7 +179,7 @@ export async function POST(request: Request) {
             user: process.env.BREVO_SMTP_USER,
             pass: process.env.BREVO_SMTP_KEY,
           },
-          connectionTimeout: 10000, // 10s timeout
+          connectionTimeout: 10000,
           greetingTimeout: 5000,
         });
 
@@ -309,20 +292,49 @@ IP: ${clientIP}
           code: emailError.code,
           leadId: leadData.id,
         });
-        // Continue - lead is saved even if email fails
       }
     } else {
       console.warn('[EMAIL SKIPPED] No Brevo credentials in env');
     }
 
+    // Save to database
+    let dbSaved = false;
+    try {
+      dbSaved = await insertLead({
+        id: leadData.id,
+        name: leadData.name,
+        email: leadData.email,
+        phone: leadData.phone,
+        propertyType: leadData.propertyType,
+        loanAmount: leadData.loanAmount,
+        monthlyPayment: leadData.monthlyPayment,
+        ip: leadData.ip,
+        userAgent: leadData.userAgent,
+        emailSent,
+        timestamp: leadData.timestamp,
+      });
+
+      if (dbSaved) {
+        console.log('[DB SAVED] Lead ID', leadData.id);
+      } else {
+        console.warn('[DB SAVE FAILED] Lead ID', leadData.id);
+      }
+    } catch (dbError: any) {
+      console.error('[DB ERROR]', {
+        message: dbError.message,
+        leadId: leadData.id,
+      });
+    }
+
     const processingTime = Date.now() - startTime;
-    console.log(`[LEAD PROCESSED] ID ${leadData.id} in ${processingTime}ms (email: ${emailSent})`);
+    console.log(`[LEAD PROCESSED] ID ${leadData.id} in ${processingTime}ms (email: ${emailSent}, db: ${dbSaved})`);
 
     return NextResponse.json({ 
       success: true,
       message: 'Cererea ta a fost trimisă cu succes! Vei fi contactat de 5 brokeri certificați în maxim 24 de ore.',
       leadId: leadData.id,
       emailSent,
+      dbSaved,
       processingTime,
     });
 
@@ -343,12 +355,17 @@ IP: ${clientIP}
   }
 }
 
-// Health check endpoint
+// Health check + DB initialization endpoint
 export async function GET() {
+  // Try to initialize DB schema
+  const dbInitialized = await initDb();
+
   return NextResponse.json({
     status: 'healthy',
     service: 'lead-api',
     timestamp: new Date().toISOString(),
     brevoConfigured: !!process.env.BREVO_SMTP_KEY,
+    databaseConfigured: !!process.env.DATABASE_URL,
+    databaseInitialized: dbInitialized,
   });
 }

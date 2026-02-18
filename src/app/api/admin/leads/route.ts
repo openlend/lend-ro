@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { getLeads, getLeadCount, deleteLead } from '@/lib/db';
 
 // Simple authentication (use env var for production)
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'lend2026admin';
@@ -30,44 +29,23 @@ export async function GET(request: Request) {
   }
 
   try {
-    const leadsDir = path.join(process.cwd(), 'data', 'leads');
-    
-    // Check if leads directory exists
-    if (!fs.existsSync(leadsDir)) {
-      return NextResponse.json({
-        success: true,
-        leads: [],
-        count: 0,
-        message: 'No leads directory found',
-      });
-    }
-
-    // Read all lead files
-    const files = fs.readdirSync(leadsDir)
-      .filter(file => file.startsWith('lead-') && file.endsWith('.json'))
-      .sort()
-      .reverse(); // Most recent first
-
-    const leads = files.map(file => {
-      const filePath = path.join(leadsDir, file);
-      const content = fs.readFileSync(filePath, 'utf-8');
-      return JSON.parse(content);
-    });
-
     // Get query params for filtering
     const url = new URL(request.url);
     const limit = parseInt(url.searchParams.get('limit') || '100');
     const offset = parseInt(url.searchParams.get('offset') || '0');
 
-    const paginatedLeads = leads.slice(offset, offset + limit);
+    // Get leads from database
+    const leads = await getLeads(limit, offset);
+    const totalCount = await getLeadCount();
 
     return NextResponse.json({
       success: true,
-      leads: paginatedLeads,
-      count: leads.length,
+      leads,
+      count: totalCount,
       offset,
       limit,
-      hasMore: offset + limit < leads.length,
+      hasMore: offset + limit < totalCount,
+      source: 'database',
     });
 
   } catch (error: any) {
@@ -83,7 +61,7 @@ export async function GET(request: Request) {
   }
 }
 
-// Delete a lead (optional)
+// Delete a lead
 export async function DELETE(request: Request) {
   if (!isAuthenticated(request)) {
     return new NextResponse('Unauthorized', {
@@ -104,17 +82,14 @@ export async function DELETE(request: Request) {
       );
     }
 
-    const leadsDir = path.join(process.cwd(), 'data', 'leads');
-    const leadFile = path.join(leadsDir, `lead-${leadId}.json`);
+    const deleted = await deleteLead(leadId);
 
-    if (!fs.existsSync(leadFile)) {
+    if (!deleted) {
       return NextResponse.json(
-        { error: 'Lead not found' },
+        { error: 'Lead not found or failed to delete' },
         { status: 404 }
       );
     }
-
-    fs.unlinkSync(leadFile);
 
     return NextResponse.json({
       success: true,
