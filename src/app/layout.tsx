@@ -59,9 +59,10 @@ export default function RootLayout({
               </a>
               
               <div className="hidden md:flex items-center gap-8">
-                <a href="#calculator" className="text-gray-700 hover:text-sage font-medium transition">Calculator</a>
-                <a href="#cum-functioneaza" className="text-gray-700 hover:text-sage font-medium transition">Cum funcționează</a>
-                <a href="#calculator" className="bg-sage text-white px-6 py-3 rounded-xl font-semibold hover:bg-opacity-90 transition shadow-lg">
+                <a href="/#calculator" className="text-gray-700 hover:text-sage font-medium transition">Calculator</a>
+                <a href="/#cum-functioneaza" className="text-gray-700 hover:text-sage font-medium transition">Cum funcționează</a>
+                <a href="/blog" className="text-gray-700 hover:text-sage font-medium transition">Blog</a>
+                <a href="/#calculator" className="bg-sage text-white px-6 py-3 rounded-xl font-semibold hover:bg-opacity-90 transition shadow-lg">
                   Începe acum
                 </a>
               </div>
