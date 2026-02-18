@@ -59,6 +59,7 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     text: 'CE'
   },
   'INTESA SAN PAOLO': { 
+    image: '/bank-logos/intesa.png',
     gradient: 'bg-gradient-to-br from-blue-600 to-blue-800',
     text: 'IS'
   },
