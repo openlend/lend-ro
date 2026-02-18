@@ -1,16 +1,37 @@
+import InternalLinks from './InternalLinks';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
+        {/* SEO Internal Links Section */}
+        <div className="mb-12 pb-8 border-b border-gray-800">
+          <h3 className="text-xl font-bold mb-4">Credite Ipotecare pe Bănci</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <a href="/banci/bt" className="text-gray-400 hover:text-mint transition text-sm">Credit Ipotecar BT</a>
+            <a href="/banci/bcr" className="text-gray-400 hover:text-mint transition text-sm">Credit Ipotecar BCR</a>
+            <a href="/banci/brd" className="text-gray-400 hover:text-mint transition text-sm">Credit Ipotecar BRD</a>
+            <a href="/banci/ing" className="text-gray-400 hover:text-mint transition text-sm">Credit Ipotecar ING</a>
+            <a href="/banci/raiffeisen" className="text-gray-400 hover:text-mint transition text-sm">Credit Raiffeisen</a>
+            <a href="/banci/garanti" className="text-gray-400 hover:text-mint transition text-sm">Credit Garanti BBVA</a>
+            <a href="/banci/unicredit" className="text-gray-400 hover:text-mint transition text-sm">Credit UniCredit</a>
+            <a href="/banci/libra" className="text-gray-400 hover:text-mint transition text-sm">Credit Libra Bank</a>
+            <a href="/banci/credit-europe" className="text-gray-400 hover:text-mint transition text-sm">Credit Europe Bank</a>
+            <a href="/banci/patria" className="text-gray-400 hover:text-mint transition text-sm">Credit Patria Bank</a>
+            <a href="/banci/exim" className="text-gray-400 hover:text-mint transition text-sm">Credit EximBank</a>
+            <a href="/banci/intesa" className="text-gray-400 hover:text-mint transition text-sm">Credit Intesa Sanpaolo</a>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <img src="/logo.png" alt="lend.ro" className="h-10 mb-4 opacity-90" />
+            <img src="/logo.png" alt="lend.ro - Calculator Credit Ipotecar România" className="h-10 mb-4 opacity-90" />
             <p className="text-gray-400 leading-relaxed mb-4">
               Platformă #1 pentru compararea creditelor ipotecare în România. Compară oferte de la 12+ bănci și primești 5 oferte personalizate gratuit în 24h.
             </p>
             <div className="flex gap-4">
-              <a href="mailto:contact@lend.ro" className="text-gray-400 hover:text-mint transition">
+              <a href="mailto:contact@lend.ro" className="text-gray-400 hover:text-mint transition" aria-label="Email contact">
                 📧 contact@lend.ro
               </a>
             </div>

@@ -4,10 +4,23 @@ import SEOContent from '@/components/SEOContent';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import StructuredData from '@/components/StructuredData';
 
 export default function Home() {
   return (
     <>
+      <StructuredData type="website" data={{}} />
+      <StructuredData type="organization" data={{}} />
+      <StructuredData 
+        type="breadcrumb" 
+        data={{
+          items: [
+            { name: 'Acasă', url: 'https://lend.ro' },
+            { name: 'Calculator Credit Ipotecar', url: 'https://lend.ro/#calculator' },
+          ]
+        }} 
+      />
+      
       <main>
         <HeroSection />
 
