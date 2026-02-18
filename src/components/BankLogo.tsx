@@ -15,6 +15,7 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     text: 'BCR'
   },
   'ING': { 
+    image: '/bank-logos/ing.png',
     gradient: 'bg-gradient-to-br from-orange-500 to-orange-700',
     text: 'ING'
   },
@@ -24,10 +25,12 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     text: 'RB'
   },
   'UNICREDIT': { 
+    image: '/bank-logos/unicredit.png',
     gradient: 'bg-gradient-to-br from-red-500 to-red-600',
     text: 'UC'
   },
   'BRD': { 
+    image: '/bank-logos/brd.png',
     gradient: 'bg-gradient-to-br from-blue-600 to-blue-700',
     text: 'BRD'
   },
