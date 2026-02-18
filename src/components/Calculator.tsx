@@ -20,6 +20,8 @@ export default function Calculator() {
   const [loanTerm, setLoanTerm] = useState(25);
   const [downPayment, setDownPayment] = useState(20);
   const [isFirstProperty, setIsFirstProperty] = useState(true);
+  const [salaryTransfer, setSalaryTransfer] = useState(true);
+  const [fixedPeriod, setFixedPeriod] = useState<number | 'any' | 'variable'>('any');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [results, setResults] = useState<CalculatorResult[]>([]);
 
@@ -41,7 +43,40 @@ export default function Calculator() {
     const sortedProducts = [...bankData.products]
       .filter((product: any) => {
         const rateType = product.rate_type.toUpperCase();
-        return !rateType.includes('EURO');
+        const productName = product.product_type.toLowerCase();
+        
+        // Exclude EURO products
+        if (rateType.includes('EURO')) return false;
+        
+        // Filter by salary transfer preference
+        if (salaryTransfer) {
+          // User wants WITH salary transfer - only show products with "virare" or "SALARY"
+          if (!productName.includes('virare') && !productName.includes('salary')) {
+            return false;
+          }
+        } else {
+          // User wants WITHOUT salary transfer - exclude products with "virare" or "SALARY"
+          if (productName.includes('virare') || productName.includes('salary')) {
+            return false;
+          }
+        }
+        
+        // Filter by fixed period preference
+        if (fixedPeriod !== 'any') {
+          if (fixedPeriod === 'variable') {
+            // User wants ONLY variable (no fixed period)
+            if (product.rates.fixed_years !== null) {
+              return false;
+            }
+          } else {
+            // User selected specific fixed period (3, 5)
+            if (product.rates.fixed_years !== fixedPeriod) {
+              return false;
+            }
+          }
+        }
+        
+        return true;
       })
       .sort((a: any, b: any) => {
         // FIX: Compare EFFECTIVE rates (fixed OR ircc+margin), not just margin
@@ -92,7 +127,7 @@ export default function Calculator() {
     });
 
     setResults(calculatedResults);
-  }, [propertyPrice, downPayment, salary, loanTerm]);
+  }, [propertyPrice, downPayment, salary, loanTerm, salaryTransfer, fixedPeriod]);
 
   return (
     <div className="card bg-base-100 shadow-2xl">
@@ -179,6 +214,57 @@ export default function Calculator() {
             <label htmlFor="firstProperty" className="text-xs md:text-sm text-gray-700 cursor-pointer leading-tight">
               Prima proprietate <span className="text-gray-500">(avans min. {minDownPayment}%)</span>
             </label>
+          </div>
+
+          <div className="flex items-center gap-3 py-1 md:py-2">
+            <input 
+              type="checkbox" 
+              id="salaryTransfer"
+              checked={salaryTransfer}
+              onChange={(e) => setSalaryTransfer(e.target.checked)}
+              className="w-5 h-5 rounded border-2 border-gray-300"
+              style={{ accentColor: '#4FD1C5' }}
+            />
+            <label htmlFor="salaryTransfer" className="text-xs md:text-sm text-gray-700 cursor-pointer leading-tight">
+              Cu virare venit <span className="text-gray-500">(dobândă mai mică)</span>
+            </label>
+          </div>
+
+          <div>
+            <div className="flex justify-between items-baseline mb-1 md:mb-2">
+              <span className="text-sm md:text-base font-semibold md:font-bold">Perioadă dobândă fixă</span>
+              <span className="text-xl md:text-2xl font-bold text-mint">
+                {fixedPeriod === 'any' ? 'Orice' : fixedPeriod === 'variable' ? 'Variabil' : `${fixedPeriod} ani`}
+              </span>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              {[
+                { value: 'any', label: 'Orice' },
+                { value: 3, label: '3 ani' },
+                { value: 5, label: '5 ani' },
+                { value: 'variable', label: 'Variabil' }
+              ].map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setFixedPeriod(option.value as number | 'any' | 'variable')}
+                  className={`px-4 py-2 rounded-xl font-bold text-sm transition-all ${
+                    fixedPeriod === option.value
+                      ? 'bg-mint text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              {fixedPeriod === 'variable' 
+                ? 'Dobândă variabilă de la început (IRCC + marjă)'
+                : fixedPeriod === 'any'
+                ? 'Afișează toate produsele disponibile'
+                : 'După perioada fixă, dobânda devine variabilă (IRCC + marjă)'
+              }
+            </p>
           </div>
 
           <div>
