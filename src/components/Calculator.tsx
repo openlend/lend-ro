@@ -20,7 +20,7 @@ export default function Calculator() {
   const [loanTerm, setLoanTerm] = useState(25);
   const [downPayment, setDownPayment] = useState(20);
   const [isFirstProperty, setIsFirstProperty] = useState(true);
-  const [salaryTransfer, setSalaryTransfer] = useState(true);
+  const [salaryTransfer, setSalaryTransfer] = useState(false);
   const [fixedPeriod, setFixedPeriod] = useState<number | 'any' | 'variable'>('any');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [results, setResults] = useState<CalculatorResult[]>([]);
@@ -48,18 +48,8 @@ export default function Calculator() {
         // Exclude EURO products
         if (rateType.includes('EURO')) return false;
         
-        // Filter by salary transfer preference
-        if (salaryTransfer) {
-          // User wants WITH salary transfer - only show products with "virare" or "SALARY"
-          if (!productName.includes('virare') && !productName.includes('salary')) {
-            return false;
-          }
-        } else {
-          // User wants WITHOUT salary transfer - exclude products with "virare" or "SALARY"
-          if (productName.includes('virare') || productName.includes('salary')) {
-            return false;
-          }
-        }
+        // Note: salaryTransfer filter removed - we show best product per bank regardless
+        // The "best per bank" logic already picks the cheapest product (usually with salary transfer)
         
         // Filter by fixed period preference
         if (fixedPeriod !== 'any') {
@@ -213,20 +203,6 @@ export default function Calculator() {
             />
             <label htmlFor="firstProperty" className="text-xs md:text-sm text-gray-700 cursor-pointer leading-tight">
               Prima proprietate <span className="text-gray-500">(avans min. {minDownPayment}%)</span>
-            </label>
-          </div>
-
-          <div className="flex items-center gap-3 py-1 md:py-2">
-            <input 
-              type="checkbox" 
-              id="salaryTransfer"
-              checked={salaryTransfer}
-              onChange={(e) => setSalaryTransfer(e.target.checked)}
-              className="w-5 h-5 rounded border-2 border-gray-300"
-              style={{ accentColor: '#4FD1C5' }}
-            />
-            <label htmlFor="salaryTransfer" className="text-xs md:text-sm text-gray-700 cursor-pointer leading-tight">
-              Cu virare venit <span className="text-gray-500">(dobândă mai mică)</span>
             </label>
           </div>
 
