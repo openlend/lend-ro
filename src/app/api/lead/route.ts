@@ -2,34 +2,169 @@ import { NextResponse } from 'next/server';
 
 const LEAD_EMAIL = 'open@lend.ro';
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json();
-    const { name, email, phone, propertyType, loanAmount, monthlyPayment, timestamp } = body;
+// Simple in-memory rate limiting (IP-based)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
+const MAX_REQUESTS_PER_HOUR = 5;
 
-    // Validare
+// Validation helpers
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function isValidPhone(phone: string): boolean {
+  // Romanian phone: +40... or 07... (10 digits)
+  const phoneRegex = /^(\+4|0)(7[0-9]{8}|[23][0-9]{8})$/;
+  const cleaned = phone.replace(/[\s\-\(\)]/g, '');
+  return phoneRegex.test(cleaned);
+}
+
+function sanitizeString(str: string): string {
+  return str.trim().replace(/[<>]/g, '');
+}
+
+function getClientIP(request: Request): string {
+  const forwarded = request.headers.get('x-forwarded-for');
+  const realIP = request.headers.get('x-real-ip');
+  return forwarded?.split(',')[0] || realIP || 'unknown';
+}
+
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return { allowed: true, remaining: MAX_REQUESTS_PER_HOUR - 1 };
+  }
+
+  if (record.count >= MAX_REQUESTS_PER_HOUR) {
+    return { allowed: false, remaining: 0 };
+  }
+
+  record.count++;
+  return { allowed: true, remaining: MAX_REQUESTS_PER_HOUR - record.count };
+}
+
+export async function POST(request: Request) {
+  const startTime = Date.now();
+  const clientIP = getClientIP(request);
+
+  try {
+    // Rate limiting check
+    const rateLimit = checkRateLimit(clientIP);
+    if (!rateLimit.allowed) {
+      console.warn(`[RATE LIMIT] IP ${clientIP} exceeded rate limit`);
+      return NextResponse.json(
+        { 
+          error: 'Prea multe cereri. Te rugăm să încerci din nou peste 1 oră.',
+          code: 'RATE_LIMIT_EXCEEDED'
+        },
+        { status: 429 }
+      );
+    }
+
+    const body = await request.json();
+    const { 
+      name, 
+      email, 
+      phone, 
+      propertyType, 
+      loanAmount, 
+      monthlyPayment, 
+      timestamp,
+      honeypot // Bot trap field
+    } = body;
+
+    // Honeypot check (bots fill this, humans don't see it)
+    if (honeypot) {
+      console.warn(`[BOT DETECTED] IP ${clientIP} filled honeypot field`);
+      // Fake success response to confuse bots
+      return NextResponse.json({ 
+        success: true,
+        message: 'Cererea ta a fost trimisă cu succes!',
+      });
+    }
+
+    // Required fields validation
     if (!name || !email || !phone) {
       return NextResponse.json(
-        { error: 'Date incomplete' },
+        { 
+          error: 'Te rugăm să completezi toate câmpurile obligatorii.',
+          code: 'MISSING_FIELDS',
+          fields: {
+            name: !name,
+            email: !email,
+            phone: !phone,
+          }
+        },
+        { status: 400 }
+      );
+    }
+
+    // Email format validation
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { 
+          error: 'Adresa de email nu este validă. Te rugăm să o verifici.',
+          code: 'INVALID_EMAIL'
+        },
+        { status: 400 }
+      );
+    }
+
+    // Phone format validation
+    if (!isValidPhone(phone)) {
+      return NextResponse.json(
+        { 
+          error: 'Numărul de telefon nu este valid. Format acceptat: 07XXXXXXXX sau +407XXXXXXXX',
+          code: 'INVALID_PHONE'
+        },
+        { status: 400 }
+      );
+    }
+
+    // Data sanitization
+    const sanitizedName = sanitizeString(name);
+    const sanitizedEmail = email.toLowerCase().trim();
+    const sanitizedPhone = phone.replace(/[\s\-\(\)]/g, '');
+
+    // Amount validation
+    if (!loanAmount || loanAmount < 10000 || loanAmount > 5000000) {
+      return NextResponse.json(
+        { 
+          error: 'Suma creditului trebuie să fie între 10.000 și 5.000.000 RON.',
+          code: 'INVALID_AMOUNT'
+        },
         { status: 400 }
       );
     }
 
     const leadData = {
       id: Date.now(),
-      name,
-      email,
-      phone,
-      propertyType,
-      loanAmount,
+      name: sanitizedName,
+      email: sanitizedEmail,
+      phone: sanitizedPhone,
+      propertyType: propertyType || 'apartament',
+      loanAmount: Math.round(loanAmount),
       monthlyPayment: Math.round(monthlyPayment),
-      timestamp,
+      timestamp: timestamp || new Date().toISOString(),
       sentTo: LEAD_EMAIL,
+      ip: clientIP,
+      userAgent: request.headers.get('user-agent') || 'unknown',
+      createdAt: new Date().toISOString(),
     };
 
-    console.log('[LEAD RECEIVED]', leadData);
+    console.log('[LEAD RECEIVED]', {
+      id: leadData.id,
+      email: leadData.email,
+      phone: leadData.phone,
+      amount: leadData.loanAmount,
+      ip: clientIP,
+    });
 
-    // Salvare temporară în fișier pentru tracking
+    // Save lead to JSON file (fallback storage)
     const fs = require('fs');
     const path = require('path');
     const leadsDir = path.join(process.cwd(), 'data', 'leads');
@@ -44,9 +179,11 @@ export async function POST(request: Request) {
       console.log('[LEAD SAVED]', leadFile);
     } catch (err) {
       console.error('[LEAD SAVE ERROR]', err);
+      // Continue even if file save fails
     }
 
-    // Trimitere email prin Brevo SMTP
+    // Send email via Brevo SMTP
+    let emailSent = false;
     if (process.env.BREVO_SMTP_KEY) {
       try {
         const nodemailer = require('nodemailer');
@@ -54,17 +191,19 @@ export async function POST(request: Request) {
         const transporter = nodemailer.createTransport({
           host: process.env.BREVO_SMTP_HOST || 'smtp-relay.brevo.com',
           port: parseInt(process.env.BREVO_SMTP_PORT || '587'),
-          secure: false, // true for 465, false for 587
+          secure: false,
           auth: {
             user: process.env.BREVO_SMTP_USER,
             pass: process.env.BREVO_SMTP_KEY,
           },
+          connectionTimeout: 10000, // 10s timeout
+          greetingTimeout: 5000,
         });
 
         const mailOptions = {
           from: `${process.env.BREVO_FROM_NAME || 'Platforma Lend.ro'} <${process.env.BREVO_FROM_EMAIL || LEAD_EMAIL}>`,
           to: LEAD_EMAIL,
-          subject: `🏠 Lead nou lend.ro: ${name} - ${loanAmount.toLocaleString('ro-RO')} RON`,
+          subject: `🏠 Lead nou lend.ro: ${sanitizedName} - ${leadData.loanAmount.toLocaleString('ro-RO')} RON`,
           html: `
             <!DOCTYPE html>
             <html>
@@ -82,6 +221,7 @@ export async function POST(request: Request) {
                   .value a:hover { text-decoration: underline; }
                   .highlight { background: #4FD1C5; color: white; padding: 4px 12px; border-radius: 8px; display: inline-block; }
                   .footer { margin-top: 32px; padding-top: 24px; border-top: 1px solid #E5E7EB; color: #6B7280; font-size: 14px; text-align: center; }
+                  .meta { color: #9CA3AF; font-size: 12px; margin-top: 8px; }
                 </style>
               </head>
               <body>
@@ -90,17 +230,17 @@ export async function POST(request: Request) {
                   
                   <div class="info-row">
                     <div class="label">📋 Nume complet</div>
-                    <div class="value">${name}</div>
+                    <div class="value">${sanitizedName}</div>
                   </div>
                   
                   <div class="info-row">
                     <div class="label">📧 Email</div>
-                    <div class="value"><a href="mailto:${email}">${email}</a></div>
+                    <div class="value"><a href="mailto:${sanitizedEmail}">${sanitizedEmail}</a></div>
                   </div>
                   
                   <div class="info-row">
                     <div class="label">📱 Telefon</div>
-                    <div class="value"><a href="tel:${phone}">${phone}</a></div>
+                    <div class="value"><a href="tel:${sanitizedPhone}">${sanitizedPhone}</a></div>
                   </div>
                   
                   <div class="info-row">
@@ -110,20 +250,29 @@ export async function POST(request: Request) {
                   
                   <div class="info-row">
                     <div class="label">💰 Credit solicitat</div>
-                    <div class="value"><span class="highlight">${loanAmount.toLocaleString('ro-RO')} RON</span></div>
+                    <div class="value"><span class="highlight">${leadData.loanAmount.toLocaleString('ro-RO')} RON</span></div>
                   </div>
                   
                   <div class="info-row">
                     <div class="label">💳 Rată lunară estimată</div>
-                    <div class="value">${Math.round(monthlyPayment).toLocaleString('ro-RO')} RON/lună</div>
+                    <div class="value">${leadData.monthlyPayment.toLocaleString('ro-RO')} RON/lună</div>
                   </div>
                   
                   <div class="info-row">
                     <div class="label">📅 Data solicitării</div>
-                    <div class="value">${new Date(timestamp).toLocaleString('ro-RO', { 
+                    <div class="value">${new Date(leadData.timestamp).toLocaleString('ro-RO', { 
                       dateStyle: 'long', 
                       timeStyle: 'short' 
                     })}</div>
+                  </div>
+
+                  <div class="info-row">
+                    <div class="label">🔍 Metadata</div>
+                    <div class="meta">
+                      Lead ID: ${leadData.id}<br>
+                      IP: ${clientIP}<br>
+                      User Agent: ${leadData.userAgent}
+                    </div>
                   </div>
                   
                   <div class="footer">
@@ -136,38 +285,70 @@ export async function POST(request: Request) {
           text: `
 Lead nou lend.ro
 
-Nume: ${name}
-Email: ${email}
-Telefon: ${phone}
+Nume: ${sanitizedName}
+Email: ${sanitizedEmail}
+Telefon: ${sanitizedPhone}
 Tip proprietate: ${propertyType}
-Credit solicitat: ${loanAmount.toLocaleString('ro-RO')} RON
-Rată lunară: ${Math.round(monthlyPayment).toLocaleString('ro-RO')} RON/lună
-Data: ${new Date(timestamp).toLocaleString('ro-RO')}
+Credit solicitat: ${leadData.loanAmount.toLocaleString('ro-RO')} RON
+Rată lunară: ${leadData.monthlyPayment.toLocaleString('ro-RO')} RON/lună
+Data: ${new Date(leadData.timestamp).toLocaleString('ro-RO')}
+
+---
+Lead ID: ${leadData.id}
+IP: ${clientIP}
           `.trim(),
         };
 
         await transporter.sendMail(mailOptions);
+        emailSent = true;
         console.log('[EMAIL SENT] via Brevo to', LEAD_EMAIL);
 
-      } catch (emailError) {
-        console.error('[EMAIL ERROR]', emailError);
-        // Nu returnăm eroare - lead-ul e salvat oricum
+      } catch (emailError: any) {
+        console.error('[EMAIL ERROR]', {
+          message: emailError.message,
+          code: emailError.code,
+          leadId: leadData.id,
+        });
+        // Continue - lead is saved even if email fails
       }
     } else {
-      console.log('[EMAIL SKIPPED] No Brevo credentials in env');
+      console.warn('[EMAIL SKIPPED] No Brevo credentials in env');
     }
+
+    const processingTime = Date.now() - startTime;
+    console.log(`[LEAD PROCESSED] ID ${leadData.id} in ${processingTime}ms (email: ${emailSent})`);
 
     return NextResponse.json({ 
       success: true,
-      message: 'Cererea ta a fost trimisă cu succes! Vei fi contactat în maxim 24h.',
+      message: 'Cererea ta a fost trimisă cu succes! Vei fi contactat de 5 brokeri certificați în maxim 24 de ore.',
       leadId: leadData.id,
+      emailSent,
+      processingTime,
     });
 
-  } catch (error) {
-    console.error('[LEAD API ERROR]', error);
+  } catch (error: any) {
+    console.error('[LEAD API ERROR]', {
+      message: error.message,
+      stack: error.stack,
+      ip: clientIP,
+    });
+    
     return NextResponse.json(
-      { error: 'Eroare la procesarea cererii' },
+      { 
+        error: 'A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou sau să ne contactezi direct la open@lend.ro',
+        code: 'INTERNAL_ERROR'
+      },
       { status: 500 }
     );
   }
+}
+
+// Health check endpoint
+export async function GET() {
+  return NextResponse.json({
+    status: 'healthy',
+    service: 'lead-api',
+    timestamp: new Date().toISOString(),
+    brevoConfigured: !!process.env.BREVO_SMTP_KEY,
+  });
 }
