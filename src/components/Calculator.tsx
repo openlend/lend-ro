@@ -59,7 +59,11 @@ export default function Calculator() {
     setResults(calculatedResults);
   }, [loanAmount, salary, loanTerm]);
 
-  const colors = ['#F87171', '#FB923C', '#FBBF24'];
+  const colorClasses = [
+    { bg: 'bg-rose-50', border: 'border-rose-400', text: 'text-rose-600', badge: 'bg-rose-500', bar: 'bg-rose-500' },
+    { bg: 'bg-orange-50', border: 'border-orange-400', text: 'text-orange-600', badge: 'bg-orange-500', bar: 'bg-orange-500' },
+    { bg: 'bg-amber-50', border: 'border-amber-400', text: 'text-amber-600', badge: 'bg-amber-500', bar: 'bg-amber-500' },
+  ];
 
   return (
     <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
@@ -72,14 +76,13 @@ export default function Calculator() {
         </p>
       </div>
 
-      {/* Sliders */}
       <div className="space-y-10 mb-12">
         <div>
           <div className="flex justify-between items-baseline mb-4">
             <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">
               Suma credit
             </label>
-            <span className="text-3xl font-black text-primary-500">
+            <span className="text-3xl font-black text-emerald-600">
               {loanAmount.toLocaleString('ro-RO')} RON
             </span>
           </div>
@@ -90,10 +93,7 @@ export default function Calculator() {
             step="10000"
             value={loanAmount}
             onChange={(e) => setLoanAmount(Number(e.target.value))}
-            className="w-full h-3 bg-gradient-to-r from-primary-200 to-primary-500 rounded-full appearance-none cursor-pointer"
-            style={{
-              accentColor: '#0A4D3C'
-            }}
+            className="w-full h-3 bg-gradient-to-r from-emerald-200 to-emerald-600 rounded-full appearance-none cursor-pointer accent-emerald-600"
           />
           <div className="flex justify-between text-xs text-gray-400 mt-2 font-medium">
             <span>50.000 RON</span>
@@ -106,7 +106,7 @@ export default function Calculator() {
             <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">
               Venit lunar net
             </label>
-            <span className="text-3xl font-black text-accent-cyan">
+            <span className="text-3xl font-black text-cyan-600">
               {salary.toLocaleString('ro-RO')} RON
             </span>
           </div>
@@ -117,10 +117,7 @@ export default function Calculator() {
             step="500"
             value={salary}
             onChange={(e) => setSalary(Number(e.target.value))}
-            className="w-full h-3 bg-gradient-to-r from-cyan-200 to-cyan-500 rounded-full appearance-none cursor-pointer"
-            style={{
-              accentColor: '#22D3EE'
-            }}
+            className="w-full h-3 bg-gradient-to-r from-cyan-200 to-cyan-600 rounded-full appearance-none cursor-pointer accent-cyan-600"
           />
           <div className="flex justify-between text-xs text-gray-400 mt-2 font-medium">
             <span>3.000 RON</span>
@@ -133,7 +130,7 @@ export default function Calculator() {
             <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">
               Perioadă creditare
             </label>
-            <span className="text-3xl font-black text-accent-orange">
+            <span className="text-3xl font-black text-purple-600">
               {loanTerm} ani
             </span>
           </div>
@@ -144,10 +141,7 @@ export default function Calculator() {
             step="1"
             value={loanTerm}
             onChange={(e) => setLoanTerm(Number(e.target.value))}
-            className="w-full h-3 bg-gradient-to-r from-orange-200 to-orange-500 rounded-full appearance-none cursor-pointer"
-            style={{
-              accentColor: '#FB923C'
-            }}
+            className="w-full h-3 bg-gradient-to-r from-purple-200 to-purple-600 rounded-full appearance-none cursor-pointer accent-purple-600"
           />
           <div className="flex justify-between text-xs text-gray-400 mt-2 font-medium">
             <span>5 ani</span>
@@ -161,7 +155,7 @@ export default function Calculator() {
             id="firstProperty"
             checked={firstProperty}
             onChange={(e) => setFirstProperty(e.target.checked)}
-            className="w-6 h-6 text-primary-500 rounded border-gray-300 focus:ring-primary-500"
+            className="w-6 h-6 text-emerald-600 rounded border-gray-300 focus:ring-emerald-500"
           />
           <label htmlFor="firstProperty" className="text-gray-700 font-medium cursor-pointer">
             Prima proprietate imobiliară
@@ -169,7 +163,6 @@ export default function Calculator() {
         </div>
       </div>
 
-      {/* Results */}
       {results.length > 0 && (
         <div className="space-y-6">
           <div className="flex items-center justify-between mb-8">
@@ -178,77 +171,68 @@ export default function Calculator() {
             </h3>
           </div>
           
-          {results.map((result, index) => (
-            <div
-              key={index}
-              className="relative overflow-hidden rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2"
-              style={{
-                background: `linear-gradient(135deg, ${colors[index]}08 0%, ${colors[index]}18 100%)`,
-                borderColor: `${colors[index]}40`
-              }}
-            >
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                {/* Left: Bank info */}
-                <div className="flex-1">
-                  <h4 className="text-2xl font-black text-gray-900 mb-2">{result.bankName}</h4>
-                  <p className="text-gray-600 text-sm mb-4">{result.productType.substring(0, 50)}...</p>
-                  
-                  <div className="flex items-center gap-3">
-                    <div 
-                      className="w-20 h-20 rounded-full flex items-center justify-center font-black text-white text-xl shadow-lg"
-                      style={{ background: colors[index] }}
-                    >
-                      {result.debtRatio.toFixed(0)}%
-                    </div>
-                    <div>
-                      <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">
-                        Grad îndatorare
+          {results.map((result, index) => {
+            const colors = colorClasses[index];
+            return (
+              <div
+                key={index}
+                className={`relative overflow-hidden rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 ${colors.bg} ${colors.border}`}
+              >
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                  <div className="flex-1">
+                    <h4 className="text-2xl font-black text-gray-900 mb-2">{result.bankName}</h4>
+                    <p className="text-gray-600 text-sm mb-4">{result.productType.substring(0, 50)}...</p>
+                    
+                    <div className="flex items-center gap-3">
+                      <div className={`w-20 h-20 rounded-full flex items-center justify-center font-black text-white text-xl shadow-lg ${colors.badge}`}>
+                        {result.debtRatio.toFixed(0)}%
                       </div>
-                      <div className="w-48 h-3 bg-gray-200 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full rounded-full transition-all duration-500"
-                          style={{ 
-                            width: `${Math.min(result.debtRatio, 100)}%`,
-                            background: colors[index]
-                          }}
-                        />
+                      <div>
+                        <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">
+                          Grad îndatorare
+                        </div>
+                        <div className="w-48 h-3 bg-gray-200 rounded-full overflow-hidden">
+                          <div 
+                            className={`h-full rounded-full transition-all duration-500 ${colors.bar}`}
+                            style={{ width: `${Math.min(result.debtRatio, 100)}%` }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Right: Payment */}
-                <div className="text-right">
-                  <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-2">
-                    Rată lunară
-                  </div>
-                  <div className="text-5xl lg:text-6xl font-black mb-2" style={{ color: colors[index] }}>
-                    {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
-                  </div>
-                  <div className="text-gray-600 font-medium">RON / lună</div>
-                  
-                  {result.eligible ? (
-                    <div className="mt-4 inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full font-bold text-sm">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Eligibil
+                  <div className="text-right">
+                    <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-2">
+                      Rată lunară
                     </div>
-                  ) : (
-                    <div className="mt-4 inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full font-bold text-sm">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                      Depășit 40%
+                    <div className={`text-5xl lg:text-6xl font-black mb-2 ${colors.text}`}>
+                      {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
                     </div>
-                  )}
+                    <div className="text-gray-600 font-medium">RON / lună</div>
+                    
+                    {result.eligible ? (
+                      <div className="mt-4 inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full font-bold text-sm">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        Eligibil
+                      </div>
+                    ) : (
+                      <div className="mt-4 inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full font-bold text-sm">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Depășit 40%
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           <button
-            className="w-full mt-10 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-black py-6 px-8 rounded-2xl shadow-2xl hover:shadow-primary-500/30 transition-all transform hover:-translate-y-1 text-xl"
+            className="w-full mt-10 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-black py-6 px-8 rounded-2xl shadow-2xl hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-1 text-xl"
           >
             🚀 Solicită oferte personalizate de la 5 brokeri
           </button>

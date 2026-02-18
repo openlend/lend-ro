@@ -9,14 +9,12 @@ export default function Home() {
       <main className="min-h-screen bg-gray-50">
         <HeroSection />
 
-        {/* Calculator Section */}
         <section id="calculator" className="py-20 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <Calculator />
           </div>
         </section>
 
-        {/* How It Works */}
         <section id="cum-functioneaza" className="py-20 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
@@ -29,10 +27,9 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Step 1 */}
-              <div className="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border-t-4 border-primary-500">
-                <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
-                  <span className="text-3xl font-black text-primary-500">1</span>
+              <div className="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border-t-4 border-emerald-500">
+                <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
+                  <span className="text-3xl font-black text-emerald-600">1</span>
                 </div>
                 <h3 className="text-2xl font-black text-gray-900 mb-4">
                   Completezi formularul
@@ -42,10 +39,9 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Step 2 */}
-              <div className="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border-t-4 border-accent-orange">
+              <div className="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border-t-4 border-orange-500">
                 <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
-                  <span className="text-3xl font-black text-accent-orange">2</span>
+                  <span className="text-3xl font-black text-orange-600">2</span>
                 </div>
                 <h3 className="text-2xl font-black text-gray-900 mb-4">
                   Primești 5 oferte
@@ -55,10 +51,9 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Step 3 */}
-              <div className="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border-t-4 border-accent-lime">
+              <div className="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border-t-4 border-lime-500">
                 <div className="w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
-                  <span className="text-3xl font-black text-accent-lime">3</span>
+                  <span className="text-3xl font-black text-lime-600">3</span>
                 </div>
                 <h3 className="text-2xl font-black text-gray-900 mb-4">
                   Alegi cea mai bună
@@ -71,7 +66,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FAQ */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
@@ -105,7 +99,7 @@ export default function Home() {
                   <details key={index} className="group bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-all">
                     <summary className="flex justify-between items-center cursor-pointer font-bold text-lg text-gray-900 list-none">
                       <span>{faq.question}</span>
-                      <svg className="w-6 h-6 text-primary-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 text-emerald-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
@@ -119,18 +113,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-24 bg-primary-500 text-white">
+        <section className="py-24 bg-emerald-600 text-white">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-5xl lg:text-6xl font-black mb-6">
               Începe să economisești astăzi
             </h2>
-            <p className="text-2xl text-primary-100 mb-10 max-w-3xl mx-auto font-light">
+            <p className="text-2xl text-emerald-100 mb-10 max-w-3xl mx-auto font-light">
               Nu mai pierde timp căutând singur prin bănci. Lasă experții să lucreze pentru tine și găsește cel mai bun credit ipotecar în 24 de ore.
             </p>
             <a 
               href="#calculator"
-              className="bg-white text-primary-500 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl hover:shadow-accent-lime/30 hover:scale-105 transition-all inline-flex items-center gap-3"
+              className="bg-white text-emerald-600 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl hover:shadow-lime-400/30 hover:scale-105 transition-all inline-flex items-center gap-3"
             >
               Calculează acum
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
