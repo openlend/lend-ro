@@ -193,21 +193,21 @@ export default function Calculator() {
             {results.map((result, index) => (
               <div 
                 key={index} 
-                className="group bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-mint/30 hover:-translate-y-1"
+                className="group bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-md md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-mint/30 md:hover:-translate-y-1"
               >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-center">
                   
                   {/* Logo + Bank Info */}
-                  <div className="md:col-span-5 flex items-center gap-4">
-                    <BankLogo bankName={result.bankName} size="lg" />
+                  <div className="md:col-span-5 flex items-center gap-3">
+                    <BankLogo bankName={result.bankName} size="sm" />
                     <div>
-                      <h4 className="font-bold text-xl text-gray-900 mb-1">{result.bankName}</h4>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <h4 className="font-bold text-base md:text-xl text-gray-900 mb-1">{result.bankName}</h4>
+                      <p className="text-xs md:text-sm text-gray-600 leading-tight md:leading-relaxed line-clamp-2">
                         {result.productType.replace(/\*+/g, "").substring(0, 35).trim()}
                       </p>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center">
-                          <span className="text-mint font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
+                      <div className="flex items-center gap-2 mt-1 md:mt-2">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0">
+                          <span className="text-mint font-bold text-xs md:text-sm">{result.debtRatio.toFixed(0)}%</span>
                         </div>
                         <span className="text-xs text-gray-500">îndatorare</span>
                       </div>
@@ -220,12 +220,12 @@ export default function Calculator() {
                   </div>
 
                   {/* Rate + Badge */}
-                  <div className="md:col-span-4 text-center md:text-left">
-                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Rată lunară</div>
-                    <div className="text-4xl md:text-5xl font-black text-gray-900 mb-1">
+                  <div className="md:col-span-4 text-center md:text-left py-2 md:py-0">
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-0.5 md:mb-1">Rată lunară</div>
+                    <div className="text-3xl md:text-5xl font-black text-gray-900 mb-0.5 md:mb-1">
                       {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
                     </div>
-                    <div className="text-sm text-gray-600 mb-3">RON / lună</div>
+                    <div className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">RON / lună</div>
                     {result.eligible ? (
                       <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-semibold text-sm">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -247,7 +247,7 @@ export default function Calculator() {
                   <div className="md:col-span-2">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="w-full bg-mint text-white px-6 py-3 rounded-xl font-semibold hover:bg-mint/90 transition-all group-hover:scale-105"
+                      className="w-full bg-mint text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-sm md:text-base font-semibold hover:bg-mint/90 transition-all md:group-hover:scale-105"
                     >
                       Aplică →
                     </button>
