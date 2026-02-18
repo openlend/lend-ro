@@ -238,7 +238,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
                     className="mt-1 w-5 h-5 rounded border-2 border-gray-300 text-mint focus:ring-mint flex-shrink-0"
                   />
                   <label htmlFor="gdprConsent" className="text-sm text-gray-700 leading-relaxed cursor-pointer">
-                    Sunt de acord ca datele mele personale să fie prelucrate conform{' '}
+                    Sunt de acord ca datele mele personale să fie prelucrate de <strong>PUBLISHING OFFICE S.R.L.</strong> (CUI: RO37770955) conform{' '}
                     <a 
                       href="/politica-confidentialitate" 
                       target="_blank"
@@ -246,7 +246,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
                     >
                       Politicii de Confidențialitate
                     </a>
-                    {' '}și să fie transmise către brokeri certificați pentru obținerea de oferte competitive.{' '}
+                    , să fie transmise către brokeri certificați pentru obținerea de oferte competitive și să fie procesate în SUA (Vercel Inc.) pe bază de Standard Contractual Clauses aprobate de UE.{' '}
                     <span className="text-red-500 font-bold">*</span>
                   </label>
                 </div>

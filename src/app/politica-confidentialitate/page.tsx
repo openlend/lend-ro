@@ -21,12 +21,26 @@ export default function PoliticaConfidentialitate() {
               </p>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introducere</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Identitatea Operatorului</h2>
+                <div className="bg-mint/10 rounded-xl p-6 border-2 border-mint/20 mb-6">
+                  <p className="text-gray-800 leading-relaxed mb-2">
+                    <strong>Operator date cu caracter personal:</strong>
+                  </p>
+                  <ul className="text-gray-700 space-y-1">
+                    <li><strong>Denumire:</strong> PUBLISHING OFFICE S.R.L.</li>
+                    <li><strong>CUI:</strong> RO37770955</li>
+                    <li><strong>Nr. Reg. Com.:</strong> J12/3783/2017</li>
+                    <li><strong>Sediu:</strong> Cluj-Napoca, str. Calea Turzii, nr. 111C, et.2, ap.6, jud. Cluj, România</li>
+                    <li><strong>Email:</strong> contact@lend.ro</li>
+                    <li><strong>Email GDPR:</strong> gdpr@lend.ro</li>
+                    <li><strong>Website:</strong> https://lend.ro</li>
+                  </ul>
+                </div>
                 <p className="text-gray-700 leading-relaxed">
                   <strong>lend.ro</strong> (denumit în continuare "noi", "Platforma" sau "Operatorul") 
                   respectă confidențialitatea datelor tale personale și se angajează să le protejeze 
                   în conformitate cu <strong>GDPR</strong> (Regulamentul UE 2016/679) și 
-                  legislația română privind protecția datelor.
+                  legislația română privind protecția datelor (Legea 190/2018).
                 </p>
                 <p className="text-gray-700 leading-relaxed mt-4">
                   Această Politică de Confidențialitate explică ce date colectăm, 
@@ -110,14 +124,30 @@ export default function PoliticaConfidentialitate() {
                 
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">4.2. Furnizori de servicii tehnice</h3>
                 <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li><strong>Vercel</strong> - hosting și infrastructură cloud (SUA/UE)</li>
-                  <li><strong>Brevo (Sendinblue)</strong> - platformă de email marketing (UE, GDPR compliant)</li>
-                  <li><strong>Neon Database</strong> - stocare securizată a datelor (UE, criptat)</li>
+                  <li>
+                    <strong>Vercel Inc.</strong> - hosting și infrastructură cloud (SUA)<br/>
+                    <span className="text-sm">Transfer internațional protejat prin <strong>Standard Contractual Clauses (SCC)</strong> aprobate de Comisia Europeană (Decizia 2021/914/UE) + encryption in transit & at rest.</span>
+                  </li>
+                  <li>
+                    <strong>Brevo (Sendinblue)</strong> - platformă de email marketing (Franța, UE)<br/>
+                    <span className="text-sm">GDPR compliant, servere în UE, DPA semnat.</span>
+                  </li>
+                  <li>
+                    <strong>Neon Database</strong> - stocare securizată a datelor (Germania, UE)<br/>
+                    <span className="text-sm">GDPR compliant, encryption AES-256, servere în UE.</span>
+                  </li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed mt-4">
-                  Toți furnizorii noștri sunt <strong>GDPR compliant</strong> și au contracte de prelucrare 
+                  Toți furnizorii noștri sunt <strong>GDPR compliant</strong> și au contracte de prelucrare (Data Processing Agreements) 
                   care garantează securitatea datelor tale.
                 </p>
+                
+                <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mt-4 rounded">
+                  <p className="text-orange-800 text-sm">
+                    <strong>⚠️ Transfer Internațional:</strong> Datele tale pot fi procesate în SUA (Vercel Inc.) pe bază de Standard Contractual Clauses + măsuri suplimentare de securitate (encryption). 
+                    Prin utilizarea platformei, consimți la acest transfer conform GDPR Art. 46.
+                  </p>
+                </div>
               </section>
 
               <section className="mb-8">

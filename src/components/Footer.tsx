@@ -30,6 +30,11 @@ export default function Footer() {
             <p className="text-gray-400 leading-relaxed mb-4">
               Platformă #1 pentru compararea creditelor ipotecare în România. Compară oferte de la 12+ bănci și primești 5 oferte personalizate gratuit în 24h.
             </p>
+            <div className="text-gray-500 text-sm space-y-1 mb-4">
+              <p><strong className="text-gray-400">PUBLISHING OFFICE S.R.L.</strong></p>
+              <p>CUI: RO37770955 | J12/3783/2017</p>
+              <p>Cluj-Napoca, str. Calea Turzii, nr. 111C, et.2, ap.6</p>
+            </div>
             <div className="flex gap-4">
               <a href="mailto:contact@lend.ro" className="text-gray-400 hover:text-mint transition" aria-label="Email contact">
                 📧 contact@lend.ro
