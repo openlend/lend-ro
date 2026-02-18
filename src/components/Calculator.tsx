@@ -35,7 +35,7 @@ export default function Calculator() {
         return rateA - rateB;
       });
 
-    sortedProducts.slice(0, 3).forEach((product: any) => {
+    sortedProducts.slice(0, 10).forEach((product: any) => {
       const { bank, product_type, rates } = product;
       const monthlyRate = rates.fixed_rate || (bankData.ircc_current + rates.variable_margin);
       const monthlyPayment = calculateMonthlyPayment(loanAmount, monthlyRate, loanTerm);
