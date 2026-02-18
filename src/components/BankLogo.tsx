@@ -35,10 +35,12 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     text: 'BRD'
   },
   'GARANTI': { 
+    image: '/bank-logos/garanti.png',
     gradient: 'bg-gradient-to-br from-green-500 to-green-600',
     text: 'GB'
   },
   'EXIM BANCA ROMANEASCA': { 
+    image: '/bank-logos/exim.png',
     gradient: 'bg-gradient-to-br from-blue-700 to-blue-800',
     text: 'EX'
   },
