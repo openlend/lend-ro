@@ -1,0 +1,911 @@
+{
+  "date_updated": "2026-02-06",
+  "ircc_current": 6.72,
+  "euribor_6m_current": 2.5,
+  "total_banks": 12,
+  "total_products": 71,
+  "banks": [
+    {
+      "name": "BT",
+      "row": 2
+    },
+    {
+      "name": "GARANTI",
+      "row": 7
+    },
+    {
+      "name": "BCR",
+      "row": 40
+    },
+    {
+      "name": "UNICREDIT",
+      "row": 46
+    },
+    {
+      "name": "ING",
+      "row": 54
+    },
+    {
+      "name": "BRD",
+      "row": 65
+    },
+    {
+      "name": "EXIM BANCA ROMANEASCA",
+      "row": 84
+    },
+    {
+      "name": "PATRIA BANK",
+      "row": 87
+    },
+    {
+      "name": "LIBRA BANK",
+      "row": 97
+    },
+    {
+      "name": "CREDIT EUROPE BANK",
+      "row": 104
+    },
+    {
+      "name": "RAIFFEISEN BANK",
+      "row": 106
+    },
+    {
+      "name": "INTESA SAN PAOLO",
+      "row": 124
+    }
+  ],
+  "products": [
+    {
+      "bank": "BT",
+      "product_type": "CU VIRARE SI/ SAU REFIN EXTERNA",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.15,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.15%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "FARA VIRARE SI FARA REFIN EXTERNA",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.35,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.35%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CREDITUL VERDE *    CU VIRARE SI/ SAU REFIN EXTERNA",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.95,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.95%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CREDITUL VERDE *   FARA VIRARE SI FARA REFIN EXTERNA",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.15,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.15%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CU VIRARE SI/ SAU REFIN EXTERNA",
+      "rate_type": "EURO",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.75,
+        "index_type": "EURIBOR",
+        "raw": "EURIBOR 6M + 4.75%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "FARA VIRARE SI FARA REFIN EXTERNA",
+      "rate_type": "EURO",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 5.0,
+        "index_type": "EURIBOR",
+        "raw": "EURIBOR 6M + 5%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CU VIRARE SI/ SAU REFIN EXTERNA",
+      "rate_type": "FIXA 2 ANI RON",
+      "rates": {
+        "fixed_rate": 5.15,
+        "fixed_years": null,
+        "variable_margin": 1.9,
+        "index_type": "IRCC",
+        "raw": "5.15% FIXA. IRCC + 1.90%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "FARA VIRARE SI FARA REFIN EXTERNA",
+      "rate_type": "FIXA 2 ANI RON",
+      "rates": {
+        "fixed_rate": 6.5,
+        "fixed_years": null,
+        "variable_margin": 2.8,
+        "index_type": "IRCC",
+        "raw": "6.50% FIXA. IRCC + 2.80%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CREDITUL VERDE *    CU VIRARE SI/ SAU REFIN EXTERNA",
+      "rate_type": "FIXA 2 ANI RON",
+      "rates": {
+        "fixed_rate": 5.05,
+        "fixed_years": null,
+        "variable_margin": 1.9,
+        "index_type": "IRCC",
+        "raw": "5.05% FIXA. IRCC + 1.90%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CREDITUL VERDE *   FARA VIRARE SI FARA REFIN EXTERNA",
+      "rate_type": "FIXA 2 ANI RON",
+      "rates": {
+        "fixed_rate": 6.5,
+        "fixed_years": null,
+        "variable_margin": 2.8,
+        "index_type": "IRCC",
+        "raw": "6.50% FIXA. IRCC + 2.80%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CU VIRARE SI/ SAU REFIN EXTERNA",
+      "rate_type": "FIXA 3 ANI RON",
+      "rates": {
+        "fixed_rate": 5.4,
+        "fixed_years": null,
+        "variable_margin": 2.1,
+        "index_type": "IRCC",
+        "raw": "5.40% FIXA. IRCC + 2.10%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "FARA VIRARE SI FARA REFIN EXTERNA",
+      "rate_type": "FIXA 3 ANI RON",
+      "rates": {
+        "fixed_rate": 6.9,
+        "fixed_years": null,
+        "variable_margin": 2.8,
+        "index_type": "IRCC",
+        "raw": "6.90% FIXA. IRCC + 2.80%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CREDITUL VERDE *    CU VIRARE SI/ SAU REFIN EXTERNA",
+      "rate_type": "FIXA 3 ANI RON",
+      "rates": {
+        "fixed_rate": 5.35,
+        "fixed_years": null,
+        "variable_margin": 2.1,
+        "index_type": "IRCC",
+        "raw": "5.35% FIXA. IRCC + 2.10%"
+      }
+    },
+    {
+      "bank": "BT",
+      "product_type": "CREDITUL VERDE *   FARA VIRARE SI FARA REFIN EXTERNA",
+      "rate_type": "FIXA 3 ANI RON",
+      "rates": {
+        "fixed_rate": 6.9,
+        "fixed_years": null,
+        "variable_margin": 2.8,
+        "index_type": "IRCC",
+        "raw": "6.90% FIXA. IRCC + 2.80%"
+      }
+    },
+    {
+      "bank": "BCR",
+      "product_type": "CASA Mea",
+      "rate_type": "Dobanda standard cu asigurare de viata atasata",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.5,
+        "index_type": "IRCC",
+        "raw": "6.19%. URMATA DE IRCC + 3.50 P.P "
+      }
+    },
+    {
+      "bank": "BCR",
+      "product_type": "Casa Mea NaturA *",
+      "rate_type": "Dobanda standard cu asigurare de viata atasata",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.3,
+        "index_type": "IRCC",
+        "raw": "5.99%. URMATA DE IRCC + 3.30 P.P "
+      }
+    },
+    {
+      "bank": "BCR",
+      "product_type": "CASA Mea",
+      "rate_type": "Clienti inrolati in Programul de beneficii incadrati la nivel PRO (Oferta standard -0,70 pp)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.8,
+        "index_type": "IRCC",
+        "raw": "5.49%. URMATA DE IRCC + 2.80 P.P "
+      }
+    },
+    {
+      "bank": "BCR",
+      "product_type": "Casa Mea NaturA *",
+      "rate_type": "Clienti inrolati in Programul de beneficii incadrati la nivel PRO (Oferta standard -0,70 pp)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.6,
+        "index_type": "IRCC",
+        "raw": "5.29%. URMATA DE IRCC + 2.60 P.P "
+      }
+    },
+    {
+      "bank": "UNICREDIT",
+      "product_type": "STANDARD**",
+      "rate_type": "VIRARE (RULAJ)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.7,
+        "index_type": "IRCC",
+        "raw": "IRCC+ 2.70% + ASIG VIATA"
+      }
+    },
+    {
+      "bank": "UNICREDIT",
+      "product_type": "CREDITUL VERDE**",
+      "rate_type": "VIRARE (RULAJ)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.1,
+        "index_type": "IRCC",
+        "raw": "IRCC+2.10% + ASIG VIATA"
+      }
+    },
+    {
+      "bank": "UNICREDIT",
+      "product_type": "STANDARD**",
+      "rate_type": "FARA VIRARE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.1,
+        "index_type": "IRCC",
+        "raw": "IRCC+ 3.10% + ASIG VIATA"
+      }
+    },
+    {
+      "bank": "UNICREDIT",
+      "product_type": "CREDITUL VERDE**",
+      "rate_type": "FARA VIRARE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.1,
+        "index_type": "IRCC",
+        "raw": "IRCC+3.10% + ASIG VIATA"
+      }
+    },
+    {
+      "bank": "UNICREDIT",
+      "product_type": "STANDARD**",
+      "rate_type": "VIRARE (RULAJ)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.59,
+        "index_type": "IRCC",
+        "raw": "5.49% RATA DOBANDA FIXA; IRCC+2.59%"
+      }
+    },
+    {
+      "bank": "UNICREDIT",
+      "product_type": "STANDARD**",
+      "rate_type": "STANDARD",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.0,
+        "index_type": "IRCC",
+        "raw": "IRCC+ 4% + ASIG VIATA"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Avans >=20%",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.0,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.00%"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Avans < 20%",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.4,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.40%"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Refinantare",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.0,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.00%"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Avans >=20%",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.45,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.45%"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Avans < 20%",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.85,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.85%"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Clasa energetica A / NON A",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.1,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.10%"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Avans >=20%",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.1,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.10%"
+      }
+    },
+    {
+      "bank": "BRD",
+      "product_type": "HABITAT VERDE *",
+      "rate_type": "Avans < 20%",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.5,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.50%"
+      }
+    },
+    {
+      "bank": "EXIM BANCA ROMANEASCA",
+      "product_type": "VARIABILA",
+      "rate_type": "Oferta standard (fara virare)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.5,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.5%"
+      }
+    },
+    {
+      "bank": "EXIM BANCA ROMANEASCA",
+      "product_type": "FIXA 3 ANI",
+      "rate_type": "Oferta standard (fara virare)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.8,
+        "index_type": "IRCC",
+        "raw": "6.50% RATA DOBANDA FIXA; IRCC+3.80%"
+      }
+    },
+    {
+      "bank": "EXIM BANCA ROMANEASCA",
+      "product_type": "FIXA 3 ANI CLASA A+ *",
+      "rate_type": "Oferta standard (fara virare)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.8,
+        "index_type": "IRCC",
+        "raw": "6.50% RATA DOBANDA FIXA; IRCC+3.80%"
+      }
+    },
+    {
+      "bank": "EXIM BANCA ROMANEASCA",
+      "product_type": "VARIABILA",
+      "rate_type": "Discount Pachete de cont, Pensia Activa",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.0,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3%"
+      }
+    },
+    {
+      "bank": "EXIM BANCA ROMANEASCA",
+      "product_type": "FIXA 3 ANI",
+      "rate_type": "Discount Pachete de cont, Pensia Activa",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.5,
+        "index_type": "IRCC",
+        "raw": "5.20% RATA DOBANDA FIXA; IRCC+2.50%"
+      }
+    },
+    {
+      "bank": "EXIM BANCA ROMANEASCA",
+      "product_type": "FIXA 3 ANI CLASA A+ *",
+      "rate_type": "Discount Pachete de cont, Pensia Activa",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.29,
+        "index_type": "IRCC",
+        "raw": "4.99% RATA DOBANDA FIXA; IRCC+2.29%"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit < 300.000 lei",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.05,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.05%"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit >= 300.000 lei",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.9,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.9%"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit < 300.000 lei",
+      "rate_type": "EURO ACHIZITIE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.2,
+        "index_type": "EURIBOR",
+        "raw": "EURIBOR 6M + 4.20%*"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit >= 300.000 lei",
+      "rate_type": "EURO ACHIZITIE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.05,
+        "index_type": "EURIBOR",
+        "raw": "EURIBOR 6M + 4.05%*"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit < 300.000 lei",
+      "rate_type": "EURO REFINANTARE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.2,
+        "index_type": "EURIBOR",
+        "raw": "EURIBOR 6M + 4.20%*"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit >= 300.000 lei",
+      "rate_type": "EURO REFINANTARE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.05,
+        "index_type": "EURIBOR",
+        "raw": "EURIBOR 6M + 4.05%*"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit < 300.000 lei",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.27,
+        "index_type": "IRCC",
+        "raw": "IRCC + 4.27%"
+      }
+    },
+    {
+      "bank": "PATRIA BANK",
+      "product_type": "Credit < 300.000 lei",
+      "rate_type": "EURO",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 5.0,
+        "index_type": "EURIBOR",
+        "raw": "EURIBOR 6M + 5.00%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA STANDARD",
+      "rate_type": "FARA VIRARE, VEN ROMANIA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.14,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.14%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "FIXA 3 ANI STANDARD",
+      "rate_type": "FARA VIRARE, VEN ROMANIA",
+      "rates": {
+        "fixed_rate": 7.9,
+        "fixed_years": null,
+        "variable_margin": 3.14,
+        "index_type": "IRCC",
+        "raw": "7.90% FIXA. IRCC + 3.14%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA VIP*",
+      "rate_type": "FARA VIRARE, VEN ROMANIA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.75,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.75%*"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "FIXA 3 ANI VIP",
+      "rate_type": "FARA VIRARE, VEN ROMANIA",
+      "rates": {
+        "fixed_rate": 7.7,
+        "fixed_years": null,
+        "variable_margin": 2.75,
+        "index_type": "IRCC",
+        "raw": "7.70% FIXA. IRCC + 2.75%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA CREDIT VERDE ** STANDARD",
+      "rate_type": "FARA VIRARE, VEN ROMANIA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.89,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.89%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA CREDIT VERDE ** VIP*",
+      "rate_type": "FARA VIRARE, VEN ROMANIA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.5,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.50%*"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA STANDARD",
+      "rate_type": "FARA VIRARE, VEN STRAINATATE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.65,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.65%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA VIP*",
+      "rate_type": "FARA VIRARE, VEN STRAINATATE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.4,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.40%*"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA CREDIT VERDE ** STANDARD",
+      "rate_type": "FARA VIRARE, VEN STRAINATATE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.4,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.40%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA CREDIT VERDE ** VIP*",
+      "rate_type": "FARA VIRARE, VEN STRAINATATE",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.15,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.15%*"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA STANDARD",
+      "rate_type": "Credit de investitii imobiliare- Cetateni straini( UE+ Israel)- cu venituri din strainatate",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 4.14,
+        "index_type": "IRCC",
+        "raw": "IRCC + 4.14%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA VIP*",
+      "rate_type": "Credit de investitii imobiliare- Cetateni straini( UE+ Israel)- cu venituri din strainatate",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.65,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.65%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA CREDIT VERDE ** STANDARD",
+      "rate_type": "Credit de investitii imobiliare- Cetateni straini( UE+ Israel)- cu venituri din strainatate",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.89,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.89%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA CREDIT VERDE ** VIP*",
+      "rate_type": "Credit de investitii imobiliare- Cetateni straini( UE+ Israel)- cu venituri din strainatate",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.4,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.40%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "VARIABILA STANDARD",
+      "rate_type": "VARIABILA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.0,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.00%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "FIXA 3 ANI STANDARD",
+      "rate_type": "VARIABILA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.51,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.51%"
+      }
+    },
+    {
+      "bank": "CREDIT EUROPE BANK",
+      "product_type": "OFERTA CARD AVANTAJ",
+      "rate_type": "VARIABILA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.75,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.75%"
+      }
+    },
+    {
+      "bank": "CREDIT EUROPE BANK",
+      "product_type": "OFERTA STANDARD",
+      "rate_type": "VARIABILA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.0,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.00%"
+      }
+    },
+    {
+      "bank": "CREDIT EUROPE BANK",
+      "product_type": "OFERTA VIP",
+      "rate_type": "VARIABILA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.51,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.51%"
+      }
+    },
+    {
+      "bank": "INTESA SAN PAOLO",
+      "product_type": "FIXA 3 ANI",
+      "rate_type": "Oferta standard (fara virare)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.2,
+        "index_type": "IRCC",
+        "raw": "5.90% RATA DOBANDA FIXA; IRCC+3.20%"
+      }
+    },
+    {
+      "bank": "INTESA SAN PAOLO",
+      "product_type": "FIXA 3 ANI VERDE",
+      "rate_type": "Oferta standard (fara virare)",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3.0,
+        "index_type": "IRCC",
+        "raw": "5.70% RATA DOBANDA FIXA; IRCC+3.00%"
+      }
+    },
+    {
+      "bank": "INTESA SAN PAOLO",
+      "product_type": "FIXA 3 ANI",
+      "rate_type": "Oferta VIRARE VENIT",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.7,
+        "index_type": "IRCC",
+        "raw": "5.40% RATA DOBANDA FIXA; IRCC+2.70%"
+      }
+    },
+    {
+      "bank": "INTESA SAN PAOLO",
+      "product_type": "FIXA 3 ANI VERDE",
+      "rate_type": "Oferta VIRARE VENIT",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.5,
+        "index_type": "IRCC",
+        "raw": "5.20% RATA DOBANDA FIXA; IRCC+2.50%"
+      }
+    },
+    {
+      "bank": "INTESA SAN PAOLO",
+      "product_type": "FIXA 3 ANI",
+      "rate_type": "Oferta VIRARE SI ASIG VIATA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.39,
+        "index_type": "IRCC",
+        "raw": "5.09% RATA DOBANDA FIXA; IRCC+2.39%"
+      }
+    },
+    {
+      "bank": "INTESA SAN PAOLO",
+      "product_type": "FIXA 3 ANI VERDE",
+      "rate_type": "Oferta VIRARE SI ASIG VIATA",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.19,
+        "index_type": "IRCC",
+        "raw": "4.89% RATA DOBANDA FIXA; IRCC+2.19%"
+      }
+    }
+  ]
+}
