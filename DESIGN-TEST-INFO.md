@@ -12,32 +12,61 @@
 
 ## 🎨 Design Concept
 
-### Culori
-- **Dark Green Primary:** `#0A2F2F`
-- **Dark Green Gradient:** `#0D3B3B` → `#051818`
-- **Accent (Mint):** `#4FD1C5`
-- **Cream Text:** `#F5F1E8`
+### Culori (Light Theme - FINAL VERSION ✅)
+- **Dark Green Primary:** `#0A2F2F` (ONLY Hero & Footer)
+- **Accent (Mint):** `#4FD1C5` (buttons, highlights)
+- **White:** `#FFFFFF` (all content sections)
+- **Light Gray:** `bg-gray-50` (alternating sections)
+- **Dark Text:** `text-gray-900`, `text-gray-600` (body text)
+
+**Key Change:** Only Hero and Footer sections use dark green background. All other sections use white or light gray backgrounds with dark text for optimal readability.
 
 ### Fonturi
 - **Titluri:** Playfair Display (serif elegant)
 - **Body:** System UI (sans-serif)
 
-### Layout
-1. **Hero Section**
+### Layout (8 Complete Sections)
+1. **Hero Section** (Dark green `#0A2F2F`)
    - Text stânga (h1 mare + CTA buttons)
    - 2 phone mockups dreapta (rotație 3D -6° / +6°)
    - Trust indicators jos
+   - Light text on dark background
 
-2. **Stats Section**
+2. **Quick Stats** (White background)
    - 3 coloane: 12+ bănci | 5 brokeri | 24h răspuns
-   - Background dark (#051818)
+   - Dark text, simple layout
 
-3. **CTA Section**
-   - Centered text + mare CTA button
-   - Gradient overlay mint
+3. **Calculator Section** (Light gray `bg-gray-50`)
+   - Elegant white card with 4 sliders
+   - Property price, income, term, down payment
+   - Large CTA button
 
-4. **Footer**
+4. **Features Section** (White background)
+   - 6 feature cards (3x2 grid)
+   - White cards with gray borders
+   - Hover effects (teal border + shadow)
+
+5. **How it Works** (Light gray `bg-gray-50`)
+   - 3 steps with alternating layout
+   - Demo cards with white backgrounds
+   - Each step: badge, title, description, checklist
+
+6. **Testimonials** (White background)
+   - 3 testimonial cards
+   - Star ratings, avatars, quotes
+
+7. **FAQ** (White background)
+   - 5 questions
+   - Light gray cards with hover effects
+   - Contact CTA button
+
+8. **Final CTA** (White background)
+   - Large centered headline
+   - Big CTA button
+
+9. **Footer** (Dark green `#0A2F2F`)
    - Minimalist
+   - Light text on dark background
    - Links la legal pages
 
 ### Phone Mockups
@@ -66,11 +95,12 @@ Design inspirat din **Horizon banking app** (user reference):
 
 ## 🛠️ Cum să modifici
 
-### Culori
+### Culori (Light Theme)
 Caută și înlocuiește în `src/app/design-test/page.tsx`:
-- `#0A2F2F` (dark green primary)
-- `#4FD1C5` (mint accent)
-- `#F5F1E8` (cream text)
+- `#0A2F2F` (dark green - Hero & Footer only)
+- `#4FD1C5` (mint accent - buttons, highlights)
+- `bg-white` / `bg-gray-50` (alternating section backgrounds)
+- `text-gray-900` / `text-gray-600` (dark text for readability)
 
 ### Font
 Linia 10-11 - Google Fonts link:
@@ -96,6 +126,25 @@ Orice commit pe `main` branch → auto-deploy Vercel în 2-3 minute.
 - **Total pages:** 32 (including /design-test)
 - **Size:** 167 B (static page)
 - **First Load JS:** 106 kB
+
+## 🔄 Design Evolution
+
+### Version 1.0 (Original - 2026-02-18)
+- Full dark green aesthetic
+- Dark backgrounds throughout
+- Light text (`#F5F1E8`)
+- Fintech premium vibe
+
+### Version 2.0 (Light Theme - 2026-02-18) ✅ CURRENT
+**Major redesign:**
+- Dark green ONLY for Hero & Footer
+- All content sections: white or light gray backgrounds
+- Dark text for better readability
+- More accessible and modern
+- Maintains elegance with Playfair Display serif
+- 8 complete sections (Hero, Stats, Calculator, Features, How it Works, Testimonials, FAQ, CTA, Footer)
+
+**Rationale:** User feedback indicated preference for light, clean design with bold visual hierarchy. Dark theme reserved for premium brand sections (Hero, Footer) only.
 
 ---
 
