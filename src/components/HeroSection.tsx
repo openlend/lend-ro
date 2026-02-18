@@ -8,70 +8,81 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* Hero Section - Modern Gradient */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-emerald-500 via-green-500 to-teal-500 text-white py-24">
-        {/* Animated background blobs */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30">
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/2 right-0 w-96 h-96 bg-emerald-300 rounded-full blur-3xl animate-pulse delay-75"></div>
-        </div>
+      {/* Hero Section - Premium Dark Green */}
+      <section className="relative bg-primary-500 text-white py-24 lg:py-32 overflow-hidden">
+        {/* Decorative shapes */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-lime/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text */}
+            <div>
+              <h1 className="text-5xl lg:text-7xl font-black leading-tight mb-6">
+                Schimbă modul<br />
+                în care iei<br />
+                <span className="text-accent-lime">credite ipotecare</span>
+              </h1>
+              <p className="text-xl lg:text-2xl text-primary-100 mb-8 font-light leading-relaxed">
+                Compară oferte de la 10+ bănci din România.<br />
+                Primești 5 oferte personalizate în 24 de ore.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={scrollToCalculator}
+                  className="group bg-white text-primary-500 px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-accent-lime/20 hover:scale-105 transition-all duration-300"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    Calculează rata
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                </button>
+                <button
+                  onClick={() => alert('Lead form - coming soon!')}
+                  className="bg-primary-600/50 backdrop-blur-sm border-2 border-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-primary-600/70 transition-all"
+                >
+                  Solicită oferte gratuite
+                </button>
+              </div>
+            </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight">
-              Găsește cel mai bun<br />
-              <span className="text-white bg-clip-text">credit ipotecar</span>
-            </h1>
-            <p className="text-2xl md:text-3xl mb-10 text-emerald-50 font-light">
-              Compară oferte de la <strong className="font-bold">10+ bănci</strong> din România<br />
-              Primești oferte personalizate în <strong className="font-bold">24 ore</strong>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-              <button
-                className="group bg-white text-emerald-600 font-bold py-5 px-10 rounded-2xl hover:bg-emerald-50 shadow-2xl hover:shadow-emerald-200/50 transform hover:-translate-y-1 text-lg"
-                onClick={scrollToCalculator}
-              >
-                <span className="flex items-center gap-3">
-                  Calculează rata
-                  <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-              </button>
-              <button
-                className="bg-emerald-700/50 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-5 px-10 rounded-2xl hover:bg-emerald-700/70 shadow-xl text-lg"
-                onClick={() => alert('Lead form - coming soon!')}
-              >
-                Solicită oferte gratuite
-              </button>
+            {/* Right: Stats Cards */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <div className="text-5xl font-black text-accent-lime mb-2">10+</div>
+                <div className="text-primary-100 font-medium">Bănci partenere</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <div className="text-5xl font-black text-accent-cyan mb-2">24h</div>
+                <div className="text-primary-100 font-medium">Răspuns rapid</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <div className="text-5xl font-black text-accent-orange mb-2">5</div>
+                <div className="text-primary-100 font-medium">Oferte personalizate</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover:bg-white/15 transition-all">
+                <div className="text-5xl font-black text-accent-coral mb-2">100%</div>
+                <div className="text-primary-100 font-medium">Gratuit</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Indicators - Modern Cards */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 hover-lift min-w-[140px]">
-              <p className="text-5xl font-black text-emerald-600 mb-2">10+</p>
-              <p className="text-sm font-medium text-gray-700">Bănci partenere</p>
-            </div>
-            
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 hover-lift min-w-[140px]">
-              <p className="text-5xl font-black text-blue-600 mb-2">24h</p>
-              <p className="text-sm font-medium text-gray-700">Răspuns rapid</p>
-            </div>
-            
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 hover-lift min-w-[140px]">
-              <p className="text-5xl font-black text-purple-600 mb-2">5</p>
-              <p className="text-sm font-medium text-gray-700">Oferte personalizate</p>
-            </div>
-            
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 hover-lift min-w-[140px]">
-              <p className="text-5xl font-black text-amber-600 mb-2">100%</p>
-              <p className="text-sm font-medium text-gray-700">Gratuit</p>
-            </div>
+      {/* Trust Logos */}
+      <section className="py-12 bg-gray-50 border-b">
+        <div className="container mx-auto px-6">
+          <p className="text-center text-gray-500 text-sm mb-6 uppercase tracking-wider font-semibold">
+            Compară oferte de la băncile de top
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            {['BT', 'BCR', 'ING', 'Raiffeisen', 'UniCredit', 'BRD'].map((bank) => (
+              <div key={bank} className="text-2xl font-black text-gray-400">
+                {bank}
+              </div>
+            ))}
           </div>
         </div>
       </section>
