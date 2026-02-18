@@ -20,8 +20,6 @@ export default function Calculator() {
   const [loanTerm, setLoanTerm] = useState(25);
   const [downPayment, setDownPayment] = useState(20);
   const [isFirstProperty, setIsFirstProperty] = useState(true);
-  const [salaryTransfer, setSalaryTransfer] = useState(false);
-  const [fixedPeriod, setFixedPeriod] = useState<number | 'any' | 'variable'>('any');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [results, setResults] = useState<CalculatorResult[]>([]);
 
@@ -39,37 +37,15 @@ export default function Calculator() {
   useEffect(() => {
     const calculatedResults: CalculatorResult[] = [];
     
-    // All products EXCEPT Euro
+    // All products EXCEPT Euro - simple filter, no extra criteria
     const sortedProducts = [...bankData.products]
       .filter((product: any) => {
         const rateType = product.rate_type.toUpperCase();
-        const productName = product.product_type.toLowerCase();
-        
-        // Exclude EURO products
-        if (rateType.includes('EURO')) return false;
-        
-        // Note: salaryTransfer filter removed - we show best product per bank regardless
-        // The "best per bank" logic already picks the cheapest product (usually with salary transfer)
-        
-        // Filter by fixed period preference
-        if (fixedPeriod !== 'any') {
-          if (fixedPeriod === 'variable') {
-            // User wants ONLY variable (no fixed period)
-            if (product.rates.fixed_years !== null) {
-              return false;
-            }
-          } else {
-            // User selected specific fixed period (3, 5)
-            if (product.rates.fixed_years !== fixedPeriod) {
-              return false;
-            }
-          }
-        }
-        
-        return true;
+        // Exclude EURO products only
+        return !rateType.includes('EURO');
       })
       .sort((a: any, b: any) => {
-        // FIX: Compare EFFECTIVE rates (fixed OR ircc+margin), not just margin
+        // Sort by effective rate (fixed OR ircc+margin)
         const rateA = a.rates.fixed_rate || (bankData.ircc_current + a.rates.variable_margin);
         const rateB = b.rates.fixed_rate || (bankData.ircc_current + b.rates.variable_margin);
         return rateA - rateB;
@@ -132,7 +108,7 @@ export default function Calculator() {
     });
 
     setResults(calculatedResults);
-  }, [propertyPrice, downPayment, salary, loanTerm, salaryTransfer, fixedPeriod]);
+  }, [propertyPrice, downPayment, salary, loanTerm]);
 
   return (
     <div className="card bg-base-100 shadow-2xl">
@@ -219,43 +195,6 @@ export default function Calculator() {
             <label htmlFor="firstProperty" className="text-xs md:text-sm text-gray-700 cursor-pointer leading-tight">
               Prima proprietate <span className="text-gray-500">(avans min. {minDownPayment}%)</span>
             </label>
-          </div>
-
-          <div>
-            <div className="flex justify-between items-baseline mb-1 md:mb-2">
-              <span className="text-sm md:text-base font-semibold md:font-bold">Perioadă dobândă fixă</span>
-              <span className="text-xl md:text-2xl font-bold text-mint">
-                {fixedPeriod === 'any' ? 'Orice' : fixedPeriod === 'variable' ? 'Variabil' : `${fixedPeriod} ani`}
-              </span>
-            </div>
-            <div className="flex gap-2 flex-wrap">
-              {[
-                { value: 'any', label: 'Orice' },
-                { value: 3, label: '3 ani' },
-                { value: 5, label: '5 ani' },
-                { value: 'variable', label: 'Variabil' }
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => setFixedPeriod(option.value as number | 'any' | 'variable')}
-                  className={`px-4 py-2 rounded-xl font-bold text-sm transition-all ${
-                    fixedPeriod === option.value
-                      ? 'bg-mint text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-            <p className="text-xs text-gray-500 mt-2">
-              {fixedPeriod === 'variable' 
-                ? 'Dobândă variabilă de la început (IRCC + marjă)'
-                : fixedPeriod === 'any'
-                ? 'Afișează toate produsele disponibile'
-                : 'După perioada fixă, dobânda devine variabilă (IRCC + marjă)'
-              }
-            </p>
           </div>
 
           <div>
