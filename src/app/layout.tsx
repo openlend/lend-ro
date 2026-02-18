@@ -2,8 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "lend.ro - Calculator Credit Ipotecar | Compară Oferte Bănci",
-  description: "Calculează rata credit ipotecar gratuit. Compară dobânzi de la toate băncile din România. Primește 3-5 oferte personalizate în 24h.",
+  title: "Calculator Credit Ipotecar Online 2026 | Compară Oferte Bănci România - lend.ro",
+  description: "★ Calculator credit ipotecar cu dobânzi actualizate ✓ Compară oferte de la 12+ bănci din România (BT, BCR, ING, Raiffeisen) ✓ Calculează rata lunară instant ✓ Primești 5 oferte personalizate GRATUIT în 24h ✓ Fără obligații",
+  keywords: ["calculator credit ipotecar", "credit ipotecar", "calculator rate credit", "dobanda credit ipotecar", "credit pentru casa", "credit imobiliar", "calculator refinantare", "prima casa", "credit pentru apartament", "dobanda banca", "comparator credite", "rate credit ipotecar", "ipotecar online", "credit casa", "credit apartament"],
+  openGraph: {
+    title: "Calculator Credit Ipotecar - Compară Oferte Bănci România",
+    description: "Calculează rata lunară instant. Compară oferte de la 12+ bănci. Primești oferte personalizate gratuit.",
+    url: "https://lend.ro",
+    siteName: "lend.ro",
+    locale: "ro_RO",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
