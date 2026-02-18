@@ -47,6 +47,7 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     text: 'PB'
   },
   'LIBRA BANK': { 
+    image: '/bank-logos/libra.png',
     gradient: 'bg-gradient-to-br from-blue-500 to-blue-600',
     text: 'LB'
   },
