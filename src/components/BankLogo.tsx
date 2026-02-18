@@ -3,39 +3,74 @@ interface BankLogoProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-const bankColors: Record<string, { bg: string; text: string }> = {
-  'BT': { bg: '#FF5000', text: '#FFFFFF' },
-  'BCR': { bg: '#FFB81C', text: '#000000' },
-  'ING': { bg: '#FF6200', text: '#FFFFFF' },
-  'RAIFFEISEN': { bg: '#FFED00', text: '#000000' },
-  'UNICREDIT': { bg: '#EE2E24', text: '#FFFFFF' },
-  'BRD': { bg: '#004494', text: '#FFFFFF' },
-  'GARANTI': { bg: '#00A650', text: '#FFFFFF' },
-  'EXIM BANCA ROMANEASCA': { bg: '#003D7A', text: '#FFFFFF' },
-  'PATRIA BANK': { bg: '#E30613', text: '#FFFFFF' },
-  'LIBRA BANK': { bg: '#0066CC', text: '#FFFFFF' },
-  'CREDIT EUROPE BANK': { bg: '#1E3C6E', text: '#FFFFFF' },
-  'INTESA SAN PAOLO': { bg: '#0047BB', text: '#FFFFFF' },
+const bankStyles: Record<string, { gradient: string; icon: string }> = {
+  'BT': { 
+    gradient: 'bg-gradient-to-br from-orange-500 to-orange-600',
+    icon: 'BT'
+  },
+  'BCR': { 
+    gradient: 'bg-gradient-to-br from-yellow-400 to-yellow-500',
+    icon: 'BCR'
+  },
+  'ING': { 
+    gradient: 'bg-gradient-to-br from-orange-500 to-orange-700',
+    icon: 'ING'
+  },
+  'RAIFFEISEN': { 
+    gradient: 'bg-gradient-to-br from-yellow-300 to-yellow-400',
+    icon: 'RB'
+  },
+  'UNICREDIT': { 
+    gradient: 'bg-gradient-to-br from-red-500 to-red-600',
+    icon: 'UC'
+  },
+  'BRD': { 
+    gradient: 'bg-gradient-to-br from-blue-600 to-blue-700',
+    icon: 'BRD'
+  },
+  'GARANTI': { 
+    gradient: 'bg-gradient-to-br from-green-500 to-green-600',
+    icon: 'GB'
+  },
+  'EXIM BANCA ROMANEASCA': { 
+    gradient: 'bg-gradient-to-br from-blue-700 to-blue-800',
+    icon: 'EX'
+  },
+  'PATRIA BANK': { 
+    gradient: 'bg-gradient-to-br from-red-600 to-red-700',
+    icon: 'PB'
+  },
+  'LIBRA BANK': { 
+    gradient: 'bg-gradient-to-br from-blue-500 to-blue-600',
+    icon: 'LB'
+  },
+  'CREDIT EUROPE BANK': { 
+    gradient: 'bg-gradient-to-br from-blue-800 to-blue-900',
+    icon: 'CE'
+  },
+  'INTESA SAN PAOLO': { 
+    gradient: 'bg-gradient-to-br from-blue-600 to-blue-800',
+    icon: 'IS'
+  },
 };
 
 export default function BankLogo({ bankName, size = 'md' }: BankLogoProps) {
-  const colors = bankColors[bankName] || { bg: '#2D5F5D', text: '#FFFFFF' };
+  const style = bankStyles[bankName] || { 
+    gradient: 'bg-gradient-to-br from-sage to-mint',
+    icon: bankName.substring(0, 2)
+  };
   
   const sizeClasses = {
-    sm: 'w-12 h-12 text-sm',
-    md: 'w-16 h-16 text-lg',
-    lg: 'w-20 h-20 text-xl',
+    sm: 'w-12 h-12 text-xs',
+    md: 'w-16 h-16 text-sm',
+    lg: 'w-20 h-20 text-base',
   };
-
-  // Get initials (first 2-3 letters)
-  const initials = bankName.length <= 3 ? bankName : bankName.substring(0, 2);
 
   return (
     <div
-      className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center font-black shadow-lg`}
-      style={{ backgroundColor: colors.bg, color: colors.text }}
+      className={`${sizeClasses[size]} ${style.gradient} rounded-2xl flex items-center justify-center font-black text-white shadow-lg hover:shadow-xl transition-all`}
     >
-      {initials}
+      {style.icon}
     </div>
   );
 }

@@ -206,37 +206,68 @@ export default function Calculator() {
             <h3 className="text-2xl font-bold">Cele mai bune oferte:</h3>
 
             {results.map((result, index) => (
-              <div key={index} className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100">
-                <div className="flex-1">
-                  <div className="flex justify-between items-start w-full">
+              <div 
+                key={index} 
+                className="group bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-mint/30 hover:-translate-y-1"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                  
+                  {/* Logo + Bank Info */}
+                  <div className="md:col-span-5 flex items-center gap-4">
+                    <BankLogo bankName={result.bankName} size="lg" />
                     <div>
-                      <div className="flex items-center gap-4 mb-3">
-                        <BankLogo bankName={result.bankName} size="md" />
-                        <div>
-                          <h4 className="font-bold text-xl">{result.bankName}</h4>
-                          <p className="text-sm opacity-70">{result.productType.replace(/\*+/g, "").substring(0, 40).trim()}...</p>
+                      <h4 className="font-bold text-xl text-gray-900 mb-1">{result.bankName}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {result.productType.replace(/\*+/g, "").substring(0, 35).trim()}
+                      </p>
+                      <div className="flex items-center gap-2 mt-2">
+                        <div className="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center">
+                          <span className="text-mint font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
                         </div>
+                        <span className="text-xs text-gray-500">îndatorare</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <div className="radial-progress text-mint" style={{"--value": result.debtRatio, "--size": "4rem"} as any}>
-                          {result.debtRatio.toFixed(0)}%
-                        </div>
-                        <span className="text-xs">Grad îndatorare</span>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-xs opacity-50">Rată lunară</div>
-                      <div className="text-4xl font-bold text-mint">
-                        {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
-                      </div>
-                      <div className="text-sm">RON / lună</div>
-                      {result.eligible ? (
-                        <div className="badge badge-success mt-2">✓ Eligibil</div>
-                      ) : (
-                        <div className="badge badge-error mt-2">✗ Depășit</div>
-                      )}
                     </div>
                   </div>
+
+                  {/* Divider desktop */}
+                  <div className="hidden md:block md:col-span-1">
+                    <div className="h-20 w-px bg-gray-200 mx-auto"></div>
+                  </div>
+
+                  {/* Rate + Badge */}
+                  <div className="md:col-span-4 text-center md:text-left">
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Rată lunară</div>
+                    <div className="text-4xl md:text-5xl font-black text-gray-900 mb-1">
+                      {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
+                    </div>
+                    <div className="text-sm text-gray-600 mb-3">RON / lună</div>
+                    {result.eligible ? (
+                      <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-semibold text-sm">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        Eligibil
+                      </div>
+                    ) : (
+                      <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-semibold text-sm">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Depășit
+                      </div>
+                    )}
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="md:col-span-2">
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="w-full bg-mint text-white px-6 py-3 rounded-xl font-semibold hover:bg-mint/90 transition-all group-hover:scale-105"
+                    >
+                      Aplică →
+                    </button>
+                  </div>
+
                 </div>
               </div>
             ))}
