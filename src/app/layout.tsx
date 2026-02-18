@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Calculator Credit Ipotecar Online 2026 | Compară Oferte Bănci România - lend.ro",
@@ -51,25 +52,7 @@ export default function RootLayout({
         }} />
       </head>
       <body className="bg-cream">
-        <nav className="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200/50">
-          <div className="max-w-6xl mx-auto px-6 py-4">
-            <div className="flex justify-between items-center">
-              <a href="/" className="flex items-center">
-                <img src="/logo.png" alt="lend.ro" className="h-8 md:h-10" />
-              </a>
-              
-              <div className="hidden md:flex items-center gap-8">
-                <a href="/#calculator" className="text-gray-700 hover:text-sage font-medium transition">Calculator</a>
-                <a href="/#cum-functioneaza" className="text-gray-700 hover:text-sage font-medium transition">Cum funcționează</a>
-                <a href="/blog" className="text-gray-700 hover:text-sage font-medium transition">Blog</a>
-                <a href="/#calculator" className="bg-sage text-white px-6 py-3 rounded-xl font-semibold hover:bg-opacity-90 transition shadow-lg">
-                  Începe acum
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-
+        <Header />
         {children}
       </body>
     </html>
