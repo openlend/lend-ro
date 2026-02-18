@@ -28,9 +28,12 @@ export default function Calculator() {
   useEffect(() => {
     const calculatedResults: CalculatorResult[] = [];
     
-    // All RON products sorted by rate
+    // All products EXCEPT Euro
     const sortedProducts = [...bankData.products]
-      .filter((product: any) => product.rate_type.includes('RON'))
+      .filter((product: any) => {
+        const rateType = product.rate_type.toUpperCase();
+        return !rateType.includes('EURO');
+      })
       .sort((a: any, b: any) => {
         const rateA = a.rates.fixed_rate || a.rates.variable_margin;
         const rateB = b.rates.fixed_rate || b.rates.variable_margin;
