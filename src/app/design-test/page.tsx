@@ -172,6 +172,425 @@ export default function DesignTest() {
         </div>
       </section>
 
+      {/* Features Section */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2F2F] to-[#051818]"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-20">
+            <div className="inline-block bg-[#4FD1C5]/10 border border-[#4FD1C5]/30 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-[#4FD1C5] mb-6">
+              De ce lend.ro
+            </div>
+            <h2 className="text-4xl md:text-6xl leading-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Experiență <span className="italic text-[#4FD1C5]">superioară</span>
+            </h2>
+            <p className="text-xl text-[#F5F1E8]/70 max-w-3xl mx-auto">
+              Te ajutăm să găsești cel mai bun credit ipotecar cu tehnologie premium și expertiza brokerilor certificați
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="group bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-10 hover:border-[#4FD1C5]/50 transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-[#4FD1C5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#4FD1C5]/20 transition-all">
+                <span className="text-4xl">⚡</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#F5F1E8]">Instant</h3>
+              <p className="text-[#F5F1E8]/70 leading-relaxed">
+                Calculează rata lunară și compară oferte de la toate băncile în mai puțin de 2 minute. Fără birocrație.
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="group bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-10 hover:border-[#4FD1C5]/50 transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-[#4FD1C5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#4FD1C5]/20 transition-all">
+                <span className="text-4xl">🔒</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#F5F1E8]">Securizat</h3>
+              <p className="text-[#F5F1E8]/70 leading-relaxed">
+                Datele tale sunt protejate cu criptare de nivel bancar. GDPR compliant, fără vânzare de date către terți.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="group bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-10 hover:border-[#4FD1C5]/50 transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-[#4FD1C5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#4FD1C5]/20 transition-all">
+                <span className="text-4xl">💰</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#F5F1E8]">Gratuit</h3>
+              <p className="text-[#F5F1E8]/70 leading-relaxed">
+                Zero costuri pentru tine. Băncile ne plătesc comisionul, tu economisești timp și bani. Transparent total.
+              </p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="group bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-10 hover:border-[#4FD1C5]/50 transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-[#4FD1C5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#4FD1C5]/20 transition-all">
+                <span className="text-4xl">🎯</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#F5F1E8]">Personalizat</h3>
+              <p className="text-[#F5F1E8]/70 leading-relaxed">
+                Primești 5 oferte adaptate profilului tău financiar de la brokeri specializați. Nu email-uri automate.
+              </p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="group bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-10 hover:border-[#4FD1C5]/50 transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-[#4FD1C5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#4FD1C5]/20 transition-all">
+                <span className="text-4xl">📊</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#F5F1E8]">Transparent</h3>
+              <p className="text-[#F5F1E8]/70 leading-relaxed">
+                Vezi toate costurile, comisioanele și condițiile înainte să te angajezi. Fără surprize neplăcute.
+              </p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="group bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-10 hover:border-[#4FD1C5]/50 transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-[#4FD1C5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#4FD1C5]/20 transition-all">
+                <span className="text-4xl">🤝</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#F5F1E8]">Expert</h3>
+              <p className="text-[#F5F1E8]/70 leading-relaxed">
+                Brokerii noștri au peste 10 ani experiență și acces la oferte exclusive pe care nu le găsești singur.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section className="py-32 bg-[#051818] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#4FD1C5] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#4FD1C5] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-20">
+            <div className="inline-block bg-[#4FD1C5]/10 border border-[#4FD1C5]/30 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-[#4FD1C5] mb-6">
+              Proces simplu
+            </div>
+            <h2 className="text-4xl md:text-6xl leading-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              În <span className="italic text-[#4FD1C5]">3 pași simpli</span>
+            </h2>
+            <p className="text-xl text-[#F5F1E8]/70 max-w-2xl mx-auto">
+              De la calcul la ofertă finală, totul online, rapid și transparent
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {/* Step 1 */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="inline-block bg-[#4FD1C5] text-[#0A2F2F] px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                  Pas 1
+                </div>
+                <h3 className="text-3xl md:text-5xl font-bold text-[#F5F1E8]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Calculează<br />
+                  <span className="italic text-[#4FD1C5]">rata lunară</span>
+                </h3>
+                <p className="text-lg text-[#F5F1E8]/70 leading-relaxed">
+                  Introduci valoarea proprietății, venitul lunar și perioada de creditare. 
+                  Algoritmul nostru compară instant oferte de la 12+ bănci și îți arată 
+                  rata lunară estimată pentru fiecare.
+                </p>
+                <ul className="space-y-3 text-[#F5F1E8]/60">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Calcul în timp real cu dobânzi actualizate</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Verificare automată a eligibilității</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Comparație side-by-side între bănci</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-[#0D3B3B]/30 backdrop-blur-sm border-2 border-[#4FD1C5]/20 rounded-3xl p-8 md:p-12">
+                <div className="space-y-6">
+                  <div className="text-xs uppercase tracking-widest text-[#F5F1E8]/50">Estimare instant</div>
+                  <div className="text-5xl font-bold text-[#4FD1C5]">2.603 RON</div>
+                  <div className="text-sm text-[#F5F1E8]/60">Rată lunară / 25 ani</div>
+                  <div className="h-px bg-[#F5F1E8]/10 my-6"></div>
+                  <div className="space-y-4 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-[#F5F1E8]/60">Credit solicitat</span>
+                      <span className="text-[#F5F1E8] font-bold">400.000 RON</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#F5F1E8]/60">Dobândă fixă</span>
+                      <span className="text-[#F5F1E8] font-bold">3.00% (3 ani)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#F5F1E8]/60">Îndatorare</span>
+                      <span className="text-[#4FD1C5] font-bold">26% ✓</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1 bg-[#0D3B3B]/30 backdrop-blur-sm border-2 border-[#4FD1C5]/20 rounded-3xl p-8 md:p-12">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
+                      <span className="text-[#4FD1C5] font-bold">1</span>
+                    </div>
+                    <span className="text-[#F5F1E8]/60">broker@banca-a.ro</span>
+                    <span className="ml-auto text-[#4FD1C5] text-xs">În lucru</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
+                      <span className="text-[#4FD1C5] font-bold">2</span>
+                    </div>
+                    <span className="text-[#F5F1E8]/60">credit@intermediar-b.ro</span>
+                    <span className="ml-auto text-[#4FD1C5] text-xs">În lucru</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
+                      <span className="text-[#4FD1C5] font-bold">3</span>
+                    </div>
+                    <span className="text-[#F5F1E8]/60">oferte@broker-c.ro</span>
+                    <span className="ml-auto text-[#4FD1C5] text-xs">În lucru</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
+                      <span className="text-[#4FD1C5] font-bold">4</span>
+                    </div>
+                    <span className="text-[#F5F1E8]/60">contact@specialist-d.ro</span>
+                    <span className="ml-auto text-[#F5F1E8]/40 text-xs">Pregătire</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#F5F1E8]/10 flex items-center justify-center">
+                      <span className="text-[#F5F1E8]/40 font-bold">5</span>
+                    </div>
+                    <span className="text-[#F5F1E8]/40">ipotecar@broker-e.ro</span>
+                    <span className="ml-auto text-[#F5F1E8]/40 text-xs">Așteptare</span>
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 md:order-2 space-y-6">
+                <div className="inline-block bg-[#4FD1C5] text-[#0A2F2F] px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                  Pas 2
+                </div>
+                <h3 className="text-3xl md:text-5xl font-bold text-[#F5F1E8]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Primești<br />
+                  <span className="italic text-[#4FD1C5]">5 oferte</span>
+                </h3>
+                <p className="text-lg text-[#F5F1E8]/70 leading-relaxed">
+                  În maximum 24 de ore, 5 brokeri certificați îți trimit oferte personalizate 
+                  direct pe email. Fiecare ofertă include condițiile complete, 
+                  costurile totale și pașii următori.
+                </p>
+                <ul className="space-y-3 text-[#F5F1E8]/60">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Oferte adaptate profilului tău</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Include și produse exclusive</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Fără spam sau telefoane insistente</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="inline-block bg-[#4FD1C5] text-[#0A2F2F] px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                  Pas 3
+                </div>
+                <h3 className="text-3xl md:text-5xl font-bold text-[#F5F1E8]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Alegi<br />
+                  <span className="italic text-[#4FD1C5]">cea mai bună</span>
+                </h3>
+                <p className="text-lg text-[#F5F1E8]/70 leading-relaxed">
+                  Compari ofertele în liniște, fără presiune. Când ești gata, 
+                  contactezi brokerul ales și el se ocupă de tot procesul: 
+                  documentație, aprobare, semnare. Tu doar te bucuri de noua casă.
+                </p>
+                <ul className="space-y-3 text-[#F5F1E8]/60">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Zero obligații de angajare</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Suport complet din partea brokerului</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#4FD1C5] mt-1">✓</span>
+                    <span>Economisești în medie 15.000 RON/an</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-gradient-to-br from-[#4FD1C5]/20 to-[#4FD1C5]/5 backdrop-blur-sm border-2 border-[#4FD1C5] rounded-3xl p-8 md:p-12 text-center">
+                <div className="space-y-6">
+                  <div className="text-7xl">🎉</div>
+                  <h4 className="text-2xl font-bold text-[#F5F1E8]">Felicitări!</h4>
+                  <p className="text-[#F5F1E8]/70">
+                    Ai economisit timp, bani și nervi. <br />
+                    Te muți în noua casă cu creditul perfect.
+                  </p>
+                  <div className="pt-6 border-t border-[#F5F1E8]/10">
+                    <div className="text-sm text-[#F5F1E8]/50 mb-2">Economie medie</div>
+                    <div className="text-4xl font-bold text-[#4FD1C5]">15.000 RON</div>
+                    <div className="text-sm text-[#F5F1E8]/60">pe an față de oferta inițială</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-32 bg-[#0A2F2F] relative">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-20">
+            <div className="inline-block bg-[#4FD1C5]/10 border border-[#4FD1C5]/30 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-[#4FD1C5] mb-6">
+              Ei au reușit
+            </div>
+            <h2 className="text-4xl md:text-6xl leading-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Peste <span className="italic text-[#4FD1C5]">100 de familii</span>
+            </h2>
+            <p className="text-xl text-[#F5F1E8]/70 max-w-2xl mx-auto">
+              și-au găsit casa visurilor prin lend.ro
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-8 hover:border-[#4FD1C5]/30 transition-all">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center text-2xl font-bold text-[#4FD1C5]">
+                  M
+                </div>
+                <div>
+                  <div className="font-bold text-[#F5F1E8]">Maria T.</div>
+                  <div className="text-sm text-[#F5F1E8]/50">Cluj-Napoca</div>
+                </div>
+              </div>
+              <div className="flex gap-1 mb-4">
+                {[1,2,3,4,5].map(i => <span key={i} className="text-[#4FD1C5]">★</span>)}
+              </div>
+              <p className="text-[#F5F1E8]/70 leading-relaxed italic">
+                "Am economisit peste 20.000 RON comparativ cu oferta pe care o aveam deja de la banca mea. 
+                Procesul a fost extrem de simplu și transparent."
+              </p>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-8 hover:border-[#4FD1C5]/30 transition-all">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center text-2xl font-bold text-[#4FD1C5]">
+                  A
+                </div>
+                <div>
+                  <div className="font-bold text-[#F5F1E8]">Andrei P.</div>
+                  <div className="text-sm text-[#F5F1E8]/50">București</div>
+                </div>
+              </div>
+              <div className="flex gap-1 mb-4">
+                {[1,2,3,4,5].map(i => <span key={i} className="text-[#4FD1C5]">★</span>)}
+              </div>
+              <p className="text-[#F5F1E8]/70 leading-relaxed italic">
+                "Nu credeam că pot obține atât de repede aprobarea. În 10 zile aveam contractul semnat. 
+                Recomand cu încredere!"
+              </p>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-3xl p-8 hover:border-[#4FD1C5]/30 transition-all">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center text-2xl font-bold text-[#4FD1C5]">
+                  C
+                </div>
+                <div>
+                  <div className="font-bold text-[#F5F1E8]">Carmen & Radu S.</div>
+                  <div className="text-sm text-[#F5F1E8]/50">Timișoara</div>
+                </div>
+              </div>
+              <div className="flex gap-1 mb-4">
+                {[1,2,3,4,5].map(i => <span key={i} className="text-[#4FD1C5]">★</span>)}
+              </div>
+              <p className="text-[#F5F1E8]/70 leading-relaxed italic">
+                "Brokerul ne-a găsit un produs special pentru prima casă despre care nu știam. 
+                Rata e cu 400 RON mai mică!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-32 bg-[#051818] relative">
+        <div className="max-w-4xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-[#4FD1C5]/10 border border-[#4FD1C5]/30 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-[#4FD1C5] mb-6">
+              Întrebări frecvente
+            </div>
+            <h2 className="text-4xl md:text-5xl leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <span className="italic text-[#4FD1C5]">Tot</span> ce trebuie să știi
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: 'Chiar este gratuit?',
+                a: 'Da, 100% gratuit pentru tine. Băncile ne plătesc un comision când închei un credit prin intermediul nostru, exact ca la orice broker. Tu nu plătești nimic extra.'
+              },
+              {
+                q: 'Cât durează să primesc ofertele?',
+                a: 'În maximum 24 de ore primești 5 oferte personalizate de la brokeri certificați. De obicei, primele oferte ajung în primele 4-6 ore.'
+              },
+              {
+                q: 'Sunt obligat să accept o ofertă?',
+                a: 'Absolut deloc. Primești ofertele, le compari în liniște și decizi dacă mergi mai departe. Zero presiune, zero obligații.'
+              },
+              {
+                q: 'De ce 5 brokeri, nu unul singur?',
+                a: 'Fiecare broker are parteneriate diferite cu băncile și poate accesa produse exclusive. Mai multe oferte = șanse mai mari să găsești cea mai bună variantă.'
+              },
+              {
+                q: 'Datele mele sunt în siguranță?',
+                a: 'Da. Folosim criptare de nivel bancar și suntem GDPR compliant. Nu vindem și nu partajăm datele tale cu nimeni în afară de brokerii certificați care îți trimit oferte.'
+              }
+            ].map((faq, i) => (
+              <div key={i} className="bg-[#0D3B3B]/30 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-2xl p-8 hover:border-[#4FD1C5]/30 transition-all">
+                <h3 className="text-xl font-bold text-[#F5F1E8] mb-4">{faq.q}</h3>
+                <p className="text-[#F5F1E8]/70 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-[#F5F1E8]/60 mb-6">
+              Mai ai întrebări?
+            </p>
+            <a 
+              href="mailto:open@lend.ro"
+              className="inline-flex items-center gap-2 bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#4FD1C5]/30 text-[#4FD1C5] px-8 py-4 rounded-xl font-semibold hover:bg-[#0D3B3B] transition-all"
+            >
+              <span>✉️</span>
+              <span>Contactează-ne</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1C5]/10 to-transparent"></div>
