@@ -22,130 +22,76 @@ body {
   }
 }
 
-/* Premium Range Slider with Animated Tooltip */
+/* Simple Clean Range Slider (CSS-only progress) */
 input[type="range"] {
-  outline: 0;
-  border: 0;
-  border-radius: 500px;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
   width: 100%;
-  max-width: 100%;
-  transition: box-shadow 0.2s ease-in-out;
-  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #4FD1C5 0%,
+    #4FD1C5 var(--value, 50%),
+    #E5E7EB var(--value, 50%),
+    #E5E7EB 100%
+  );
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Chrome/Safari */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  input[type="range"] {
-    overflow: hidden;
-    height: 40px;
-    -webkit-appearance: none;
-    background-color: #E5E7EB;
-  }
-
-  input[type="range"]::-webkit-slider-runnable-track {
-    height: 40px;
-    -webkit-appearance: none;
-    color: #4FD1C5;
-    transition: box-shadow 0.2s ease-in-out;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    width: 40px;
-    -webkit-appearance: none;
-    height: 40px;
-    cursor: ew-resize;
-    background: #fff;
-    box-shadow: -340px 0 0 320px #4FD1C5, inset 0 0 0 40px #4FD1C5;
-    border-radius: 50%;
-    transition: box-shadow 0.2s ease-in-out;
-    position: relative;
-  }
-
-  input[type="range"]:active::-webkit-slider-thumb {
-    background: #fff;
-    box-shadow: -340px 0 0 320px #4FD1C5, inset 0 0 0 3px #4FD1C5;
-  }
+input[type="range"]:hover {
+  opacity: 0.9;
 }
 
-/* Firefox */
-input[type="range"]::-moz-range-progress {
-  background-color: #4FD1C5;
-}
-
-input[type="range"]::-moz-range-track {
-  background-color: #E5E7EB;
-  height: 40px;
-  border-radius: 500px;
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 40px;
-  height: 40px;
-  cursor: ew-resize;
-  background: #4FD1C5;
-  border: 3px solid #fff;
+/* Thumb - Chrome/Safari */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  background: white;
+  border: 3px solid #4FD1C5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: grab;
+  transition: all 0.2s ease;
 }
 
-/* Tooltip container */
-.slider-tooltip-container {
-  width: 100%;
-  max-width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-  position: relative;
-  pointer-events: none;
-  margin-top: -40px;
-  height: 40px;
+input[type="range"]:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.2);
+  box-shadow: 0 3px 12px rgba(79, 209, 197, 0.4);
 }
 
-.slider-tooltip-subcontainer {
-  width: 100%;
-  position: relative;
-  height: 100%;
+/* Thumb - Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #4FD1C5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: grab;
+  transition: all 0.2s ease;
 }
 
-.slider-tooltip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  color: #fff !important;
-  font-size: 12px;
-  font-weight: 600;
-  transform-origin: center -10px;
-  transform: translateX(-50%);
-  transition: 
-    margin-top 0.15s ease-in-out, 
-    opacity 0.15s ease-in-out,
-    left 0.1s ease-out;
-  z-index: 10;
+input[type="range"]:active::-moz-range-thumb {
+  cursor: grabbing;
+  transform: scale(1.2);
 }
 
-.slider-tooltip-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #4FD1C5;
-  border-radius: 0 50% 50% 50%;
-  transform: rotate(45deg);
-  z-index: -1;
+/* Track - Firefox */
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #E5E7EB;
 }
 
-/* Hide tooltip when not active */
-input[type="range"]:not(:active) + .slider-tooltip-container .slider-tooltip {
-  opacity: 0;
-  margin-top: -50px;
-}
-
-/* Show tooltip when active */
-input[type="range"]:active + .slider-tooltip-container .slider-tooltip {
-  opacity: 1;
-  margin-top: 0;
+/* Progress - Firefox */
+input[type="range"]::-moz-range-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: #4FD1C5;
 }

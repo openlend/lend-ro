@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 
 interface RangeSliderWithTooltipProps {
   value: number;
@@ -17,16 +17,13 @@ export default function RangeSliderWithTooltip({
   max,
   step,
   onChange,
-  formatValue
 }: RangeSliderWithTooltipProps) {
-  const [isActive, setIsActive] = useState(false);
   const sliderRef = useRef<HTMLInputElement>(null);
 
   const percent = ((value - min) / (max - min)) * 100;
-  const displayValue = formatValue ? formatValue(value) : value.toLocaleString('ro-RO');
 
   return (
-    <div className="relative">
+    <div className="relative py-2">
       <input
         ref={sliderRef}
         type="range"
@@ -35,27 +32,10 @@ export default function RangeSliderWithTooltip({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        onMouseDown={() => setIsActive(true)}
-        onMouseUp={() => setIsActive(false)}
-        onTouchStart={() => setIsActive(true)}
-        onTouchEnd={() => setIsActive(false)}
-        className="w-full"
+        style={{
+          '--value': `${percent}%`,
+        } as React.CSSProperties}
       />
-      <div className="slider-tooltip-container">
-        <div className="slider-tooltip-subcontainer">
-          <div 
-            className="slider-tooltip"
-            style={{ 
-              left: `${percent}%`,
-              opacity: isActive ? 1 : 0,
-              marginTop: isActive ? '0' : '-50px'
-            }}
-          >
-            {displayValue}
-            <span className="slider-tooltip-bg"></span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

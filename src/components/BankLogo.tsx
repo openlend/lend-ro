@@ -67,20 +67,21 @@ export default function BankLogo({ bankName, size = 'md' }: BankLogoProps) {
     text: bankName.substring(0, 2)
   };
   
+  // Logo-uri wide (rectangular, nu pătrate)
   const sizeClasses = {
-    sm: 'w-12 h-12',
-    md: 'w-16 h-16',
-    lg: 'w-20 h-20',
+    sm: 'h-10 w-auto max-w-[80px]',
+    md: 'h-12 w-auto max-w-[120px]',
+    lg: 'h-14 w-auto max-w-[140px]',
   };
 
   // If bank has local image, use it
   if (bank.image) {
     return (
-      <div className={`${sizeClasses[size]} flex items-center justify-center bg-white rounded-2xl p-3 shadow-md border border-gray-100`}>
+      <div className="flex items-center justify-center bg-white rounded-xl px-3 py-2 shadow-md border border-gray-100 min-h-[48px]">
         <img 
           src={bank.image} 
           alt={`${bankName} logo`}
-          className="w-full h-full object-contain"
+          className={`${sizeClasses[size]} object-contain`}
           loading="lazy"
           onError={(e) => {
             // Fallback to gradient if local image fails
@@ -88,7 +89,7 @@ export default function BankLogo({ bankName, size = 'md' }: BankLogoProps) {
             const parent = target.parentElement;
             if (parent) {
               target.style.display = 'none';
-              parent.className = `${sizeClasses[size]} ${bank.gradient} rounded-2xl flex items-center justify-center font-black text-white shadow-lg`;
+              parent.className = `w-16 h-16 ${bank.gradient} rounded-2xl flex items-center justify-center font-black text-white shadow-lg text-sm`;
               parent.textContent = bank.text;
             }
           }}
@@ -97,10 +98,10 @@ export default function BankLogo({ bankName, size = 'md' }: BankLogoProps) {
     );
   }
 
-  // Gradient + initials fallback
+  // Gradient + initials fallback (pătrat pentru consistency)
   return (
     <div
-      className={`${sizeClasses[size]} ${bank.gradient} rounded-2xl flex items-center justify-center font-black text-white shadow-lg hover:shadow-xl transition-all text-sm`}
+      className={`w-16 h-16 ${bank.gradient} rounded-2xl flex items-center justify-center font-black text-white shadow-lg hover:shadow-xl transition-all text-sm`}
     >
       {bank.text}
     </div>
