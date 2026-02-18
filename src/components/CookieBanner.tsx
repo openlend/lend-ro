@@ -40,13 +40,13 @@ export default function CookieBanner() {
           <div className="flex gap-4">
             <button
               onClick={declineCookies}
-              className="px-6 py-3 border-2 border-gray-300 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-all"
+              className="px-6 py-3 bg-white border-2 border-gray-300 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-all"
             >
               Refuz
             </button>
             <button
               onClick={acceptCookies}
-              className="px-8 py-3 bg-primary-500 text-white rounded-xl font-bold hover:bg-primary-600 transition-all shadow-lg"
+              className="px-8 py-3 bg-sage text-white rounded-xl font-bold hover:opacity-90 transition-all shadow-lg"
             >
               Accept
             </button>
