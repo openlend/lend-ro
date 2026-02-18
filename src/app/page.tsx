@@ -5,6 +5,7 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import StructuredData from '@/components/StructuredData';
+import ReadMore from '@/components/ReadMore';
 
 export default function Home() {
   return (
@@ -99,6 +100,52 @@ export default function Home() {
               <p className="text-gray-600 text-lg max-w-3xl mx-auto">
                 💡 <strong>Important:</strong> Ne plătesc băncile prin comision, nu tu. Nu plătești nimic pentru comparare sau pentru ofertele primite.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Broker Benefits Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="text-center mb-12">
+              <span className="inline-block bg-sage/10 text-sage px-4 py-2 rounded-full text-sm font-bold mb-4">
+                💼 Expertiză profesională
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+                De ce să lucrezi cu un Broker autorizat?
+              </h2>
+              <p className="text-xl text-gray-600">
+                Procesul de creditare devine simplu, rapid și <strong>complet gratuit</strong> pentru tine
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-sage/5 to-mint/5 rounded-3xl p-8 md:p-12 border-2 border-sage/10">
+              <ReadMore 
+                text={`✅ Economisești timp prețios - nu mai trebuie să mergi la toate băncile pentru a-ți face scoring. Primești rapid varianta care ți se potrivește, fără a diminua scorul FICO.
+
+✅ Servicii gratuite - colaborarea cu un broker autorizat este complet gratuită pentru tine. Băncile îi plătesc comisionul, nu tu.
+
+✅ Consultanță completă - nu trebuie să faci nimic. Brokerul se ocupă de întreg procesul de creditare, oferindu-ți consultanță financiară, juridică și de asigurări.
+
+✅ Suport pe tot parcursul procesului - brokerul gestionează relația cu banca pe întreaga durată a procesului de creditare și intervine în diverse situații limită apărute.
+
+✅ Negociere în favoarea ta - brokerul negociază cu băncile pentru a obține cele mai bune condiții și costuri reduse, atunci când profilul tău este bun.`}
+                maxWords={75}
+              />
+              
+              <div className="mt-8 pt-8 border-t-2 border-sage/10">
+                <p className="text-gray-600 text-center mb-6">
+                  🎯 <strong>Peste 5 brokeri certificați</strong> vor primi solicitarea ta și îți vor trimite oferte competitive în maximum 24 de ore
+                </p>
+                <div className="text-center">
+                  <a 
+                    href="#calculator" 
+                    className="inline-block bg-sage text-white px-10 py-5 rounded-2xl font-black text-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+                  >
+                    Începe calculul acum →
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -4,10 +4,6 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: 'Ce este un credit ipotecar?',
-    answer: 'Un credit ipotecar este un împrumut pe termen lung (5-30 ani) garantat cu o proprietate imobiliară (casă sau apartament). Banca îți oferă banii pentru achiziția locuinței, iar tu rambursezi suma împrumutată în rate lunare fixe sau variabile. Dacă nu mai poți plăti ratele, banca poate executa ipoteca și vinde proprietatea pentru recuperarea banilor.'
-  },
-  {
     question: 'Cât avans trebuie să am pentru un credit ipotecar?',
     answer: 'Avansul minim depinde dacă este prima ta proprietate sau nu. Pentru prima casă, majoritatea băncilor cer un avans minim de 5-15%. Pentru a doua proprietate, avansul minim este de 25%. Cu cât avansul este mai mare, cu atât rata lunară va fi mai mică și vei avea acces la dobânzi mai avantajoase.'
   },
@@ -24,24 +20,8 @@ const faqs = [
     answer: 'Dobânda fixă rămâne constantă pe o perioadă de 1-10 ani (de obicei 3-5 ani), ceea ce îți oferă predictibilitate. Dobânda variabilă se schimbă trimestrial în funcție de IRCC (la credite în lei) sau EURIBOR (la credite în euro). După perioada cu dobândă fixă, majoritatea creditelor trec pe dobândă variabilă. Dobânda fixă este recomandată când indicii sunt ridicați, iar cea variabilă când sunt scăzuți.'
   },
   {
-    question: 'Pot obține un credit ipotecar dacă am venituri din străinătate?',
-    answer: 'Da, majoritatea băncilor acceptă venituri din străinătate pentru creditele ipotecare. Vei avea nevoie de: contract de muncă apostilat/tradus autorizat, dovada plății salariului (extrase bancare), declarație fiscală din țara respectivă. Unele bănci cer și vechime minimă de 6-12 luni la locul de muncă actual.'
-  },
-  {
     question: 'Cât durează aprobarea unui credit ipotecar?',
     answer: 'Procesul de aprobare durează în medie 7-14 zile lucrătoare. Include: evaluarea dosarului (1-3 zile), evaluarea proprietății (2-5 zile), aprobarea finală (3-7 zile). Dacă actele sunt complete și bine pregătite, procesul poate fi mai rapid. După aprobare, urmează semnarea contractului la notar și deblocarea banilor.'
-  },
-  {
-    question: 'Pot face rambursări anticipate fără penalizări?',
-    answer: 'Da, conform legii, băncile din România nu au voie să perceapă comision pentru rambursarea anticipată a creditelor ipotecare în lei. La creditele în euro, pot exista comisioane de până la 1-2% din suma rambursată anticipat în primii ani. Verifică contractul de credit pentru detalii specifice fiecărei bănci.'
-  },
-  {
-    question: 'Ce documente sunt necesare pentru un credit ipotecar?',
-    answer: 'Documente de bază: carte de identitate, dovada veniturilor (adeverință salariu, bilanț contabil pentru PFA/SRL, extras pensie), extras Biroul de Credit, act de proprietate sau antecontract pentru imobilul achiziționat. Unele bănci pot cere documente suplimentare în funcție de situația ta specifică (declarații fiscale, extrase cont, etc.).'
-  },
-  {
-    question: 'Pot lua credit ipotecar pentru construcție casă?',
-    answer: 'Da, majoritatea băncilor oferă credite ipotecare pentru construcție. În acest caz, banii se deblochează în tranșe pe măsură ce construcția avansează (se numește credit cu decont progresiv). Vei avea nevoie de: teren în proprietate, proiect autorizat, deviz detaliat, firmă de construcții (cu contract). Dobânzile și condițiile sunt similare cu cele pentru achiziție.'
   }
 ];
 
@@ -53,10 +33,10 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Întrebări frecvente despre credite ipotecare
+            Întrebări frecvente
           </h2>
           <p className="text-lg text-gray-600">
-            Răspunsuri clare la cele mai comune întrebări despre calculatorul de credit și procesul de creditare
+            Răspunsuri rapide la cele mai importante întrebări despre credite ipotecare
           </p>
         </div>
 
