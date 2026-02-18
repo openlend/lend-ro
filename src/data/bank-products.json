@@ -3,7 +3,7 @@
   "ircc_current": 6.72,
   "euribor_6m_current": 2.5,
   "total_banks": 12,
-  "total_products": 13,
+  "total_products": 16,
   "banks": [
     {
       "name": "BCR",
@@ -62,9 +62,9 @@
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 3,
+        "variable_margin": 3.15,
         "index_type": "IRCC",
-        "raw": "IRCC + 3%"
+        "raw": "IRCC + 3.15%"
       }
     },
     {
@@ -74,33 +74,69 @@
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 2,
+        "variable_margin": 2.95,
         "index_type": "IRCC",
-        "raw": "IRCC + 2%"
+        "raw": "IRCC + 2.95%"
       }
     },
     {
       "bank": "GARANTI",
-      "product_type": "HL SALARY",
+      "product_type": "HL STANDARD - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
+        "fixed_rate": 7.109999999999999,
+        "fixed_years": 3,
+        "variable_margin": 3,
+        "index_type": "IRCC",
+        "raw": "7.11% fix 3 ani, apoi IRCC + 3.00%"
+      }
+    },
+    {
+      "bank": "GARANTI",
+      "product_type": "HL SALARY - FIXA 3 ANI",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": 6.09,
+        "fixed_years": 3,
         "variable_margin": 2.4,
         "index_type": "IRCC",
-        "raw": "IRCC + 2.4%"
+        "raw": "6.09% fix 3 ani, apoi IRCC + 2.40%"
+      }
+    },
+    {
+      "bank": "GARANTI",
+      "product_type": "HL VIP - FIXA 3 ANI",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": 5.91,
+        "fixed_years": 3,
+        "variable_margin": 2.25,
+        "index_type": "IRCC",
+        "raw": "5.91% fix 3 ani, apoi IRCC + 2.25%"
       }
     },
     {
       "bank": "BCR",
-      "product_type": "Prima Casa 1%",
+      "product_type": "Casa Mea - FIXA 3 ANI standard",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 3,
+        "fixed_rate": 6.19,
         "fixed_years": 3,
-        "variable_margin": 2.7,
+        "variable_margin": 3.5,
         "index_type": "IRCC",
-        "raw": "3% fix 3 ani, apoi IRCC + 2.7%"
+        "raw": "6.19% fix 3 ani, apoi IRCC + 3.5%"
+      }
+    },
+    {
+      "bank": "BCR",
+      "product_type": "Casa Mea PRO - FIXA 3 ANI",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": 5.49,
+        "fixed_years": 3,
+        "variable_margin": 2.8,
+        "index_type": "IRCC",
+        "raw": "5.49% fix 3 ani, apoi IRCC + 2.8%"
       }
     },
     {
@@ -110,9 +146,9 @@
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 2.95,
+        "variable_margin": 3.5,
         "index_type": "IRCC",
-        "raw": "IRCC + 2.95%"
+        "raw": "IRCC + 3.5%"
       }
     },
     {
@@ -129,7 +165,7 @@
     },
     {
       "bank": "BRD",
-      "product_type": "Credit ipotecar",
+      "product_type": "Credit ipotecar standard",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": null,
@@ -137,6 +173,18 @@
         "variable_margin": 2.8,
         "index_type": "IRCC",
         "raw": "IRCC + 2.8%"
+      }
+    },
+    {
+      "bank": "RAIFFEISEN",
+      "product_type": "Credit ipotecar standard",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.85,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.85%"
       }
     },
     {
@@ -185,18 +233,6 @@
         "variable_margin": 3,
         "index_type": "IRCC",
         "raw": "IRCC + 3.0%"
-      }
-    },
-    {
-      "bank": "RAIFFEISEN",
-      "product_type": "Credit ipotecar standard",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
-        "variable_margin": 2.85,
-        "index_type": "IRCC",
-        "raw": "IRCC + 2.85%"
       }
     },
     {
