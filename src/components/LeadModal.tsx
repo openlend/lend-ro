@@ -15,6 +15,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
     email: '',
     phone: '',
     propertyType: 'apartament',
+    gdprConsent: false, // GDPR explicit consent
     honeypot: '', // Bot trap - hidden from users
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -75,6 +76,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
             email: '', 
             phone: '', 
             propertyType: 'apartament',
+            gdprConsent: false,
             honeypot: '',
           });
           setErrorMessage('');
@@ -224,6 +226,32 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
                 aria-hidden="true"
               />
 
+              {/* GDPR Explicit Consent Checkbox */}
+              <div className="bg-gray-50 rounded-xl p-4 border-2 border-gray-200">
+                <div className="flex items-start gap-3">
+                  <input 
+                    type="checkbox" 
+                    id="gdprConsent" 
+                    required 
+                    checked={formData.gdprConsent}
+                    onChange={(e) => setFormData({...formData, gdprConsent: e.target.checked})}
+                    className="mt-1 w-5 h-5 rounded border-2 border-gray-300 text-mint focus:ring-mint flex-shrink-0"
+                  />
+                  <label htmlFor="gdprConsent" className="text-sm text-gray-700 leading-relaxed cursor-pointer">
+                    Sunt de acord ca datele mele personale să fie prelucrate conform{' '}
+                    <a 
+                      href="/politica-confidentialitate" 
+                      target="_blank"
+                      className="text-mint underline font-semibold hover:text-mint/80"
+                    >
+                      Politicii de Confidențialitate
+                    </a>
+                    {' '}și să fie transmise către brokeri certificați pentru obținerea de oferte competitive.{' '}
+                    <span className="text-red-500 font-bold">*</span>
+                  </label>
+                </div>
+              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -252,14 +280,13 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
 
               <div className="bg-mint/5 rounded-xl p-4 border border-mint/20">
                 <p className="text-xs text-gray-600 text-center leading-relaxed">
-                  <strong>100% Gratuit.</strong> Ne plătesc băncile, nu tu. Prin trimiterea cererii, accepți{' '}
-                  <a href="/termeni-conditii" className="text-sage underline font-semibold hover:text-sage/80">
+                  <strong>🔒 100% Gratuit și Confidențial.</strong> Ne plătesc băncile, nu tu. 
+                  Datele tale sunt protejate conform GDPR. 
+                  Consultă{' '}
+                  <a href="/termeni-conditii" target="_blank" className="text-sage underline font-semibold hover:text-sage/80">
                     Termenii și Condițiile
                   </a>{' '}
-                  și{' '}
-                  <a href="/politica-confidentialitate" className="text-sage underline font-semibold hover:text-sage/80">
-                    Politica de Confidențialitate
-                  </a>.
+                  pentru mai multe detalii.
                 </p>
               </div>
             </form>

@@ -261,6 +261,29 @@ export async function POST(request: Request) {
                   <div class="footer">
                     <p>Acesta este un email automat generat de platforma <strong>lend.ro</strong></p>
                   </div>
+
+                  <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #E5E7EB; text-align: center; color: #9CA3AF; font-size: 12px; line-height: 1.6;">
+                    <p style="margin-bottom: 12px;">
+                      <strong>GDPR - Drepturile Utilizatorului</strong><br>
+                      Utilizatorul a solicitat oferte de credit ipotecar pe lend.ro la data ${new Date(leadData.timestamp).toLocaleString('ro-RO')}.
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                      Pentru retragere consimțământ sau ștergere date:<br>
+                      <a href="https://lend.ro/retragere-consimtamant?email=${encodeURIComponent(sanitizedEmail)}&id=${leadData.id}" 
+                         style="color: #4FD1C5; text-decoration: underline; font-weight: 600;">
+                        https://lend.ro/retragere-consimtamant
+                      </a>
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                      Sau contactați: 
+                      <a href="mailto:gdpr@lend.ro" style="color: #4FD1C5; text-decoration: underline;">gdpr@lend.ro</a>
+                    </p>
+                    <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E7EB;">
+                      <strong>lend.ro</strong> | București, România<br>
+                      <a href="https://lend.ro/politica-confidentialitate" style="color: #4FD1C5; text-decoration: none;">Politica de Confidențialitate</a> | 
+                      <a href="https://lend.ro/termeni-conditii" style="color: #4FD1C5; text-decoration: none;">Termeni și Condiții</a>
+                    </p>
+                  </div>
                 </div>
               </body>
             </html>
