@@ -82,11 +82,11 @@ export default function Calculator() {
         <h2 className="card-title text-4xl font-bold mb-4">Calculează rata lunară</h2>
         <p className="text-base-content/70 mb-6">Ajustează parametrii și vezi instant cele mai bune oferte</p>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <div>
-            <div className="flex justify-between mb-2">
-              <span className="font-bold">Preț proprietate</span>
-              <span className="text-2xl font-bold text-mint">{propertyPrice.toLocaleString('ro-RO')} RON</span>
+            <div className="flex justify-between items-baseline mb-1 md:mb-2">
+              <span className="text-sm md:text-base font-semibold md:font-bold">Preț proprietate</span>
+              <span className="text-xl md:text-2xl font-bold text-mint">{propertyPrice.toLocaleString('ro-RO')} RON</span>
             </div>
             <RangeSliderWithTooltip
               value={propertyPrice}
@@ -101,15 +101,15 @@ export default function Calculator() {
               <span>1.500.000</span>
             </div>
             <div className="mt-2 text-center">
-              <span className="text-sm opacity-70">Suma credit: </span>
-              <span className="text-lg font-bold text-mint">{loanAmount.toLocaleString('ro-RO')} RON</span>
+              <span className="text-xs md:text-sm opacity-70">Suma credit: </span>
+              <span className="text-base md:text-lg font-bold text-mint">{loanAmount.toLocaleString('ro-RO')} RON</span>
             </div>
           </div>
 
           <div>
-            <div className="flex justify-between mb-2">
-              <span className="font-bold">Venit lunar net</span>
-              <span className="text-2xl font-bold text-mint">{salary.toLocaleString('ro-RO')} RON</span>
+            <div className="flex justify-between items-baseline mb-1 md:mb-2">
+              <span className="text-sm md:text-base font-semibold md:font-bold">Venit lunar net</span>
+              <span className="text-xl md:text-2xl font-bold text-mint">{salary.toLocaleString('ro-RO')} RON</span>
             </div>
             <RangeSliderWithTooltip
               value={salary}
@@ -126,9 +126,9 @@ export default function Calculator() {
           </div>
 
           <div>
-            <div className="flex justify-between mb-2">
-              <span className="font-bold">Perioadă creditare</span>
-              <span className="text-2xl font-bold text-mint">{loanTerm} ani</span>
+            <div className="flex justify-between items-baseline mb-1 md:mb-2">
+              <span className="text-sm md:text-base font-semibold md:font-bold">Perioadă creditare</span>
+              <span className="text-xl md:text-2xl font-bold text-mint">{loanTerm} ani</span>
             </div>
             <RangeSliderWithTooltip
               value={loanTerm}
@@ -158,16 +158,16 @@ export default function Calculator() {
               className="w-5 h-5 rounded border-2 border-gray-300"
               style={{ accentColor: '#4FD1C5' }}
             />
-            <label htmlFor="firstProperty" className="text-sm text-gray-700 cursor-pointer">
-              Prima proprietate imobiliară <span className="text-gray-500">(avans minim {minDownPayment}%)</span>
+            <label htmlFor="firstProperty" className="text-xs md:text-sm text-gray-700 cursor-pointer leading-tight">
+              Prima proprietate <span className="text-gray-500">(avans min. {minDownPayment}%)</span>
             </label>
           </div>
 
           <div>
-            <div className="flex justify-between mb-2">
-              <span className="font-bold">Avans</span>
+            <div className="flex justify-between items-baseline mb-1 md:mb-2">
+              <span className="text-sm md:text-base font-semibold md:font-bold">Avans</span>
               <div className="text-right">
-                <span className="text-2xl font-bold text-mint">{downPayment}%</span>
+                <span className="text-xl md:text-2xl font-bold text-mint">{downPayment}%</span>
                 <div className="text-xs opacity-70">{(propertyPrice * downPayment / 100).toLocaleString('ro-RO')} RON</div>
               </div>
             </div>
