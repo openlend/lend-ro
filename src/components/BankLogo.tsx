@@ -45,6 +45,7 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     text: 'EX'
   },
   'PATRIA BANK': { 
+    image: '/bank-logos/patria.png',
     gradient: 'bg-gradient-to-br from-red-600 to-red-700',
     text: 'PB'
   },
