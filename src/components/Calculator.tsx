@@ -15,6 +15,7 @@ export default function Calculator() {
   const [loanAmount, setLoanAmount] = useState(400000);
   const [salary, setSalary] = useState(10000);
   const [loanTerm, setLoanTerm] = useState(25);
+  const [downPayment, setDownPayment] = useState(20);
   const [results, setResults] = useState<CalculatorResult[]>([]);
 
   const calculateMonthlyPayment = (principal: number, annualRate: number, years: number): number => {
@@ -131,6 +132,26 @@ export default function Calculator() {
             <div className="flex justify-between text-xs opacity-50">
               <span>5 ani</span>
               <span>30 ani</span>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex justify-between mb-2">
+              <span className="font-bold">Avans (%)</span>
+              <span className="text-2xl font-black text-warning">{downPayment}%</span>
+            </div>
+            <input
+              type="range"
+              min="5"
+              max="50"
+              step="5"
+              value={downPayment}
+              onChange={(e) => setDownPayment(Number(e.target.value))}
+              className="range range-warning"
+            />
+            <div className="flex justify-between text-xs opacity-50">
+              <span>5%</span>
+              <span>50%</span>
             </div>
           </div>
 

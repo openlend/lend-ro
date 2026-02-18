@@ -3,7 +3,7 @@
   "ircc_current": 6.72,
   "euribor_6m_current": 2.5,
   "total_banks": 12,
-  "total_products": 71,
+  "total_products": 76,
   "banks": [
     {
       "name": "BT",
@@ -905,6 +905,63 @@
         "variable_margin": 2.19,
         "index_type": "IRCC",
         "raw": "4.89% RATA DOBANDA FIXA; IRCC+2.19%"
+      }
+    },
+    {
+      "bank": "ING",
+      "product_type": "Credit ipotecar STANDARD",
+      "rate_type": "Cu salariu, cu asig viata",
+      "rates": {
+        "fixed_rate": 6.29,
+        "fixed_years": 5,
+        "variable_margin": 2.29,
+        "index_type": "IRCC",
+        "raw": "6.29% FIXA 5 ani, apoi IRCC + 2.29%"
+      }
+    },
+    {
+      "bank": "ING",
+      "product_type": "Credit ipotecar ECO (clasa A)",
+      "rate_type": "Cu salariu, cu asig viata",
+      "rates": {
+        "fixed_rate": 5.99,
+        "fixed_years": 5,
+        "variable_margin": 2.09,
+        "index_type": "IRCC",
+        "raw": "5.99% FIXA 5 ani, apoi IRCC + 2.09%"
+      }
+    },
+    {
+      "bank": "GARANTI",
+      "product_type": "Home Loan (HL)",
+      "rate_type": "STANDARD",
+      "rates": {
+        "fixed_rate": null,
+        "variable_margin": 3.25,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.25%"
+      }
+    },
+    {
+      "bank": "GARANTI",
+      "product_type": "Green Power Loan (GPL+)",
+      "rate_type": "STANDARD",
+      "rates": {
+        "fixed_rate": null,
+        "variable_margin": 2.95,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.95%"
+      }
+    },
+    {
+      "bank": "RAIFFEISEN",
+      "product_type": "Credit ipotecar STANDARD",
+      "rate_type": "STANDARD",
+      "rates": {
+        "fixed_rate": null,
+        "variable_margin": 3.1,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.10%"
       }
     }
   ]
