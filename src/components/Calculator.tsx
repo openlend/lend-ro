@@ -93,27 +93,42 @@ export default function Calculator() {
       }
     });
 
-    // Show all unique banks (best offer from each)
-    Array.from(bestPerBank.values()).forEach((product: any) => {
-      const { bank, product_type, rates } = product;
+    // Show ALL banks from bankData.banks (not just those with products)
+    bankData.banks.forEach((bankEntry: any) => {
+      const bankName = bankEntry.name;
+      const product = bestPerBank.get(bankName);
       
-      // Monthly payment: use fixed rate if available, else current variable rate
-      const monthlyRate = rates.fixed_rate || (bankData.ircc_current + rates.variable_margin);
-      const monthlyPayment = calculateMonthlyPayment(loanAmount, monthlyRate, loanTerm);
-      
-      // DTI: ALWAYS use worst-case variable rate (max margin without benefits)
-      const worstCaseMargin = maxMarginPerBank.get(bank) || rates.variable_margin;
-      const worstCaseRate = bankData.ircc_current + worstCaseMargin;
-      const worstCasePayment = calculateMonthlyPayment(loanAmount, worstCaseRate, loanTerm);
-      const debtRatio = (worstCasePayment / salary) * 100;
+      if (product) {
+        // Bank has products - calculate normally
+        const { product_type, rates } = product;
+        
+        // Monthly payment: use fixed rate if available, else current variable rate
+        const monthlyRate = rates.fixed_rate || (bankData.ircc_current + rates.variable_margin);
+        const monthlyPayment = calculateMonthlyPayment(loanAmount, monthlyRate, loanTerm);
+        
+        // DTI: ALWAYS use worst-case variable rate (max margin without benefits)
+        const worstCaseMargin = maxMarginPerBank.get(bankName) || rates.variable_margin;
+        const worstCaseRate = bankData.ircc_current + worstCaseMargin;
+        const worstCasePayment = calculateMonthlyPayment(loanAmount, worstCaseRate, loanTerm);
+        const debtRatio = (worstCasePayment / salary) * 100;
 
-      calculatedResults.push({
-        monthlyPayment,
-        debtRatio,
-        eligible: debtRatio <= 40,
-        bankName: bank,
-        productType: product_type,
-      });
+        calculatedResults.push({
+          monthlyPayment,
+          debtRatio,
+          eligible: debtRatio <= 40,
+          bankName,
+          productType: product_type,
+        });
+      } else {
+        // Bank has NO products - show "Request offer" placeholder
+        calculatedResults.push({
+          monthlyPayment: 0, // 0 means "no data available"
+          debtRatio: 0,
+          eligible: true, // Allow showing the card
+          bankName,
+          productType: 'Date indisponibile',
+        });
+      }
     });
 
     setResults(calculatedResults);
@@ -291,37 +306,56 @@ export default function Calculator() {
                   {/* Rată Lunară */}
                   <div className="text-center mb-4 py-4 bg-gray-50 rounded-xl">
                     <div className="text-xs text-gray-500 uppercase tracking-wide font-bold mb-1">Rată lunară</div>
-                    <div className="text-4xl font-black text-gray-900 mb-1">
-                      {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
-                    </div>
-                    <div className="text-sm text-gray-600 font-semibold">RON / lună</div>
+                    {result.monthlyPayment > 0 ? (
+                      <>
+                        <div className="text-4xl font-black text-gray-900 mb-1">
+                          {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
+                        </div>
+                        <div className="text-sm text-gray-600 font-semibold">RON / lună</div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-2xl font-black text-gray-400 mb-1">
+                          Date indisponibile
+                        </div>
+                        <div className="text-sm text-gray-500">Solicită ofertă personalizată</div>
+                      </>
+                    )}
                   </div>
 
                   {/* Îndatorare + Eligibil */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-14 h-14 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0 border-2 border-mint/20">
-                        <span className="text-mint font-black text-base">{result.debtRatio.toFixed(0)}%</span>
+                  {result.monthlyPayment > 0 ? (
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-14 h-14 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0 border-2 border-mint/20">
+                          <span className="text-mint font-black text-base">{result.debtRatio.toFixed(0)}%</span>
+                        </div>
+                        <span className="text-sm text-gray-600 font-semibold">îndatorare</span>
                       </div>
-                      <span className="text-sm text-gray-600 font-semibold">îndatorare</span>
+                      
+                      {result.eligible ? (
+                        <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-bold text-sm border-2 border-sage/20">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Eligibil
+                        </div>
+                      ) : (
+                        <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-bold text-sm border-2 border-red-200">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                          Depășit
+                        </div>
+                      )}
                     </div>
-                    
-                    {result.eligible ? (
-                      <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-bold text-sm border-2 border-sage/20">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        Eligibil
+                  ) : (
+                    <div className="mb-4 text-center py-2">
+                      <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-600 px-4 py-2 rounded-full font-semibold text-sm">
+                        📊 Produse în actualizare
                       </div>
-                    ) : (
-                      <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-bold text-sm border-2 border-red-200">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                        Depășit
-                      </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
 
                   {/* Buton Aplică */}
                   <button
@@ -343,12 +377,18 @@ export default function Calculator() {
                       <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
                         {result.productType.replace(/\*+/g, "").substring(0, 35).trim()}
                       </p>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0">
-                          <span className="text-mint font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
+                      {result.monthlyPayment > 0 ? (
+                        <div className="flex items-center gap-2 mt-2">
+                          <div className="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0">
+                            <span className="text-mint font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
+                          </div>
+                          <span className="text-xs text-gray-500">îndatorare</span>
                         </div>
-                        <span className="text-xs text-gray-500">îndatorare</span>
-                      </div>
+                      ) : (
+                        <div className="mt-2 text-xs text-gray-400">
+                          Date în curs de actualizare
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -360,24 +400,38 @@ export default function Calculator() {
                   {/* Rate + Badge */}
                   <div className="md:col-span-4 text-left">
                     <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Rată lunară</div>
-                    <div className="text-5xl font-black text-gray-900 mb-1">
-                      {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
-                    </div>
-                    <div className="text-sm text-gray-600 mb-3">RON / lună</div>
-                    {result.eligible ? (
-                      <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-semibold text-sm">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        Eligibil
-                      </div>
+                    {result.monthlyPayment > 0 ? (
+                      <>
+                        <div className="text-5xl font-black text-gray-900 mb-1">
+                          {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
+                        </div>
+                        <div className="text-sm text-gray-600 mb-3">RON / lună</div>
+                        {result.eligible ? (
+                          <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-semibold text-sm">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            Eligibil
+                          </div>
+                        ) : (
+                          <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-semibold text-sm">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                            Depășit
+                          </div>
+                        )}
+                      </>
                     ) : (
-                      <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-semibold text-sm">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                        Depășit
-                      </div>
+                      <>
+                        <div className="text-3xl font-black text-gray-400 mb-1">
+                          Date indisponibile
+                        </div>
+                        <div className="text-sm text-gray-500 mb-3">Solicită ofertă personalizată</div>
+                        <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-600 px-4 py-2 rounded-full font-semibold text-sm">
+                          📊 Produse în actualizare
+                        </div>
+                      </>
                     )}
                   </div>
 

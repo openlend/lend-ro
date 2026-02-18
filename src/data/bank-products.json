@@ -2,7 +2,7 @@
   "date_updated": 2026,
   "ircc_current": 6.72,
   "euribor_6m_current": 2.5,
-  "total_banks": 6,
+  "total_banks": 12,
   "total_products": 15,
   "banks": [
     {
@@ -28,6 +28,30 @@
     {
       "name": "RAIFFEISEN",
       "row": 7
+    },
+    {
+      "name": "UNICREDIT",
+      "row": 8
+    },
+    {
+      "name": "LIBRA",
+      "row": 9
+    },
+    {
+      "name": "CREDIT-EUROPE",
+      "row": 10
+    },
+    {
+      "name": "PATRIA",
+      "row": 11
+    },
+    {
+      "name": "EXIM",
+      "row": 12
+    },
+    {
+      "name": "INTESA",
+      "row": 13
     }
   ],
   "products": [
