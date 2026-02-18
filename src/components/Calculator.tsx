@@ -12,11 +12,15 @@ interface CalculatorResult {
 }
 
 export default function Calculator() {
-  const [loanAmount, setLoanAmount] = useState(400000);
+  const [propertyPrice, setPropertyPrice] = useState(500000);
   const [salary, setSalary] = useState(10000);
   const [loanTerm, setLoanTerm] = useState(25);
   const [downPayment, setDownPayment] = useState(20);
+  const [isFirstProperty, setIsFirstProperty] = useState(true);
   const [results, setResults] = useState<CalculatorResult[]>([]);
+
+  const minDownPayment = isFirstProperty ? 5 : 25;
+  const loanAmount = propertyPrice * (1 - downPayment / 100);
 
   const calculateMonthlyPayment = (principal: number, annualRate: number, years: number): number => {
     const monthlyRate = annualRate / 12 / 100;
@@ -66,7 +70,7 @@ export default function Calculator() {
     });
 
     setResults(calculatedResults);
-  }, [loanAmount, salary, loanTerm]);
+  }, [propertyPrice, downPayment, salary, loanTerm]);
 
   return (
     <div className="card bg-base-100 shadow-2xl">
@@ -77,21 +81,25 @@ export default function Calculator() {
         <div className="space-y-6">
           <div>
             <div className="flex justify-between mb-2">
-              <span className="font-bold">Suma credit</span>
-              <span className="text-2xl font-black text-primary">{loanAmount.toLocaleString('ro-RO')} RON</span>
+              <span className="font-bold">Preț proprietate</span>
+              <span className="text-2xl font-black text-primary">{propertyPrice.toLocaleString('ro-RO')} RON</span>
             </div>
             <input
               type="range"
-              min="50000"
-              max="1000000"
+              min="100000"
+              max="1500000"
               step="10000"
-              value={loanAmount}
-              onChange={(e) => setLoanAmount(Number(e.target.value))}
+              value={propertyPrice}
+              onChange={(e) => setPropertyPrice(Number(e.target.value))}
               className="range range-primary"
             />
             <div className="flex justify-between text-xs opacity-50">
-              <span>50.000</span>
-              <span>1.000.000</span>
+              <span>100.000</span>
+              <span>1.500.000</span>
+            </div>
+            <div className="mt-2 text-center">
+              <span className="text-sm opacity-70">Suma credit: </span>
+              <span className="text-lg font-bold text-success">{loanAmount.toLocaleString('ro-RO')} RON</span>
             </div>
           </div>
 
@@ -135,14 +143,35 @@ export default function Calculator() {
             </div>
           </div>
 
+          <div className="form-control">
+            <label className="label cursor-pointer justify-start gap-3">
+              <input 
+                type="checkbox" 
+                checked={isFirstProperty}
+                onChange={(e) => {
+                  setIsFirstProperty(e.target.checked);
+                  // If unchecked and down payment < 25%, force to 25%
+                  if (!e.target.checked && downPayment < 25) {
+                    setDownPayment(25);
+                  }
+                }}
+                className="checkbox checkbox-primary" 
+              />
+              <span className="label-text font-bold">Prima proprietate imobiliară (avans minim {minDownPayment}%)</span>
+            </label>
+          </div>
+
           <div>
             <div className="flex justify-between mb-2">
-              <span className="font-bold">Avans (%)</span>
-              <span className="text-2xl font-black text-warning">{downPayment}%</span>
+              <span className="font-bold">Avans</span>
+              <div className="text-right">
+                <span className="text-2xl font-black text-warning">{downPayment}%</span>
+                <div className="text-xs opacity-70">{(propertyPrice * downPayment / 100).toLocaleString('ro-RO')} RON</div>
+              </div>
             </div>
             <input
               type="range"
-              min="5"
+              min={minDownPayment}
               max="50"
               step="5"
               value={downPayment}
@@ -150,16 +179,9 @@ export default function Calculator() {
               className="range range-warning"
             />
             <div className="flex justify-between text-xs opacity-50">
-              <span>5%</span>
+              <span>{minDownPayment}%</span>
               <span>50%</span>
             </div>
-          </div>
-
-          <div className="form-control">
-            <label className="label cursor-pointer justify-start gap-3">
-              <input type="checkbox" defaultChecked className="checkbox checkbox-primary" />
-              <span className="label-text font-bold">Prima proprietate imobiliară</span>
-            </label>
           </div>
         </div>
 
