@@ -193,39 +193,97 @@ export default function Calculator() {
             {results.map((result, index) => (
               <div 
                 key={index} 
-                className="group bg-white rounded-xl md:rounded-3xl p-3 md:p-6 shadow-md md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-mint/30 md:hover:-translate-y-1"
+                className="group bg-white rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-lg md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-mint/30 md:hover:-translate-y-1"
               >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-center">
+                {/* Mobile Layout */}
+                <div className="md:hidden">
+                  {/* Logo + Nume */}
+                  <div className="flex flex-col items-center gap-3 mb-4">
+                    <BankLogo bankName={result.bankName} size="md" />
+                    <div className="text-center">
+                      <h4 className="font-black text-xl text-gray-900 mb-1">{result.bankName}</h4>
+                      <p className="text-sm text-gray-600 font-medium">
+                        {result.productType.replace(/\*+/g, "").substring(0, 40).trim()}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Rată Lunară */}
+                  <div className="text-center mb-4 py-4 bg-gray-50 rounded-xl">
+                    <div className="text-xs text-gray-500 uppercase tracking-wide font-bold mb-1">Rată lunară</div>
+                    <div className="text-4xl font-black text-gray-900 mb-1">
+                      {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
+                    </div>
+                    <div className="text-sm text-gray-600 font-semibold">RON / lună</div>
+                  </div>
+
+                  {/* Îndatorare + Eligibil */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-14 h-14 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0 border-2 border-mint/20">
+                        <span className="text-mint font-black text-base">{result.debtRatio.toFixed(0)}%</span>
+                      </div>
+                      <span className="text-sm text-gray-600 font-semibold">îndatorare</span>
+                    </div>
+                    
+                    {result.eligible ? (
+                      <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-bold text-sm border-2 border-sage/20">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        Eligibil
+                      </div>
+                    ) : (
+                      <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-bold text-sm border-2 border-red-200">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Depășit
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Buton Aplică */}
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full bg-mint text-white px-6 py-4 rounded-xl text-base font-black hover:bg-mint/90 transition-all shadow-md"
+                  >
+                    Aplică →
+                  </button>
+                </div>
+
+                {/* Desktop Layout */}
+                <div className="hidden md:grid md:grid-cols-12 gap-6 items-center">
                   
                   {/* Logo + Bank Info */}
-                  <div className="md:col-span-5 flex flex-col md:flex-row items-center md:items-center gap-3 text-center md:text-left">
-                    <BankLogo bankName={result.bankName} size="sm" />
+                  <div className="md:col-span-5 flex items-center gap-4">
+                    <BankLogo bankName={result.bankName} size="md" />
                     <div>
-                      <h4 className="font-bold text-base md:text-xl text-gray-900 mb-1">{result.bankName}</h4>
-                      <p className="text-xs md:text-sm text-gray-600 leading-tight md:leading-relaxed line-clamp-2">
+                      <h4 className="font-bold text-xl text-gray-900 mb-1">{result.bankName}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
                         {result.productType.replace(/\*+/g, "").substring(0, 35).trim()}
                       </p>
-                      <div className="flex items-center gap-2 mt-1 md:mt-2">
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0">
-                          <span className="text-mint font-bold text-xs md:text-sm">{result.debtRatio.toFixed(0)}%</span>
+                      <div className="flex items-center gap-2 mt-2">
+                        <div className="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0">
+                          <span className="text-mint font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
                         </div>
                         <span className="text-xs text-gray-500">îndatorare</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Divider desktop */}
-                  <div className="hidden md:block md:col-span-1">
+                  {/* Divider */}
+                  <div className="md:col-span-1">
                     <div className="h-20 w-px bg-gray-200 mx-auto"></div>
                   </div>
 
                   {/* Rate + Badge */}
-                  <div className="md:col-span-4 text-center md:text-left py-2 md:py-0">
-                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-0.5 md:mb-1">Rată lunară</div>
-                    <div className="text-3xl md:text-5xl font-black text-gray-900 mb-0.5 md:mb-1">
+                  <div className="md:col-span-4 text-left">
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Rată lunară</div>
+                    <div className="text-5xl font-black text-gray-900 mb-1">
                       {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
                     </div>
-                    <div className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">RON / lună</div>
+                    <div className="text-sm text-gray-600 mb-3">RON / lună</div>
                     {result.eligible ? (
                       <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-semibold text-sm">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -247,7 +305,7 @@ export default function Calculator() {
                   <div className="md:col-span-2">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="w-full bg-mint text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-sm md:text-base font-semibold hover:bg-mint/90 transition-all md:group-hover:scale-105"
+                      className="w-full bg-mint text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-mint/90 transition-all group-hover:scale-105"
                     >
                       Aplică →
                     </button>
