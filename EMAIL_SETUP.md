@@ -1,95 +1,163 @@
-# Email Setup pentru lend.ro
+# Email Setup pentru lend.ro - Brevo (Sendinblue)
 
-## Configurare Resend.com (FREE tier - 3000 emails/luna)
+## ✅ Configurare Brevo SMTP (FREE tier - 300 emails/zi)
 
-### 1. Creare cont Resend
-- Mergi pe https://resend.com
-- Sign up cu open@lend.ro
+### 1. Creare cont Brevo
+- Mergi pe https://app.brevo.com/account/register
+- Sign up cu open@lend.ro (sau alt email)
 - Verifică emailul
 
-### 2. Obține API Key
-- Dashboard → API Keys → Create API Key
-- Name: `lend-ro-production`
-- Copiază cheia (începe cu `re_...`)
+### 2. Obține SMTP credentials
+- Login la https://app.brevo.com
+- Settings (stânga jos) → SMTP & API
+- Tab: **SMTP**
+- Copiază:
+  - **SMTP Server:** smtp-relay.brevo.com
+  - **Port:** 587
+  - **Login:** (email-ul tău de sign-up)
+  - **SMTP Key:** Click "Create a new SMTP key" → copiază
 
-### 3. Adaugă în Vercel
+### 3. Verifică sender email (IMPORTANT!)
+- Settings → Senders & IP
+- Click "Add a new sender"
+- Email: `open@lend.ro`
+- Name: `Platforma Lend.ro`
+- Verifică emailul (click link în inbox)
+
+### 4. Adaugă în Vercel Environment Variables
 - Vercel Dashboard → lend-ro project
 - Settings → Environment Variables
-- Add: `RESEND_API_KEY` = `re_...`
-- Redeploy
+- Add următoarele:
 
-### 4. Verifică domeniu (opțional, pentru brand)
-- Resend Dashboard → Domains → Add Domain
-- Domain: `lend.ro`
-- Adaugă DNS records (TXT, MX, CNAME)
-- După verificare poți trimite de la `leads@lend.ro`
+```
+BREVO_SMTP_HOST=smtp-relay.brevo.com
+BREVO_SMTP_PORT=587
+BREVO_SMTP_USER=open@lend.ro (sau email-ul tău de sign-up)
+BREVO_SMTP_KEY=xsmtpsib-xxxxx... (cheia copiată la pasul 2)
+BREVO_FROM_EMAIL=open@lend.ro
+BREVO_FROM_NAME=Platforma Lend.ro
+```
 
-**FĂRĂ verificare domeniu:** trimiți de la `onboarding@resend.dev` (FREE)
+### 5. Redeploy Vercel
+- Deployments → Latest → ⋮ menu → Redeploy
+- Sau push orice commit nou
 
-### 5. Install dependență
+### 6. Install nodemailer (dacă nu e deja)
 ```bash
-npm install resend
+npm install nodemailer
+npm install --save-dev @types/nodemailer
 ```
 
-### 6. Decomentează codul din `/src/app/api/lead/route.ts`
-Șterge comentariile `//` de la:
-```typescript
-const resend = new Resend(process.env.RESEND_API_KEY);
-await resend.emails.send({ ... });
+### 7. Test local (opțional)
+Creează fișier `.env.local`:
+```
+BREVO_SMTP_HOST=smtp-relay.brevo.com
+BREVO_SMTP_PORT=587
+BREVO_SMTP_USER=open@lend.ro
+BREVO_SMTP_KEY=xsmtpsib-xxxxx...
+BREVO_FROM_EMAIL=open@lend.ro
+BREVO_FROM_NAME=Platforma Lend.ro
 ```
 
-### 7. Test
-- Completează formular pe site
-- Verifică inbox open@lend.ro
-- Verifică Resend Dashboard → Emails pentru delivery status
+Run local:
+```bash
+npm run dev
+```
+
+Completează formularul → verifică inbox open@lend.ro
 
 ---
 
-## Email Template
+## 📧 Email Template (actual)
 
-Subiect: `🏠 Lead nou: Ion Popescu - 400.000 RON`
-
-Body:
+### Subiect:
 ```
-Salut Radu,
-
-Lead nou de pe lend.ro:
-
-📋 Date contact:
-- Nume: Ion Popescu
-- Email: ion.popescu@email.com
-- Telefon: 0712345678
-
-🏠 Detalii credit:
-- Tip proprietate: Apartament
-- Credit solicitat: 400.000 RON
-- Rată lunară estimată: 2.500 RON/lună
-
-📅 Data: 18 februarie 2026, 17:45
-
----
-Acesta este un email automat de pe lend.ro
+🏠 Lead nou lend.ro: Ion Popescu - 400.000 RON
 ```
+
+### Body HTML:
+- Design clean cu background cream
+- Card alb cu border-radius
+- Info structurate (nume, email, telefon, etc.)
+- Highlight mint pentru suma creditului
+- Footer cu branding lend.ro
+
+### Body Text (fallback):
+Plain text pentru clienți email fără HTML.
 
 ---
 
-## Costuri
+## 💰 Costuri Brevo
 
-**Resend FREE tier:**
-- 3.000 emails/lună
-- 100 emails/zi
-- Perfect pentru început
+**FREE tier:**
+- ✅ 300 emails/zi
+- ✅ SMTP + API access
+- ✅ Contact management
+- ✅ Email templates
 
 **Dacă depășești:**
-- Pay-as-you-go: $1 per 1.000 emails
-- Estimare: 100 leads/lună = 100 emails = FREE
+- Lite: 10.000 emails/lună = €19/lună
+- Standard: 20.000 emails/lună = €29/lună
+
+**Estimare pentru lend.ro:**
+- 50 leads/lună = 50 emails = **FREE**
+- 200 leads/lună = 200 emails = **FREE**
 
 ---
 
-## Alternative (dacă vrei altceva)
+## 🔍 Verificare funcționare
 
-1. **SendGrid** - 100 emails/zi FREE
-2. **Mailgun** - 5.000 emails/lună FREE (3 luni)
-3. **AWS SES** - $0.10 per 1.000 emails (necesită AWS account)
+### 1. Check Vercel Logs
+- Vercel Dashboard → Functions
+- Click pe `/api/lead`
+- Verifică logs: `[EMAIL SENT] via Brevo to open@lend.ro`
 
-**Recomandare:** Resend (cel mai simplu de integrat cu Next.js)
+### 2. Check Brevo Dashboard
+- Logs → Statistics
+- Vezi emails sent/delivered/opened
+
+### 3. Check inbox open@lend.ro
+- Webmail: https://lend.ro:2096
+- Verifică folder Inbox și Spam
+
+---
+
+## ⚠️ Troubleshooting
+
+**Email nu sosește:**
+1. Verifică Environment Variables în Vercel (toate 6)
+2. Verifică sender `open@lend.ro` e verificat în Brevo
+3. Check Spam folder în webmail
+4. Check Vercel Function logs pentru erori
+5. Verifică Brevo logs dacă emailul a fost sent
+
+**Eroare "Invalid credentials":**
+- SMTP Key greșit sau expirat
+- Regenerează SMTP Key în Brevo Settings
+
+**Eroare "Sender not verified":**
+- Adaugă `open@lend.ro` ca sender în Brevo
+- Click link de verificare din email
+
+---
+
+## 🚀 Next Steps (opțional)
+
+### 1. Custom domain sending
+- Verifică domeniul lend.ro în Brevo
+- Adaugă DNS records (SPF, DKIM, DMARC)
+- Trimiți de la `leads@lend.ro` în loc de `open@lend.ro`
+
+### 2. Email templates în Brevo
+- Creează template în Brevo Dashboard
+- Folosește în cod cu `templateId` în loc de `html`
+
+### 3. Auto-reply client
+- După submit lead, trimite email de confirmare la client
+- Template: "Am primit cererea ta, te contactăm în 24h"
+
+---
+
+**Setup complet = 10 minute** ⏱️
+
+**Acum funcționează:** Lead form → API → Brevo SMTP → inbox open@lend.ro 📧✅
