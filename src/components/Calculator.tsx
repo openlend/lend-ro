@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import bankData from '@/data/bank-products.json';
 import BankLogo from './BankLogo';
 import LeadModal from './LeadModal';
+import RangeSliderWithTooltip from './RangeSliderWithTooltip';
 
 interface CalculatorResult {
   monthlyPayment: number;
@@ -23,14 +24,6 @@ export default function Calculator() {
   const [results, setResults] = useState<CalculatorResult[]>([]);
 
   const minDownPayment = isFirstProperty ? 5 : 25;
-
-  // Helper for slider progress background (liquid gradient)
-  const getSliderStyle = (value: number, min: number, max: number) => {
-    const percent = ((value - min) / (max - min)) * 100;
-    return {
-      '--slider-percent': `${percent}%`,
-    } as React.CSSProperties;
-  };
   const loanAmount = propertyPrice * (1 - downPayment / 100);
 
   const calculateMonthlyPayment = (principal: number, annualRate: number, years: number): number => {
@@ -95,17 +88,15 @@ export default function Calculator() {
               <span className="font-bold">Preț proprietate</span>
               <span className="text-2xl font-bold text-mint">{propertyPrice.toLocaleString('ro-RO')} RON</span>
             </div>
-            <input
-              type="range"
-              min="100000"
-              max="1500000"
-              step="10000"
+            <RangeSliderWithTooltip
               value={propertyPrice}
-              onChange={(e) => setPropertyPrice(Number(e.target.value))}
-              className="w-full range-with-progress"
-              style={getSliderStyle(propertyPrice, 100000, 1500000)}
+              min={100000}
+              max={1500000}
+              step={10000}
+              onChange={setPropertyPrice}
+              formatValue={(val) => `${(val / 1000).toFixed(0)}k`}
             />
-            <div className="flex justify-between text-xs opacity-50">
+            <div className="flex justify-between text-xs opacity-50 mt-2">
               <span>100.000</span>
               <span>1.500.000</span>
             </div>
@@ -120,17 +111,15 @@ export default function Calculator() {
               <span className="font-bold">Venit lunar net</span>
               <span className="text-2xl font-bold text-mint">{salary.toLocaleString('ro-RO')} RON</span>
             </div>
-            <input
-              type="range"
-              min="3000"
-              max="30000"
-              step="500"
+            <RangeSliderWithTooltip
               value={salary}
-              onChange={(e) => setSalary(Number(e.target.value))}
-              className="w-full range-with-progress"
-              style={getSliderStyle(salary, 3000, 30000)}
+              min={3000}
+              max={30000}
+              step={500}
+              onChange={setSalary}
+              formatValue={(val) => `${(val / 1000).toFixed(1)}k`}
             />
-            <div className="flex justify-between text-xs opacity-50">
+            <div className="flex justify-between text-xs opacity-50 mt-2">
               <span>3.000</span>
               <span>30.000</span>
             </div>
@@ -141,17 +130,15 @@ export default function Calculator() {
               <span className="font-bold">Perioadă creditare</span>
               <span className="text-2xl font-bold text-mint">{loanTerm} ani</span>
             </div>
-            <input
-              type="range"
-              min="5"
-              max="30"
-              step="1"
+            <RangeSliderWithTooltip
               value={loanTerm}
-              onChange={(e) => setLoanTerm(Number(e.target.value))}
-              className="w-full range-with-progress"
-              style={getSliderStyle(loanTerm, 5, 30)}
+              min={5}
+              max={30}
+              step={1}
+              onChange={setLoanTerm}
+              formatValue={(val) => `${val}y`}
             />
-            <div className="flex justify-between text-xs opacity-50">
+            <div className="flex justify-between text-xs opacity-50 mt-2">
               <span>5 ani</span>
               <span>30 ani</span>
             </div>
@@ -184,17 +171,15 @@ export default function Calculator() {
                 <div className="text-xs opacity-70">{(propertyPrice * downPayment / 100).toLocaleString('ro-RO')} RON</div>
               </div>
             </div>
-            <input
-              type="range"
-              min={minDownPayment}
-              max="50"
-              step="5"
+            <RangeSliderWithTooltip
               value={downPayment}
-              onChange={(e) => setDownPayment(Number(e.target.value))}
-              className="w-full range-with-progress"
-              style={getSliderStyle(downPayment, minDownPayment, 50)}
+              min={minDownPayment}
+              max={50}
+              step={5}
+              onChange={setDownPayment}
+              formatValue={(val) => `${val}%`}
             />
-            <div className="flex justify-between text-xs opacity-50">
+            <div className="flex justify-between text-xs opacity-50 mt-2">
               <span>{minDownPayment}%</span>
               <span>50%</span>
             </div>
