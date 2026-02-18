@@ -27,6 +27,7 @@ export default function HeroSection() {
                 Calculează rata →
               </button>
               <button
+                onClick={scrollToCalculator}
                 className="bg-white text-sage border-2 border-sage px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-sage hover:text-white transition"
               >
                 Solicită oferte gratuite

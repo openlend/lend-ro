@@ -241,12 +241,22 @@ export default function Calculator() {
               </div>
             ))}
 
-            <button className="btn btn-primary btn-lg w-full mt-6">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-sage text-white px-8 py-4 rounded-2xl font-bold text-lg hover:opacity-90 transition w-full mt-6 shadow-xl"
+            >
               Solicită oferte de la 5 brokeri
             </button>
           </div>
         )}
       </div>
+
+      <LeadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        loanAmount={loanAmount}
+        monthlyPayment={results.length > 0 ? results[0].monthlyPayment : 0}
+      />
     </div>
   );
 }
