@@ -1,0 +1,16 @@
+id,id_banca,nume_produs,tip_rate,perioada_fixa_ani,dobanda_fixa,marja_variabila,avans_minim_pct,venit_minim_ron,virare_venit,card_debit,asigurare_viata,comision_acordare_pct,comision_analiza_ron,rambursare_anticipata,nota
+1,BT,Creditul Verde cu virare venit,RON,3,3.0,2.95,5,2200,DA,DA,OBLIGATORIE,0.5,150,GRATUIT,Doar clasa energetica A/B
+2,BT,Creditul Verde fara virare venit,RON,,,3.15,5,2200,NU,NU,OBLIGATORIE,0.5,150,GRATUIT,Doar clasa energetica A/B
+3,BT,Home Loan STANDARD cu virare,RON,,,3.15,5,2200,DA,DA,OBLIGATORIE,0.5,150,1% dupa 5 ani,
+4,BT,Home Loan STANDARD fara virare,RON,,,3.35,5,2200,NU,NU,OBLIGATORIE,0.5,150,1% dupa 5 ani,
+5,BCR,Prima Casa 5 ani fix cu virare,RON,5,3.2,2.90,5,2200,DA,DA,OBLIGATORIE,0,0,GRATUIT,Program Prima Casa
+6,BCR,Prima Casa variabil cu virare,RON,,,2.90,5,2200,DA,DA,OBLIGATORIE,0,0,GRATUIT,Program Prima Casa
+7,BCR,Credit ipotecar STANDARD,RON,3,3.5,3.10,15,3000,DA,DA,OBLIGATORIE,1.0,200,0.5% in primii 5 ani,
+8,BRD,Credit Prima Casa fix 3 ani,RON,3,3.3,3.00,5,2200,DA,DA,OBLIGATORIE,0.5,100,GRATUIT,Program Prima Casa
+9,BRD,Credit ipotecar clasic variabil,RON,,,3.20,25,3500,DA,DA,OBLIGATORIE,1.0,250,1% primii 3 ani,
+10,ING,Home Credit cu virare venit,RON,,,3.10,15,3000,DA,DA,OBLIGATORIE,0,0,GRATUIT,100% online
+11,ING,Home Credit fara virare venit,RON,,,3.30,15,3000,NU,NU,OBLIGATORIE,0,0,GRATUIT,100% online
+12,RAIFFEISEN,Credit ipotecar fix 5 ani premium,RON,5,3.0,2.95,20,5000,DA,DA,OBLIGATORIE,0.75,300,0.5%,Clienti premium banking
+13,RAIFFEISEN,Credit ipotecar variabil,RON,,,3.15,20,4000,DA,DA,OBLIGATORIE,0.75,300,0.5%,
+14,GARANTI,Green Power Loan (GPL+),RON,3,3.0,2.95,15,2500,DA,DA,OBLIGATORIE,0.5,150,GRATUIT,Case eficiente energetic
+15,GARANTI,Home Loan (HL) STANDARD,RON,,,3.25,15,2500,DA,DA,OBLIGATORIE,0.5,150,1% dupa 5 ani,

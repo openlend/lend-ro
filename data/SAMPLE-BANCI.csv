@@ -1,0 +1,13 @@
+id,nume,nume_lung,logo_path,website,telefon_contact,cota_piata_pct,rating,activa
+BT,BT,Banca Transilvania,/bank-logos/bt.png,https://www.bancatransilvania.ro,*2227 (gratuit),18.5,AA-,1
+BCR,BCR,Banca Comercială Română,/bank-logos/bcr.png,https://www.bcr.ro,0800 801 227 (gratuit),16.2,AA,1
+BRD,BRD,BRD Groupe Société Générale,/bank-logos/brd.png,https://www.brd.ro,0800 800 500 (gratuit),9.8,AA-,1
+ING,ING,ING Bank România,/bank-logos/ing.png,https://www.ing.ro,0800 999 000 (gratuit),7.3,AA-,1
+RAIFFEISEN,RAIFFEISEN,Raiffeisen Bank,/bank-logos/raiffeisen.png,https://www.raiffeisen.ro,0800 801 800 (gratuit),6.5,AA,1
+GARANTI,GARANTI,Garanti BBVA,/bank-logos/garanti.png,https://www.garantibbva.ro,0800 888 101 (gratuit),4.2,A+,1
+UNICREDIT,UNICREDIT,UniCredit Bank,/bank-logos/unicredit.png,https://www.unicredit.ro,0800 672 342 (gratuit),3.8,AA-,1
+LIBRA,LIBRA,Libra Internet Bank,/bank-logos/libra.png,https://www.librabank.ro,0800 410 210 (gratuit),1.5,BBB+,1
+CREDIT-EUROPE,CREDIT-EUROPE,Credit Europe Bank,/bank-logos/credit-europe.png,https://www.crediteurope.ro,0800 888 123 (gratuit),1.2,BBB,1
+PATRIA,PATRIA,Patria Bank,/bank-logos/patria.png,https://www.patriabank.ro,0800 410 310 (gratuit),0.8,BBB-,1
+EXIM,EXIM,EximBank (Banca Românească),/bank-logos/exim.png,https://www.eximbank.ro,0800 801 802 (gratuit),0.6,BBB,1
+INTESA,INTESA,Intesa Sanpaolo Bank România,/bank-logos/intesa.png,https://www.intesasanpaolobank.ro,0800 888 122 (gratuit),0.4,AA-,1

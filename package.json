@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "import:excel": "node scripts/import-excel.js",
+    "import:build": "npm run import:excel && npm run build",
+    "deploy": "npm run import:excel && npm run build && git add -A && git commit -m 'Update bank data' && git push"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
@@ -19,6 +22,7 @@
     "@types/node": "^22",
     "@types/nodemailer": "^6.4.16",
     "@types/react": "^19",
-    "typescript": "^5"
+    "typescript": "^5",
+    "xlsx": "^0.18.5"
   }
 }

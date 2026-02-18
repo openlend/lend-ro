@@ -1,0 +1,6 @@
+parametru,valoare,unitate,data_actualizare,sursa
+IRCC,6.72,%,2026-02-18,BNR
+EURIBOR_6M,2.50,%,2026-02-18,BNR
+CURS_EUR_RON,4.98,RON,2026-02-18,BNR
+ROBOR_3M,5.92,%,2026-02-18,BNR (arhiva)
+DATA_ACTUALIZARE,2026-02-18,,2026-02-18,Manual
