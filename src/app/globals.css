@@ -3,34 +3,55 @@
 @tailwind utilities;
 
 :root {
-  --primary: #059669;
-  --primary-dark: #047857;
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --primary-light: #34d399;
 }
 
-.text-primary {
-  color: var(--primary);
+body {
+  @apply bg-gray-50 text-gray-900;
 }
 
-.bg-primary {
-  background-color: var(--primary);
+/* Smooth animations */
+* {
+  @apply transition-all duration-200 ease-in-out;
 }
 
-.bg-primary-dark {
-  background-color: var(--primary-dark);
+/* Custom gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
-.from-primary {
-  --tw-gradient-from: var(--primary);
+.gradient-hero {
+  background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
 }
 
-.to-primary-dark {
-  --tw-gradient-to: var(--primary-dark);
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.hover\:text-primary:hover {
-  color: var(--primary);
+/* Modern shadows */
+.shadow-modern {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 }
 
-.hover\:bg-primary-dark:hover {
-  background-color: var(--primary-dark);
+.shadow-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-transform duration-300;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-1 shadow-xl;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
