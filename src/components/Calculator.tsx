@@ -44,8 +44,9 @@ export default function Calculator() {
         return !rateType.includes('EURO');
       })
       .sort((a: any, b: any) => {
-        const rateA = a.rates.fixed_rate || a.rates.variable_margin;
-        const rateB = b.rates.fixed_rate || b.rates.variable_margin;
+        // FIX: Compare EFFECTIVE rates (fixed OR ircc+margin), not just margin
+        const rateA = a.rates.fixed_rate || (bankData.ircc_current + a.rates.variable_margin);
+        const rateB = b.rates.fixed_rate || (bankData.ircc_current + b.rates.variable_margin);
         return rateA - rateB;
       });
 
