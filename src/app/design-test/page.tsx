@@ -422,15 +422,15 @@ export default function DesignTest() {
                   <div className="text-xs uppercase tracking-widest text-gray-500">Estimare instant</div>
                   <div className="text-5xl font-bold text-[#4FD1C5]">2.603 RON</div>
                   <div className="text-sm text-gray-600">Rată lunară / 25 ani</div>
-                  <div className="h-px bg-[#F5F1E8]/10 my-6"></div>
+                  <div className="h-px bg-gray-200 my-6"></div>
                   <div className="space-y-4 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Credit solicitat</span>
-                      <span className="text-[#F5F1E8] font-bold">400.000 RON</span>
+                      <span className="text-[#0A2F2F] font-bold">400.000 RON</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Dobândă fixă</span>
-                      <span className="text-[#F5F1E8] font-bold">3.00% (3 ani)</span>
+                      <span className="text-[#0A2F2F] font-bold">3.00% (3 ani)</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Îndatorare</span>
@@ -443,42 +443,42 @@ export default function DesignTest() {
 
             {/* Step 2 */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1 bg-[#0D3B3B]/30 backdrop-blur-sm border-2 border-[#4FD1C5]/20 rounded-3xl p-8 md:p-12">
+              <div className="order-2 md:order-1 bg-white border-2 border-gray-200 hover:border-[#4FD1C5] transition-all rounded-3xl p-8 md:p-12 shadow-lg">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-sm">
                     <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
                       <span className="text-[#4FD1C5] font-bold">1</span>
                     </div>
-                    <span className="text-gray-600">broker@banca-a.ro</span>
-                    <span className="ml-auto text-[#4FD1C5] text-xs">În lucru</span>
+                    <span className="text-gray-700">broker@banca-a.ro</span>
+                    <span className="ml-auto text-[#4FD1C5] text-xs font-semibold">În lucru</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
                       <span className="text-[#4FD1C5] font-bold">2</span>
                     </div>
-                    <span className="text-gray-600">credit@intermediar-b.ro</span>
-                    <span className="ml-auto text-[#4FD1C5] text-xs">În lucru</span>
+                    <span className="text-gray-700">credit@intermediar-b.ro</span>
+                    <span className="ml-auto text-[#4FD1C5] text-xs font-semibold">În lucru</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
                       <span className="text-[#4FD1C5] font-bold">3</span>
                     </div>
-                    <span className="text-gray-600">oferte@broker-c.ro</span>
-                    <span className="ml-auto text-[#4FD1C5] text-xs">În lucru</span>
+                    <span className="text-gray-700">oferte@broker-c.ro</span>
+                    <span className="ml-auto text-[#4FD1C5] text-xs font-semibold">În lucru</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <div className="w-8 h-8 rounded-full bg-[#4FD1C5]/20 flex items-center justify-center">
                       <span className="text-[#4FD1C5] font-bold">4</span>
                     </div>
-                    <span className="text-gray-600">contact@specialist-d.ro</span>
-                    <span className="ml-auto text-gray-400 text-xs">Pregătire</span>
+                    <span className="text-gray-700">contact@specialist-d.ro</span>
+                    <span className="ml-auto text-gray-500 text-xs font-semibold">Pregătire</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
-                    <div className="w-8 h-8 rounded-full bg-[#F5F1E8]/10 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
                       <span className="text-gray-400 font-bold">5</span>
                     </div>
                     <span className="text-gray-400">ipotecar@broker-e.ro</span>
-                    <span className="ml-auto text-gray-400 text-xs">Așteptare</span>
+                    <span className="ml-auto text-gray-400 text-xs font-semibold">Așteptare</span>
                   </div>
                 </div>
               </div>
@@ -542,7 +542,7 @@ export default function DesignTest() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-gradient-to-br from-[#4FD1C5]/20 to-[#4FD1C5]/5 backdrop-blur-sm border-2 border-[#4FD1C5] rounded-3xl p-8 md:p-12 text-center">
+              <div className="bg-gradient-to-br from-[#4FD1C5]/20 to-[#4FD1C5]/5 backdrop-blur-sm border-2 border-[#4FD1C5] rounded-3xl p-8 md:p-12 text-center shadow-lg">
                 <div className="space-y-6">
                   <div className="text-7xl">🎉</div>
                   <h4 className="text-2xl font-bold text-gray-900">Felicitări!</h4>
@@ -550,7 +550,7 @@ export default function DesignTest() {
                     Ai economisit timp, bani și nervi. <br />
                     Te muți în noua casă cu creditul perfect.
                   </p>
-                  <div className="pt-6 border-t border-[#F5F1E8]/10">
+                  <div className="pt-6 border-t border-gray-200">
                     <div className="text-sm text-gray-500 mb-2">Economie medie</div>
                     <div className="text-4xl font-bold text-[#4FD1C5]">15.000 RON</div>
                     <div className="text-sm text-gray-600">pe an față de oferta inițială</div>
@@ -642,7 +642,7 @@ export default function DesignTest() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32 bg-gray-50 relative">
+      <section className="py-32 bg-white relative">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <div className="inline-block bg-[#4FD1C5]/10 border border-[#4FD1C5]/30 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-[#0A2F2F] mb-6">
@@ -676,8 +676,8 @@ export default function DesignTest() {
                 a: 'Da. Folosim criptare de nivel bancar și suntem GDPR compliant. Nu vindem și nu partajăm datele tale cu nimeni în afară de brokerii certificați care îți trimit oferte.'
               }
             ].map((faq, i) => (
-              <div key={i} className="bg-[#0D3B3B]/30 backdrop-blur-sm border border-[#F5F1E8]/10 rounded-2xl p-8 hover:border-[#4FD1C5]/30 transition-all">
-                <h3 className="text-xl font-bold text-[#F5F1E8] mb-4">{faq.q}</h3>
+              <div key={i} className="bg-gray-50 border-2 border-gray-200 rounded-2xl p-8 hover:border-[#4FD1C5] hover:shadow-lg transition-all">
+                <h3 className="text-xl font-bold text-[#0A2F2F] mb-4">{faq.q}</h3>
                 <p className="text-gray-600 leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -689,7 +689,7 @@ export default function DesignTest() {
             </p>
             <a 
               href="mailto:open@lend.ro"
-              className="inline-flex items-center gap-2 bg-[#0D3B3B]/50 backdrop-blur-sm border border-[#4FD1C5]/30 text-[#4FD1C5] px-8 py-4 rounded-xl font-semibold hover:bg-[#0D3B3B] transition-all"
+              className="inline-flex items-center gap-2 bg-[#0A2F2F] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#0D3B3B] transition-all shadow-lg"
             >
               <span>✉️</span>
               <span>Contactează-ne</span>
