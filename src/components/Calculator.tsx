@@ -78,11 +78,11 @@ export default function Calculator() {
 
   return (
     <div className="card bg-base-100 shadow-2xl">
-      <div className="card-body">
-        <h2 className="card-title text-4xl font-bold mb-4">Calculează rata lunară</h2>
-        <p className="text-base-content/70 mb-6">Ajustează parametrii și vezi instant cele mai bune oferte</p>
+      <div className="card-body p-4 md:p-8">
+        <h2 className="card-title text-2xl md:text-4xl font-bold mb-2 md:mb-4">Calculează rata lunară</h2>
+        <p className="text-base-content/70 text-sm md:text-base mb-4 md:mb-6">Ajustează parametrii și vezi instant cele mai bune oferte</p>
 
-        <div className="space-y-4 md:space-y-6">
+        <div className="space-y-3 md:space-y-5">
           <div>
             <div className="flex justify-between items-baseline mb-1 md:mb-2">
               <span className="text-sm md:text-base font-semibold md:font-bold">Preț proprietate</span>
@@ -96,13 +96,13 @@ export default function Calculator() {
               onChange={setPropertyPrice}
               formatValue={(val) => `${(val / 1000).toFixed(0)}k`}
             />
-            <div className="flex justify-between text-xs opacity-50 mt-2">
+            <div className="flex justify-between text-xs opacity-50 mt-1">
               <span>100.000</span>
               <span>1.500.000</span>
             </div>
-            <div className="mt-2 text-center">
-              <span className="text-xs md:text-sm opacity-70">Suma credit: </span>
-              <span className="text-base md:text-lg font-bold text-mint">{loanAmount.toLocaleString('ro-RO')} RON</span>
+            <div className="mt-1 text-center">
+              <span className="text-xs opacity-70">Suma credit: </span>
+              <span className="text-sm md:text-lg font-bold text-mint">{loanAmount.toLocaleString('ro-RO')} RON</span>
             </div>
           </div>
 
@@ -119,7 +119,7 @@ export default function Calculator() {
               onChange={setSalary}
               formatValue={(val) => `${(val / 1000).toFixed(1)}k`}
             />
-            <div className="flex justify-between text-xs opacity-50 mt-2">
+            <div className="flex justify-between text-xs opacity-50 mt-1">
               <span>3.000</span>
               <span>30.000</span>
             </div>
@@ -138,13 +138,13 @@ export default function Calculator() {
               onChange={setLoanTerm}
               formatValue={(val) => `${val}y`}
             />
-            <div className="flex justify-between text-xs opacity-50 mt-2">
+            <div className="flex justify-between text-xs opacity-50 mt-1">
               <span>5 ani</span>
               <span>30 ani</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 py-2">
+          <div className="flex items-center gap-3 py-1 md:py-2">
             <input 
               type="checkbox" 
               id="firstProperty"
@@ -179,7 +179,7 @@ export default function Calculator() {
               onChange={setDownPayment}
               formatValue={(val) => `${val}%`}
             />
-            <div className="flex justify-between text-xs opacity-50 mt-2">
+            <div className="flex justify-between text-xs opacity-50 mt-1">
               <span>{minDownPayment}%</span>
               <span>50%</span>
             </div>
@@ -187,18 +187,18 @@ export default function Calculator() {
         </div>
 
         {results.length > 0 && (
-          <div className="mt-8 space-y-4">
-            <h3 className="text-2xl font-bold">Cele mai bune oferte:</h3>
+          <div className="mt-6 md:mt-8 space-y-3 md:space-y-4">
+            <h3 className="text-xl md:text-2xl font-bold">Cele mai bune oferte:</h3>
 
             {results.map((result, index) => (
               <div 
                 key={index} 
-                className="group bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-md md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-mint/30 md:hover:-translate-y-1"
+                className="group bg-white rounded-xl md:rounded-3xl p-3 md:p-6 shadow-md md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-mint/30 md:hover:-translate-y-1"
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-center">
                   
                   {/* Logo + Bank Info */}
-                  <div className="md:col-span-5 flex items-center gap-3">
+                  <div className="md:col-span-5 flex flex-col md:flex-row items-center md:items-center gap-3 text-center md:text-left">
                     <BankLogo bankName={result.bankName} size="sm" />
                     <div>
                       <h4 className="font-bold text-base md:text-xl text-gray-900 mb-1">{result.bankName}</h4>
@@ -259,7 +259,7 @@ export default function Calculator() {
 
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="bg-sage text-white px-8 py-4 rounded-2xl font-bold text-lg hover:opacity-90 transition w-full mt-6 shadow-xl"
+              className="bg-sage text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:opacity-90 transition w-full mt-4 md:mt-6 shadow-xl"
             >
               Solicită oferte de la 5 brokeri
             </button>

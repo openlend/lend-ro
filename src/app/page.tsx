@@ -11,8 +11,8 @@ export default function Home() {
       <main>
         <HeroSection />
 
-        <section id="calculator" className="py-20 bg-gray-50">
-          <div className="container mx-auto px-6 max-w-6xl">
+        <section id="calculator" className="py-12 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-2 md:px-6 max-w-6xl">
             <Calculator />
           </div>
         </section>
