@@ -40,11 +40,8 @@ export default function RootLayout({
         <nav className="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200/50">
           <div className="max-w-6xl mx-auto px-6 py-4">
             <div className="flex justify-between items-center">
-              <a href="/" className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-mint to-sage rounded-2xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-black text-xl">L</span>
-                </div>
-                <span className="text-2xl font-black text-sage">lend.ro</span>
+              <a href="/" className="flex items-center">
+                <img src="/logo.jpg" alt="lend.ro" className="h-8 md:h-10" />
               </a>
               
               <div className="hidden md:flex items-center gap-8">

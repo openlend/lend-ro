@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="footer footer-center p-10 bg-primary text-primary-content">
       <aside>
-        <p className="font-bold text-2xl">lend.ro</p>
+        <img src="/logo.jpg" alt="lend.ro" className="h-10 mx-auto mb-4" />
         <p>Platforma ta de comparare credite ipotecare</p>
         <p>© 2026 - Toate drepturile rezervate</p>
       </aside>
