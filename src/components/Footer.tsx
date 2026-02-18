@@ -23,6 +23,9 @@ export default function Footer() {
               <a href="/#calculator" className="block text-gray-400 hover:text-mint transition">Calculator</a>
               <a href="/#cum-functioneaza" className="block text-gray-400 hover:text-mint transition">Cum funcționează</a>
               <a href="/blog" className="block text-gray-400 hover:text-mint transition">Blog</a>
+              <a href="/glosar" className="block text-gray-400 hover:text-mint transition">Glosar termeni</a>
+              <a href="/despre" className="block text-gray-400 hover:text-mint transition">Despre noi</a>
+              <a href="/contact" className="block text-gray-400 hover:text-mint transition">Contact</a>
             </nav>
           </div>
 

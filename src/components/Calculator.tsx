@@ -49,6 +49,16 @@ export default function Calculator() {
         return rateA - rateB;
       });
 
+    // Calculate max margin per bank (for DTI worst-case scenario)
+    const maxMarginPerBank = new Map<string, number>();
+    sortedProducts.forEach((product: any) => {
+      const currentMax = maxMarginPerBank.get(product.bank) || 0;
+      const productMargin = product.rates.variable_margin || 0;
+      if (productMargin > currentMax) {
+        maxMarginPerBank.set(product.bank, productMargin);
+      }
+    });
+
     // Group by bank: take only the BEST (cheapest) product per bank
     const bestPerBank = new Map();
     sortedProducts.forEach((product: any) => {
@@ -60,9 +70,16 @@ export default function Calculator() {
     // Show all unique banks (best offer from each)
     Array.from(bestPerBank.values()).forEach((product: any) => {
       const { bank, product_type, rates } = product;
+      
+      // Monthly payment: use fixed rate if available, else current variable rate
       const monthlyRate = rates.fixed_rate || (bankData.ircc_current + rates.variable_margin);
       const monthlyPayment = calculateMonthlyPayment(loanAmount, monthlyRate, loanTerm);
-      const debtRatio = (monthlyPayment / salary) * 100;
+      
+      // DTI: ALWAYS use worst-case variable rate (max margin without benefits)
+      const worstCaseMargin = maxMarginPerBank.get(bank) || rates.variable_margin;
+      const worstCaseRate = bankData.ircc_current + worstCaseMargin;
+      const worstCasePayment = calculateMonthlyPayment(loanAmount, worstCaseRate, loanTerm);
+      const debtRatio = (worstCasePayment / salary) * 100;
 
       calculatedResults.push({
         monthlyPayment,
