@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import bankData from '@/data/bank-products.json';
+import BankLogo from './BankLogo';
 
 interface CalculatorResult {
   monthlyPayment: number;
@@ -199,9 +200,14 @@ export default function Calculator() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start w-full">
                     <div>
-                      <h4 className="font-bold text-xl">{result.bankName}</h4>
-                      <p className="text-sm opacity-70">{result.productType.replace(/\*+/g, "").substring(0, 40).trim()}...</p>
-                      <div className="flex items-center gap-3 mt-3">
+                      <div className="flex items-center gap-4 mb-3">
+                        <BankLogo bankName={result.bankName} size="md" />
+                        <div>
+                          <h4 className="font-bold text-xl">{result.bankName}</h4>
+                          <p className="text-sm opacity-70">{result.productType.replace(/\*+/g, "").substring(0, 40).trim()}...</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
                         <div className="radial-progress text-mint" style={{"--value": result.debtRatio, "--size": "4rem"} as any}>
                           {result.debtRatio.toFixed(0)}%
                         </div>
