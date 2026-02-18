@@ -7,66 +7,72 @@ export default function HeroSection() {
 
   return (
     <>
-      <div className="hero min-h-[600px] bg-gradient-to-br from-primary to-primary-focus">
-        <div className="hero-content text-center text-white">
-          <div className="max-w-6xl">
-            <h1 className="text-6xl font-black mb-6">
-              Schimbă modul în care iei<br />
-              <span className="text-warning">credite ipotecare</span>
+      {/* Hero - ARK Style */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-cream">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h1 className="text-4xl md:text-6xl font-black text-sage leading-tight mb-6">
+              Smart cash-flow management<br />
+              <span className="text-gray-600">pentru credite ipotecare</span>
             </h1>
-            <p className="text-2xl mb-8 opacity-90">
+            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
               Compară oferte de la 10+ bănci din România.<br />
               Primești 5 oferte personalizate în 24 de ore.
             </p>
-            <div className="flex gap-4 justify-center flex-wrap">
-              <button onClick={scrollToCalculator} className="btn btn-lg btn-warning text-black font-bold">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={scrollToCalculator}
+                className="bg-sage text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:opacity-90 transition shadow-xl"
+              >
                 Calculează rata →
               </button>
-              <button className="btn btn-lg btn-outline btn-warning">
+              <button
+                className="bg-white text-sage border-2 border-sage px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-sage hover:text-white transition"
+              >
                 Solicită oferte gratuite
               </button>
             </div>
+          </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-              <div className="stats shadow bg-white/10 backdrop-blur">
-                <div className="stat place-items-center">
-                  <div className="stat-value text-warning">10+</div>
-                  <div className="stat-desc text-white">Bănci partenere</div>
+          {/* Stats Grid - Clean & Spaced */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {[
+              { value: '10+', label: 'Bănci partenere', color: 'mint' },
+              { value: '24h', label: 'Răspuns rapid', color: 'blue' },
+              { value: '5', label: 'Oferte personalizate', color: 'purple' },
+              { value: '100%', label: 'Gratuit', color: 'green' }
+            ].map((stat, i) => (
+              <div key={i} className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-xl transition">
+                <div className={`text-3xl md:text-4xl font-black mb-2 ${
+                  stat.color === 'mint' ? 'text-mint' :
+                  stat.color === 'blue' ? 'text-blue-500' :
+                  stat.color === 'purple' ? 'text-purple-500' :
+                  'text-green-500'
+                }`}>
+                  {stat.value}
                 </div>
+                <div className="text-xs md:text-sm text-gray-600 font-medium">{stat.label}</div>
               </div>
-              <div className="stats shadow bg-white/10 backdrop-blur">
-                <div className="stat place-items-center">
-                  <div className="stat-value text-info">24h</div>
-                  <div className="stat-desc text-white">Răspuns rapid</div>
-                </div>
-              </div>
-              <div className="stats shadow bg-white/10 backdrop-blur">
-                <div className="stat place-items-center">
-                  <div className="stat-value text-secondary">5</div>
-                  <div className="stat-desc text-white">Oferte personalizate</div>
-                </div>
-              </div>
-              <div className="stats shadow bg-white/10 backdrop-blur">
-                <div className="stat place-items-center">
-                  <div className="stat-value text-success">100%</div>
-                  <div className="stat-desc text-white">Gratuit</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="py-8 bg-base-200">
-        <div className="text-center text-sm font-semibold text-base-content/60 mb-4">
-          COMPARĂ OFERTE DE LA BĂNCILE DE TOP
+      {/* Trust Logos */}
+      <section className="py-12 bg-white border-y border-gray-200/50">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-center text-gray-500 text-xs md:text-sm mb-6 uppercase tracking-wider font-semibold">
+            Compară oferte de la băncile de top
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-40">
+            {['BT', 'BCR', 'ING', 'Raiffeisen', 'UniCredit', 'BRD'].map((bank) => (
+              <div key={bank} className="text-xl md:text-2xl font-black text-gray-600">
+                {bank}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-8 opacity-50">
-          {['BT', 'BCR', 'ING', 'Raiffeisen', 'UniCredit', 'BRD'].map((bank) => (
-            <div key={bank} className="text-2xl font-black">{bank}</div>
-          ))}
-        </div>
-      </div>
+      </section>
     </>
   );
 }
