@@ -3,7 +3,7 @@
   "ircc_current": 6.72,
   "euribor_6m_current": 2.5,
   "total_banks": 12,
-  "total_products": 15,
+  "total_products": 13,
   "banks": [
     {
       "name": "BCR",
@@ -34,126 +34,114 @@
       "row": 8
     },
     {
-      "name": "LIBRA",
+      "name": "LIBRA BANK",
       "row": 9
     },
     {
-      "name": "CREDIT-EUROPE",
+      "name": "CREDIT EUROPE BANK",
       "row": 10
     },
     {
-      "name": "PATRIA",
+      "name": "PATRIA BANK",
       "row": 11
     },
     {
-      "name": "EXIM",
+      "name": "EXIM BANCA ROMANEASCA",
       "row": 12
     },
     {
-      "name": "INTESA",
+      "name": "INTESA SAN PAOLO",
       "row": 13
     }
   ],
   "products": [
     {
       "bank": "BT",
+      "product_type": "Credit Standard cu virare venit",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3%"
+      }
+    },
+    {
+      "bank": "BT",
       "product_type": "Creditul Verde cu virare venit",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2%"
+      }
+    },
+    {
+      "bank": "GARANTI",
+      "product_type": "HL SALARY",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.4,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.4%"
+      }
+    },
+    {
+      "bank": "BCR",
+      "product_type": "Prima Casa 1%",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": 3,
         "fixed_years": 3,
+        "variable_margin": 2.7,
+        "index_type": "IRCC",
+        "raw": "3% fix 3 ani, apoi IRCC + 2.7%"
+      }
+    },
+    {
+      "bank": "UNICREDIT",
+      "product_type": "Credit ipotecar standard",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
         "variable_margin": 2.95,
         "index_type": "IRCC",
-        "raw": "3% fix 3 ani, apoi IRCC + 2.95%"
+        "raw": "IRCC + 2.95%"
       }
     },
     {
-      "bank": "BT",
-      "product_type": "Creditul Verde fara virare venit",
+      "bank": "ING",
+      "product_type": "Credit ipotecar standard",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 3.15,
-        "index_type": "IRCC",
-        "raw": "IRCC + 3.15%"
-      }
-    },
-    {
-      "bank": "BT",
-      "product_type": "Home Loan STANDARD cu virare",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
-        "variable_margin": 3.15,
-        "index_type": "IRCC",
-        "raw": "IRCC + 3.15%"
-      }
-    },
-    {
-      "bank": "BT",
-      "product_type": "Home Loan STANDARD fara virare",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
-        "variable_margin": 3.35,
-        "index_type": "IRCC",
-        "raw": "IRCC + 3.35%"
-      }
-    },
-    {
-      "bank": "BCR",
-      "product_type": "Prima Casa 5 ani fix cu virare",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 3.2,
-        "fixed_years": 5,
-        "variable_margin": 2.9,
-        "index_type": "IRCC",
-        "raw": "3.2% fix 5 ani, apoi IRCC + 2.9%"
-      }
-    },
-    {
-      "bank": "BCR",
-      "product_type": "Prima Casa variabil cu virare",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
-        "variable_margin": 2.9,
-        "index_type": "IRCC",
-        "raw": "IRCC + 2.9%"
-      }
-    },
-    {
-      "bank": "BCR",
-      "product_type": "Credit ipotecar STANDARD",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 3.5,
-        "fixed_years": 3,
-        "variable_margin": 3.1,
-        "index_type": "IRCC",
-        "raw": "3.5% fix 3 ani, apoi IRCC + 3.1%"
-      }
-    },
-    {
-      "bank": "BRD",
-      "product_type": "Credit Prima Casa fix 3 ani",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 3.3,
-        "fixed_years": 3,
         "variable_margin": 3,
         "index_type": "IRCC",
-        "raw": "3.3% fix 3 ani, apoi IRCC + 3%"
+        "raw": "IRCC + 3.0%"
       }
     },
     {
       "bank": "BRD",
-      "product_type": "Credit ipotecar clasic variabil",
+      "product_type": "Credit ipotecar",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 2.8,
+        "index_type": "IRCC",
+        "raw": "IRCC + 2.8%"
+      }
+    },
+    {
+      "bank": "EXIM BANCA ROMANEASCA",
+      "product_type": "Credit ipotecar",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": null,
@@ -164,8 +152,20 @@
       }
     },
     {
-      "bank": "ING",
-      "product_type": "Home Credit cu virare venit",
+      "bank": "PATRIA BANK",
+      "product_type": "Credit ipotecar",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": null,
+        "fixed_years": null,
+        "variable_margin": 3,
+        "index_type": "IRCC",
+        "raw": "IRCC + 3.0%"
+      }
+    },
+    {
+      "bank": "LIBRA BANK",
+      "product_type": "Credit ipotecar",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": null,
@@ -176,63 +176,39 @@
       }
     },
     {
-      "bank": "ING",
-      "product_type": "Home Credit fara virare venit",
+      "bank": "CREDIT EUROPE BANK",
+      "product_type": "Credit ipotecar",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 3.3,
+        "variable_margin": 3,
         "index_type": "IRCC",
-        "raw": "IRCC + 3.3%"
+        "raw": "IRCC + 3.0%"
       }
     },
     {
       "bank": "RAIFFEISEN",
-      "product_type": "Credit ipotecar fix 5 ani premium",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 3,
-        "fixed_years": 5,
-        "variable_margin": 2.95,
-        "index_type": "IRCC",
-        "raw": "3% fix 5 ani, apoi IRCC + 2.95%"
-      }
-    },
-    {
-      "bank": "RAIFFEISEN",
-      "product_type": "Credit ipotecar variabil",
+      "product_type": "Credit ipotecar standard",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 3.15,
+        "variable_margin": 2.85,
         "index_type": "IRCC",
-        "raw": "IRCC + 3.15%"
+        "raw": "IRCC + 2.85%"
       }
     },
     {
-      "bank": "GARANTI",
-      "product_type": "Green Power Loan (GPL+)",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 3,
-        "fixed_years": 3,
-        "variable_margin": 2.95,
-        "index_type": "IRCC",
-        "raw": "3% fix 3 ani, apoi IRCC + 2.95%"
-      }
-    },
-    {
-      "bank": "GARANTI",
-      "product_type": "Home Loan (HL) STANDARD",
+      "bank": "INTESA SAN PAOLO",
+      "product_type": "Credit ipotecar",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 3.25,
+        "variable_margin": 3,
         "index_type": "IRCC",
-        "raw": "IRCC + 3.25%"
+        "raw": "IRCC + 3.0%"
       }
     }
   ]
