@@ -12,44 +12,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ro">
-      <body className="antialiased">
-        <header className="bg-white shadow-sm sticky top-0 z-40 border-b">
-          <div className="container mx-auto px-6 py-4">
-            <div className="flex justify-between items-center">
-              <a href="/" className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-black text-xl">L</span>
-                </div>
-                <span className="text-2xl font-black text-emerald-600">lend.ro</span>
-              </a>
-              
-              <nav className="hidden md:flex items-center gap-8">
-                <a href="#calculator" className="text-gray-700 hover:text-emerald-600 font-semibold transition-colors">
-                  Calculator
-                </a>
-                <a href="#cum-functioneaza" className="text-gray-700 hover:text-emerald-600 font-semibold transition-colors">
-                  Cum funcționează
-                </a>
-                <a href="/blog" className="text-gray-700 hover:text-emerald-600 font-semibold transition-colors">
-                  Blog
-                </a>
-                <a 
-                  href="#calculator" 
-                  className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg"
-                >
-                  Începe acum
-                </a>
-              </nav>
-
-              <button className="md:hidden">
-                <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
+    <html lang="ro" data-theme="emerald">
+      <head>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+      </head>
+      <body>
+        <div className="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+          <div className="navbar-start">
+            <a href="/" className="btn btn-ghost text-xl">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                <span className="text-white font-black">L</span>
+              </div>
+              <span className="font-black text-primary">lend.ro</span>
+            </a>
           </div>
-        </header>
+          <div className="navbar-end hidden lg:flex">
+            <ul className="menu menu-horizontal px-1 gap-2">
+              <li><a href="#calculator" className="font-semibold">Calculator</a></li>
+              <li><a href="#cum-functioneaza" className="font-semibold">Cum funcționează</a></li>
+              <li><a href="/blog" className="font-semibold">Blog</a></li>
+              <li><a href="#calculator" className="btn btn-primary">Începe acum</a></li>
+            </ul>
+          </div>
+        </div>
 
         {children}
       </body>
