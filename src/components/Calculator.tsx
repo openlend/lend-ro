@@ -27,15 +27,31 @@ export default function Calculator() {
 
   useEffect(() => {
     const calculatedResults: CalculatorResult[] = [];
-    const sortedProducts = [...bankData.products]
-      .filter((product: any) => product.rate_type.includes('RON'))
+    
+    // Filter: RON + best products (with salary transfer + insurance = lowest rate)
+    const filteredProducts = [...bankData.products]
+      .filter((product: any) => {
+        const isRON = product.rate_type.includes('RON');
+        const productName = product.product_type.toUpperCase();
+        const hasSalary = productName.includes('VIRARE') || productName.includes('SALARY');
+        const hasInsurance = productName.includes('ASIGURARE') || productName.includes('INSURANCE');
+        return isRON && (hasSalary || hasInsurance);
+      })
       .sort((a: any, b: any) => {
         const rateA = a.rates.fixed_rate || a.rates.variable_margin;
         const rateB = b.rates.fixed_rate || b.rates.variable_margin;
         return rateA - rateB;
       });
 
-    sortedProducts.slice(0, 10).forEach((product: any) => {
+    // Group by bank and take best offer per bank
+    const bestPerBank = new Map();
+    filteredProducts.forEach((product: any) => {
+      if (!bestPerBank.has(product.bank)) {
+        bestPerBank.set(product.bank, product);
+      }
+    });
+
+    Array.from(bestPerBank.values()).slice(0, 10).forEach((product: any) => {
       const { bank, product_type, rates } = product;
       const monthlyRate = rates.fixed_rate || (bankData.ircc_current + rates.variable_margin);
       const monthlyPayment = calculateMonthlyPayment(loanAmount, monthlyRate, loanTerm);
