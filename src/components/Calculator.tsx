@@ -24,12 +24,12 @@ export default function Calculator() {
 
   const minDownPayment = isFirstProperty ? 5 : 25;
 
-  // Helper for slider progress background
+  // Helper for slider progress background (liquid gradient)
   const getSliderStyle = (value: number, min: number, max: number) => {
     const percent = ((value - min) / (max - min)) * 100;
     return {
-      background: `linear-gradient(to right, #4FD1C5 0%, #2ab3a8 ${percent}%, rgba(229, 231, 235, 0.4) ${percent}%, rgba(229, 231, 235, 0.4) 100%)`,
-    };
+      '--slider-percent': `${percent}%`,
+    } as React.CSSProperties;
   };
   const loanAmount = propertyPrice * (1 - downPayment / 100);
 
