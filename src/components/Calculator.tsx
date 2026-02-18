@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import bankData from '@/data/bank-products.json';
 import BankLogo from './BankLogo';
+import LeadModal from './LeadModal';
 
 interface CalculatorResult {
   monthlyPayment: number;
@@ -18,9 +19,18 @@ export default function Calculator() {
   const [loanTerm, setLoanTerm] = useState(25);
   const [downPayment, setDownPayment] = useState(20);
   const [isFirstProperty, setIsFirstProperty] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [results, setResults] = useState<CalculatorResult[]>([]);
 
   const minDownPayment = isFirstProperty ? 5 : 25;
+
+  // Helper for slider progress background
+  const getSliderStyle = (value: number, min: number, max: number) => {
+    const percent = ((value - min) / (max - min)) * 100;
+    return {
+      background: `linear-gradient(to right, #4FD1C5 0%, #4FD1C5 ${percent}%, #E5E7EB ${percent}%, #E5E7EB 100%)`,
+    };
+  };
   const loanAmount = propertyPrice * (1 - downPayment / 100);
 
   const calculateMonthlyPayment = (principal: number, annualRate: number, years: number): number => {
@@ -76,7 +86,7 @@ export default function Calculator() {
   return (
     <div className="card bg-base-100 shadow-2xl">
       <div className="card-body">
-        <h2 className="card-title text-4xl font-bold mb-4">💰 Calculează rata lunară</h2>
+        <h2 className="card-title text-4xl font-bold mb-4">Calculează rata lunară</h2>
         <p className="text-base-content/70 mb-6">Ajustează parametrii și vezi instant cele mai bune oferte</p>
 
         <div className="space-y-6">
@@ -92,8 +102,8 @@ export default function Calculator() {
               step="10000"
               value={propertyPrice}
               onChange={(e) => setPropertyPrice(Number(e.target.value))}
-              className="w-full"
-              style={{ accentColor: '#4FD1C5' }}
+              className="w-full range-with-progress"
+              style={getSliderStyle(propertyPrice, 100000, 1500000)}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>100.000</span>
@@ -117,8 +127,8 @@ export default function Calculator() {
               step="500"
               value={salary}
               onChange={(e) => setSalary(Number(e.target.value))}
-              className="w-full"
-              style={{ accentColor: '#4FD1C5' }}
+              className="w-full range-with-progress"
+              style={getSliderStyle(salary, 3000, 30000)}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>3.000</span>
@@ -138,8 +148,8 @@ export default function Calculator() {
               step="1"
               value={loanTerm}
               onChange={(e) => setLoanTerm(Number(e.target.value))}
-              className="w-full"
-              style={{ accentColor: '#4FD1C5' }}
+              className="w-full range-with-progress"
+              style={getSliderStyle(loanTerm, 5, 30)}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>5 ani</span>
@@ -181,8 +191,8 @@ export default function Calculator() {
               step="5"
               value={downPayment}
               onChange={(e) => setDownPayment(Number(e.target.value))}
-              className="w-full"
-              style={{ accentColor: '#4FD1C5' }}
+              className="w-full range-with-progress"
+              style={getSliderStyle(downPayment, minDownPayment, 50)}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>{minDownPayment}%</span>
@@ -193,10 +203,10 @@ export default function Calculator() {
 
         {results.length > 0 && (
           <div className="mt-8 space-y-4">
-            <h3 className="text-2xl font-bold">🎯 Cele mai bune oferte:</h3>
+            <h3 className="text-2xl font-bold">Cele mai bune oferte:</h3>
 
             {results.map((result, index) => (
-              <div key={index} className="alert shadow-lg">
+              <div key={index} className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100">
                 <div className="flex-1">
                   <div className="flex justify-between items-start w-full">
                     <div>
@@ -232,7 +242,7 @@ export default function Calculator() {
             ))}
 
             <button className="btn btn-primary btn-lg w-full mt-6">
-              🚀 Solicită oferte de la 5 brokeri
+              Solicită oferte de la 5 brokeri
             </button>
           </div>
         )}

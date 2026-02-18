@@ -22,17 +22,18 @@ body {
   }
 }
 
-/* Smooth range sliders - VISIBLE */
+/* Smooth range sliders with VISIBLE PROGRESS */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
   cursor: pointer;
-  height: 20px;
+  height: 24px;
+  width: 100%;
 }
 
 input[type="range"]::-webkit-slider-track {
-  background: linear-gradient(to right, #4FD1C5 0%, #4FD1C5 var(--value, 50%), #E5E7EB var(--value, 50%), #E5E7EB 100%);
+  background: #E5E7EB;
   height: 8px;
   border-radius: 999px;
 }
@@ -40,19 +41,21 @@ input[type="range"]::-webkit-slider-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  height: 22px;
-  width: 22px;
+  height: 24px;
+  width: 24px;
   background: #4FD1C5;
   border-radius: 50%;
   border: 4px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  margin-top: -7px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin-top: -8px;
   cursor: grab;
+  transition: all 0.15s ease;
 }
 
 input[type="range"]:active::-webkit-slider-thumb {
   cursor: grabbing;
-  box-shadow: 0 2px 8px rgba(79, 209, 197, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 3px 12px rgba(79, 209, 197, 0.5);
 }
 
 input[type="range"]::-moz-range-track {
@@ -62,15 +65,23 @@ input[type="range"]::-moz-range-track {
 }
 
 input[type="range"]::-moz-range-thumb {
-  height: 22px;
-  width: 22px;
+  height: 24px;
+  width: 24px;
   background: #4FD1C5;
   border-radius: 50%;
   border: 4px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   cursor: grab;
+  transition: all 0.15s ease;
 }
 
 input[type="range"]:active::-moz-range-thumb {
   cursor: grabbing;
+  transform: scale(1.1);
+}
+
+/* Progress bar fill - updated via inline style */
+input[type="range"].range-with-progress {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
