@@ -11,13 +11,12 @@ export default function HeroSection() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-cream">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-4xl md:text-6xl font-black text-sage leading-tight mb-6">
-              Smart cash-flow management<br />
-              <span className="text-gray-600">pentru credite ipotecare</span>
+            <h1 className="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-6">
+              Găsim cel mai bun credit pentru tine.<br />
+              <span className="text-sage">Garantat. Gratuit. În 24 de ore.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-              Compară oferte de la 10+ bănci din România.<br />
-              Primești 5 oferte personalizate în 24 de ore.
+              Ne plătesc băncile, nu tu. Compară oferte de la 12+ instituții fără niciun cost.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
