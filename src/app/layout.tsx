@@ -14,6 +14,7 @@ export default function RootLayout({
   return (
     <html lang="ro">
       <head>
+        <link rel="icon" href="/logo.png" type="image/png" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
         <script src="https://cdn.tailwindcss.com"></script>
@@ -41,7 +42,7 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto px-6 py-4">
             <div className="flex justify-between items-center">
               <a href="/" className="flex items-center">
-                <img src="/logo.jpg" alt="lend.ro" className="h-8 md:h-10" />
+                <img src="/logo.png" alt="lend.ro" className="h-8 md:h-10" />
               </a>
               
               <div className="hidden md:flex items-center gap-8">
