@@ -82,7 +82,7 @@ export default function Calculator() {
           <div>
             <div className="flex justify-between mb-2">
               <span className="font-bold">Preț proprietate</span>
-              <span className="text-2xl font-black text-primary">{propertyPrice.toLocaleString('ro-RO')} RON</span>
+              <span className="text-2xl font-black text-mint">{propertyPrice.toLocaleString('ro-RO')} RON</span>
             </div>
             <input
               type="range"
@@ -91,7 +91,8 @@ export default function Calculator() {
               step="10000"
               value={propertyPrice}
               onChange={(e) => setPropertyPrice(Number(e.target.value))}
-              className="range range-primary"
+              className="w-full"
+              style={{ accentColor: '#4FD1C5' }}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>100.000</span>
@@ -99,7 +100,7 @@ export default function Calculator() {
             </div>
             <div className="mt-2 text-center">
               <span className="text-sm opacity-70">Suma credit: </span>
-              <span className="text-lg font-bold text-success">{loanAmount.toLocaleString('ro-RO')} RON</span>
+              <span className="text-lg font-bold text-mint">{loanAmount.toLocaleString('ro-RO')} RON</span>
             </div>
           </div>
 
@@ -115,7 +116,8 @@ export default function Calculator() {
               step="500"
               value={salary}
               onChange={(e) => setSalary(Number(e.target.value))}
-              className="range range-info"
+              className="w-full"
+              style={{ accentColor: '#4FD1C5' }}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>3.000</span>
@@ -135,7 +137,8 @@ export default function Calculator() {
               step="1"
               value={loanTerm}
               onChange={(e) => setLoanTerm(Number(e.target.value))}
-              className="range range-secondary"
+              className="w-full"
+              style={{ accentColor: '#4FD1C5' }}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>5 ani</span>
@@ -143,21 +146,22 @@ export default function Calculator() {
             </div>
           </div>
 
-          <div className="form-control">
-            <label className="label cursor-pointer justify-start gap-3">
-              <input 
-                type="checkbox" 
-                checked={isFirstProperty}
-                onChange={(e) => {
-                  setIsFirstProperty(e.target.checked);
-                  // If unchecked and down payment < 25%, force to 25%
-                  if (!e.target.checked && downPayment < 25) {
-                    setDownPayment(25);
-                  }
-                }}
-                className="checkbox checkbox-primary" 
-              />
-              <span className="label-text font-bold">Prima proprietate imobiliară (avans minim {minDownPayment}%)</span>
+          <div className="flex items-center gap-3 py-2">
+            <input 
+              type="checkbox" 
+              id="firstProperty"
+              checked={isFirstProperty}
+              onChange={(e) => {
+                setIsFirstProperty(e.target.checked);
+                if (!e.target.checked && downPayment < 25) {
+                  setDownPayment(25);
+                }
+              }}
+              className="w-5 h-5 rounded border-2 border-gray-300"
+              style={{ accentColor: '#4FD1C5' }}
+            />
+            <label htmlFor="firstProperty" className="text-sm text-gray-700 cursor-pointer">
+              Prima proprietate imobiliară <span className="text-gray-500">(avans minim {minDownPayment}%)</span>
             </label>
           </div>
 
@@ -176,7 +180,8 @@ export default function Calculator() {
               step="5"
               value={downPayment}
               onChange={(e) => setDownPayment(Number(e.target.value))}
-              className="range range-warning"
+              className="w-full"
+              style={{ accentColor: '#4FD1C5' }}
             />
             <div className="flex justify-between text-xs opacity-50">
               <span>{minDownPayment}%</span>
