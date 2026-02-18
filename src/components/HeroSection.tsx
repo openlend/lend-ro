@@ -37,18 +37,13 @@ export default function HeroSection() {
           {/* Stats Grid - Clean & Spaced */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
             {[
-              { value: '10+', label: 'Bănci partenere', color: 'mint' },
-              { value: '24h', label: 'Răspuns rapid', color: 'blue' },
-              { value: '5', label: 'Oferte personalizate', color: 'purple' },
-              { value: '100%', label: 'Gratuit', color: 'green' }
+              { value: '10+', label: 'Bănci partenere' },
+              { value: '24h', label: 'Răspuns rapid' },
+              { value: '5', label: 'Oferte personalizate' },
+              { value: '100%', label: 'Gratuit' }
             ].map((stat, i) => (
               <div key={i} className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-xl transition">
-                <div className={`text-3xl md:text-4xl font-black mb-2 ${
-                  stat.color === 'mint' ? 'text-mint' :
-                  stat.color === 'blue' ? 'text-blue-500' :
-                  stat.color === 'purple' ? 'text-purple-500' :
-                  'text-green-500'
-                }`}>
+                <div className="text-3xl md:text-4xl font-black text-mint mb-2">
                   {stat.value}
                 </div>
                 <div className="text-xs md:text-sm text-gray-600 font-medium">{stat.label}</div>

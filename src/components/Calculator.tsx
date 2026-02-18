@@ -107,7 +107,7 @@ export default function Calculator() {
           <div>
             <div className="flex justify-between mb-2">
               <span className="font-bold">Venit lunar net</span>
-              <span className="text-2xl font-black text-info">{salary.toLocaleString('ro-RO')} RON</span>
+              <span className="text-2xl font-black text-mint">{salary.toLocaleString('ro-RO')} RON</span>
             </div>
             <input
               type="range"
@@ -128,7 +128,7 @@ export default function Calculator() {
           <div>
             <div className="flex justify-between mb-2">
               <span className="font-bold">Perioadă creditare</span>
-              <span className="text-2xl font-black text-secondary">{loanTerm} ani</span>
+              <span className="text-2xl font-black text-mint">{loanTerm} ani</span>
             </div>
             <input
               type="range"
@@ -169,7 +169,7 @@ export default function Calculator() {
             <div className="flex justify-between mb-2">
               <span className="font-bold">Avans</span>
               <div className="text-right">
-                <span className="text-2xl font-black text-warning">{downPayment}%</span>
+                <span className="text-2xl font-black text-mint">{downPayment}%</span>
                 <div className="text-xs opacity-70">{(propertyPrice * downPayment / 100).toLocaleString('ro-RO')} RON</div>
               </div>
             </div>
