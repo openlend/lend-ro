@@ -127,11 +127,11 @@ export default function Calculator() {
     return results.sort((a, b) => a.monthlyPayment - b.monthlyPayment);
   }, [loanAmount, loanPeriod, monthlyIncome]);
 
-  // Get best product per bank (only eligible)
+  // Get best product per bank (show ALL, not just eligible)
   const bestPerBank = useMemo(() => {
     const bankMap = new Map();
     eligibleBanks
-      .filter(b => b.eligible)
+      // Remove .filter(b => b.eligible) - show ALL banks even if DTI > 40%
       .forEach(bank => {
         if (!bankMap.has(bank.bank) || bankMap.get(bank.bank).monthlyPayment > bank.monthlyPayment) {
           bankMap.set(bank.bank, bank);
@@ -524,7 +524,19 @@ export default function Calculator() {
                       <input
                         type="number"
                         value={monthlyIncome}
-                        onChange={(e) => setMonthlyIncome(Number(e.target.value))}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          // Allow empty string (user deleting) or valid number
+                          setMonthlyIncome(val === '' ? 0 : Number(val));
+                        }}
+                        onBlur={(e) => {
+                          // Set minimum 1000 RON on blur if empty
+                          if (monthlyIncome < 1000) {
+                            setMonthlyIncome(1000);
+                          }
+                        }}
+                        min="1000"
+                        placeholder="ex: 8000"
                         className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                       />
                       <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium min-w-[60px] text-center">
@@ -571,6 +583,18 @@ export default function Calculator() {
                       </div>
                     </div>
                     
+                    {/* DTI Warning Banner */}
+                    {bank.dtiRatio > 40 && (
+                      <div className="mb-3 px-3 py-2 bg-orange-50 border border-orange-200 rounded-lg">
+                        <div className="flex items-start gap-2">
+                          <span className="text-orange-500 text-lg leading-none">⚠️</span>
+                          <div className="text-xs text-orange-700">
+                            <strong>DTI ridicat:</strong> S-ar putea să fie nevoie de venit suplimentar sau co-debitor pentru această sumă.
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                       <div>
                         <span className="text-gray-500">Dobândă: </span>
