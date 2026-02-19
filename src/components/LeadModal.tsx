@@ -26,11 +26,43 @@ interface LeadModalProps {
   monthlyPayment: number;
 }
 
+// Country codes with flags
+const countries = [
+  { code: '+40', country: 'RO', flag: '🇷🇴', name: 'România' },
+  { code: '+43', country: 'AT', flag: '🇦🇹', name: 'Austria' },
+  { code: '+32', country: 'BE', flag: '🇧🇪', name: 'Belgia' },
+  { code: '+359', country: 'BG', flag: '🇧🇬', name: 'Bulgaria' },
+  { code: '+357', country: 'CY', flag: '🇨🇾', name: 'Cipru' },
+  { code: '+420', country: 'CZ', flag: '🇨🇿', name: 'Cehia' },
+  { code: '+49', country: 'DE', flag: '🇩🇪', name: 'Germania' },
+  { code: '+45', country: 'DK', flag: '🇩🇰', name: 'Danemarca' },
+  { code: '+372', country: 'EE', flag: '🇪🇪', name: 'Estonia' },
+  { code: '+34', country: 'ES', flag: '🇪🇸', name: 'Spania' },
+  { code: '+358', country: 'FI', flag: '🇫🇮', name: 'Finlanda' },
+  { code: '+33', country: 'FR', flag: '🇫🇷', name: 'Franța' },
+  { code: '+30', country: 'GR', flag: '🇬🇷', name: 'Grecia' },
+  { code: '+353', country: 'IE', flag: '🇮🇪', name: 'Irlanda' },
+  { code: '+39', country: 'IT', flag: '🇮🇹', name: 'Italia' },
+  { code: '+371', country: 'LV', flag: '🇱🇻', name: 'Letonia' },
+  { code: '+370', country: 'LT', flag: '🇱🇹', name: 'Lituania' },
+  { code: '+352', country: 'LU', flag: '🇱🇺', name: 'Luxemburg' },
+  { code: '+36', country: 'HU', flag: '🇭🇺', name: 'Ungaria' },
+  { code: '+31', country: 'NL', flag: '🇳🇱', name: 'Olanda' },
+  { code: '+48', country: 'PL', flag: '🇵🇱', name: 'Polonia' },
+  { code: '+351', country: 'PT', flag: '🇵🇹', name: 'Portugalia' },
+  { code: '+46', country: 'SE', flag: '🇸🇪', name: 'Suedia' },
+  { code: '+386', country: 'SI', flag: '🇸🇮', name: 'Slovenia' },
+  { code: '+421', country: 'SK', flag: '🇸🇰', name: 'Slovacia' },
+  { code: '+44', country: 'GB', flag: '🇬🇧', name: 'Marea Britanie' },
+  { code: '+1', country: 'US', flag: '🇺🇸', name: 'SUA' },
+];
+
 export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment }: LeadModalProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    countryCode: '+40', // Default Romania
     propertyType: 'apartament',
     gdprConsent: false,
     honeypot: '',
@@ -49,25 +81,20 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
 
   if (!isOpen) return null;
 
-  const validatePhone = (phone: string): boolean => {
+  const validatePhone = (phone: string, countryCode: string): boolean => {
     const cleaned = phone.replace(/[\s\-\(\)]/g, '');
     
-    // Accept: +407XXXXXXXX, 07XXXXXXXX, 00407XXXXXXXX
-    if (cleaned.startsWith('+40')) {
-      const number = cleaned.substring(3);
-      return /^[7][0-9]{8}$/.test(number);
+    // Romania specific validation
+    if (countryCode === '+40') {
+      // Accept: 7XXXXXXXX or 07XXXXXXXX
+      if (cleaned.startsWith('0')) {
+        return /^0[7][0-9]{8}$/.test(cleaned);
+      }
+      return /^[7][0-9]{8}$/.test(cleaned);
     }
     
-    if (cleaned.startsWith('0040')) {
-      const number = cleaned.substring(4);
-      return /^[7][0-9]{8}$/.test(number);
-    }
-    
-    if (cleaned.startsWith('0')) {
-      return /^0[7][0-9]{8}$/.test(cleaned);
-    }
-    
-    return false;
+    // For other countries: accept any number 6-15 digits
+    return /^[0-9]{6,15}$/.test(cleaned);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -81,11 +108,20 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
       return;
     }
 
-    if (!validatePhone(formData.phone)) {
-      setErrorMessage('Număr de telefon invalid. Format corect: 07XXXXXXXX sau +407XXXXXXXX');
+    if (!validatePhone(formData.phone, formData.countryCode)) {
+      const errorMsg = formData.countryCode === '+40' 
+        ? 'Număr de telefon invalid. Format corect: 712345678 sau 0712345678'
+        : 'Număr de telefon invalid.';
+      setErrorMessage(errorMsg);
       setIsSubmitting(false);
       return;
     }
+
+    // Clean phone number and combine with country code
+    const cleanedPhone = formData.phone.replace(/[\s\-\(\)]/g, '');
+    const fullPhone = formData.countryCode === '+40' && cleanedPhone.startsWith('0')
+      ? formData.countryCode + cleanedPhone.substring(1) // Remove leading 0 for Romania
+      : formData.countryCode + cleanedPhone;
 
     try {
       const response = await fetch('/api/lead', {
@@ -94,7 +130,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
         body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
-          phone: formData.phone.trim(),
+          phone: fullPhone,
           propertyType: formData.propertyType,
           loanAmount,
           monthlyPayment,
@@ -114,7 +150,8 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
           setFormData({ 
             name: '', 
             email: '', 
-            phone: '', 
+            phone: '',
+            countryCode: '+40',
             propertyType: 'apartament',
             gdprConsent: false,
             honeypot: '',
@@ -230,25 +267,53 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
                   }}
                 />
 
-                <TextField
-                  label="Telefon"
-                  variant="outlined"
-                  fullWidth
-                  required
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="07XXXXXXXX sau +407XXXXXXXX"
-                  helperText="Format: 07XXXXXXXX sau +407XXXXXXXX"
-                  inputProps={{ pattern: '[0-9\\+\\-\\s\\(\\)]+' }}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      '&:hover fieldset': {
-                        borderColor: '#00D186',
-                      },
-                    },
-                  }}
-                />
+                {/* Phone field with country code dropdown */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Telefon *</label>
+                  <div className="flex gap-2">
+                    <TextField
+                      select
+                      variant="outlined"
+                      value={formData.countryCode}
+                      onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                      sx={{
+                        width: '140px',
+                        '& .MuiOutlinedInput-root': {
+                          '&:hover fieldset': {
+                            borderColor: '#00D186',
+                          },
+                        },
+                      }}
+                    >
+                      {countries.map((country) => (
+                        <MenuItem key={country.code} value={country.code}>
+                          <div className="flex items-center gap-2">
+                            <span className="text-lg">{country.flag}</span>
+                            <span className="font-medium">{country.code}</span>
+                          </div>
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                    
+                    <TextField
+                      variant="outlined"
+                      fullWidth
+                      required
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder={formData.countryCode === '+40' ? '712345678' : '...'}
+                      inputProps={{ pattern: '[0-9\\+\\-\\s\\(\\)]+' }}
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '&:hover fieldset': {
+                            borderColor: '#00D186',
+                          },
+                        },
+                      }}
+                    />
+                  </div>
+                </div>
 
                 <TextField
                   select
