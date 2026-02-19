@@ -31,15 +31,10 @@ export default function CalculatorTestClient() {
   const monthlyRate = Math.round((loanAmount * 0.00625) / (1 - Math.pow(1 + 0.00625, -loanPeriod * 12)));
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] py-8 px-4">
-      <div className="max-w-md mx-auto">
-        {/* Logo placeholder - optional */}
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-[#0B1B3E]">lend.ro</h1>
-        </div>
-
+    <div className="min-h-screen bg-[#F5F7FA] py-12 px-4" style={{ fontFamily: 'Rubik, sans-serif' }}>
+      <div className="max-w-[480px] mx-auto">
         {/* Main Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-lg p-8">
           {/* Title */}
           <h2 className="text-xl font-semibold text-[#0B1B3E] mb-6">
             Găsește cel mai bun credit

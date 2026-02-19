@@ -10,5 +10,16 @@ export const metadata: Metadata = {
 };
 
 export default function CalculatorTestPage() {
-  return <CalculatorTestClient />;
+  return (
+    <>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+        
+        body {
+          font-family: 'Rubik', sans-serif;
+        }
+      `}</style>
+      <CalculatorTestClient />
+    </>
+  );
 }
