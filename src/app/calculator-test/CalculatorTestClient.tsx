@@ -85,15 +85,20 @@ export default function CalculatorTestClient() {
                 <span className="text-sm font-medium text-gray-600">RON</span>
               </div>
             </div>
-            <input
-              type="range"
-              min="50000"
-              max="500000"
-              step="10000"
-              value={loanAmount}
-              onChange={(e) => setLoanAmount(Number(e.target.value))}
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-green"
-            />
+            <div className="relative">
+              <input
+                type="range"
+                min="50000"
+                max="500000"
+                step="10000"
+                value={loanAmount}
+                onChange={(e) => setLoanAmount(Number(e.target.value))}
+                style={{
+                  background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb 100%)`
+                }}
+                className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
+              />
+            </div>
             <div className="flex justify-between mt-1">
               <span className="text-xs text-[#00D186] font-medium">50k</span>
               <span className="text-xs text-gray-400">500k</span>
@@ -116,15 +121,20 @@ export default function CalculatorTestClient() {
                 <span className="text-sm font-medium text-gray-600">ani</span>
               </div>
             </div>
-            <input
-              type="range"
-              min="5"
-              max="35"
-              step="1"
-              value={loanPeriod}
-              onChange={(e) => setLoanPeriod(Number(e.target.value))}
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-green"
-            />
+            <div className="relative">
+              <input
+                type="range"
+                min="5"
+                max="35"
+                step="1"
+                value={loanPeriod}
+                onChange={(e) => setLoanPeriod(Number(e.target.value))}
+                style={{
+                  background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb 100%)`
+                }}
+                className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
+              />
+            </div>
             <div className="flex justify-between mt-1">
               <span className="text-xs text-[#00D186] font-medium">5 ani</span>
               <span className="text-xs text-gray-400">35 ani</span>
@@ -257,28 +267,36 @@ export default function CalculatorTestClient() {
       </div>
 
       <style jsx global>{`
-        .slider-green::-webkit-slider-thumb {
+        .slider-thumb::-webkit-slider-thumb {
+          -webkit-appearance: none;
           appearance: none;
           width: 20px;
           height: 20px;
           border-radius: 50%;
           background: #00D186;
           cursor: pointer;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
+          border: 2px solid #fff;
         }
 
-        .slider-green::-moz-range-thumb {
+        .slider-thumb::-moz-range-thumb {
           width: 20px;
           height: 20px;
           border-radius: 50%;
           background: #00D186;
           cursor: pointer;
-          border: none;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          border: 2px solid #fff;
+          box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
         }
 
-        .slider-green::-webkit-slider-runnable-track {
-          background: linear-gradient(to right, #00D186 0%, #00D186 ${(loanAmount - 50000) / 4500}%, #e5e7eb ${(loanAmount - 50000) / 4500}%, #e5e7eb 100%);
+        .slider-thumb::-webkit-slider-runnable-track {
+          height: 8px;
+          border-radius: 4px;
+        }
+
+        .slider-thumb::-moz-range-track {
+          height: 8px;
+          border-radius: 4px;
         }
       `}</style>
     </div>
