@@ -111,16 +111,16 @@ export default function Calculator() {
   }, [propertyPrice, downPayment, salary, loanTerm]);
 
   return (
-    <div className="bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg overflow-hidden">
-      <div className="p-6 md:p-8">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-[#0B1B3E]">Calculează rata lunară</h2>
-        <p className="text-gray-600 text-sm md:text-base mb-6">Ajustează parametrii și vezi instant cele mai bune oferte</p>
+    <div className="card bg-base-100 shadow-2xl">
+      <div className="card-body p-4 md:p-8">
+        <h2 className="card-title text-2xl md:text-4xl font-bold mb-2 md:mb-4">Calculează rata lunară</h2>
+        <p className="text-base-content/70 text-sm md:text-base mb-4 md:mb-6">Ajustează parametrii și vezi instant cele mai bune oferte</p>
 
         <div className="space-y-3 md:space-y-5">
           <div>
             <div className="flex justify-between items-baseline mb-1 md:mb-2">
               <span className="text-sm md:text-base font-semibold md:font-bold">Preț proprietate</span>
-              <span className="text-xl md:text-2xl font-bold text-[#00D186]">{propertyPrice.toLocaleString('ro-RO')} RON</span>
+              <span className="text-xl md:text-2xl font-bold text-mint">{propertyPrice.toLocaleString('ro-RO')} RON</span>
             </div>
             <RangeSliderWithTooltip
               value={propertyPrice}
@@ -136,14 +136,14 @@ export default function Calculator() {
             </div>
             <div className="mt-1 text-center">
               <span className="text-xs opacity-70">Suma credit: </span>
-              <span className="text-sm md:text-lg font-bold text-[#00D186]">{loanAmount.toLocaleString('ro-RO')} RON</span>
+              <span className="text-sm md:text-lg font-bold text-mint">{loanAmount.toLocaleString('ro-RO')} RON</span>
             </div>
           </div>
 
           <div>
             <div className="flex justify-between items-baseline mb-1 md:mb-2">
               <span className="text-sm md:text-base font-semibold md:font-bold">Venit lunar net</span>
-              <span className="text-xl md:text-2xl font-bold text-[#00D186]">{salary.toLocaleString('ro-RO')} RON</span>
+              <span className="text-xl md:text-2xl font-bold text-mint">{salary.toLocaleString('ro-RO')} RON</span>
             </div>
             <RangeSliderWithTooltip
               value={salary}
@@ -162,7 +162,7 @@ export default function Calculator() {
           <div>
             <div className="flex justify-between items-baseline mb-1 md:mb-2">
               <span className="text-sm md:text-base font-semibold md:font-bold">Perioadă creditare</span>
-              <span className="text-xl md:text-2xl font-bold text-[#00D186]">{loanTerm} ani</span>
+              <span className="text-xl md:text-2xl font-bold text-mint">{loanTerm} ani</span>
             </div>
             <RangeSliderWithTooltip
               value={loanTerm}
@@ -201,7 +201,7 @@ export default function Calculator() {
             <div className="flex justify-between items-baseline mb-1 md:mb-2">
               <span className="text-sm md:text-base font-semibold md:font-bold">Avans</span>
               <div className="text-right">
-                <span className="text-xl md:text-2xl font-bold text-[#00D186]">{downPayment}%</span>
+                <span className="text-xl md:text-2xl font-bold text-mint">{downPayment}%</span>
                 <div className="text-xs opacity-70">{(propertyPrice * downPayment / 100).toLocaleString('ro-RO')} RON</div>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function Calculator() {
             {results.map((result, index) => (
               <div 
                 key={index} 
-                className="group bg-white rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-lg md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-[#00D186]/30 md:hover:-translate-y-1"
+                className="group bg-white rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-lg md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-mint/30 md:hover:-translate-y-1"
               >
                 {/* Mobile Layout */}
                 <div className="md:hidden">
@@ -266,8 +266,8 @@ export default function Calculator() {
                   {result.monthlyPayment > 0 ? (
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-14 h-14 rounded-full bg-[#00D186]/10 flex items-center justify-center flex-shrink-0 border-2 border-[#00D186]/20">
-                          <span className="text-[#00D186] font-black text-base">{result.debtRatio.toFixed(0)}%</span>
+                        <div className="w-14 h-14 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0 border-2 border-mint/20">
+                          <span className="text-mint font-black text-base">{result.debtRatio.toFixed(0)}%</span>
                         </div>
                         <span className="text-sm text-gray-600 font-semibold">îndatorare</span>
                       </div>
@@ -299,7 +299,7 @@ export default function Calculator() {
                   {/* Buton Aplică */}
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="w-full bg-[#00D186] text-white px-6 py-4 rounded-xl text-base font-black hover:bg-[#00D186]/90 transition-all shadow-md"
+                    className="w-full bg-mint text-white px-6 py-4 rounded-xl text-base font-black hover:bg-mint/90 transition-all shadow-md"
                   >
                     Aplică →
                   </button>
@@ -318,8 +318,8 @@ export default function Calculator() {
                       </p>
                       {result.monthlyPayment > 0 ? (
                         <div className="flex items-center gap-2 mt-2">
-                          <div className="w-12 h-12 rounded-full bg-[#00D186]/10 flex items-center justify-center flex-shrink-0">
-                            <span className="text-[#00D186] font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
+                          <div className="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center flex-shrink-0">
+                            <span className="text-mint font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
                           </div>
                           <span className="text-xs text-gray-500">îndatorare</span>
                         </div>
@@ -378,7 +378,7 @@ export default function Calculator() {
                   <div className="md:col-span-2">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="w-full bg-[#00D186] text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-[#00D186]/90 transition-all group-hover:scale-105"
+                      className="w-full bg-mint text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-mint/90 transition-all group-hover:scale-105"
                     >
                       Aplică →
                     </button>

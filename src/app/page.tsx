@@ -25,8 +25,8 @@ export default function Home() {
       <main>
         <HeroSection />
 
-        <section id="calculator" className="py-12 md:py-20 bg-gray-50">
-          <div className="container mx-auto px-2 md:px-6 max-w-6xl">
+        <section id="calculator" className="py-0 md:py-12 bg-[#F5F7FA]">
+          <div className="max-w-full md:max-w-6xl md:mx-auto md:px-6">
             <Calculator />
           </div>
         </section>
