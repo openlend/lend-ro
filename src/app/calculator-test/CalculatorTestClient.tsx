@@ -45,11 +45,12 @@ const InfoIcon = () => (
 );
 
 export default function CalculatorTestClient() {
-  const [activeTab, setActiveTab] = useState<'consumer' | 'mortgage'>('consumer');
+  const [activeTab, setActiveTab] = useState<'consumer' | 'mortgage'>('mortgage');
   const [loanAmount, setLoanAmount] = useState(250000);
   const [loanPeriod, setLoanPeriod] = useState(25);
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [comparison, setComparison] = useState(3);
+  const [showDotsMenu, setShowDotsMenu] = useState(false);
 
   // Advanced parameters
   const [downPayment, setDownPayment] = useState(15);
@@ -58,9 +59,16 @@ export default function CalculatorTestClient() {
   const [showDownPaymentInfo, setShowDownPaymentInfo] = useState(false);
   const [showIncomeInfo, setShowIncomeInfo] = useState(false);
 
-  // Enforce minimum 25% down payment for second property
-  const minDownPayment = secondProperty ? 25 : 5;
+  // Enforce minimum 25% down payment for second property (mortgage) or second consumer loan
+  const isSecondLoan = secondProperty;
+  const minDownPayment = isSecondLoan && activeTab === 'mortgage' ? 25 : 5;
   const effectiveDownPayment = Math.max(downPayment, minDownPayment);
+  
+  // Label text changes based on tab
+  const secondLoanLabel = activeTab === 'mortgage' ? 'Al doilea imobil' : 'Al doilea consum';
+  const secondLoanTooltip = activeTab === 'mortgage' 
+    ? 'Pentru al doilea imobil, băncile solicită avans minim 25% (față de 5% pentru prima proprietate).'
+    : 'Pentru al doilea credit de consum, băncile pot solicita garanții suplimentare și dobânzi mai mari.';
 
   return (
     <>
@@ -128,9 +136,58 @@ export default function CalculatorTestClient() {
                     Imobiliar
                   </button>
                 </div>
-                <button className="p-2.5 text-gray-400 hover:text-gray-600 transition-colors">
-                  <DotsVerticalIcon />
-                </button>
+                <div className="relative">
+                  <button 
+                    onClick={() => setShowDotsMenu(!showDotsMenu)}
+                    className="p-2.5 text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <DotsVerticalIcon />
+                  </button>
+                  
+                  {showDotsMenu && (
+                    <>
+                      <div 
+                        className="fixed inset-0 z-10" 
+                        onClick={() => setShowDotsMenu(false)}
+                      ></div>
+                      <div className="absolute right-0 top-12 z-20 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2">
+                        <button 
+                          onClick={() => {
+                            setLoanAmount(250000);
+                            setLoanPeriod(25);
+                            setDownPayment(15);
+                            setMonthlyIncome(8000);
+                            setSecondProperty(false);
+                            setShowDotsMenu(false);
+                          }}
+                          className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          🔄 Reset valori
+                        </button>
+                        <button 
+                          onClick={() => {
+                            alert('Funcție în dezvoltare: Salvare calcul');
+                            setShowDotsMenu(false);
+                          }}
+                          className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          💾 Salvează calculul
+                        </button>
+                        <button 
+                          onClick={() => {
+                            const url = window.location.href;
+                            navigator.clipboard.writeText(url);
+                            alert('Link copiat în clipboard!');
+                            setShowDotsMenu(false);
+                          }}
+                          className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          🔗 Distribuie
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
 
               {/* Loan Amount */}
@@ -233,7 +290,7 @@ export default function CalculatorTestClient() {
               {/* Advanced Parameters Section */}
               {showAdvanced && (
                 <div className="space-y-4 pt-2 pb-4 border-t border-gray-200">
-                  {/* Second Property Checkbox */}
+                  {/* Second Property/Loan Checkbox */}
                   <div className="flex items-center gap-2">
                     <input
                       type="checkbox"
@@ -241,14 +298,14 @@ export default function CalculatorTestClient() {
                       checked={secondProperty}
                       onChange={(e) => {
                         setSecondProperty(e.target.checked);
-                        if (e.target.checked && downPayment < 25) {
+                        if (e.target.checked && activeTab === 'mortgage' && downPayment < 25) {
                           setDownPayment(25);
                         }
                       }}
                       className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
                     />
                     <label htmlFor="secondProperty" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
-                      Al doilea imobil
+                      {secondLoanLabel}
                     </label>
                     <div className="relative">
                       <button
@@ -260,8 +317,8 @@ export default function CalculatorTestClient() {
                         <InfoIcon />
                       </button>
                       {showDownPaymentInfo && (
-                        <div className="absolute left-0 top-6 z-10 w-64 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
-                          Pentru al doilea imobil, băncile solicită avans minim 25% (față de 5% pentru prima proprietate).
+                        <div className="absolute right-0 top-6 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                          {secondLoanTooltip}
                         </div>
                       )}
                     </div>
@@ -304,7 +361,7 @@ export default function CalculatorTestClient() {
                           <InfoIcon />
                         </button>
                         {showIncomeInfo && (
-                          <div className="absolute left-0 top-6 z-10 w-64 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                          <div className="absolute right-0 top-6 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
                             Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
                           </div>
                         )}
