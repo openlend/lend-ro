@@ -130,37 +130,36 @@ export default function CalculatorTestClient() {
                   <p className="text-xs text-gray-400">Cât necesitezi?</p>
                 </div>
                 
-                <div className="flex items-center gap-3 mb-2">
-                  {/* Slider */}
-                  <div className="flex-1">
-                    <input
-                      type="range"
-                      min="50000"
-                      max="500000"
-                      step="10000"
-                      value={loanAmount}
-                      onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      style={{
-                        background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb 100%)`
-                      }}
-                      className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
-                    />
-                  </div>
+                {/* Slider - full width */}
+                <div className="mb-2">
+                  <input
+                    type="range"
+                    min="50000"
+                    max="500000"
+                    step="10000"
+                    value={loanAmount}
+                    onChange={(e) => setLoanAmount(Number(e.target.value))}
+                    style={{
+                      background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb 100%)`
+                    }}
+                    className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
+                  />
+                </div>
+                
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-[#00D186] font-medium">50k</span>
                   
-                  {/* Input Box */}
-                  <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white min-w-[140px]">
+                  {/* Input Box - right aligned */}
+                  <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-1.5 bg-white">
                     <input
                       type="number"
                       value={loanAmount}
                       onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      className="w-full text-right text-sm font-semibold text-gray-900 focus:outline-none bg-transparent"
+                      className="w-24 text-right text-sm font-semibold text-gray-900 focus:outline-none bg-transparent"
                     />
                     <span className="text-sm text-gray-600 font-medium">RON</span>
                   </div>
-                </div>
-                
-                <div className="flex justify-between text-xs">
-                  <span className="text-[#00D186] font-medium">50k</span>
+                  
                   <span className="text-gray-400">500k</span>
                 </div>
               </div>
@@ -174,37 +173,36 @@ export default function CalculatorTestClient() {
                   <p className="text-xs text-gray-400">Pe câți ani?</p>
                 </div>
                 
-                <div className="flex items-center gap-3 mb-2">
-                  {/* Slider */}
-                  <div className="flex-1">
-                    <input
-                      type="range"
-                      min="5"
-                      max="35"
-                      step="1"
-                      value={loanPeriod}
-                      onChange={(e) => setLoanPeriod(Number(e.target.value))}
-                      style={{
-                        background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb 100%)`
-                      }}
-                      className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
-                    />
-                  </div>
+                {/* Slider - full width */}
+                <div className="mb-2">
+                  <input
+                    type="range"
+                    min="5"
+                    max="35"
+                    step="1"
+                    value={loanPeriod}
+                    onChange={(e) => setLoanPeriod(Number(e.target.value))}
+                    style={{
+                      background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb 100%)`
+                    }}
+                    className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
+                  />
+                </div>
+                
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-[#00D186] font-medium">5 ani</span>
                   
-                  {/* Input Box */}
-                  <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white min-w-[140px]">
+                  {/* Input Box - center aligned */}
+                  <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-1.5 bg-white">
                     <input
                       type="number"
                       value={loanPeriod}
                       onChange={(e) => setLoanPeriod(Number(e.target.value))}
-                      className="w-full text-right text-sm font-semibold text-gray-900 focus:outline-none bg-transparent"
+                      className="w-16 text-right text-sm font-semibold text-gray-900 focus:outline-none bg-transparent"
                     />
                     <span className="text-sm text-gray-600 font-medium">ani</span>
                   </div>
-                </div>
-                
-                <div className="flex justify-between text-xs">
-                  <span className="text-[#00D186] font-medium">5 ani</span>
+                  
                   <span className="text-gray-400">35 ani</span>
                 </div>
               </div>
