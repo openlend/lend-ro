@@ -2,104 +2,116 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog Credit Ipotecar | Ghiduri și Sfaturi - lend.ro',
-  description: 'Articole despre credite ipotecare, dobânzi, ghiduri complete pentru prima casă, refinanțare și tot ce trebuie să știi despre creditele imobiliare în România.',
-  keywords: ['blog credit ipotecar', 'ghid prima casa', 'sfaturi credit imobiliar', 'dobânzi bănci', 'refinanțare credit'],
+  title: 'Blog | Ghiduri Credit Ipotecar Romania',
+  description: 'Ghiduri complete despre credite ipotecare: calculatoare, comparatii bănci, sfaturi negociere dobândă. Conținut verificat de experți.',
 };
 
-const blogPosts = [
+// Sample articles (replace with real data from content/blog/*.md)
+const articles = [
   {
-    slug: 'ghid-credit-ipotecar-romania-2026',
-    title: 'Ghid Complet Credit Ipotecar România 2026',
-    excerpt: 'Tot ce trebuie să știi despre creditele ipotecare în 2026: dobânzi, condiții, documente necesare, și cum să obții cele mai bune oferte de la bănci.',
+    slug: 'ghid-complet-credit-ipotecar-2026',
+    title: 'Ghid Complet Credit Ipotecar 2026: Tot Ce Trebuie Să Știi',
+    description: 'Ghid complet credit ipotecar în România 2026: tipuri de credite, condiții, rate, bănci, acte necesare.',
+    date: '2026-02-24',
+    readingTime: '12 min',
     category: 'Ghiduri',
-    readTime: '15 min citire',
-    date: '18 februarie 2026',
-    image: '/blog/credit-ipotecar-ghid.jpg',
+    featured: true,
   },
 ];
 
 export default function BlogPage() {
+  const featuredArticle = articles.find(a => a.featured);
+  const otherArticles = articles.filter(a => !a.featured);
+
   return (
-    <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-sage to-mint text-white py-20">
-        <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h1 className="text-4xl md:text-6xl font-black mb-6">
+    <main className="min-h-screen bg-gradient-to-b from-[#0A2F2F] via-[#0A2F2F]/95 to-[#0A2F2F] text-white">
+      {/* Header */}
+      <div className="container mx-auto px-4 pt-32 pb-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Blog Credit Ipotecar
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
-            Ghiduri complete, sfaturi practice și ultimele noutăți despre creditele imobiliare în România
+          <p className="text-xl text-white/80 mb-8">
+            Ghiduri complete, sfaturi practice și analize de piață pentru credite ipotecare în România.
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Blog Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Link 
-                key={post.slug} 
-                href={`/blog/${post.slug}`}
-                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-2"
-              >
-                {/* Image */}
-                <div className="h-56 bg-gradient-to-br from-mint to-sage flex items-center justify-center">
-                  <div className="text-white text-6xl">🏠</div>
+      {/* Featured Article */}
+      {featuredArticle && (
+        <div className="container mx-auto px-4 pb-16">
+          <div className="max-w-6xl mx-auto">
+            <Link href={`/blog/${featuredArticle.slug}`}>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/10 transition-all border border-white/10">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="bg-[#FF6B2C] text-white text-sm px-3 py-1 rounded-full">
+                    ⭐ Recomandat
+                  </span>
+                  <span className="text-white/60 text-sm">{featuredArticle.date}</span>
+                  <span className="text-white/60 text-sm">📖 {featuredArticle.readingTime}</span>
                 </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  {/* Category + Read Time */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="bg-mint/10 text-mint px-4 py-2 rounded-full text-sm font-bold">
-                      {post.category}
-                    </span>
-                    <span className="text-gray-500 text-sm">{post.readTime}</span>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-mint transition-colors">
-                    {post.title}
-                  </h2>
-
-                  {/* Excerpt */}
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    {post.excerpt}
-                  </p>
-
-                  {/* Date + CTA */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-500 text-sm">{post.date}</span>
-                    <span className="text-mint font-bold group-hover:translate-x-2 transition-transform inline-block">
-                      Citește →
-                    </span>
-                  </div>
+                <h2 className="text-3xl font-bold mb-4 hover:text-[#FF6B2C] transition-colors">
+                  {featuredArticle.title}
+                </h2>
+                <p className="text-white/80 text-lg mb-6">
+                  {featuredArticle.description}
+                </p>
+                <div className="text-[#FF6B2C] font-semibold">
+                  Citește articolul →
                 </div>
-              </Link>
-            ))}
+              </div>
+            </Link>
           </div>
         </div>
-      </section>
+      )}
+
+      {/* Other Articles Grid */}
+      {otherArticles.length > 0 && (
+        <div className="container mx-auto px-4 pb-24">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold mb-8">Toate Articolele</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {otherArticles.map((article) => (
+                <Link key={article.slug} href={`/blog/${article.slug}`}>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all border border-white/10 h-full flex flex-col">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-xs text-white/60">{article.date}</span>
+                      <span className="text-xs text-white/60">📖 {article.readingTime}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 hover:text-[#FF6B2C] transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-white/70 mb-4 flex-grow line-clamp-3">
+                      {article.description}
+                    </p>
+                    <div className="text-[#FF6B2C] font-semibold text-sm">
+                      Citește mai mult →
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 text-center max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Calculează-ți rata lunară acum
+      <div className="container mx-auto px-4 pb-24">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#FF6B2C] to-[#FF8C5C] rounded-2xl p-12 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Calculează Rata Ta Lunară
           </h2>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Compară oferte de la 12+ bănci și primești 5 oferte competitive în 24 de ore
+          <p className="text-xl mb-8 text-white/90">
+            Calculator gratuit, rezultate în 30 secunde. Compară 12 bănci.
           </p>
-          <Link 
-            href="/#calculator" 
-            className="inline-block bg-mint text-white px-10 py-5 rounded-2xl font-bold text-lg hover:opacity-90 transition-all hover:scale-105 shadow-xl"
+          <Link
+            href="/calculator"
+            className="inline-block bg-white text-[#0A2F2F] px-8 py-4 rounded-full font-bold text-lg hover:bg-white/90 transition-all shadow-lg"
           >
-            Începe calculul →
+            📊 Calculează Acum
           </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </main>
   );
 }
