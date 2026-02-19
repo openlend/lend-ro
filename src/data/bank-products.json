@@ -7,50 +7,86 @@
   "banks": [
     {
       "name": "BCR",
+      "full_name": "Banca Comercială Română",
+      "logo": "/bank-logos/bcr.png",
+      "website": "https://www.bcr.ro",
       "row": 2
     },
     {
       "name": "BRD",
+      "full_name": "BRD - Groupe Société Générale",
+      "logo": "/bank-logos/brd.png",
+      "website": "https://www.brd.ro",
       "row": 3
     },
     {
       "name": "BT",
+      "full_name": "Banca Transilvania",
+      "logo": "/bank-logos/bt.png",
+      "website": "https://www.bancatransilvania.ro",
       "row": 4
     },
     {
       "name": "GARANTI",
+      "full_name": "Garanti BBVA România",
+      "logo": "/bank-logos/garanti.png",
+      "website": "https://www.garantibbva.ro",
       "row": 5
     },
     {
       "name": "ING",
+      "full_name": "ING Bank România",
+      "logo": "/bank-logos/ing.png",
+      "website": "https://www.ing.ro",
       "row": 6
     },
     {
       "name": "RAIFFEISEN",
+      "full_name": "Raiffeisen Bank România",
+      "logo": "/bank-logos/raiffeisen.png",
+      "website": "https://www.raiffeisen.ro",
       "row": 7
     },
     {
       "name": "UNICREDIT",
+      "full_name": "UniCredit Bank România",
+      "logo": "/bank-logos/unicredit.png",
+      "website": "https://www.unicredit.ro",
       "row": 8
     },
     {
       "name": "LIBRA BANK",
+      "full_name": "Libra Internet Bank",
+      "logo": "/bank-logos/libra.png",
+      "website": "https://www.librabank.ro",
       "row": 9
     },
     {
       "name": "CREDIT EUROPE BANK",
+      "full_name": "Credit Europe Bank România",
+      "logo": "/bank-logos/credit-europe.png",
+      "website": "https://www.crediteurope.ro",
       "row": 10
     },
     {
       "name": "PATRIA BANK",
+      "full_name": "Patria Bank",
+      "logo": "/bank-logos/patria.png",
+      "website": "https://www.patriabank.ro",
       "row": 11
     },
     {
       "name": "EXIM BANCA ROMANEASCA",
+      "full_name": "Eximbank - Banca Românească",
+      "logo": "/bank-logos/exim.png",
+      "website": "https://www.eximbank.ro",
       "row": 12
     },
     {
       "name": "INTESA SAN PAOLO",
+      "full_name": "Intesa Sanpaolo Bank România",
+      "logo": "/bank-logos/intesa.png",
+      "website": "https://www.intesasanpaolo.ro",
       "row": 13
     }
   ],
