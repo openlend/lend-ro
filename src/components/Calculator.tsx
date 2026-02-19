@@ -133,7 +133,7 @@ export default function Calculator() {
           bankMap.set(bank.bank, bank);
         }
       });
-    return Array.from(bankMap.values()).slice(0, 6); // Top 6 banks
+    return Array.from(bankMap.values()); // All 12 banks
   }, [eligibleBanks]);
 
   const handleSearch = () => {
@@ -444,7 +444,7 @@ export default function Calculator() {
           {showResults && bestPerBank.length > 0 && (
             <div className="mt-6 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg p-6">
               <h3 className="text-xl font-bold text-[#0B1B3E] mb-4">
-                Top {bestPerBank.length} oferte pentru tine
+                {bestPerBank.length} {bestPerBank.length === 1 ? 'ofertă găsită' : 'oferte găsite'} pentru tine
               </h3>
               
               <div className="space-y-4">
