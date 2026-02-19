@@ -17,13 +17,48 @@ function isValidEmail(email: string): boolean {
 
 function isValidPhone(phone: string): boolean {
   // Romanian phone: +40... or 07... (10 digits)
-  const phoneRegex = /^(\+4|0)(7[0-9]{8}|[23][0-9]{8})$/;
   const cleaned = phone.replace(/[\s\-\(\)]/g, '');
-  return phoneRegex.test(cleaned);
+  
+  // Accept multiple formats:
+  // 07XXXXXXXX (10 digits)
+  // +407XXXXXXXX (12 chars)
+  // +40 7XXXXXXXX (13 chars with space)
+  // 0040... (international format)
+  
+  if (cleaned.startsWith('+40')) {
+    const number = cleaned.substring(3);
+    return /^[7][0-9]{8}$/.test(number); // Must be 07XXXXXXXX without leading 0
+  }
+  
+  if (cleaned.startsWith('0040')) {
+    const number = cleaned.substring(4);
+    return /^[7][0-9]{8}$/.test(number);
+  }
+  
+  if (cleaned.startsWith('0')) {
+    return /^0[7][0-9]{8}$/.test(cleaned); // 07XXXXXXXX
+  }
+  
+  return false;
 }
 
 function sanitizeString(str: string): string {
   return str.trim().replace(/[<>]/g, '');
+}
+
+function normalizePhone(phone: string): string {
+  // Normalize all formats to 07XXXXXXXX
+  const cleaned = phone.replace(/[\s\-\(\)]/g, '');
+  
+  if (cleaned.startsWith('+40')) {
+    return '0' + cleaned.substring(3);
+  }
+  
+  if (cleaned.startsWith('0040')) {
+    return '0' + cleaned.substring(4);
+  }
+  
+  return cleaned; // Already 07XXXXXXXX
 }
 
 function getClientIP(request: Request): string {
@@ -131,7 +166,7 @@ export async function POST(request: Request) {
     // Data sanitization
     const sanitizedName = sanitizeString(name);
     const sanitizedEmail = email.toLowerCase().trim();
-    const sanitizedPhone = phone.replace(/[\s\-\(\)]/g, '');
+    const sanitizedPhone = normalizePhone(phone); // Normalize to 07XXXXXXXX format
 
     // Amount validation
     if (!loanAmount || loanAmount < 10000 || loanAmount > 5000000) {
@@ -299,7 +334,7 @@ export async function POST(request: Request) {
                     ${tracking.utmParams && Object.keys(tracking.utmParams).length > 0 ? `
                     <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E7EB;">
                       <div style="color: #6B7280; margin-bottom: 8px; font-weight: 600;">📈 Parametri UTM</div>
-                      ${Object.entries(tracking.utmParams).filter(([k, v]) => v).map(([key, val]) => `
+                      ${Object.entries(tracking.utmParams).filter(([k, v]: [string, any]) => v).map(([key, val]: [string, any]) => `
                         <div style="margin-bottom: 4px;">
                           <span style="color: #6B7280;">${key}:</span> 
                           <span style="color: #1F2937; font-weight: 600;">${val}</span>
@@ -310,7 +345,7 @@ export async function POST(request: Request) {
                     ${tracking.pagesVisited && tracking.pagesVisited.length > 0 ? `
                     <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E7EB;">
                       <div style="color: #6B7280; margin-bottom: 8px; font-weight: 600;">🗺️ Journey pe site</div>
-                      ${tracking.pagesVisited.map((page, idx) => `
+                      ${tracking.pagesVisited.map((page: string, idx: number) => `
                         <div style="margin-bottom: 4px; color: #4B5563; font-size: 12px;">
                           ${idx + 1}. ${page}
                         </div>

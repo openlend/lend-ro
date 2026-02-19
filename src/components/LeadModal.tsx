@@ -35,8 +35,23 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
 
   const validatePhone = (phone: string): boolean => {
     const cleaned = phone.replace(/[\s\-\(\)]/g, '');
-    const phoneRegex = /^(\+4|0)(7[0-9]{8}|[23][0-9]{8})$/;
-    return phoneRegex.test(cleaned);
+    
+    // Accept: +407XXXXXXXX, 07XXXXXXXX, 00407XXXXXXXX
+    if (cleaned.startsWith('+40')) {
+      const number = cleaned.substring(3);
+      return /^[7][0-9]{8}$/.test(number);
+    }
+    
+    if (cleaned.startsWith('0040')) {
+      const number = cleaned.substring(4);
+      return /^[7][0-9]{8}$/.test(number);
+    }
+    
+    if (cleaned.startsWith('0')) {
+      return /^0[7][0-9]{8}$/.test(cleaned);
+    }
+    
+    return false;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
