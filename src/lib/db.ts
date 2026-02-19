@@ -61,6 +61,8 @@ export async function insertLead(lead: {
   ip: string;
   userAgent: string;
   emailSent: boolean;
+  emailToLeadSent: boolean;
+  followUpScheduledAt: string;
   timestamp: string;
 }) {
   const sql = getDb();
@@ -70,7 +72,7 @@ export async function insertLead(lead: {
     await sql`
       INSERT INTO leads (
         id, name, email, phone, property_type, loan_amount, monthly_payment,
-        ip, user_agent, email_sent, timestamp
+        ip, user_agent, email_sent, email_to_lead_sent, follow_up_scheduled_at, timestamp
       ) VALUES (
         ${lead.id},
         ${lead.name},
@@ -82,6 +84,8 @@ export async function insertLead(lead: {
         ${lead.ip},
         ${lead.userAgent},
         ${lead.emailSent},
+        ${lead.emailToLeadSent},
+        ${lead.followUpScheduledAt},
         ${lead.timestamp}
       )
     `;

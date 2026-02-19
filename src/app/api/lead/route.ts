@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { insertLead, initDb } from '@/lib/db';
+import { getLeadConfirmationEmail } from '@/lib/email-templates';
 
 const LEAD_EMAIL = 'open@lend.ro';
 
@@ -309,6 +310,31 @@ IP: ${clientIP}
         emailSent = true;
         console.log('[EMAIL SENT] via Brevo to', LEAD_EMAIL);
 
+    // Send confirmation email TO LEAD (instant)
+    let emailToLeadSent = false;
+    try {
+      const confirmationEmail = getLeadConfirmationEmail({
+        name: sanitizedName,
+        loanAmount: leadData.loanAmount,
+        monthlyPayment: leadData.monthlyPayment,
+      });
+
+      await transporter.sendMail({
+        from: `${process.env.BREVO_FROM_NAME || 'Platforma Lend.ro'} <${process.env.BREVO_FROM_EMAIL || LEAD_EMAIL}>`,
+        to: sanitizedEmail,
+        subject: confirmationEmail.subject,
+        html: confirmationEmail.html,
+        text: confirmationEmail.text,
+      });
+
+      emailToLeadSent = true;
+      console.log('[EMAIL TO LEAD] Confirmation sent to', sanitizedEmail);
+
+    } catch (emailToLeadError: any) {
+      console.error('[EMAIL TO LEAD ERROR]', emailToLeadError.message);
+    }
+
+
       } catch (emailError: any) {
         console.error('[EMAIL ERROR]', {
           message: emailError.message,
@@ -334,6 +360,8 @@ IP: ${clientIP}
         ip: leadData.ip,
         userAgent: leadData.userAgent,
         emailSent,
+        emailToLeadSent,
+        followUpScheduledAt: new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString(),
         timestamp: leadData.timestamp,
       });
 
@@ -357,6 +385,7 @@ IP: ${clientIP}
       message: 'Cererea ta a fost trimisă cu succes! Vei fi contactat de 5 brokeri certificați în maxim 24 de ore.',
       leadId: leadData.id,
       emailSent,
+      emailToLeadSent,
       dbSaved,
       processingTime,
     });
