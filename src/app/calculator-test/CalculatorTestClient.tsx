@@ -116,16 +116,6 @@ export default function CalculatorTestClient() {
               <div className="flex items-center gap-2 mb-6">
                 <div className="flex flex-1 bg-gray-100 rounded-lg p-1">
                   <button
-                    onClick={() => setActiveTab('consumer')}
-                    className={`flex-1 py-2.5 px-4 rounded-md font-medium text-sm transition-all ${
-                      activeTab === 'consumer'
-                        ? 'bg-[#00D186] text-white shadow-sm'
-                        : 'text-gray-600 hover:text-gray-900'
-                    }`}
-                  >
-                    Consum
-                  </button>
-                  <button
                     onClick={() => setActiveTab('mortgage')}
                     className={`flex-1 py-2.5 px-4 rounded-md font-medium text-sm transition-all ${
                       activeTab === 'mortgage'
@@ -134,6 +124,16 @@ export default function CalculatorTestClient() {
                     }`}
                   >
                     Imobiliar
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('consumer')}
+                    className={`flex-1 py-2.5 px-4 rounded-md font-medium text-sm transition-all ${
+                      activeTab === 'consumer'
+                        ? 'bg-[#00D186] text-white shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    Consum
                   </button>
                 </div>
                 <div className="relative">
@@ -317,8 +317,9 @@ export default function CalculatorTestClient() {
                         <InfoIcon />
                       </button>
                       {showDownPaymentInfo && (
-                        <div className="absolute right-0 top-6 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                        <div className="absolute right-0 bottom-full mb-2 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
                           {secondLoanTooltip}
+                          <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
                         </div>
                       )}
                     </div>
@@ -361,8 +362,9 @@ export default function CalculatorTestClient() {
                           <InfoIcon />
                         </button>
                         {showIncomeInfo && (
-                          <div className="absolute right-0 top-6 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                          <div className="absolute right-0 bottom-full mb-2 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
                             Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
+                            <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
                           </div>
                         )}
                       </div>
