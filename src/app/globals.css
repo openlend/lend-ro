@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +12,8 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #F9F7F4;
+  font-family: 'Rubik', system-ui, -apple-system, sans-serif;
+  background: #F5F7FA;
 }
 
 /* Mobile-first spacing */
@@ -22,7 +24,7 @@ body {
   }
 }
 
-/* Simple Clean Range Slider (CSS-only progress) */
+/* Clean Range Slider - New Design (niskarata.pl style) */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -32,8 +34,8 @@ input[type="range"] {
   border-radius: 999px;
   background: linear-gradient(
     to right,
-    #4FD1C5 0%,
-    #4FD1C5 var(--value, 50%),
+    #00D186 0%,
+    #00D186 var(--value, 50%),
     #E5E7EB var(--value, 50%),
     #E5E7EB 100%
   );
@@ -49,37 +51,37 @@ input[type="range"]:hover {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: white;
-  border: 3px solid #4FD1C5;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #00D186;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
   cursor: grab;
   transition: all 0.2s ease;
 }
 
 input[type="range"]:active::-webkit-slider-thumb {
   cursor: grabbing;
-  transform: scale(1.2);
-  box-shadow: 0 3px 12px rgba(79, 209, 197, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(0, 209, 134, 0.6);
 }
 
 /* Thumb - Firefox */
 input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: white;
-  border: 3px solid #4FD1C5;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #00D186;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
   cursor: grab;
   transition: all 0.2s ease;
 }
 
 input[type="range"]:active::-moz-range-thumb {
   cursor: grabbing;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 /* Track - Firefox */
@@ -93,7 +95,7 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-moz-range-progress {
   height: 8px;
   border-radius: 999px;
-  background: #4FD1C5;
+  background: #00D186;
 }
 
 /* Mobile menu animation */
@@ -110,4 +112,13 @@ input[type="range"]::-moz-range-progress {
 
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
+}
+
+/* Color Palette Variables (niskarata.pl inspired) */
+:root {
+  --color-primary: #00D186;     /* Green */
+  --color-secondary: #0B1B3E;   /* Navy */
+  --color-gray: #A0A9B5;        /* Gray */
+  --color-background: #F5F7FA;  /* Light background */
+  --color-white: #FFFFFF;       /* White */
 }

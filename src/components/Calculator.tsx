@@ -1,409 +1,545 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import bankData from '@/data/bank-products.json';
+import { useState, useMemo } from 'react';
+import bankProducts from '@/data/bank-products.json';
 import BankLogo from './BankLogo';
-import LeadModal from './LeadModal';
-import RangeSliderWithTooltip from './RangeSliderWithTooltip';
 
-interface CalculatorResult {
-  monthlyPayment: number;
-  debtRatio: number;
-  eligible: boolean;
-  bankName: string;
-  productType: string;
+// SVG Icons
+const ChevronDownIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M6 8l4 4 4-4" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const DotsVerticalIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+    <circle cx="10" cy="5" r="1.5"/>
+    <circle cx="10" cy="10" r="1.5"/>
+    <circle cx="10" cy="15" r="1.5"/>
+  </svg>
+);
+
+const ArrowRightIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M5 10h10M12 7l3 3-3 3" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const InfoIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+    <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M8 7v4M8 4.5v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
+);
+
+interface BankProduct {
+  id: string;
+  bank: string;
+  product_name: string;
+  fixed_rate?: number;
+  margin?: number;
+  fixed_period_years?: number;
+  min_down_payment: number;
+  min_income: number;
+  requires_salary_transfer: boolean;
+  requires_debit_card: boolean;
+  requires_insurance: boolean;
 }
 
+interface BankProductsData {
+  products: BankProduct[];
+  ircc_current: number;
+}
+
+// IRCC from JSON data
+const bankProductsData = bankProducts as unknown as BankProductsData;
+const IRCC = bankProductsData.ircc_current;
+
 export default function Calculator() {
-  const [propertyPrice, setPropertyPrice] = useState(500000);
-  const [salary, setSalary] = useState(10000);
-  const [loanTerm, setLoanTerm] = useState(25);
-  const [downPayment, setDownPayment] = useState(20);
-  const [isFirstProperty, setIsFirstProperty] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [results, setResults] = useState<CalculatorResult[]>([]);
+  const [activeTab, setActiveTab] = useState<'consumer' | 'mortgage'>('mortgage');
+  const [loanAmount, setLoanAmount] = useState(250000);
+  const [loanPeriod, setLoanPeriod] = useState(25);
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [showDotsMenu, setShowDotsMenu] = useState(false);
+  const [showResults, setShowResults] = useState(false);
 
-  const minDownPayment = isFirstProperty ? 5 : 25;
-  const loanAmount = propertyPrice * (1 - downPayment / 100);
+  // Advanced parameters
+  const [downPayment, setDownPayment] = useState(15);
+  const [monthlyIncome, setMonthlyIncome] = useState(8000);
+  const [secondProperty, setSecondProperty] = useState(false);
+  const [showDownPaymentInfo, setShowDownPaymentInfo] = useState(false);
+  const [showIncomeInfo, setShowIncomeInfo] = useState(false);
 
-  const calculateMonthlyPayment = (principal: number, annualRate: number, years: number): number => {
-    const monthlyRate = annualRate / 12 / 100;
-    const numPayments = years * 12;
-    if (monthlyRate === 0) return principal / numPayments;
-    return (principal * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
-           (Math.pow(1 + monthlyRate, numPayments) - 1);
+  // Enforce minimum 25% down payment for second property (mortgage only)
+  const isSecondLoan = secondProperty;
+  const minDownPayment = isSecondLoan && activeTab === 'mortgage' ? 25 : 5;
+  const effectiveDownPayment = Math.max(downPayment, minDownPayment);
+  
+  // Label text changes based on tab
+  const secondLoanLabel = activeTab === 'mortgage' ? 'Al doilea imobil' : 'Al doilea consum';
+  const secondLoanTooltip = activeTab === 'mortgage' 
+    ? 'Pentru al doilea imobil, băncile solicită avans minim 25% (față de 5% pentru prima proprietate).'
+    : 'Pentru al doilea credit de consum, băncile pot solicită garanții suplimentare și dobânzi mai mari.';
+
+  // Calculate eligible banks with monthly payments
+  const eligibleBanks = useMemo(() => {
+    // Filter products by loan type (with null check)
+    const products = bankProductsData.products.filter(p => 
+      p.product_name && (activeTab === 'mortgage' ? p.product_name.includes('Imobil') : p.product_name.includes('Consum'))
+    );
+
+    const results = products.map(product => {
+      // Calculate effective interest rate
+      const effectiveRate = product.fixed_rate || (IRCC + (product.margin || 0));
+      const monthlyRate = effectiveRate / 100 / 12;
+      const numPayments = loanPeriod * 12;
+
+      // Monthly payment formula
+      const monthlyPayment = loanAmount * 
+        (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
+        (Math.pow(1 + monthlyRate, numPayments) - 1);
+
+      // DTI (Debt-to-Income) ratio
+      const dtiRatio = (monthlyPayment / monthlyIncome) * 100;
+
+      // Check eligibility
+      const meetsDownPayment = effectiveDownPayment >= product.min_down_payment;
+      const meetsIncome = monthlyIncome >= product.min_income;
+      const meetsDTI = dtiRatio <= 40; // Max 40% DTI
+
+      return {
+        bank: product.bank,
+        productName: product.product_name,
+        effectiveRate,
+        fixedPeriod: product.fixed_period_years,
+        monthlyPayment,
+        dtiRatio,
+        eligible: meetsDownPayment && meetsIncome && meetsDTI,
+        requiresSalaryTransfer: product.requires_salary_transfer,
+        requiresDebitCard: product.requires_debit_card,
+        requiresInsurance: product.requires_insurance
+      };
+    });
+
+    // Sort by monthly payment (best first)
+    return results.sort((a, b) => a.monthlyPayment - b.monthlyPayment);
+  }, [activeTab, loanAmount, loanPeriod, effectiveDownPayment, monthlyIncome]);
+
+  // Get best product per bank (only eligible)
+  const bestPerBank = useMemo(() => {
+    const bankMap = new Map();
+    eligibleBanks
+      .filter(b => b.eligible)
+      .forEach(bank => {
+        if (!bankMap.has(bank.bank) || bankMap.get(bank.bank).monthlyPayment > bank.monthlyPayment) {
+          bankMap.set(bank.bank, bank);
+        }
+      });
+    return Array.from(bankMap.values()).slice(0, 6); // Top 6 banks
+  }, [eligibleBanks]);
+
+  const handleSearch = () => {
+    setShowResults(true);
   };
 
-  useEffect(() => {
-    const calculatedResults: CalculatorResult[] = [];
-    
-    // All products EXCEPT Euro - simple filter, no extra criteria
-    const sortedProducts = [...bankData.products]
-      .filter((product: any) => {
-        const rateType = product.rate_type.toUpperCase();
-        // Exclude EURO products only
-        return !rateType.includes('EURO');
-      })
-      .sort((a: any, b: any) => {
-        // Sort by effective rate (fixed OR ircc+margin)
-        const rateA = a.rates.fixed_rate || (bankData.ircc_current + a.rates.variable_margin);
-        const rateB = b.rates.fixed_rate || (bankData.ircc_current + b.rates.variable_margin);
-        return rateA - rateB;
-      });
-
-    // Calculate max margin per bank (for DTI worst-case scenario)
-    const maxMarginPerBank = new Map<string, number>();
-    sortedProducts.forEach((product: any) => {
-      const currentMax = maxMarginPerBank.get(product.bank) || 0;
-      const productMargin = product.rates.variable_margin || 0;
-      if (productMargin > currentMax) {
-        maxMarginPerBank.set(product.bank, productMargin);
-      }
-    });
-
-    // Group by bank: take only the BEST (cheapest) product per bank
-    const bestPerBank = new Map();
-    sortedProducts.forEach((product: any) => {
-      if (!bestPerBank.has(product.bank)) {
-        bestPerBank.set(product.bank, product);
-      }
-    });
-
-    // Show ALL banks from bankData.banks (not just those with products)
-    bankData.banks.forEach((bankEntry: any) => {
-      const bankName = bankEntry.name;
-      const product = bestPerBank.get(bankName);
-      
-      if (product) {
-        // Bank has products - calculate normally
-        const { product_type, rates } = product;
-        
-        // Monthly payment: use fixed rate if available, else current variable rate
-        const monthlyRate = rates.fixed_rate || (bankData.ircc_current + rates.variable_margin);
-        const monthlyPayment = calculateMonthlyPayment(loanAmount, monthlyRate, loanTerm);
-        
-        // DTI: ALWAYS use worst-case variable rate (max margin without benefits)
-        const worstCaseMargin = maxMarginPerBank.get(bankName) || rates.variable_margin;
-        const worstCaseRate = bankData.ircc_current + worstCaseMargin;
-        const worstCasePayment = calculateMonthlyPayment(loanAmount, worstCaseRate, loanTerm);
-        const debtRatio = (worstCasePayment / salary) * 100;
-
-        calculatedResults.push({
-          monthlyPayment,
-          debtRatio,
-          eligible: debtRatio <= 40,
-          bankName,
-          productType: product_type,
-        });
-      } else {
-        // Bank has NO products - show "Request offer" placeholder
-        calculatedResults.push({
-          monthlyPayment: 0, // 0 means "no data available"
-          debtRatio: 0,
-          eligible: true, // Allow showing the card
-          bankName,
-          productType: 'Date indisponibile',
-        });
-      }
-    });
-
-    setResults(calculatedResults);
-  }, [propertyPrice, downPayment, salary, loanTerm]);
-
   return (
-    <div className="bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg overflow-hidden">
-      <div className="p-6 md:p-8">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-[#0B1B3E]">Calculează rata lunară</h2>
-        <p className="text-gray-600 text-sm md:text-base mb-6">Ajustează parametrii și vezi instant cele mai bune oferte</p>
+    <>
+      {/* Rubik Font */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+      
+      <div className="bg-[#F5F7FA] py-0 md:py-8 px-0 md:px-4" style={{ fontFamily: 'Rubik, sans-serif' }}>
+        <div className="max-w-full md:max-w-[440px] mx-auto">
+          {/* Main Card */}
+          <div className="bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg overflow-hidden">
+            <div className="px-6 py-6">
+              {/* Title */}
+              <h2 className="text-2xl font-bold text-[#0B1B3E] mb-1 leading-tight">
+                Găsește cel mai bun<br />credit
+              </h2>
 
-        <div className="space-y-3 md:space-y-5">
-          <div>
-            <div className="flex justify-between items-baseline mb-1 md:mb-2">
-              <span className="text-sm md:text-base font-semibold md:font-bold">Preț proprietate</span>
-              <span className="text-xl md:text-2xl font-bold text-[#00D186]">{propertyPrice.toLocaleString('ro-RO')} RON</span>
-            </div>
-            <RangeSliderWithTooltip
-              value={propertyPrice}
-              min={100000}
-              max={1500000}
-              step={10000}
-              onChange={setPropertyPrice}
-              formatValue={(val) => `${(val / 1000).toFixed(0)}k`}
-            />
-            <div className="flex justify-between text-xs opacity-50 mt-1">
-              <span>100.000</span>
-              <span>1.500.000</span>
-            </div>
-            <div className="mt-1 text-center">
-              <span className="text-xs opacity-70">Suma credit: </span>
-              <span className="text-sm md:text-lg font-bold text-[#00D186]">{loanAmount.toLocaleString('ro-RO')} RON</span>
-            </div>
-          </div>
+              {/* Social Proof */}
+              <p className="text-sm text-gray-600 mb-0.5">
+                În ultimele 7 zile pe site-ul nostru s-au trimis
+              </p>
+              <p className="text-lg font-bold text-[#00D186] mb-6">
+                156 cereri
+              </p>
 
-          <div>
-            <div className="flex justify-between items-baseline mb-1 md:mb-2">
-              <span className="text-sm md:text-base font-semibold md:font-bold">Venit lunar net</span>
-              <span className="text-xl md:text-2xl font-bold text-[#00D186]">{salary.toLocaleString('ro-RO')} RON</span>
-            </div>
-            <RangeSliderWithTooltip
-              value={salary}
-              min={3000}
-              max={30000}
-              step={500}
-              onChange={setSalary}
-              formatValue={(val) => `${(val / 1000).toFixed(1)}k`}
-            />
-            <div className="flex justify-between text-xs opacity-50 mt-1">
-              <span>3.000</span>
-              <span>30.000</span>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex justify-between items-baseline mb-1 md:mb-2">
-              <span className="text-sm md:text-base font-semibold md:font-bold">Perioadă creditare</span>
-              <span className="text-xl md:text-2xl font-bold text-[#00D186]">{loanTerm} ani</span>
-            </div>
-            <RangeSliderWithTooltip
-              value={loanTerm}
-              min={5}
-              max={30}
-              step={1}
-              onChange={setLoanTerm}
-              formatValue={(val) => `${val}y`}
-            />
-            <div className="flex justify-between text-xs opacity-50 mt-1">
-              <span>5 ani</span>
-              <span>30 ani</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 py-1 md:py-2">
-            <input 
-              type="checkbox" 
-              id="firstProperty"
-              checked={isFirstProperty}
-              onChange={(e) => {
-                setIsFirstProperty(e.target.checked);
-                if (!e.target.checked && downPayment < 25) {
-                  setDownPayment(25);
-                }
-              }}
-              className="w-5 h-5 rounded border-2 border-gray-300"
-              style={{ accentColor: '#4FD1C5' }}
-            />
-            <label htmlFor="firstProperty" className="text-xs md:text-sm text-gray-700 cursor-pointer leading-tight">
-              Prima proprietate <span className="text-gray-500">(avans min. {minDownPayment}%)</span>
-            </label>
-          </div>
-
-          <div>
-            <div className="flex justify-between items-baseline mb-1 md:mb-2">
-              <span className="text-sm md:text-base font-semibold md:font-bold">Avans</span>
-              <div className="text-right">
-                <span className="text-xl md:text-2xl font-bold text-[#00D186]">{downPayment}%</span>
-                <div className="text-xs opacity-70">{(propertyPrice * downPayment / 100).toLocaleString('ro-RO')} RON</div>
-              </div>
-            </div>
-            <RangeSliderWithTooltip
-              value={downPayment}
-              min={minDownPayment}
-              max={50}
-              step={5}
-              onChange={setDownPayment}
-              formatValue={(val) => `${val}%`}
-            />
-            <div className="flex justify-between text-xs opacity-50 mt-1">
-              <span>{minDownPayment}%</span>
-              <span>50%</span>
-            </div>
-          </div>
-        </div>
-
-        {results.length > 0 && (
-          <div className="mt-6 md:mt-8 space-y-3 md:space-y-4">
-            <h3 className="text-xl md:text-2xl font-bold">Cele mai bune oferte:</h3>
-
-            {results.map((result, index) => (
-              <div 
-                key={index} 
-                className="group bg-white rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-lg md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-[#00D186]/30 md:hover:-translate-y-1"
-              >
-                {/* Mobile Layout */}
-                <div className="md:hidden">
-                  {/* Logo + Nume */}
-                  <div className="flex flex-col items-center gap-3 mb-4">
-                    <BankLogo bankName={result.bankName} size="md" />
-                    <div className="text-center">
-                      <h4 className="font-black text-xl text-gray-900 mb-1">{result.bankName}</h4>
-                      <p className="text-sm text-gray-600 font-medium">
-                        {result.productType.replace(/\*+/g, "").substring(0, 40).trim()}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Rată Lunară */}
-                  <div className="text-center mb-4 py-4 bg-gray-50 rounded-xl">
-                    <div className="text-xs text-gray-500 uppercase tracking-wide font-bold mb-1">Rată lunară</div>
-                    {result.monthlyPayment > 0 ? (
-                      <>
-                        <div className="text-4xl font-black text-gray-900 mb-1">
-                          {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
-                        </div>
-                        <div className="text-sm text-gray-600 font-semibold">RON / lună</div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="text-2xl font-black text-gray-400 mb-1">
-                          Date indisponibile
-                        </div>
-                        <div className="text-sm text-gray-500">Solicită ofertă personalizată</div>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Îndatorare + Eligibil */}
-                  {result.monthlyPayment > 0 ? (
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-14 h-14 rounded-full bg-[#00D186]/10 flex items-center justify-center flex-shrink-0 border-2 border-[#00D186]/20">
-                          <span className="text-[#00D186] font-black text-base">{result.debtRatio.toFixed(0)}%</span>
-                        </div>
-                        <span className="text-sm text-gray-600 font-semibold">îndatorare</span>
-                      </div>
-                      
-                      {result.eligible ? (
-                        <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-bold text-sm border-2 border-sage/20">
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                          Eligibil
-                        </div>
-                      ) : (
-                        <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-bold text-sm border-2 border-red-200">
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                          </svg>
-                          Depășit
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="mb-4 text-center py-2">
-                      <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-600 px-4 py-2 rounded-full font-semibold text-sm">
-                        📊 Produse în actualizare
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Buton Aplică */}
+              {/* Tabs with 3 dots */}
+              <div className="flex items-center gap-2 mb-6">
+                <div className="flex flex-1 bg-gray-100 rounded-lg p-1">
                   <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full bg-[#00D186] text-white px-6 py-4 rounded-xl text-base font-black hover:bg-[#00D186]/90 transition-all shadow-md"
+                    onClick={() => setActiveTab('mortgage')}
+                    className={`flex-1 py-2.5 px-4 rounded-md font-medium text-sm transition-all ${
+                      activeTab === 'mortgage'
+                        ? 'bg-[#00D186] text-white shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
                   >
-                    Aplică →
+                    Imobiliar
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('consumer')}
+                    className={`flex-1 py-2.5 px-4 rounded-md font-medium text-sm transition-all ${
+                      activeTab === 'consumer'
+                        ? 'bg-[#00D186] text-white shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    Consum
                   </button>
                 </div>
-
-                {/* Desktop Layout */}
-                <div className="hidden md:grid md:grid-cols-12 gap-6 items-center">
+                <div className="relative">
+                  <button 
+                    onClick={() => setShowDotsMenu(!showDotsMenu)}
+                    className="p-2.5 text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <DotsVerticalIcon />
+                  </button>
                   
-                  {/* Logo + Bank Info */}
-                  <div className="md:col-span-5 flex items-center gap-4">
-                    <BankLogo bankName={result.bankName} size="md" />
-                    <div>
-                      <h4 className="font-bold text-xl text-gray-900 mb-1">{result.bankName}</h4>
-                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
-                        {result.productType.replace(/\*+/g, "").substring(0, 35).trim()}
-                      </p>
-                      {result.monthlyPayment > 0 ? (
-                        <div className="flex items-center gap-2 mt-2">
-                          <div className="w-12 h-12 rounded-full bg-[#00D186]/10 flex items-center justify-center flex-shrink-0">
-                            <span className="text-[#00D186] font-bold text-sm">{result.debtRatio.toFixed(0)}%</span>
-                          </div>
-                          <span className="text-xs text-gray-500">îndatorare</span>
-                        </div>
-                      ) : (
-                        <div className="mt-2 text-xs text-gray-400">
-                          Date în curs de actualizare
+                  {showDotsMenu && (
+                    <>
+                      <div 
+                        className="fixed inset-0 z-10" 
+                        onClick={() => setShowDotsMenu(false)}
+                      ></div>
+                      <div className="absolute right-0 top-12 z-20 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2">
+                        <button 
+                          onClick={() => {
+                            setLoanAmount(250000);
+                            setLoanPeriod(25);
+                            setDownPayment(15);
+                            setMonthlyIncome(8000);
+                            setSecondProperty(false);
+                            setShowDotsMenu(false);
+                          }}
+                          className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          🔄 Reset valori
+                        </button>
+                        <button 
+                          onClick={() => {
+                            const url = window.location.href;
+                            navigator.clipboard.writeText(url);
+                            alert('Link copiat în clipboard!');
+                            setShowDotsMenu(false);
+                          }}
+                          className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          🔗 Distribuie
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Loan Amount */}
+              <div className="mb-6">
+                <div className="flex justify-between items-baseline mb-2">
+                  <label className="text-sm font-semibold text-[#0B1B3E]">
+                    Suma creditului
+                  </label>
+                  <p className="text-xs text-gray-400">Cât necesitezi?</p>
+                </div>
+                
+                {/* Slider - full width */}
+                <div className="mb-2">
+                  <input
+                    type="range"
+                    min="50000"
+                    max="1000000"
+                    step="10000"
+                    value={loanAmount}
+                    onChange={(e) => setLoanAmount(Number(e.target.value))}
+                    style={{
+                      background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanAmount - 50000) / (1000000 - 50000)) * 100}%, #e5e7eb ${((loanAmount - 50000) / (1000000 - 50000)) * 100}%, #e5e7eb 100%)`
+                    }}
+                    className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
+                  />
+                </div>
+                
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-[#00D186] font-medium">50k</span>
+                  
+                  {/* Input Box - right aligned */}
+                  <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-1.5 bg-white">
+                    <input
+                      type="number"
+                      value={loanAmount}
+                      onChange={(e) => setLoanAmount(Number(e.target.value))}
+                      className="w-24 text-right text-sm font-semibold text-gray-900 focus:outline-none bg-transparent"
+                    />
+                    <span className="text-sm text-gray-600 font-medium">RON</span>
+                  </div>
+                  
+                  <span className="text-gray-400">1M</span>
+                </div>
+              </div>
+
+              {/* Loan Period */}
+              <div className="mb-6">
+                <div className="flex justify-between items-baseline mb-2">
+                  <label className="text-sm font-semibold text-[#0B1B3E]">
+                    Perioada creditului
+                  </label>
+                  <p className="text-xs text-gray-400">Pe câți ani?</p>
+                </div>
+                
+                {/* Slider - full width */}
+                <div className="mb-2">
+                  <input
+                    type="range"
+                    min="5"
+                    max="35"
+                    step="1"
+                    value={loanPeriod}
+                    onChange={(e) => setLoanPeriod(Number(e.target.value))}
+                    style={{
+                      background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb ${((loanPeriod - 5) / (35 - 5)) * 100}%, #e5e7eb 100%)`
+                    }}
+                    className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
+                  />
+                </div>
+                
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-[#00D186] font-medium">5 ani</span>
+                  
+                  {/* Input Box - center aligned */}
+                  <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-1.5 bg-white">
+                    <input
+                      type="number"
+                      value={loanPeriod}
+                      onChange={(e) => setLoanPeriod(Number(e.target.value))}
+                      className="w-16 text-right text-sm font-semibold text-gray-900 focus:outline-none bg-transparent"
+                    />
+                    <span className="text-sm text-gray-600 font-medium">ani</span>
+                  </div>
+                  
+                  <span className="text-gray-400">35 ani</span>
+                </div>
+              </div>
+
+              {/* Advanced Search Toggle */}
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className="flex items-center justify-between w-full py-3 text-sm font-medium text-[#0B1B3E] hover:text-[#00D186] transition-colors"
+              >
+                <span>Căutare detaliată</span>
+                <div className={`transform transition-transform duration-200 ${showAdvanced ? 'rotate-180' : ''}`}>
+                  <ChevronDownIcon />
+                </div>
+              </button>
+
+              {/* Advanced Parameters Section */}
+              {showAdvanced && (
+                <div className="space-y-4 pt-2 pb-4 border-t border-gray-200">
+                  {/* Second Property/Loan Checkbox */}
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id="secondProperty"
+                      checked={secondProperty}
+                      onChange={(e) => {
+                        setSecondProperty(e.target.checked);
+                        if (e.target.checked && activeTab === 'mortgage' && downPayment < 25) {
+                          setDownPayment(25);
+                        }
+                      }}
+                      className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
+                    />
+                    <label htmlFor="secondProperty" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
+                      {secondLoanLabel}
+                    </label>
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onMouseEnter={() => setShowDownPaymentInfo(true)}
+                        onMouseLeave={() => setShowDownPaymentInfo(false)}
+                        className="text-gray-400 hover:text-gray-600 transition-colors"
+                      >
+                        <InfoIcon />
+                      </button>
+                      {showDownPaymentInfo && (
+                        <div className="absolute right-0 bottom-full mb-2 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                          {secondLoanTooltip}
+                          <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  {/* Divider */}
-                  <div className="md:col-span-1">
-                    <div className="h-20 w-px bg-gray-200 mx-auto"></div>
+                  {/* Down Payment */}
+                  <div>
+                    <label className="flex items-center gap-2 text-xs text-gray-500 mb-1.5">
+                      Avans
+                      {secondProperty && (
+                        <span className="text-[#00D186] font-medium">(minim 25%)</span>
+                      )}
+                    </label>
+                    <div className="grid grid-cols-[1fr_auto] gap-2 items-center">
+                      <input
+                        type="number"
+                        min={minDownPayment}
+                        max="50"
+                        value={effectiveDownPayment}
+                        onChange={(e) => setDownPayment(Math.max(minDownPayment, Number(e.target.value)))}
+                        className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
+                      />
+                      <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium min-w-[50px] text-center">
+                        %
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Rate + Badge */}
-                  <div className="md:col-span-4 text-left">
-                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Rată lunară</div>
-                    {result.monthlyPayment > 0 ? (
-                      <>
-                        <div className="text-5xl font-black text-gray-900 mb-1">
-                          {Math.round(result.monthlyPayment).toLocaleString('ro-RO')}
-                        </div>
-                        <div className="text-sm text-gray-600 mb-3">RON / lună</div>
-                        {result.eligible ? (
-                          <div className="inline-flex items-center gap-2 bg-sage/10 text-sage px-4 py-2 rounded-full font-semibold text-sm">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                            Eligibil
-                          </div>
-                        ) : (
-                          <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-semibold text-sm">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                            </svg>
-                            Depășit
+                  {/* Monthly Income */}
+                  <div>
+                    <label className="flex items-center gap-2 text-xs text-gray-500 mb-1.5">
+                      Venit net lunar
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onMouseEnter={() => setShowIncomeInfo(true)}
+                          onMouseLeave={() => setShowIncomeInfo(false)}
+                          className="text-gray-400 hover:text-gray-600 transition-colors"
+                        >
+                          <InfoIcon />
+                        </button>
+                        {showIncomeInfo && (
+                          <div className="absolute right-0 bottom-full mb-2 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                            Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
+                            <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
                           </div>
                         )}
-                      </>
-                    ) : (
-                      <>
-                        <div className="text-3xl font-black text-gray-400 mb-1">
-                          Date indisponibile
-                        </div>
-                        <div className="text-sm text-gray-500 mb-3">Solicită ofertă personalizată</div>
-                        <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-600 px-4 py-2 rounded-full font-semibold text-sm">
-                          📊 Produse în actualizare
-                        </div>
-                      </>
-                    )}
+                      </div>
+                    </label>
+                    <div className="grid grid-cols-[1fr_auto] gap-2 items-center">
+                      <input
+                        type="number"
+                        value={monthlyIncome}
+                        onChange={(e) => setMonthlyIncome(Number(e.target.value))}
+                        className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
+                      />
+                      <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium min-w-[60px] text-center">
+                        RON
+                      </div>
+                    </div>
                   </div>
+                </div>
+              )}
 
-                  {/* CTA Button */}
-                  <div className="md:col-span-2">
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="w-full bg-[#00D186] text-white px-6 py-3 rounded-xl text-base font-semibold hover:bg-[#00D186]/90 transition-all group-hover:scale-105"
-                    >
-                      Aplică →
+              {/* Search Button */}
+              <button 
+                onClick={handleSearch}
+                className="w-full bg-[#0B1B3E] hover:bg-[#162f5e] text-white font-semibold py-3.5 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md mt-4"
+              >
+                <span>Caută oferte</span>
+                <ArrowRightIcon />
+              </button>
+            </div>
+          </div>
+
+          {/* Results Section */}
+          {showResults && bestPerBank.length > 0 && (
+            <div className="mt-6 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg p-6">
+              <h3 className="text-xl font-bold text-[#0B1B3E] mb-4">
+                Top {bestPerBank.length} oferte pentru tine
+              </h3>
+              
+              <div className="space-y-4">
+                {bestPerBank.map((bank, index) => (
+                  <div 
+                    key={index}
+                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] transition-colors"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <BankLogo bankName={bank.bank} size="md" />
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-[#0B1B3E]">
+                          {Math.round(bank.monthlyPayment).toLocaleString()} RON
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          rată lunară
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-2 text-sm mb-3">
+                      <div>
+                        <span className="text-gray-500">Dobândă: </span>
+                        <span className="font-semibold text-[#0B1B3E]">
+                          {bank.effectiveRate.toFixed(2)}%
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-gray-500">DTI: </span>
+                        <span className="font-semibold text-[#0B1B3E]">
+                          {bank.dtiRatio.toFixed(1)}%
+                        </span>
+                      </div>
+                    </div>
+
+                    {bank.fixedPeriod && (
+                      <div className="text-xs text-gray-500 mb-3">
+                        Perioadă fixă: {bank.fixedPeriod} ani
+                      </div>
+                    )}
+
+                    <div className="flex gap-2 text-xs mb-3">
+                      {bank.requiresSalaryTransfer && (
+                        <span className="px-2 py-1 bg-[#00D186] bg-opacity-10 text-[#00D186] rounded">
+                          Virament salariu
+                        </span>
+                      )}
+                      {bank.requiresDebitCard && (
+                        <span className="px-2 py-1 bg-blue-50 text-blue-600 rounded">
+                          Card debit
+                        </span>
+                      )}
+                      {bank.requiresInsurance && (
+                        <span className="px-2 py-1 bg-purple-50 text-purple-600 rounded">
+                          Asigurare
+                        </span>
+                      )}
+                    </div>
+
+                    <button className="w-full bg-[#00D186] hover:bg-[#00b874] text-white font-semibold py-2.5 rounded-lg transition-colors">
+                      Solicită ofertă
                     </button>
                   </div>
-
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+          )}
+        </div>
 
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="bg-sage text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:opacity-90 transition w-full mt-4 md:mt-6 shadow-xl"
-            >
-              Solicită oferte de la 5 brokeri
-            </button>
-          </div>
-        )}
+        <style jsx global>{`
+          .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #00D186;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
+            border: 3px solid #fff;
+          }
+
+          .slider-thumb::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #00D186;
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
+          }
+        `}</style>
       </div>
-
-      <LeadModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        loanAmount={loanAmount}
-        monthlyPayment={results.length > 0 ? results[0].monthlyPayment : 0}
-      />
-    </div>
+    </>
   );
 }
