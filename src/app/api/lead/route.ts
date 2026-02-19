@@ -76,7 +76,8 @@ export async function POST(request: Request) {
       loanAmount, 
       monthlyPayment, 
       timestamp,
-      honeypot // Bot trap field
+      honeypot, // Bot trap field
+      tracking // Tracking data from client
     } = body;
 
     // Honeypot check (bots fill this, humans don't see it)
@@ -259,6 +260,65 @@ export async function POST(request: Request) {
                       User Agent: ${leadData.userAgent}
                     </div>
                   </div>
+
+                  ${tracking ? `
+                  <div class="info-row" style="background: #F9FAFB; padding: 16px; border-radius: 8px; margin-top: 16px;">
+                    <div class="label" style="font-weight: 600; margin-bottom: 12px;">📊 Date Tracking & Analiză</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+                      <div>
+                        <div style="color: #6B7280; margin-bottom: 4px;">🎯 Sursă</div>
+                        <div style="color: #1F2937; font-weight: 600;">${tracking.source || 'direct'}</div>
+                      </div>
+                      <div>
+                        <div style="color: #6B7280; margin-bottom: 4px;">📱 Device</div>
+                        <div style="color: #1F2937; font-weight: 600;">${tracking.deviceType || 'unknown'}</div>
+                      </div>
+                      <div>
+                        <div style="color: #6B7280; margin-bottom: 4px;">🌐 Browser</div>
+                        <div style="color: #1F2937; font-weight: 600;">${tracking.browser || 'unknown'}</div>
+                      </div>
+                      <div>
+                        <div style="color: #6B7280; margin-bottom: 4px;">💻 OS</div>
+                        <div style="color: #1F2937; font-weight: 600;">${tracking.os || 'unknown'}</div>
+                      </div>
+                      <div>
+                        <div style="color: #6B7280; margin-bottom: 4px;">⏱️ Timp pe site</div>
+                        <div style="color: #1F2937; font-weight: 600;">${Math.floor((tracking.timeOnSite || 0) / 60)}m ${(tracking.timeOnSite || 0) % 60}s</div>
+                      </div>
+                      <div>
+                        <div style="color: #6B7280; margin-bottom: 4px;">📄 Pagini vizitate</div>
+                        <div style="color: #1F2937; font-weight: 600;">${(tracking.pagesVisited || []).length}</div>
+                      </div>
+                    </div>
+                    ${tracking.referer && tracking.referer !== 'direct' ? `
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E7EB;">
+                      <div style="color: #6B7280; margin-bottom: 4px;">🔗 Referer</div>
+                      <div style="color: #1F2937; font-size: 12px; word-break: break-all;">${tracking.referer}</div>
+                    </div>
+                    ` : ''}
+                    ${tracking.utmParams && Object.keys(tracking.utmParams).length > 0 ? `
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E7EB;">
+                      <div style="color: #6B7280; margin-bottom: 8px; font-weight: 600;">📈 Parametri UTM</div>
+                      ${Object.entries(tracking.utmParams).filter(([k, v]) => v).map(([key, val]) => `
+                        <div style="margin-bottom: 4px;">
+                          <span style="color: #6B7280;">${key}:</span> 
+                          <span style="color: #1F2937; font-weight: 600;">${val}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                    ` : ''}
+                    ${tracking.pagesVisited && tracking.pagesVisited.length > 0 ? `
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E7EB;">
+                      <div style="color: #6B7280; margin-bottom: 8px; font-weight: 600;">🗺️ Journey pe site</div>
+                      ${tracking.pagesVisited.map((page, idx) => `
+                        <div style="margin-bottom: 4px; color: #4B5563; font-size: 12px;">
+                          ${idx + 1}. ${page}
+                        </div>
+                      `).join('')}
+                    </div>
+                    ` : ''}
+                  </div>
+                  ` : ''}
                   
                   <div class="footer">
                     <p>Acesta este un email automat generat de platforma <strong>lend.ro</strong></p>
