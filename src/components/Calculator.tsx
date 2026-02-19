@@ -64,6 +64,7 @@ export default function Calculator() {
   const [showResults, setShowResults] = useState(false);
   const [leadModalOpen, setLeadModalOpen] = useState(false);
   const [selectedBank, setSelectedBank] = useState<{ bank: string; monthlyPayment: number } | null>(null);
+  const [activeDtiTooltip, setActiveDtiTooltip] = useState<number | null>(null);
 
   // Advanced parameters
   const [downPayment, setDownPayment] = useState(15);
@@ -355,17 +356,22 @@ export default function Calculator() {
                     <div className="relative">
                       <button
                         type="button"
-                        onMouseEnter={() => setShowDownPaymentInfo(true)}
-                        onMouseLeave={() => setShowDownPaymentInfo(false)}
+                        onClick={() => setShowDownPaymentInfo(!showDownPaymentInfo)}
                         className="text-gray-400 hover:text-gray-600 transition-colors"
                       >
                         <InfoIcon />
                       </button>
                       {showDownPaymentInfo && (
-                        <div className="absolute right-0 bottom-full mb-2 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
-                          {secondLoanTooltip}
-                          <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
-                        </div>
+                        <>
+                          <div 
+                            className="fixed inset-0 z-10" 
+                            onClick={() => setShowDownPaymentInfo(false)}
+                          ></div>
+                          <div className="absolute right-0 bottom-full mb-2 z-20 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                            {secondLoanTooltip}
+                            <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
+                          </div>
+                        </>
                       )}
                     </div>
                   </div>
@@ -400,17 +406,22 @@ export default function Calculator() {
                       <div className="relative">
                         <button
                           type="button"
-                          onMouseEnter={() => setShowIncomeInfo(true)}
-                          onMouseLeave={() => setShowIncomeInfo(false)}
+                          onClick={() => setShowIncomeInfo(!showIncomeInfo)}
                           className="text-gray-400 hover:text-gray-600 transition-colors"
                         >
                           <InfoIcon />
                         </button>
                         {showIncomeInfo && (
-                          <div className="absolute right-0 bottom-full mb-2 z-10 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
-                            Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
-                            <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
-                          </div>
+                          <>
+                            <div 
+                              className="fixed inset-0 z-10" 
+                              onClick={() => setShowIncomeInfo(false)}
+                            ></div>
+                            <div className="absolute right-0 bottom-full mb-2 z-20 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                              Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
+                              <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
+                            </div>
+                          </>
                         )}
                       </div>
                     </label>
@@ -472,11 +483,30 @@ export default function Calculator() {
                           {bank.effectiveRate.toFixed(2)}%
                         </span>
                       </div>
-                      <div>
+                      <div className="relative">
                         <span className="text-gray-500">DTI: </span>
                         <span className="font-semibold text-[#0B1B3E]">
                           {bank.dtiRatio.toFixed(1)}%
                         </span>
+                        <button
+                          type="button"
+                          onClick={() => setActiveDtiTooltip(activeDtiTooltip === index ? null : index)}
+                          className="inline-block ml-1 text-gray-400 hover:text-gray-600 transition-colors align-middle"
+                        >
+                          <InfoIcon />
+                        </button>
+                        {activeDtiTooltip === index && (
+                          <>
+                            <div 
+                              className="fixed inset-0 z-10" 
+                              onClick={() => setActiveDtiTooltip(null)}
+                            ></div>
+                            <div className="absolute left-0 top-full mt-2 z-20 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                              <strong>DTI (Debt-to-Income)</strong> = procentul din venitul tău lunar care merge la plata ratei. Băncile acceptă max 40-45% DTI.
+                              <div className="absolute left-4 -top-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
 
