@@ -275,9 +275,15 @@ export default function Calculator() {
                   {/* Input Box - right aligned */}
                   <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-1.5 bg-white">
                     <input
-                      type="number"
-                      value={loanAmount}
-                      onChange={(e) => setLoanAmount(Number(e.target.value))}
+                      type="text"
+                      value={formatNumber(loanAmount)}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/,/g, '');
+                        const num = parseInt(value) || 0;
+                        if (num >= 50000 && num <= 1000000) {
+                          setLoanAmount(num);
+                        }
+                      }}
                       className="w-24 text-right text-sm font-semibold text-gray-900 focus:outline-none bg-transparent"
                     />
                     <span className="text-sm text-gray-600 font-medium">RON</span>
@@ -529,12 +535,12 @@ export default function Calculator() {
                     </label>
                     <div className="grid grid-cols-[1fr_auto] gap-2 items-center">
                       <input
-                        type="number"
-                        value={monthlyIncome}
+                        type="text"
+                        value={formatNumber(monthlyIncome)}
                         onChange={(e) => {
-                          const val = e.target.value;
-                          // Allow empty string (user deleting) or valid number
-                          setMonthlyIncome(val === '' ? 0 : Number(val));
+                          const value = e.target.value.replace(/,/g, '');
+                          const num = parseInt(value) || 0;
+                          setMonthlyIncome(num);
                         }}
                         onBlur={(e) => {
                           // Set minimum 1000 RON on blur if empty
@@ -542,8 +548,7 @@ export default function Calculator() {
                             setMonthlyIncome(1000);
                           }
                         }}
-                        min="1000"
-                        placeholder="ex: 8000"
+                        placeholder="ex: 8,000"
                         className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                       />
                       <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium min-w-[60px] text-center">
