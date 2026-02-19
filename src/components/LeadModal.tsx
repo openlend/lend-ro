@@ -150,8 +150,8 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
       />
 
       <ThemeProvider theme={theme}>
-      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn" style={{ fontFamily: 'Rubik, sans-serif' }}>
-        <div className="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative animate-slideUp max-h-[95vh] overflow-y-auto">
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-0 md:p-4 animate-fadeIn" style={{ fontFamily: 'Rubik, sans-serif' }}>
+        <div className="bg-white rounded-none md:rounded-2xl w-full md:max-w-md h-full md:h-auto p-6 md:p-8 shadow-none md:shadow-2xl relative animate-slideUp overflow-y-auto">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-900 transition-all"
@@ -179,8 +179,8 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
             </div>
           ) : (
             <>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1B3E] mb-2">Solicită oferte gratuite</h2>
-              <p className="text-sm md:text-base text-gray-600 mb-6">Completează datele și primești 5 oferte personalizate de la brokeri certificați</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1B3E] mb-3 mt-2 md:mt-0">Solicită oferte gratuite</h2>
+              <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-6">Completează datele și primești 5 oferte personalizate de la brokeri certificați</p>
 
               <div className="bg-[#00D186] bg-opacity-10 rounded-lg p-4 mb-6 border-2 border-[#00D186] border-opacity-20">
                 <div className="flex justify-between items-center">
@@ -193,7 +193,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-5">
                 <TextField
                   label="Nume complet"
                   variant="outlined"
