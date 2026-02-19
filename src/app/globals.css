@@ -98,20 +98,33 @@ input[type="range"]::-moz-range-progress {
   background: #00D186;
 }
 
-/* Mobile menu animation */
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
 }
 
 /* Color Palette Variables (niskarata.pl inspired) */

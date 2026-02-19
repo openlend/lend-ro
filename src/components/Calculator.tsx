@@ -364,12 +364,19 @@ export default function Calculator() {
                       {showDownPaymentInfo && (
                         <>
                           <div 
-                            className="fixed inset-0 z-10" 
+                            className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                             onClick={() => setShowDownPaymentInfo(false)}
                           ></div>
-                          <div className="absolute right-0 bottom-full mb-2 z-20 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
-                            {secondLoanTooltip}
-                            <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
+                          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
+                            <button
+                              onClick={() => setShowDownPaymentInfo(false)}
+                              className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                            >
+                              ×
+                            </button>
+                            <div className="pr-6">
+                              {secondLoanTooltip}
+                            </div>
                           </div>
                         </>
                       )}
@@ -414,12 +421,20 @@ export default function Calculator() {
                         {showIncomeInfo && (
                           <>
                             <div 
-                              className="fixed inset-0 z-10" 
+                              className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                               onClick={() => setShowIncomeInfo(false)}
                             ></div>
-                            <div className="absolute right-0 bottom-full mb-2 z-20 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
-                              Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
-                              <div className="absolute right-4 -bottom-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
+                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
+                              <button
+                                onClick={() => setShowIncomeInfo(false)}
+                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                              >
+                                ×
+                              </button>
+                              <div className="pr-6">
+                                <strong className="block mb-1">Venit net lunar</strong>
+                                Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
+                              </div>
                             </div>
                           </>
                         )}
@@ -498,12 +513,20 @@ export default function Calculator() {
                         {activeDtiTooltip === index && (
                           <>
                             <div 
-                              className="fixed inset-0 z-10" 
+                              className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                               onClick={() => setActiveDtiTooltip(null)}
                             ></div>
-                            <div className="absolute left-0 top-full mt-2 z-20 w-72 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
-                              <strong>DTI (Debt-to-Income)</strong> = procentul din venitul tău lunar care merge la plata ratei. Băncile acceptă max 40-45% DTI.
-                              <div className="absolute left-4 -top-1 w-3 h-3 bg-[#0B1B3E] transform rotate-45"></div>
+                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
+                              <button
+                                onClick={() => setActiveDtiTooltip(null)}
+                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                              >
+                                ×
+                              </button>
+                              <div className="pr-6">
+                                <strong className="block mb-1">DTI (Debt-to-Income)</strong>
+                                Procentul din venitul tău lunar care merge la plata ratei. Băncile acceptă max 40-45% DTI. Dacă DTI &gt; 40%, s-ar putea să nu fii eligibil.
+                              </div>
                             </div>
                           </>
                         )}
