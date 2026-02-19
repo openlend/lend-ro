@@ -45,8 +45,15 @@ export default function CalculatorTestClient() {
   const [comparison, setComparison] = useState(3);
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] py-8 px-4" style={{ fontFamily: 'Rubik, sans-serif' }}>
-      <div className="max-w-[420px] mx-auto">
+    <>
+      {/* Rubik Font */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+      
+      <div className="min-h-screen bg-[#F5F7FA] py-8 px-4" style={{ fontFamily: 'Rubik, sans-serif' }}>
+        <div className="max-w-[420px] mx-auto">
         {/* Main Card */}
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           {/* Header */}
@@ -251,6 +258,7 @@ export default function CalculatorTestClient() {
           box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }
