@@ -72,6 +72,9 @@ export default function Calculator() {
   const [secondProperty, setSecondProperty] = useState(false);
   const [showDownPaymentInfo, setShowDownPaymentInfo] = useState(false);
   const [showIncomeInfo, setShowIncomeInfo] = useState(false);
+  const [hasDividendIncome, setHasDividendIncome] = useState(false);
+  const [showDividendInfo, setShowDividendInfo] = useState(false);
+  const [isEmployedAtOwnCompany, setIsEmployedAtOwnCompany] = useState<boolean | null>(null);
 
   // Enforce minimum 25% down payment for second property (mortgage only)
   const isSecondLoan = secondProperty;
@@ -382,6 +385,83 @@ export default function Calculator() {
                       )}
                     </div>
                   </div>
+
+                  {/* Dividend Income Checkbox */}
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id="dividendIncome"
+                      checked={hasDividendIncome}
+                      onChange={(e) => {
+                        setHasDividendIncome(e.target.checked);
+                        if (!e.target.checked) {
+                          setIsEmployedAtOwnCompany(null);
+                        }
+                      }}
+                      className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
+                    />
+                    <label htmlFor="dividendIncome" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
+                      Venit din dividende
+                    </label>
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onClick={() => setShowDividendInfo(!showDividendInfo)}
+                        className="text-gray-400 hover:text-gray-600 transition-colors"
+                      >
+                        <InfoIcon />
+                      </button>
+                      {showDividendInfo && (
+                        <>
+                          <div 
+                            className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
+                            onClick={() => setShowDividendInfo(false)}
+                          ></div>
+                          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
+                            <button
+                              onClick={() => setShowDividendInfo(false)}
+                              className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                            >
+                              ×
+                            </button>
+                            <div className="pr-6">
+                              <strong className="block mb-1">Venit din dividende</strong>
+                              Dacă ai venit din dividende, te putem ajuta. Multe bănci acceptă, dar trebuie să știm din timp pentru a pregăti documentația necesară.
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Employed at Own Company - appears only if dividend income is checked */}
+                  {hasDividendIncome && (
+                    <div className="ml-6 flex items-center gap-4">
+                      <span className="text-sm text-[#0B1B3E] font-medium">Ești angajat la firma ta?</span>
+                      <div className="flex gap-3">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="employedAtOwnCompany"
+                            checked={isEmployedAtOwnCompany === true}
+                            onChange={() => setIsEmployedAtOwnCompany(true)}
+                            className="w-4 h-4 text-[#00D186] border-gray-300 focus:ring-[#00D186] focus:ring-2"
+                          />
+                          <span className="text-sm text-gray-700">Da</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="employedAtOwnCompany"
+                            checked={isEmployedAtOwnCompany === false}
+                            onChange={() => setIsEmployedAtOwnCompany(false)}
+                            className="w-4 h-4 text-[#00D186] border-gray-300 focus:ring-[#00D186] focus:ring-2"
+                          />
+                          <span className="text-sm text-gray-700">Nu</span>
+                        </label>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Down Payment */}
                   <div>
