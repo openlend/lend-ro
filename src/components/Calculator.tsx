@@ -55,6 +55,11 @@ interface BankProductsData {
 const bankProductsData = bankProducts as unknown as BankProductsData;
 const IRCC = bankProductsData.ircc_current;
 
+// Helper function to format numbers with comma separator
+const formatNumber = (num: number): string => {
+  return num.toLocaleString('en-US'); // 250,000 format
+};
+
 export default function Calculator() {
   const [activeTab, setActiveTab] = useState<'consumer' | 'mortgage'>('mortgage');
   const [loanAmount, setLoanAmount] = useState(250000);
@@ -339,98 +344,100 @@ export default function Calculator() {
               {/* Advanced Parameters Section */}
               {showAdvanced && (
                 <div className="space-y-4 pt-2 pb-4 border-t border-gray-200">
-                  {/* Second Property/Loan Checkbox */}
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      id="secondProperty"
-                      checked={secondProperty}
-                      onChange={(e) => {
-                        setSecondProperty(e.target.checked);
-                        if (e.target.checked && activeTab === 'mortgage' && downPayment < 25) {
-                          setDownPayment(25);
-                        }
-                      }}
-                      className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
-                    />
-                    <label htmlFor="secondProperty" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
-                      {secondLoanLabel}
-                    </label>
-                    <div className="relative">
-                      <button
-                        type="button"
-                        onClick={() => setShowDownPaymentInfo(!showDownPaymentInfo)}
-                        className="text-gray-400 hover:text-gray-600 transition-colors"
-                      >
-                        <InfoIcon />
-                      </button>
-                      {showDownPaymentInfo && (
-                        <>
-                          <div 
-                            className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
-                            onClick={() => setShowDownPaymentInfo(false)}
-                          ></div>
-                          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
-                            <button
+                  <div className="flex items-start justify-between gap-4">
+                    {/* Second Property/Loan Checkbox - Left */}
+                    <div className="flex items-center gap-2 flex-1">
+                      <input
+                        type="checkbox"
+                        id="secondProperty"
+                        checked={secondProperty}
+                        onChange={(e) => {
+                          setSecondProperty(e.target.checked);
+                          if (e.target.checked && activeTab === 'mortgage' && downPayment < 25) {
+                            setDownPayment(25);
+                          }
+                        }}
+                        className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
+                      />
+                      <label htmlFor="secondProperty" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
+                        {secondLoanLabel}
+                      </label>
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => setShowDownPaymentInfo(!showDownPaymentInfo)}
+                          className="text-gray-400 hover:text-gray-600 transition-colors"
+                        >
+                          <InfoIcon />
+                        </button>
+                        {showDownPaymentInfo && (
+                          <>
+                            <div 
+                              className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                               onClick={() => setShowDownPaymentInfo(false)}
-                              className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
-                            >
-                              ×
-                            </button>
-                            <div className="pr-6">
-                              {secondLoanTooltip}
+                            ></div>
+                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
+                              <button
+                                onClick={() => setShowDownPaymentInfo(false)}
+                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                              >
+                                ×
+                              </button>
+                              <div className="pr-6">
+                                {secondLoanTooltip}
+                              </div>
                             </div>
-                          </div>
-                        </>
-                      )}
+                          </>
+                        )}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Dividend Income Checkbox */}
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      id="dividendIncome"
-                      checked={hasDividendIncome}
-                      onChange={(e) => {
-                        setHasDividendIncome(e.target.checked);
-                        if (!e.target.checked) {
-                          setIsEmployedAtOwnCompany(null);
-                        }
-                      }}
-                      className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
-                    />
-                    <label htmlFor="dividendIncome" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
-                      Venit din dividende
-                    </label>
-                    <div className="relative">
-                      <button
-                        type="button"
-                        onClick={() => setShowDividendInfo(!showDividendInfo)}
-                        className="text-gray-400 hover:text-gray-600 transition-colors"
-                      >
-                        <InfoIcon />
-                      </button>
-                      {showDividendInfo && (
-                        <>
-                          <div 
-                            className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
-                            onClick={() => setShowDividendInfo(false)}
-                          ></div>
-                          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
-                            <button
+                    {/* Dividend Income Checkbox - Right */}
+                    <div className="flex items-center gap-2 flex-1 justify-end">
+                      <input
+                        type="checkbox"
+                        id="dividendIncome"
+                        checked={hasDividendIncome}
+                        onChange={(e) => {
+                          setHasDividendIncome(e.target.checked);
+                          if (!e.target.checked) {
+                            setIsEmployedAtOwnCompany(null);
+                          }
+                        }}
+                        className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
+                      />
+                      <label htmlFor="dividendIncome" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
+                        Venit din dividende
+                      </label>
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => setShowDividendInfo(!showDividendInfo)}
+                          className="text-gray-400 hover:text-gray-600 transition-colors"
+                        >
+                          <InfoIcon />
+                        </button>
+                        {showDividendInfo && (
+                          <>
+                            <div 
+                              className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                               onClick={() => setShowDividendInfo(false)}
-                              className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
-                            >
-                              ×
-                            </button>
-                            <div className="pr-6">
-                              <strong className="block mb-1">Venit din dividende</strong>
-                              Dacă ai venit din dividende, te putem ajuta. Multe bănci acceptă, dar trebuie să știm din timp pentru a pregăti documentația necesară.
+                            ></div>
+                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
+                              <button
+                                onClick={() => setShowDividendInfo(false)}
+                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                              >
+                                ×
+                              </button>
+                              <div className="pr-6">
+                                <strong className="block mb-1">Venit din dividende</strong>
+                                Dacă ai venit din dividende, te putem ajuta. Multe bănci acceptă, dar trebuie să știm din timp pentru a pregăti documentația necesară.
+                              </div>
                             </div>
-                          </div>
-                        </>
-                      )}
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
 
@@ -575,7 +582,7 @@ export default function Calculator() {
                       <BankLogo bankName={bank.bank} size="md" />
                       <div className="text-right">
                         <div className="text-2xl font-bold text-[#0B1B3E]">
-                          {Math.round(bank.monthlyPayment).toLocaleString()} RON
+                          {formatNumber(Math.round(bank.monthlyPayment))} RON
                         </div>
                         <div className="text-sm text-gray-500">
                           rată lunară

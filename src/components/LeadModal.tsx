@@ -222,11 +222,11 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
               <div className="bg-[#00D186] bg-opacity-10 rounded-lg p-4 mb-6 border-2 border-[#00D186] border-opacity-20">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-semibold text-gray-700">Credit solicitat:</span>
-                  <span className="font-bold text-base md:text-lg text-[#00D186]">{loanAmount.toLocaleString('ro-RO')} RON</span>
+                  <span className="font-bold text-base md:text-lg text-[#00D186]">{loanAmount.toLocaleString('en-US')} RON</span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-sm font-semibold text-gray-700">Rată estimată:</span>
-                  <span className="font-bold text-base md:text-lg text-[#00D186]">{Math.round(monthlyPayment).toLocaleString('ro-RO')} RON/lună</span>
+                  <span className="font-bold text-base md:text-lg text-[#00D186]">{Math.round(monthlyPayment).toLocaleString('en-US')} RON/lună</span>
                 </div>
               </div>
 
