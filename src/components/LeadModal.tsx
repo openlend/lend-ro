@@ -2,6 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import { getTrackingData, type TrackingData } from '@/lib/tracking';
+import { TextField, MenuItem, ThemeProvider, createTheme } from '@mui/material';
+
+// Custom MUI theme with lend.ro colors
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#00D186', // Green
+    },
+    secondary: {
+      main: '#0B1B3E', // Navy
+    },
+  },
+  typography: {
+    fontFamily: 'Rubik, sans-serif',
+  },
+});
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -133,6 +149,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
         rel="stylesheet"
       />
 
+      <ThemeProvider theme={theme}>
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn" style={{ fontFamily: 'Rubik, sans-serif' }}>
         <div className="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative animate-slideUp max-h-[95vh] overflow-y-auto">
           <button
@@ -176,72 +193,83 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
-                    Nume complet <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
-                    placeholder="Ion Popescu"
-                    minLength={3}
-                    maxLength={100}
-                  />
-                </div>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <TextField
+                  label="Nume complet"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Ion Popescu"
+                  inputProps={{ minLength: 3, maxLength: 100 }}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&:hover fieldset': {
+                        borderColor: '#00D186',
+                      },
+                    },
+                  }}
+                />
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
-                    Email <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
-                    placeholder="ion.popescu@email.com"
-                  />
-                </div>
+                <TextField
+                  label="Email"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="ion.popescu@email.com"
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&:hover fieldset': {
+                        borderColor: '#00D186',
+                      },
+                    },
+                  }}
+                />
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
-                    Telefon <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
-                    placeholder="07XXXXXXXX sau +407XXXXXXXX"
-                    pattern="[0-9\+\-\s\(\)]+"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Format: 07XXXXXXXX sau +407XXXXXXXX</p>
-                </div>
+                <TextField
+                  label="Telefon"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  placeholder="07XXXXXXXX sau +407XXXXXXXX"
+                  helperText="Format: 07XXXXXXXX sau +407XXXXXXXX"
+                  inputProps={{ pattern: '[0-9\\+\\-\\s\\(\\)]+' }}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&:hover fieldset': {
+                        borderColor: '#00D186',
+                      },
+                    },
+                  }}
+                />
 
-                <div>
-                  <label htmlFor="propertyType" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
-                    Tip proprietate
-                  </label>
-                  <select
-                    id="propertyType"
-                    value={formData.propertyType}
-                    onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
-                  >
-                    <option value="apartament">Apartament</option>
-                    <option value="casa">Casă</option>
-                    <option value="teren">Teren</option>
-                    <option value="spatiu-comercial">Spațiu comercial</option>
-                  </select>
-                </div>
+                <TextField
+                  select
+                  label="Tip proprietate"
+                  variant="outlined"
+                  fullWidth
+                  value={formData.propertyType}
+                  onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&:hover fieldset': {
+                        borderColor: '#00D186',
+                      },
+                    },
+                  }}
+                >
+                  <MenuItem value="apartament">Apartament</MenuItem>
+                  <MenuItem value="casa">Casă</MenuItem>
+                  <MenuItem value="teren">Teren</MenuItem>
+                  <MenuItem value="spatiu-comercial">Spațiu comercial</MenuItem>
+                </TextField>
 
                 {/* Honeypot field */}
                 <input
@@ -348,6 +376,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
           }
         `}</style>
       </div>
+      </ThemeProvider>
     </>
   );
 }

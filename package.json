@@ -12,6 +12,9 @@
     "deploy": "npm run import:excel && npm run build && git add -A && git commit -m 'Update bank data' && git push"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.8",
     "@neondatabase/serverless": "^1.0.2",
     "gray-matter": "^4.0.3",
     "next": "^15.1.6",
