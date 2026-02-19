@@ -58,12 +58,12 @@ export default function CalculatorTestClient() {
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between p-6 pb-4">
-            <div className="flex items-center gap-2">
-              {/* Logo - 3 vertical bars */}
-              <div className="flex gap-0.5">
-                <div className="w-1 h-5 bg-[#00D186] rounded-sm"></div>
-                <div className="w-1 h-5 bg-[#00D186] rounded-sm opacity-70"></div>
-                <div className="w-1 h-5 bg-[#00D186] rounded-sm opacity-40"></div>
+            <div className="flex items-center gap-2.5">
+              {/* Logo - 3 vertical bars (official colors) */}
+              <div className="flex gap-1">
+                <div className="w-1.5 h-6 bg-[#00D186] rounded-sm"></div>
+                <div className="w-1.5 h-6 bg-[#00D186] rounded-sm opacity-70"></div>
+                <div className="w-1.5 h-6 bg-[#00D186] rounded-sm opacity-40"></div>
               </div>
               <span className="text-xl font-bold text-[#0B1B3E]">lend.ro</span>
             </div>
