@@ -276,6 +276,17 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
                       variant="outlined"
                       value={formData.countryCode}
                       onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                      SelectProps={{
+                        renderValue: (value: unknown) => {
+                          const selected = countries.find(c => c.code === value);
+                          return selected ? (
+                            <div className="flex items-center gap-2">
+                              <span className="text-lg">{selected.flag}</span>
+                              <span className="font-medium">{selected.code}</span>
+                            </div>
+                          ) : String(value);
+                        }
+                      }}
                       sx={{
                         width: '140px',
                         '& .MuiOutlinedInput-root': {
