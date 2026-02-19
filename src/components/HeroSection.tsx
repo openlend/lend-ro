@@ -21,8 +21,8 @@ export default function HeroSection() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-black text-gray-900 leading-tight mb-4 md:mb-6 px-2">
-              Găsim cel mai bun<br />
-              credit pentru tine
+              Găsim cel mai bun credit<br />
+              pentru tine
             </h1>
             
             <p className="text-xl md:text-2xl text-sage font-black mb-3 md:mb-4">
@@ -33,18 +33,12 @@ export default function HeroSection() {
               Ne plătesc băncile, nu tu. Compară oferte de la <strong>12+ instituții</strong> fără niciun cost.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-2">
+            <div className="flex justify-center px-2">
               <button
                 onClick={scrollToCalculator}
-                className="bg-sage text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-base md:text-lg hover:opacity-90 transition shadow-xl hover:scale-105"
+                className="w-full sm:w-auto bg-sage text-white px-10 md:px-12 py-4 md:py-5 rounded-2xl font-black text-base md:text-lg hover:opacity-90 transition shadow-xl hover:scale-105"
               >
                 Calculează rata acum →
-              </button>
-              <button
-                onClick={scrollToCalculator}
-                className="bg-white text-sage border-2 border-sage px-8 md:px-10 py-4 md:py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-sage hover:text-white transition shadow-lg"
-              >
-                Solicită 5 oferte gratuite
               </button>
             </div>
             
