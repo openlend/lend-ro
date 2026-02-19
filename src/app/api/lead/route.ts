@@ -168,6 +168,7 @@ export async function POST(request: Request) {
 
     // Send email via Brevo SMTP
     let emailSent = false;
+    let emailToLeadSent = false;
     if (process.env.BREVO_SMTP_KEY) {
       try {
         const nodemailer = require('nodemailer');
@@ -311,7 +312,6 @@ IP: ${clientIP}
         console.log('[EMAIL SENT] via Brevo to', LEAD_EMAIL);
 
     // Send confirmation email TO LEAD (instant)
-    let emailToLeadSent = false;
     try {
       const confirmationEmail = getLeadConfirmationEmail({
         name: sanitizedName,
