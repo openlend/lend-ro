@@ -46,10 +46,10 @@ export default function CalculatorTestClient() {
           </h2>
 
           {/* Tabs */}
-          <div className="flex gap-2 mb-6">
+          <div className="grid grid-cols-2 gap-3 mb-6">
             <button
               onClick={() => setActiveTab('mortgage')}
-              className={`flex-1 py-2.5 px-4 rounded-lg font-medium transition-colors ${
+              className={`py-3 px-4 rounded-lg font-medium transition-colors ${
                 activeTab === 'mortgage'
                   ? 'bg-[#00D186] text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -59,7 +59,7 @@ export default function CalculatorTestClient() {
             </button>
             <button
               onClick={() => setActiveTab('consumer')}
-              className={`flex-1 py-2.5 px-4 rounded-lg font-medium transition-colors ${
+              className={`py-3 px-4 rounded-lg font-medium transition-colors ${
                 activeTab === 'consumer'
                   ? 'bg-[#00D186] text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -71,7 +71,7 @@ export default function CalculatorTestClient() {
 
           {/* Loan Amount Slider */}
           <div className="mb-6">
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between items-center mb-3">
               <label className="text-sm font-medium text-[#0B1B3E]">
                 Suma creditului
               </label>
@@ -80,9 +80,9 @@ export default function CalculatorTestClient() {
                   type="number"
                   value={loanAmount}
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
-                  className="w-32 px-3 py-1.5 border border-gray-300 rounded-lg text-right text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
+                  className="w-28 px-3 py-2 border border-gray-300 rounded-lg text-right text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                 />
-                <span className="text-sm font-medium text-gray-600">RON</span>
+                <span className="text-sm font-medium text-gray-600 w-10">RON</span>
               </div>
             </div>
             <div className="relative">
@@ -107,7 +107,7 @@ export default function CalculatorTestClient() {
 
           {/* Loan Period Slider */}
           <div className="mb-6">
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between items-center mb-3">
               <label className="text-sm font-medium text-[#0B1B3E]">
                 Perioada creditului
               </label>
@@ -116,9 +116,9 @@ export default function CalculatorTestClient() {
                   type="number"
                   value={loanPeriod}
                   onChange={(e) => setLoanPeriod(Number(e.target.value))}
-                  className="w-24 px-3 py-1.5 border border-gray-300 rounded-lg text-right text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
+                  className="w-28 px-3 py-2 border border-gray-300 rounded-lg text-right text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                 />
-                <span className="text-sm font-medium text-gray-600">ani</span>
+                <span className="text-sm font-medium text-gray-600 w-10">ani</span>
               </div>
             </div>
             <div className="relative">
@@ -156,20 +156,20 @@ export default function CalculatorTestClient() {
 
           {/* Advanced Parameters Section */}
           {showAdvanced && (
-            <div className="space-y-4 pt-4 border-t border-gray-200">
+            <div className="space-y-5 pt-4 mt-2 border-t border-gray-200">
               {/* Down Payment */}
               <div>
-                <label className="block text-sm font-medium text-[#0B1B3E] mb-2">
-                  Avans (%)
+                <label className="block text-sm font-medium text-[#0B1B3E] mb-3">
+                  Avans
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-[1fr_auto] gap-3 items-center">
                   <input
                     type="number"
                     value={downPayment}
                     onChange={(e) => setDownPayment(Number(e.target.value))}
                     className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                   />
-                  <div className="px-3 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 flex items-center justify-center">
+                  <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium">
                     %
                   </div>
                 </div>
@@ -177,17 +177,17 @@ export default function CalculatorTestClient() {
 
               {/* Monthly Income */}
               <div>
-                <label className="block text-sm font-medium text-[#0B1B3E] mb-2">
+                <label className="block text-sm font-medium text-[#0B1B3E] mb-3">
                   Venit lunar
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-[1fr_auto] gap-3 items-center">
                   <input
                     type="number"
                     value={monthlyIncome}
                     onChange={(e) => setMonthlyIncome(Number(e.target.value))}
                     className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                   />
-                  <div className="px-3 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 flex items-center justify-center">
+                  <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium">
                     RON
                   </div>
                 </div>
@@ -195,13 +195,13 @@ export default function CalculatorTestClient() {
 
               {/* First Home */}
               <div>
-                <label className="block text-sm font-medium text-[#0B1B3E] mb-2">
+                <label className="block text-sm font-medium text-[#0B1B3E] mb-3">
                   Prima casă
                 </label>
-                <div className="flex gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => setFirstHome(true)}
-                    className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-colors ${
+                    className={`py-2.5 px-4 rounded-lg text-sm font-medium transition-colors ${
                       firstHome
                         ? 'bg-[#00D186] text-white'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -211,7 +211,7 @@ export default function CalculatorTestClient() {
                   </button>
                   <button
                     onClick={() => setFirstHome(false)}
-                    className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-colors ${
+                    className={`py-2.5 px-4 rounded-lg text-sm font-medium transition-colors ${
                       !firstHome
                         ? 'bg-[#00D186] text-white'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -224,17 +224,17 @@ export default function CalculatorTestClient() {
 
               {/* Age */}
               <div>
-                <label className="block text-sm font-medium text-[#0B1B3E] mb-2">
+                <label className="block text-sm font-medium text-[#0B1B3E] mb-3">
                   Vârsta
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-[1fr_auto] gap-3 items-center">
                   <input
                     type="number"
                     value={age}
                     onChange={(e) => setAge(Number(e.target.value))}
                     className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                   />
-                  <div className="px-3 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 flex items-center justify-center">
+                  <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium">
                     ani
                   </div>
                 </div>
