@@ -406,8 +406,8 @@ export default function Calculator() {
                         }}
                         className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
                       />
-                      <label htmlFor="dividendIncome" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
-                        Venit din dividende
+                      <label htmlFor="dividendIncome" className="text-sm text-[#0B1B3E] font-medium cursor-pointer whitespace-nowrap">
+                        Dividende
                       </label>
                       <div className="relative">
                         <button
