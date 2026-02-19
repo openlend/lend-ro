@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getTrackingData, type TrackingData } from '@/lib/tracking';
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -21,6 +22,14 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [trackingData, setTrackingData] = useState<TrackingData | null>(null);
+
+  // Collect tracking data when modal opens
+  useEffect(() => {
+    if (isOpen && !trackingData) {
+      setTrackingData(getTrackingData());
+    }
+  }, [isOpen, trackingData]);
 
   if (!isOpen) return null;
 
@@ -60,6 +69,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
           monthlyPayment,
           timestamp: new Date().toISOString(),
           honeypot: formData.honeypot,
+          tracking: trackingData,
         }),
       });
 
