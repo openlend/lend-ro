@@ -78,10 +78,10 @@ export default function CalculatorTestClient() {
         rel="stylesheet"
       />
       
-      <div className="min-h-screen bg-[#F5F7FA] py-8 px-4" style={{ fontFamily: 'Rubik, sans-serif' }}>
-        <div className="max-w-[440px] mx-auto">
+      <div className="min-h-screen bg-[#F5F7FA] py-0 md:py-8 px-0 md:px-4" style={{ fontFamily: 'Rubik, sans-serif' }}>
+        <div className="max-w-full md:max-w-[440px] mx-auto">
           {/* Main Card */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between p-6 pb-4">
               <div className="flex items-center gap-2.5">
@@ -408,8 +408,8 @@ export default function CalculatorTestClient() {
             </div>
           </div>
 
-          {/* Footer Note */}
-          <div className="mt-6 text-center text-xs text-gray-500">
+          {/* Footer Note - hidden on mobile */}
+          <div className="hidden md:block mt-6 text-center text-xs text-gray-500">
             <p>📊 Pagină test design - inspirată din niskarata.pl</p>
             <p className="mt-1">Noindex • Only for development</p>
           </div>
