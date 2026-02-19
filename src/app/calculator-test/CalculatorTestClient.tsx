@@ -37,6 +37,13 @@ const TrashIcon = () => (
   </svg>
 );
 
+const InfoIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+    <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M8 7v4M8 4.5v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
+);
+
 export default function CalculatorTestClient() {
   const [activeTab, setActiveTab] = useState<'consumer' | 'mortgage'>('consumer');
   const [loanAmount, setLoanAmount] = useState(250000);
@@ -47,8 +54,13 @@ export default function CalculatorTestClient() {
   // Advanced parameters
   const [downPayment, setDownPayment] = useState(15);
   const [monthlyIncome, setMonthlyIncome] = useState(8000);
-  const [firstHome, setFirstHome] = useState(true);
-  const [age, setAge] = useState(35);
+  const [secondProperty, setSecondProperty] = useState(false);
+  const [showDownPaymentInfo, setShowDownPaymentInfo] = useState(false);
+  const [showIncomeInfo, setShowIncomeInfo] = useState(false);
+
+  // Enforce minimum 25% down payment for second property
+  const minDownPayment = secondProperty ? 25 : 5;
+  const effectiveDownPayment = Math.max(downPayment, minDownPayment);
 
   return (
     <>
@@ -135,12 +147,12 @@ export default function CalculatorTestClient() {
                   <input
                     type="range"
                     min="50000"
-                    max="500000"
+                    max="1000000"
                     step="10000"
                     value={loanAmount}
                     onChange={(e) => setLoanAmount(Number(e.target.value))}
                     style={{
-                      background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb ${((loanAmount - 50000) / (500000 - 50000)) * 100}%, #e5e7eb 100%)`
+                      background: `linear-gradient(to right, #00D186 0%, #00D186 ${((loanAmount - 50000) / (1000000 - 50000)) * 100}%, #e5e7eb ${((loanAmount - 50000) / (1000000 - 50000)) * 100}%, #e5e7eb 100%)`
                     }}
                     className="w-full h-2 rounded-lg appearance-none cursor-pointer slider-thumb"
                   />
@@ -160,7 +172,7 @@ export default function CalculatorTestClient() {
                     <span className="text-sm text-gray-600 font-medium">RON</span>
                   </div>
                   
-                  <span className="text-gray-400">500k</span>
+                  <span className="text-gray-400">1M</span>
                 </div>
               </div>
 
@@ -221,16 +233,55 @@ export default function CalculatorTestClient() {
               {/* Advanced Parameters Section */}
               {showAdvanced && (
                 <div className="space-y-4 pt-2 pb-4 border-t border-gray-200">
+                  {/* Second Property Checkbox */}
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id="secondProperty"
+                      checked={secondProperty}
+                      onChange={(e) => {
+                        setSecondProperty(e.target.checked);
+                        if (e.target.checked && downPayment < 25) {
+                          setDownPayment(25);
+                        }
+                      }}
+                      className="w-4 h-4 text-[#00D186] bg-gray-100 border-gray-300 rounded focus:ring-[#00D186] focus:ring-2"
+                    />
+                    <label htmlFor="secondProperty" className="text-sm text-[#0B1B3E] font-medium cursor-pointer">
+                      Al doilea imobil
+                    </label>
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onMouseEnter={() => setShowDownPaymentInfo(true)}
+                        onMouseLeave={() => setShowDownPaymentInfo(false)}
+                        className="text-gray-400 hover:text-gray-600 transition-colors"
+                      >
+                        <InfoIcon />
+                      </button>
+                      {showDownPaymentInfo && (
+                        <div className="absolute left-0 top-6 z-10 w-64 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                          Pentru al doilea imobil, băncile solicită avans minim 25% (față de 5% pentru prima proprietate).
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
                   {/* Down Payment */}
                   <div>
-                    <label className="block text-xs text-gray-500 mb-1.5">
+                    <label className="flex items-center gap-2 text-xs text-gray-500 mb-1.5">
                       Avans
+                      {secondProperty && (
+                        <span className="text-[#00D186] font-medium">(minim 25%)</span>
+                      )}
                     </label>
                     <div className="grid grid-cols-[1fr_auto] gap-2 items-center">
                       <input
                         type="number"
-                        value={downPayment}
-                        onChange={(e) => setDownPayment(Number(e.target.value))}
+                        min={minDownPayment}
+                        max="50"
+                        value={effectiveDownPayment}
+                        onChange={(e) => setDownPayment(Math.max(minDownPayment, Number(e.target.value)))}
                         className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D186] focus:border-transparent"
                       />
                       <div className="px-4 py-2 bg-gray-100 rounded-lg text-sm text-gray-600 font-medium min-w-[50px] text-center">
@@ -241,8 +292,23 @@ export default function CalculatorTestClient() {
 
                   {/* Monthly Income */}
                   <div>
-                    <label className="block text-xs text-gray-500 mb-1.5">
-                      Venit lunar
+                    <label className="flex items-center gap-2 text-xs text-gray-500 mb-1.5">
+                      Venit net lunar
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onMouseEnter={() => setShowIncomeInfo(true)}
+                          onMouseLeave={() => setShowIncomeInfo(false)}
+                          className="text-gray-400 hover:text-gray-600 transition-colors"
+                        >
+                          <InfoIcon />
+                        </button>
+                        {showIncomeInfo && (
+                          <div className="absolute left-0 top-6 z-10 w-64 p-3 bg-[#0B1B3E] text-white text-xs rounded-lg shadow-lg">
+                            Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
+                          </div>
+                        )}
+                      </div>
                     </label>
                     <div className="grid grid-cols-[1fr_auto] gap-2 items-center">
                       <input
@@ -256,8 +322,6 @@ export default function CalculatorTestClient() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Other advanced fields can be added here */}
                 </div>
               )}
 
