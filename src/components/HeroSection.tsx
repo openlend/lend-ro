@@ -90,7 +90,7 @@ export default function HeroSection() {
             Compară oferte de la 12+ bănci din România
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 items-center justify-items-center">
-            {['BT', 'BCR', 'ING', 'RAIFFEISEN', 'UNICREDIT', 'BRD', 'GARANTI', 'LIBRA', 'CREDIT EUROPE BANK', 'INTESA SAN PAOLO', 'PATRIA BANK', 'EXIM BANCA ROMANEASCA'].map((bank) => (
+            {['BT', 'BCR', 'ING', 'RAIFFEISEN', 'UNICREDIT', 'BRD', 'GARANTI', 'LIBRA BANK', 'CREDIT EUROPE BANK', 'INTESA SAN PAOLO', 'PATRIA BANK', 'EXIM BANCA ROMANEASCA'].map((bank) => (
               <div key={bank} className="opacity-70 hover:opacity-100 transition-opacity">
                 <BankLogo bankName={bank} size="sm" />
               </div>
