@@ -34,17 +34,16 @@ const InfoIcon = () => (
 );
 
 interface BankProduct {
-  id: string;
   bank: string;
-  product_name: string;
-  fixed_rate?: number;
-  margin?: number;
-  fixed_period_years?: number;
-  min_down_payment: number;
-  min_income: number;
-  requires_salary_transfer: boolean;
-  requires_debit_card: boolean;
-  requires_insurance: boolean;
+  product_type: string;
+  rate_type: string;
+  rates: {
+    fixed_rate: number | null;
+    fixed_years: number | null;
+    variable_margin: number | null;
+    index_type: string;
+    raw: string;
+  };
 }
 
 interface BankProductsData {
@@ -86,14 +85,12 @@ export default function Calculator() {
 
   // Calculate eligible banks with monthly payments
   const eligibleBanks = useMemo(() => {
-    // Filter products by loan type (with null check)
-    const products = bankProductsData.products.filter(p => 
-      p.product_name && (activeTab === 'mortgage' ? p.product_name.includes('Imobil') : p.product_name.includes('Consum'))
-    );
+    // Use all products (no type filter for now - all are mortgage products)
+    const products = bankProductsData.products;
 
     const results = products.map(product => {
       // Calculate effective interest rate
-      const effectiveRate = product.fixed_rate || (IRCC + (product.margin || 0));
+      const effectiveRate = product.rates.fixed_rate || (IRCC + (product.rates.variable_margin || 0));
       const monthlyRate = effectiveRate / 100 / 12;
       const numPayments = loanPeriod * 12;
 
@@ -105,28 +102,26 @@ export default function Calculator() {
       // DTI (Debt-to-Income) ratio
       const dtiRatio = (monthlyPayment / monthlyIncome) * 100;
 
-      // Check eligibility
-      const meetsDownPayment = effectiveDownPayment >= product.min_down_payment;
-      const meetsIncome = monthlyIncome >= product.min_income;
+      // Check eligibility (simplified - assume all meet requirements)
       const meetsDTI = dtiRatio <= 40; // Max 40% DTI
 
       return {
         bank: product.bank,
-        productName: product.product_name,
+        productName: product.product_type,
         effectiveRate,
-        fixedPeriod: product.fixed_period_years,
+        fixedPeriod: product.rates.fixed_years,
         monthlyPayment,
         dtiRatio,
-        eligible: meetsDownPayment && meetsIncome && meetsDTI,
-        requiresSalaryTransfer: product.requires_salary_transfer,
-        requiresDebitCard: product.requires_debit_card,
-        requiresInsurance: product.requires_insurance
+        eligible: meetsDTI,
+        requiresSalaryTransfer: product.product_type.toLowerCase().includes('virare'),
+        requiresDebitCard: false,
+        requiresInsurance: false
       };
     });
 
     // Sort by monthly payment (best first)
     return results.sort((a, b) => a.monthlyPayment - b.monthlyPayment);
-  }, [activeTab, loanAmount, loanPeriod, effectiveDownPayment, monthlyIncome]);
+  }, [loanAmount, loanPeriod, monthlyIncome]);
 
   // Get best product per bank (only eligible)
   const bestPerBank = useMemo(() => {
