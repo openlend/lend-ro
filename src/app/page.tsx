@@ -112,12 +112,12 @@ export default function Home() {
 
         {/* Broker Benefits Section */}
         <section className="py-16 md:py-20 bg-[#F5F7FA]">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <div className="text-center mb-12">
+          <div className="px-0 md:px-6 md:container md:mx-auto md:max-w-5xl">
+            <div className="text-center mb-12 px-6 md:px-0">
               <span className="inline-block bg-[#0B1B3E] bg-opacity-10 text-[#0B1B3E] px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 💼 Expertiză profesională
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1B3E] mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-[#0B1B3E] mb-6">
                 De ce să lucrezi cu un Broker autorizat?
               </h2>
               <p className="text-lg md:text-xl text-gray-600">
@@ -125,22 +125,71 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 md:p-12 shadow-md">
-              <ReadMore 
-                text={`✅ Economisești timp prețios - nu mai trebuie să mergi la toate băncile pentru a-ți face scoring. Primești rapid varianta care ți se potrivește, fără a diminua scorul FICO.
+            <div className="bg-white md:rounded-xl p-8 md:p-12 md:shadow-md">
+              <div className="space-y-6">
+                {/* Benefit 1 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D186] flex items-center justify-center mt-1">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2.5">
+                      <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-xl flex-1">
+                    <strong className="text-[#0B1B3E]">Economisești timp prețios</strong> - nu mai trebuie să mergi la toate băncile pentru a-ți face scoring. Primești rapid varianta care ți se potrivește, fără a diminua scorul FICO.
+                  </p>
+                </div>
 
-✅ Servicii gratuite - colaborarea cu un broker autorizat este complet gratuită pentru tine. Băncile îi plătesc comisionul, nu tu.
+                {/* Benefit 2 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D186] flex items-center justify-center mt-1">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2.5">
+                      <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-xl flex-1">
+                    <strong className="text-[#0B1B3E]">Servicii gratuite</strong> - colaborarea cu un broker autorizat este complet gratuită pentru tine. Băncile îi plătesc comisionul, nu tu.
+                  </p>
+                </div>
 
-✅ Consultanță completă - nu trebuie să faci nimic. Brokerul se ocupă de întreg procesul de creditare, oferindu-ți consultanță financiară, juridică și de asigurări.
+                {/* Benefit 3 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D186] flex items-center justify-center mt-1">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2.5">
+                      <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-xl flex-1">
+                    <strong className="text-[#0B1B3E]">Consultanță completă</strong> - nu trebuie să faci nimic. Brokerul se ocupă de întreg procesul de creditare, oferindu-ți consultanță financiară, juridică și de asigurări.
+                  </p>
+                </div>
 
-✅ Suport pe tot parcursul procesului - brokerul gestionează relația cu banca pe întreaga durată a procesului de creditare și intervine în diverse situații limită apărute.
+                {/* Benefit 4 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D186] flex items-center justify-center mt-1">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2.5">
+                      <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-xl flex-1">
+                    <strong className="text-[#0B1B3E]">Suport pe tot parcursul procesului</strong> - brokerul gestionează relația cu banca pe întreaga durată a procesului de creditare și intervine în diverse situații limită apărute.
+                  </p>
+                </div>
 
-✅ Negociere în favoarea ta - brokerul negociază cu băncile pentru a obține cele mai bune condiții și costuri reduse, atunci când profilul tău este bun.`}
-                maxWords={75}
-              />
+                {/* Benefit 5 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#00D186] flex items-center justify-center mt-1">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2.5">
+                      <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed text-xl flex-1">
+                    <strong className="text-[#0B1B3E]">Negociere în favoarea ta</strong> - brokerul negociază cu băncile pentru a obține cele mai bune condiții și costuri reduse, atunci când profilul tău este bun.
+                  </p>
+                </div>
+              </div>
               
               <div className="mt-8 pt-8 border-t border-gray-200">
-                <p className="text-gray-600 text-center mb-6">
+                <p className="text-gray-600 text-center mb-6 text-lg">
                   🎯 <strong className="text-[#0B1B3E]">Peste 5 brokeri certificați</strong> vor primi solicitarea ta și îți vor trimite oferte competitive în maximum 24 de ore
                 </p>
                 <div className="text-center">
