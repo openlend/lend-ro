@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import bankProducts from '@/data/bank-products.json';
 import BankLogo from './BankLogo';
+import LeadModal from './LeadModal';
 
 // SVG Icons
 const ChevronDownIcon = () => (
@@ -62,6 +63,8 @@ export default function Calculator() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [showDotsMenu, setShowDotsMenu] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
+  const [selectedBank, setSelectedBank] = useState<{ bank: string; monthlyPayment: number } | null>(null);
 
   // Advanced parameters
   const [downPayment, setDownPayment] = useState(15);
@@ -506,13 +509,32 @@ export default function Calculator() {
                       )}
                     </div>
 
-                    <button className="w-full bg-[#00D186] hover:bg-[#00b874] text-white font-semibold py-2.5 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => {
+                        setSelectedBank({ bank: bank.bank, monthlyPayment: bank.monthlyPayment });
+                        setLeadModalOpen(true);
+                      }}
+                      className="w-full bg-[#00D186] hover:bg-[#00b874] text-white font-semibold py-2.5 rounded-lg transition-colors"
+                    >
                       Solicită ofertă
                     </button>
                   </div>
                 ))}
               </div>
             </div>
+          )}
+
+          {/* Lead Modal */}
+          {selectedBank && (
+            <LeadModal
+              isOpen={leadModalOpen}
+              onClose={() => {
+                setLeadModalOpen(false);
+                setSelectedBank(null);
+              }}
+              loanAmount={loanAmount}
+              monthlyPayment={selectedBank.monthlyPayment}
+            />
           )}
         </div>
 

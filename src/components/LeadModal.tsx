@@ -15,8 +15,8 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
     email: '',
     phone: '',
     propertyType: 'apartament',
-    gdprConsent: false, // GDPR explicit consent
-    honeypot: '', // Bot trap - hidden from users
+    gdprConsent: false,
+    honeypot: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -35,7 +35,6 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
     setIsSubmitting(true);
     setErrorMessage('');
 
-    // Frontend validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
       setErrorMessage('Te rugăm să completezi toate câmpurile obligatorii.');
       setIsSubmitting(false);
@@ -60,7 +59,7 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
           loanAmount,
           monthlyPayment,
           timestamp: new Date().toISOString(),
-          honeypot: formData.honeypot, // Bot trap
+          honeypot: formData.honeypot,
         }),
       });
 
@@ -84,8 +83,6 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
       } else {
         setSubmitStatus('error');
         setErrorMessage(data.error || 'A apărut o eroare. Te rugăm încearcă din nou.');
-        
-        // Auto-clear error after 5 seconds
         setTimeout(() => {
           setSubmitStatus('idle');
           setErrorMessage('');
@@ -104,220 +101,228 @@ export default function LeadModal({ isOpen, onClose, loanAmount, monthlyPayment 
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn">
-      <div className="bg-white rounded-3xl max-w-md w-full p-6 md:p-8 shadow-2xl relative animate-slideUp max-h-[95vh] overflow-y-auto">
-        <button
-          onClick={onClose}
-          className="sticky top-0 float-right mb-4 md:absolute md:top-4 md:right-4 w-10 h-10 md:w-8 md:h-8 bg-gray-100 md:bg-transparent hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-900 transition-all z-10"
-          aria-label="Închide"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+    <>
+      {/* Rubik Font */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
 
-        {submitStatus === 'success' ? (
-          <div className="text-center py-8 animate-fadeIn">
-            <div className="w-20 h-20 bg-sage/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
-              <svg className="w-10 h-10 text-sage" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn" style={{ fontFamily: 'Rubik, sans-serif' }}>
+        <div className="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative animate-slideUp max-h-[95vh] overflow-y-auto">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-900 transition-all"
+            aria-label="Închide"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {submitStatus === 'success' ? (
+            <div className="text-center py-8 animate-fadeIn">
+              <div className="w-20 h-20 bg-[#00D186] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-[#00D186]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#0B1B3E] mb-3">Trimis cu succes! 🎉</h3>
+              <p className="text-base md:text-lg text-gray-600 mb-2">
+                Cererea ta a fost înregistrată!
+              </p>
+              <p className="text-sm text-gray-500">
+                Vei primi <strong className="text-[#0B1B3E]">5 oferte competitive</strong> de la brokeri certificați în maxim <strong className="text-[#0B1B3E]">24 de ore</strong>.
+              </p>
             </div>
-            <h3 className="text-3xl font-black text-gray-900 mb-3">Trimis cu succes! 🎉</h3>
-            <p className="text-lg text-gray-600 mb-2">
-              Cererea ta a fost înregistrată!
-            </p>
-            <p className="text-gray-500">
-              Vei primi <strong>5 oferte competitive</strong> de la brokeri certificați în maxim <strong>24 de ore</strong>.
-            </p>
-          </div>
-        ) : (
-          <>
-            <h2 className="text-3xl font-black text-gray-900 mb-2">Solicită oferte gratuite</h2>
-            <p className="text-gray-600 mb-6">Completează datele și primești 5 oferte personalizate de la brokeri certificați</p>
+          ) : (
+            <>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0B1B3E] mb-2">Solicită oferte gratuite</h2>
+              <p className="text-sm md:text-base text-gray-600 mb-6">Completează datele și primești 5 oferte personalizate de la brokeri certificați</p>
 
-            <div className="bg-mint/10 rounded-2xl p-4 mb-6 border-2 border-mint/20">
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-semibold text-gray-700">Credit solicitat:</span>
-                <span className="font-black text-lg text-mint">{loanAmount.toLocaleString('ro-RO')} RON</span>
-              </div>
-              <div className="flex justify-between items-center mt-2">
-                <span className="text-sm font-semibold text-gray-700">Rată estimată:</span>
-                <span className="font-black text-lg text-mint">{Math.round(monthlyPayment).toLocaleString('ro-RO')} RON/lună</span>
-              </div>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">
-                  Nume complet <span className="text-red-500">*</span>
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-mint focus:outline-none transition-colors"
-                  placeholder="Ion Popescu"
-                  minLength={3}
-                  maxLength={100}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-mint focus:outline-none transition-colors"
-                  placeholder="ion.popescu@email.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-2">
-                  Telefon <span className="text-red-500">*</span>
-                </label>
-                <input
-                  id="phone"
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-mint focus:outline-none transition-colors"
-                  placeholder="07XXXXXXXX sau +407XXXXXXXX"
-                  pattern="[0-9\+\-\s\(\)]+"
-                />
-                <p className="text-xs text-gray-500 mt-1">Format: 07XXXXXXXX sau +407XXXXXXXX</p>
-              </div>
-
-              <div>
-                <label htmlFor="propertyType" className="block text-sm font-bold text-gray-700 mb-2">
-                  Tip proprietate
-                </label>
-                <select
-                  id="propertyType"
-                  value={formData.propertyType}
-                  onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-mint focus:outline-none transition-colors"
-                >
-                  <option value="apartament">Apartament</option>
-                  <option value="casa">Casă</option>
-                  <option value="teren">Teren</option>
-                  <option value="spatiu-comercial">Spațiu comercial</option>
-                </select>
-              </div>
-
-              {/* Honeypot field - hidden from humans, only bots fill it */}
-              <input
-                type="text"
-                name="website"
-                value={formData.honeypot}
-                onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
-                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-              />
-
-              {/* GDPR Explicit Consent Checkbox */}
-              <div className="bg-gray-50 rounded-xl p-4 border-2 border-gray-200">
-                <div className="flex items-start gap-3">
-                  <input 
-                    type="checkbox" 
-                    id="gdprConsent" 
-                    required 
-                    checked={formData.gdprConsent}
-                    onChange={(e) => setFormData({...formData, gdprConsent: e.target.checked})}
-                    className="mt-1 w-5 h-5 rounded border-2 border-gray-300 text-mint focus:ring-mint flex-shrink-0"
-                  />
-                  <label htmlFor="gdprConsent" className="text-sm text-gray-700 leading-relaxed cursor-pointer">
-                    Sunt de acord ca datele mele personale să fie prelucrate de <strong>PUBLISHING OFFICE S.R.L.</strong> (CUI: RO37770955) conform{' '}
-                    <a 
-                      href="/politica-confidentialitate" 
-                      target="_blank"
-                      className="text-mint underline font-semibold hover:text-mint/80"
-                    >
-                      Politicii de Confidențialitate
-                    </a>
-                    , să fie transmise către brokeri certificați pentru obținerea de oferte competitive și să fie procesate în SUA (Vercel Inc.) pe bază de Standard Contractual Clauses aprobate de UE.{' '}
-                    <span className="text-red-500 font-bold">*</span>
-                  </label>
+              <div className="bg-[#00D186] bg-opacity-10 rounded-lg p-4 mb-6 border-2 border-[#00D186] border-opacity-20">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm font-semibold text-gray-700">Credit solicitat:</span>
+                  <span className="font-bold text-base md:text-lg text-[#00D186]">{loanAmount.toLocaleString('ro-RO')} RON</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-sm font-semibold text-gray-700">Rată estimată:</span>
+                  <span className="font-bold text-base md:text-lg text-[#00D186]">{Math.round(monthlyPayment).toLocaleString('ro-RO')} RON/lună</span>
                 </div>
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-sage text-white py-4 rounded-xl font-black text-lg hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    Se trimite...
-                  </span>
-                ) : (
-                  'Trimite cererea →'
-                )}
-              </button>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
+                    Nume complet <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
+                    placeholder="Ion Popescu"
+                    minLength={3}
+                    maxLength={100}
+                  />
+                </div>
 
-              {errorMessage && (
-                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 animate-shake">
-                  <p className="text-red-700 text-sm font-semibold text-center">
-                    ⚠️ {errorMessage}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
+                    placeholder="ion.popescu@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
+                    Telefon <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
+                    placeholder="07XXXXXXXX sau +407XXXXXXXX"
+                    pattern="[0-9\+\-\s\(\)]+"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Format: 07XXXXXXXX sau +407XXXXXXXX</p>
+                </div>
+
+                <div>
+                  <label htmlFor="propertyType" className="block text-sm font-semibold text-[#0B1B3E] mb-2">
+                    Tip proprietate
+                  </label>
+                  <select
+                    id="propertyType"
+                    value={formData.propertyType}
+                    onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-[#00D186] focus:outline-none transition-colors text-sm"
+                  >
+                    <option value="apartament">Apartament</option>
+                    <option value="casa">Casă</option>
+                    <option value="teren">Teren</option>
+                    <option value="spatiu-comercial">Spațiu comercial</option>
+                  </select>
+                </div>
+
+                {/* Honeypot field */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.honeypot}
+                  onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                  style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
+                {/* GDPR Consent */}
+                <div className="bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                  <div className="flex items-start gap-3">
+                    <input 
+                      type="checkbox" 
+                      id="gdprConsent" 
+                      required 
+                      checked={formData.gdprConsent}
+                      onChange={(e) => setFormData({...formData, gdprConsent: e.target.checked})}
+                      className="mt-1 w-4 h-4 rounded border-2 border-gray-300 text-[#00D186] focus:ring-[#00D186] flex-shrink-0"
+                    />
+                    <label htmlFor="gdprConsent" className="text-xs md:text-sm text-gray-700 leading-relaxed cursor-pointer">
+                      Sunt de acord ca datele mele personale să fie prelucrate de <strong>PUBLISHING OFFICE S.R.L.</strong> (CUI: RO37770955) conform{' '}
+                      <a 
+                        href="/politica-confidentialitate" 
+                        target="_blank"
+                        className="text-[#00D186] underline font-semibold hover:text-[#00b874]"
+                      >
+                        Politicii de Confidențialitate
+                      </a>
+                      , să fie transmise către brokeri certificați pentru obținerea de oferte competitive și să fie procesate în SUA (Vercel Inc.) pe bază de Standard Contractual Clauses aprobate de UE.{' '}
+                      <span className="text-red-500 font-bold">*</span>
+                    </label>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#0B1B3E] text-white py-3.5 rounded-lg font-semibold text-base hover:bg-[#162f5e] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Se trimite...
+                    </span>
+                  ) : (
+                    'Trimite cererea →'
+                  )}
+                </button>
+
+                {errorMessage && (
+                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-3 animate-shake">
+                    <p className="text-red-700 text-sm font-semibold text-center">
+                      ⚠️ {errorMessage}
+                    </p>
+                  </div>
+                )}
+
+                <div className="bg-[#00D186] bg-opacity-5 rounded-lg p-3 border border-[#00D186] border-opacity-20">
+                  <p className="text-xs text-gray-600 text-center leading-relaxed">
+                    <strong>🔒 100% Gratuit și Confidențial.</strong> Ne plătesc băncile, nu tu. 
+                    Datele tale sunt protejate conform GDPR. 
+                    Consultă{' '}
+                    <a href="/termeni-conditii" target="_blank" className="text-[#00D186] underline font-semibold hover:text-[#00b874]">
+                      Termenii și Condițiile
+                    </a>{' '}
+                    pentru mai multe detalii.
                   </p>
                 </div>
-              )}
+              </form>
+            </>
+          )}
+        </div>
 
-              <div className="bg-mint/5 rounded-xl p-4 border border-mint/20">
-                <p className="text-xs text-gray-600 text-center leading-relaxed">
-                  <strong>🔒 100% Gratuit și Confidențial.</strong> Ne plătesc băncile, nu tu. 
-                  Datele tale sunt protejate conform GDPR. 
-                  Consultă{' '}
-                  <a href="/termeni-conditii" target="_blank" className="text-sage underline font-semibold hover:text-sage/80">
-                    Termenii și Condițiile
-                  </a>{' '}
-                  pentru mai multe detalii.
-                </p>
-              </div>
-            </form>
-          </>
-        )}
+        <style jsx>{`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+          @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+          }
+          .animate-fadeIn {
+            animation: fadeIn 0.2s ease-out;
+          }
+          .animate-slideUp {
+            animation: slideUp 0.3s ease-out;
+          }
+          .animate-shake {
+            animation: shake 0.5s ease-out;
+          }
+        `}</style>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes slideUp {
-          from { transform: translateY(20px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-          20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.2s ease-out;
-        }
-        .animate-slideUp {
-          animation: slideUp 0.3s ease-out;
-        }
-        .animate-shake {
-          animation: shake 0.5s ease-out;
-        }
-      `}</style>
-    </div>
+    </>
   );
 }
