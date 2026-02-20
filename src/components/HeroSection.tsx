@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import BankLogo from './BankLogo';
+import { Shield, Globe, Clock, CheckCircle } from 'lucide-react';
 
 export default function HeroSection() {
   const scrollToCalculator = () => {
@@ -51,35 +52,19 @@ export default function HeroSection() {
             {/* Trust indicators - 4 benefits */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-4xl mx-auto">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#00D186] flex items-center justify-center flex-shrink-0">
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M2 5l2 2 4-5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                <Shield size={20} className="text-[#00D186] flex-shrink-0" />
                 <span className="text-xs md:text-sm font-medium text-gray-700">Fără costuri ascunse</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#00D186] flex items-center justify-center flex-shrink-0">
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M2 5l2 2 4-5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                <Globe size={20} className="text-[#00D186] flex-shrink-0" />
                 <span className="text-xs md:text-sm font-medium text-gray-700">Proces 100% online</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#00D186] flex items-center justify-center flex-shrink-0">
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M2 5l2 2 4-5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                <Clock size={20} className="text-[#00D186] flex-shrink-0" />
                 <span className="text-xs md:text-sm font-medium text-gray-700">Răspuns în 24h</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#00D186] flex items-center justify-center flex-shrink-0">
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M2 5l2 2 4-5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                <CheckCircle size={20} className="text-[#00D186] flex-shrink-0" />
                 <span className="text-xs md:text-sm font-medium text-gray-700">Complet gratuit</span>
               </div>
             </div>

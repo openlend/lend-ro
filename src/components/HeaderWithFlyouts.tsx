@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import BankLogo from './BankLogo';
+import { Home, Building, RefreshCw, Calculator, TrendingUp, BookOpen, HelpCircle, FileText, Phone, Lock } from 'lucide-react';
 
 const MenuIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -100,21 +101,21 @@ export default function HeaderWithFlyouts() {
                         <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Tipuri Credit</h3>
                         <div className="space-y-1">
                           <Link href="/produse/credit-ipotecar" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">🏠</span>
+                            <Home size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Credit ipotecar clasic</div>
                               <div className="text-xs text-gray-500 mt-0.5">Pentru achiziție casă/apartament</div>
                             </div>
                           </Link>
                           <Link href="/produse/prima-casa" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">🏡</span>
+                            <Building size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Credit Prima Casă</div>
                               <div className="text-xs text-gray-500 mt-0.5">Avans redus, dobândă avantajoasă</div>
                             </div>
                           </Link>
                           <Link href="/produse/refinantare" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">🔄</span>
+                            <RefreshCw size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Refinanțare credit</div>
                               <div className="text-xs text-gray-500 mt-0.5">Rată lunară mai mică</div>
@@ -128,14 +129,14 @@ export default function HeaderWithFlyouts() {
                         <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Instrumente</h3>
                         <div className="space-y-1">
                           <button onClick={scrollToCalculator} className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group w-full text-left">
-                            <span className="text-[#00D186] text-xl mt-0.5">🧮</span>
+                            <Calculator size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Calculator rate</div>
                               <div className="text-xs text-gray-500 mt-0.5">Calculează rata lunară instant</div>
                             </div>
                           </button>
                           <button onClick={scrollToCalculator} className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group w-full text-left">
-                            <span className="text-[#00D186] text-xl mt-0.5">📊</span>
+                            <TrendingUp size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Comparator bănci</div>
                               <div className="text-xs text-gray-500 mt-0.5">Compară oferte din 12+ bănci</div>
@@ -202,21 +203,21 @@ export default function HeaderWithFlyouts() {
                         <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Ghiduri & Învățare</h3>
                         <div className="space-y-1">
                           <Link href="/blog/ghid-complet-credit-ipotecar-2026" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">📖</span>
+                            <BookOpen size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Ghid complet</div>
                               <div className="text-xs text-gray-500 mt-0.5">Tot ce trebuie să știi</div>
                             </div>
                           </Link>
                           <Link href="/blog" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">❓</span>
+                            <HelpCircle size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Întrebări frecvente</div>
                               <div className="text-xs text-gray-500 mt-0.5">Răspunsuri rapide</div>
                             </div>
                           </Link>
                           <Link href="/glosar" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">📝</span>
+                            <FileText size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Glosar termeni</div>
                               <div className="text-xs text-gray-500 mt-0.5">Explicații clare</div>
@@ -230,21 +231,21 @@ export default function HeaderWithFlyouts() {
                         <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Legal & Contact</h3>
                         <div className="space-y-1">
                           <Link href="/despre" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">📄</span>
+                            <Building size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Despre noi</div>
                               <div className="text-xs text-gray-500 mt-0.5">Cine suntem</div>
                             </div>
                           </Link>
                           <Link href="/contact" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">📞</span>
+                            <Phone size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Contact</div>
                               <div className="text-xs text-gray-500 mt-0.5">Suntem aici pentru tine</div>
                             </div>
                           </Link>
                           <Link href="/politica-confidentialitate" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
-                            <span className="text-[#00D186] text-xl mt-0.5">🔒</span>
+                            <Lock size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Confidențialitate</div>
                               <div className="text-xs text-gray-500 mt-0.5">Datele tale sunt sigure</div>
