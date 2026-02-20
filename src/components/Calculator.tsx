@@ -147,6 +147,13 @@ export default function Calculator() {
 
   const handleSearch = () => {
     setShowResults(true);
+    // Scroll smooth to results after a short delay (to allow render)
+    setTimeout(() => {
+      document.getElementById('search-results')?.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 100);
   };
 
   return (
@@ -572,12 +579,12 @@ export default function Calculator() {
 
           {/* Results Section */}
           {showResults && bestPerBank.length > 0 && (
-            <div className="mt-6 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg p-6">
-              <h3 className="text-xl font-bold text-[#0B1B3E] mb-4">
+            <div id="search-results" className="mt-6 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg p-6">
+              <h3 className="text-xl font-bold text-[#0B1B3E] mb-6">
                 {bestPerBank.length} {bestPerBank.length === 1 ? 'ofertă găsită' : 'oferte găsite'} pentru tine
               </h3>
               
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {bestPerBank.map((bank, index) => (
                   <div 
                     key={index}

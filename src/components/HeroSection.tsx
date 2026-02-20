@@ -17,7 +17,7 @@ export default function HeroSection() {
       />
 
       {/* Hero - Clean & Modern */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[#F5F7FA] to-white" style={{ fontFamily: 'Rubik, sans-serif' }}>
+      <section className="py-8 md:py-16 bg-gradient-to-br from-[#F5F7FA] to-white" style={{ fontFamily: 'Rubik, sans-serif' }}>
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto mb-16">
             {/* Hook */}
@@ -31,7 +31,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-xl md:text-2xl text-[#00D186] font-semibold mb-4">
-              Garantat. Gratuit. În 24 de ore.
+              Rapid. Sigur. 100% gratuit.
             </p>
             
             <p className="text-base md:text-lg text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -107,8 +107,8 @@ export default function HeroSection() {
       {/* Trust Logos */}
       <section className="py-12 md:py-16 bg-white border-y border-gray-200" style={{ fontFamily: 'Rubik, sans-serif' }}>
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <p className="text-center text-gray-600 text-sm md:text-base mb-8 uppercase tracking-wide font-semibold">
-            Compară oferte de la 12+ bănci din România
+          <p className="text-center text-gray-800 text-lg md:text-xl mb-8 font-semibold">
+            Găsim exact banca potrivită pentru nevoile tale
           </p>
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 items-center justify-items-center">
             {[

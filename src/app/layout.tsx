@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
+import HeaderWithFlyouts from "@/components/HeaderWithFlyouts";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lend.ro'),
@@ -91,7 +91,7 @@ export default function RootLayout({
         }} />
       </head>
       <body className="bg-cream">
-        <Header />
+        <HeaderWithFlyouts />
         {children}
       </body>
     </html>
