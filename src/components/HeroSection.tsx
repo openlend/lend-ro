@@ -20,15 +20,19 @@ export default function HeroSection() {
       <section className="py-16 md:py-24 bg-gradient-to-br from-[#F5F7FA] to-white" style={{ fontFamily: 'Rubik, sans-serif' }}>
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#00D186] bg-opacity-10 text-[#00D186] px-4 py-2 rounded-full text-sm font-semibold mb-8">
-              <span className="text-xl">🏆</span>
-              <span>Platformă #1 pentru credite ipotecare în România</span>
+            {/* Icon Badge */}
+            <div className="mb-4">
+              <span className="text-5xl">🏆</span>
             </div>
             
+            {/* Hook */}
+            <p className="text-lg md:text-xl text-[#00D186] font-semibold mb-6">
+              Compară oferte de la 12+ bănci în 2 minute
+            </p>
+            
             <h1 className="text-4xl md:text-6xl font-bold text-[#0B1B3E] leading-tight mb-6">
-              Găsim cel mai bun credit<br />
-              pentru tine
+              Găsim cel mai bun<br />
+              credit pentru tine
             </h1>
             
             <p className="text-xl md:text-2xl text-[#00D186] font-semibold mb-4">
@@ -49,31 +53,39 @@ export default function HeroSection() {
               </svg>
             </button>
             
-            {/* Trust indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-6 mt-10 text-sm text-gray-700">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#00D186] flex items-center justify-center">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M2 6l3 3 5-6" strokeLinecap="round" strokeLinejoin="round"/>
+            {/* Trust indicators - 4 benefits */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-3xl mx-auto">
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="w-8 h-8 rounded-full bg-[#00D186] flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2">
+                    <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span className="font-medium">Fără costuri ascunse</span>
+                <span className="text-sm font-medium text-gray-700">Fără costuri ascunse</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#00D186] flex items-center justify-center">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M2 6l3 3 5-6" strokeLinecap="round" strokeLinejoin="round"/>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="w-8 h-8 rounded-full bg-[#00D186] flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2">
+                    <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span className="font-medium">Proces 100% online</span>
+                <span className="text-sm font-medium text-gray-700">Proces 100% online</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#00D186] flex items-center justify-center">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M2 6l3 3 5-6" strokeLinecap="round" strokeLinejoin="round"/>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="w-8 h-8 rounded-full bg-[#00D186] flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2">
+                    <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span className="font-medium">Răspuns în 24h</span>
+                <span className="text-sm font-medium text-gray-700">Răspuns în 24h</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="w-8 h-8 rounded-full bg-[#00D186] flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2">
+                    <path d="M3 8l4 4 6-8" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <span className="text-sm font-medium text-gray-700">Complet gratuit</span>
               </div>
             </div>
           </div>
