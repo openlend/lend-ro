@@ -37,6 +37,8 @@ export default function Home() {
           </div>
         </section>
 
+        <SEOContent />
+
         <section id="cum-functioneaza" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -204,8 +206,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <SEOContent />
 
         <FAQ />
 

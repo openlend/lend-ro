@@ -584,46 +584,44 @@ export default function Calculator() {
                 {bestPerBank.length} {bestPerBank.length === 1 ? 'ofertă găsită' : 'oferte găsite'} pentru tine
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="space-y-4">
                 {bestPerBank.map((bank, index) => (
                   <div 
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] hover:shadow-md transition-all flex flex-col"
+                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] transition-colors"
                   >
-                    {/* Logo */}
-                    <div className="flex justify-center mb-3">
+                    <div className="flex items-center justify-between mb-3">
                       <BankLogo bankName={bank.bank} size="md" />
-                    </div>
-                    
-                    {/* Rată lunară - centered */}
-                    <div className="text-center mb-3">
-                      <div className="text-3xl font-bold text-[#0B1B3E]">
-                        {formatNumber(Math.round(bank.monthlyPayment))} RON
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        rată lunară
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-[#0B1B3E]">
+                          {formatNumber(Math.round(bank.monthlyPayment))} RON
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          rată lunară
+                        </div>
                       </div>
                     </div>
                     
-                    {/* Detalii dobândă + DTI - compact */}
-                    <div className="flex justify-between text-sm mb-4 pb-3 border-b border-gray-100">
-                      <div className="text-center">
-                        <div className="text-gray-500 text-xs mb-1">Dobândă</div>
-                        <div className="font-bold text-[#0B1B3E]">{bank.effectiveRate.toFixed(2)}%</div>
+                    <div className="grid grid-cols-2 gap-2 text-sm mb-3">
+                      <div>
+                        <span className="text-gray-500">Dobândă: </span>
+                        <span className="font-semibold text-[#0B1B3E]">
+                          {bank.effectiveRate.toFixed(2)}%
+                        </span>
                       </div>
-                      <div className="text-center">
-                        <div className="text-gray-500 text-xs mb-1">DTI</div>
-                        <div className={`font-bold ${bank.dtiRatio > 40 ? 'text-orange-600' : 'text-[#0B1B3E]'}`}>
+                      <div>
+                        <span className="text-gray-500">DTI: </span>
+                        <span className={`font-semibold ${bank.dtiRatio > 40 ? 'text-orange-600' : 'text-[#0B1B3E]'}`}>
                           {bank.dtiRatio.toFixed(1)}%
-                        </div>
+                        </span>
                       </div>
-                      {bank.fixedPeriod && (
-                        <div className="text-center">
-                          <div className="text-gray-500 text-xs mb-1">Fixă</div>
-                          <div className="font-bold text-[#0B1B3E]">{bank.fixedPeriod} ani</div>
-                        </div>
-                      )}
                     </div>
+
+                    {bank.fixedPeriod && (
+                      <div className="text-xs text-gray-500 mb-3">
+                        Perioadă fixă: {bank.fixedPeriod} ani
+                      </div>
+                    )}
 
                     <button 
                       onClick={() => {
