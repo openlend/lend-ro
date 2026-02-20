@@ -584,11 +584,11 @@ export default function Calculator() {
                 {bestPerBank.length} {bestPerBank.length === 1 ? 'ofertă găsită' : 'oferte găsite'} pentru tine
               </h3>
               
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {bestPerBank.map((bank, index) => (
                   <div 
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] transition-colors"
+                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] hover:shadow-md transition-all"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <BankLogo bankName={bank.bank} size="md" />
