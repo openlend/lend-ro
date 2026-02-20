@@ -588,95 +588,40 @@ export default function Calculator() {
                 {bestPerBank.map((bank, index) => (
                   <div 
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] transition-colors"
+                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] hover:shadow-md transition-all flex flex-col"
                   >
-                    <div className="flex items-center justify-between mb-3">
+                    {/* Logo */}
+                    <div className="flex justify-center mb-3">
                       <BankLogo bankName={bank.bank} size="md" />
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-[#0B1B3E]">
-                          {formatNumber(Math.round(bank.monthlyPayment))} RON
-                        </div>
-                        <div className="text-sm text-gray-500">
-                          rată lunară
-                        </div>
+                    </div>
+                    
+                    {/* Rată lunară - centered */}
+                    <div className="text-center mb-3">
+                      <div className="text-3xl font-bold text-[#0B1B3E]">
+                        {formatNumber(Math.round(bank.monthlyPayment))} RON
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        rată lunară
                       </div>
                     </div>
                     
-                    {/* DTI Warning Banner */}
-                    {bank.dtiRatio > 40 && (
-                      <div className="mb-3 px-3 py-2 bg-orange-50 border border-orange-200 rounded-lg">
-                        <div className="flex items-start gap-2">
-                          <span className="text-orange-500 text-lg leading-none">⚠️</span>
-                          <div className="text-xs text-orange-700">
-                            <strong>DTI ridicat:</strong> S-ar putea să fie nevoie de venit suplimentar sau co-debitor pentru această sumă.
-                          </div>
+                    {/* Detalii dobândă + DTI - compact */}
+                    <div className="flex justify-between text-sm mb-4 pb-3 border-b border-gray-100">
+                      <div className="text-center">
+                        <div className="text-gray-500 text-xs mb-1">Dobândă</div>
+                        <div className="font-bold text-[#0B1B3E]">{bank.effectiveRate.toFixed(2)}%</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-gray-500 text-xs mb-1">DTI</div>
+                        <div className={`font-bold ${bank.dtiRatio > 40 ? 'text-orange-600' : 'text-[#0B1B3E]'}`}>
+                          {bank.dtiRatio.toFixed(1)}%
                         </div>
                       </div>
-                    )}
-
-                    <div className="grid grid-cols-2 gap-2 text-sm mb-3">
-                      <div>
-                        <span className="text-gray-500">Dobândă: </span>
-                        <span className="font-semibold text-[#0B1B3E]">
-                          {bank.effectiveRate.toFixed(2)}%
-                        </span>
-                      </div>
-                      <div className="relative">
-                        <span className="text-gray-500">DTI: </span>
-                        <span className="font-semibold text-[#0B1B3E]">
-                          {bank.dtiRatio.toFixed(1)}%
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => setActiveDtiTooltip(activeDtiTooltip === index ? null : index)}
-                          className="inline-block ml-1 text-gray-400 hover:text-gray-600 transition-colors align-middle"
-                        >
-                          <InfoIcon />
-                        </button>
-                        {activeDtiTooltip === index && (
-                          <>
-                            <div 
-                              className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
-                              onClick={() => setActiveDtiTooltip(null)}
-                            ></div>
-                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
-                              <button
-                                onClick={() => setActiveDtiTooltip(null)}
-                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
-                              >
-                                ×
-                              </button>
-                              <div className="pr-6">
-                                <strong className="block mb-1">DTI (Debt-to-Income)</strong>
-                                Procentul din venitul tău lunar care merge la plata ratei. Băncile acceptă max 40-45% DTI. Dacă DTI &gt; 40%, s-ar putea să nu fii eligibil.
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    </div>
-
-                    {bank.fixedPeriod && (
-                      <div className="text-xs text-gray-500 mb-3">
-                        Perioadă fixă: {bank.fixedPeriod} ani
-                      </div>
-                    )}
-
-                    <div className="flex gap-2 text-xs mb-3">
-                      {bank.requiresSalaryTransfer && (
-                        <span className="px-2 py-1 bg-[#00D186] bg-opacity-10 text-[#00D186] rounded">
-                          Virament salariu
-                        </span>
-                      )}
-                      {bank.requiresDebitCard && (
-                        <span className="px-2 py-1 bg-blue-50 text-blue-600 rounded">
-                          Card debit
-                        </span>
-                      )}
-                      {bank.requiresInsurance && (
-                        <span className="px-2 py-1 bg-purple-50 text-purple-600 rounded">
-                          Asigurare
-                        </span>
+                      {bank.fixedPeriod && (
+                        <div className="text-center">
+                          <div className="text-gray-500 text-xs mb-1">Fixă</div>
+                          <div className="font-bold text-[#0B1B3E]">{bank.fixedPeriod} ani</div>
+                        </div>
                       )}
                     </div>
 
