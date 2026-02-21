@@ -59,10 +59,20 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     gradient: 'bg-gradient-to-br from-blue-800 to-blue-900',
     text: 'CE'
   },
-  'INTESA SAN PAOLO': { 
+  'INTESA SANPAOLO': { 
     image: '/bank-logos/intesa.png',
     gradient: 'bg-gradient-to-br from-blue-600 to-blue-800',
-    text: 'IS'
+    text: 'IN'
+  },
+  'PROCREDIT BANK': { 
+    image: '/bank-logos/procredit.png',
+    gradient: 'bg-gradient-to-br from-green-600 to-green-700',
+    text: 'PR'
+  },
+  'CEC BANK': { 
+    image: '/bank-logos/cec.png',
+    gradient: 'bg-gradient-to-br from-blue-700 to-blue-900',
+    text: 'CE'
   },
 };
 
