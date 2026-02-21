@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control — Radu Balas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS VARIABLES - Easy Theme Customization
+           ============================================ */
+        :root {
+            /* Colors */
+            --bg-primary: #050508;
+            --bg-card: rgba(15, 15, 20, 0.6);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-tertiary: rgba(255, 255, 255, 0.4);
+            --accent: #0ea5e9; /* Sky blue - fintech vibe */
+            --accent-glow: rgba(14, 165, 233, 0.3);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 2.5rem;
+            
+            /* Borders */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 20px var(--accent-glow);
+        }
+
+        /* ============================================
+           GLOBAL RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HEADER - Sticky Glassmorphism Navigation
+           ============================================ */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 20, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: var(--space-md) var(--space-xl);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), #06b6d4);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            gap: var(--space-xs);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.25rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .tab {
+            padding: var(--space-xs) var(--space-md);
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tab:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Header Right Section */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-input {
+            width: 280px;
+            padding: var(--space-xs) var(--space-md);
+            padding-left: 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--space-sm);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           DASHBOARD TAB
+           ============================================ */
+        .welcome-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .welcome-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .welcome-date {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .metric-card.success::before { background: var(--success); }
+        .metric-card.warning::before { background: var(--warning); }
+        .metric-card.danger::before { background: var(--danger); }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .metric-icon {
+            font-size: 1.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+
+        .metric-trend {
+            font-size: 0.875rem;
+            color: var(--success);
+        }
+
+        .metric-trend.down {
+            color: var(--danger);
+        }
+
+        /* Dashboard Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Activity Feed */
+        .activity-feed {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .activity-list {
+            max-height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .activity-item {
+            padding: var(--space-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent);
+            transition: background 0.2s ease;
+        }
+
+        .activity-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-text {
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Top Priorities */
+        .priorities-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .priority-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .priority-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            transition: background 0.2s ease;
+        }
+
+        .priority-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .priority-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-subtle);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .priority-checkbox.checked {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .priority-text {
+            flex: 1;
+            font-size: 0.875rem;
+        }
+
+        .priority-text.completed {
+            text-decoration: line-through;
+            color: var(--text-tertiary);
+        }
+
+        .priority-delete {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            padding: var(--space-xs);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .priority-item:hover .priority-delete {
+            opacity: 1;
+        }
+
+        .add-priority-form {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .priority-input {
+            flex: 1;
+            padding: var(--space-sm);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           PROJECTS TAB - Kanban Board
+           ============================================ */
+        .kanban-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        @media (max-width: 1024px) {
+            .kanban-board {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kanban-column {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            min-height: 500px;
+        }
+
+        .kanban-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .kanban-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .kanban-count {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.125rem var(--space-xs);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+        }
+
+        .kanban-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            min-height: 300px;
+        }
+
+        .task-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .task-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .task-header {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .task-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .task-priority {
+            padding: 0.125rem var(--space-xs);
+            border-radius: var(--radius-sm);
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .task-priority.high {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .task-priority.medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .task-priority.low {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .task-description {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+            line-height: 1.4;
+        }
+
+        .task-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ============================================
+           TIMELINE TAB
+           ============================================ */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .phase {
+            position: relative;
+            padding-left: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .phase::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: -var(--space-xl);
+            width: 2px;
+            background: var(--border-subtle);
+        }
+
+        .phase:last-child::before {
+            display: none;
+        }
+
+        .phase-marker {
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-subtle);
+            border-radius: 50%;
+        }
+
+        .phase.current .phase-marker {
+            border-color: var(--accent);
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .phase-content {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .phase.current .phase-content {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .phase-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .phase-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .phase-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .phase-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .milestones {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .milestone {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-xs);
+        }
+
+        .milestone-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-subtle);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .milestone.completed .milestone-check {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .milestone-text {
+            font-size: 0.875rem;
+        }
+
+        .milestone.completed .milestone-text {
+            color: var(--text-tertiary);
+            text-decoration: line-through;
+        }
+
+        /* ============================================
+           NOTES TAB
+           ============================================ */
+        .notes-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .notes-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .notes-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        .notes-editor {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .notes-textarea {
+            width: 100%;
+            min-height: 500px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Inter', monospace;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            resize: vertical;
+        }
+
+        .notes-textarea:focus {
+            outline: none;
+        }
+
+        /* ============================================
+           BUTTONS & INPUTS
+           ============================================ */
+        .btn {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-small {
+            padding: 0.375rem var(--space-sm);
+            font-size: 0.75rem;
+        }
+
+        /* ============================================
+           SCROLLBAR STYLING
+           ============================================ */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+
+            .tabs {
+                order: 3;
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .search-bar {
+                display: none;
+            }
+
+            .container {
+                padding: var(--space-md);
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER - Navigation
+         ============================================ -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🎯</div>
+                <span>Mission Control</span>
+            </div>
+
+            <nav class="tabs">
+                <button class="tab active" data-tab="dashboard">📊 Dashboard</button>
+                <button class="tab" data-tab="projects">📋 Projects</button>
+                <button class="tab" data-tab="timeline">📅 Timeline</button>
+                <button class="tab" data-tab="notes">📝 Notes</button>
+            </nav>
+
+            <div class="header-right">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search... (⌘K)" id="searchInput">
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT CONTAINER
+         ============================================ -->
+    <main class="container">
+        <!-- DASHBOARD TAB -->
+        <div id="dashboard" class="tab-content active">
+            <!-- Welcome Bar -->
+            <div class="welcome-bar">
+                <div class="welcome-text" id="welcomeText">Good morning, Radu</div>
+                <div class="welcome-date" id="welcomeDate"></div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">🎯</span>
+                        <span class="metric-label">lend.ro Revenue</span>
+                    </div>
+                    <div class="metric-value" id="revenueMetric">€0</div>
+                    <div class="metric-trend">🚀 Launching soon</div>
+                </div>
+
+                <div class="metric-card success">
+                    <div class="metric-header">
+                        <span class="metric-icon">📋</span>
+                        <span class="metric-label">Active Projects</span>
+                    </div>
+                    <div class="metric-value" id="projectsMetric">3</div>
+                    <div class="metric-trend">↗ +1 this month</div>
+                </div>
+
+                <div class="metric-card warning">
+                    <div class="metric-header">
+                        <span class="metric-icon">✅</span>
+                        <span class="metric-label">Tasks Today</span>
+                    </div>
+                    <div class="metric-value" id="tasksMetric">0</div>
+                    <div class="metric-trend" id="tasksTrend">Ready to add tasks</div>
+                </div>
+
+                <div class="metric-card danger">
+                    <div class="metric-header">
+                        <span class="metric-icon">⏰</span>
+                        <span class="metric-label">Days to Launch</span>
+                    </div>
+                    <div class="metric-value" id="daysMetric">--</div>
+                    <div class="metric-trend">lend.ro full deployment</div>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid: Activity + Priorities -->
+            <div class="dashboard-grid">
+                <!-- Activity Feed -->
+                <div class="activity-feed">
+                    <h2 class="section-title">Recent Activity</h2>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <div class="activity-text">Mission Control dashboard created</div>
+                            <div class="activity-time" id="initialTimestamp"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Priorities -->
+                <div class="priorities-section">
+                    <h2 class="section-title">Top Priorities</h2>
+                    <div class="priority-list" id="priorityList"></div>
+                    <form class="add-priority-form" id="addPriorityForm">
+                        <input type="text" class="priority-input" id="priorityInput" placeholder="Add new priority...">
+                        <button type="submit" class="btn btn-small">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS TAB -->
+        <div id="projects" class="tab-content">
+            <div class="kanban-board">
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-title">📥 Backlog</span>
+                        <span class="kanban-count" id="backlogCount">0</span>
+                    </div>
+                    <div class="kanban-tasks" id="backlogTasks"></div>
+                    <button class="btn btn-secondary" onclick="addTask('backlog')">+ Add Task</button>
+                </div>
+
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-title">🚀 In Progress</span>
+                        <span class="kanban-count" id="progressCount">0</span>
+                    </div>
+                    <div class="kanban-tasks" id="progressTasks"></div>
+                    <button class="btn btn-secondary" onclick="addTask('progress')">+ Add Task</button>
+                </div>
+
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-title">✅ Done</span>
+                        <span class="kanban-count" id="doneCount">0</span>
+                    </div>
+                    <div class="kanban-tasks" id="doneTasks"></div>
+                    <button class="btn btn-secondary" onclick="addTask('done')">+ Add Task</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIMELINE TAB -->
+        <div id="timeline" class="tab-content">
+            <div class="timeline" id="timelineContent"></div>
+        </div>
+
+        <!-- NOTES TAB -->
+        <div id="notes" class="tab-content">
+            <div class="notes-container">
+                <div class="notes-header">
+                    <h2 class="section-title">Notes & Ideas</h2>
+                    <div class="notes-meta">
+                        <span id="charCount">0 characters</span>
+                        <span id="lastSaved">Never saved</span>
+                    </div>
+                </div>
+                <div class="notes-editor">
+                    <textarea class="notes-textarea" id="notesTextarea" placeholder="Start typing your notes here...
+
+Use this space for:
+• Quick thoughts and ideas
+• Meeting notes
+• Project planning
+• Anything you need to remember
+
+Your notes auto-save as you type."></textarea>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================
+         JAVASCRIPT - Application Logic
+         ============================================ -->
+    <script>
+        // ============================================
+        // DATA STRUCTURES & CONFIGURATION
+        // ============================================
+
+        // Timeline roadmap configuration
+        const timelineData = [
+            {
+                title: "Phase 1: Foundation",
+                dateRange: "Feb 2026",
+                description: "Build core infrastructure for lend.ro mortgage comparison platform",
+                current: false,
+                milestones: [
+                    { text: "Design calculator UI/UX", completed: true },
+                    { text: "Implement rate calculation logic", completed: true },
+                    { text: "Create bank product database", completed: true },
+                    { text: "Build responsive frontend", completed: true }
+                ]
+            },
+            {
+                title: "Phase 2: Launch Preparation",
+                dateRange: "March 2026",
+                description: "Finalize features, testing, and broker onboarding",
+                current: true,
+                milestones: [
+                    { text: "Complete all 12 bank integrations", completed: false },
+                    { text: "Implement lead generation forms", completed: false },
+                    { text: "Set up email automation (Resend)", completed: false },
+                    { text: "Onboard 5 mortgage brokers", completed: false },
+                    { text: "Deploy to production on Vercel", completed: false }
+                ]
+            },
+            {
+                title: "Phase 3: Growth & Optimization",
+                dateRange: "April - June 2026",
+                description: "Scale traffic, optimize conversions, and revenue growth",
+                current: false,
+                milestones: [
+                    { text: "Launch SEO content strategy", completed: false },
+                    { text: "Implement Google Ads campaigns", completed: false },
+                    { text: "A/B test landing pages", completed: false },
+                    { text: "Reach 100 qualified leads/month", completed: false },
+                    { text: "€5,000 MRR milestone", completed: false }
+                ]
+            },
+            {
+                title: "Phase 4: Scale & Automation",
+                dateRange: "July - Dec 2026",
+                description: "Expand product offerings and automate operations",
+                current: false,
+                milestones: [
+                    { text: "Add insurance comparison module", completed: false },
+                    { text: "Build CRM dashboard for brokers", completed: false },
+                    { text: "Implement AI-powered recommendations", completed: false },
+                    { text: "Expand to 20+ broker partners", completed: false },
+                    { text: "€20,000 MRR milestone", completed: false }
+                ]
+            }
+        ];
+
+        // ============================================
+        // STATE MANAGEMENT (LocalStorage)
+        // ============================================
+
+        const storage = {
+            get: (key, defaultValue = null) => {
+                const item = localStorage.getItem(key);
+                return item ? JSON.parse(item) : defaultValue;
+            },
+            set: (key, value) => {
+                localStorage.setItem(key, JSON.stringify(value));
+            }
+        };
+
+        // Initialize data structures
+        let priorities = storage.get('priorities', []);
+        let tasks = storage.get('tasks', {
+            backlog: [],
+            progress: [],
+            done: []
+        });
+        let activity = storage.get('activity', []);
+        let notes = storage.get('notes', '');
+
+        // ============================================
+        // TAB NAVIGATION
+        // ============================================
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab button
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Update active content
+                const tabName = tab.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabName).classList.add('active');
+
+                // Log activity
+                logActivity(`Switched to ${tab.textContent} tab`);
+            });
+        });
+
+        // ============================================
+        // WELCOME BAR - Dynamic Greeting & Date
+        // ============================================
+
+        function updateWelcome() {
+            const now = new Date();
+            const hour = now.getHours();
+            let greeting = 'Good morning';
+            if (hour >= 12 && hour < 18) greeting = 'Good afternoon';
+            if (hour >= 18) greeting = 'Good evening';
+
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('en-US', options);
+            const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+            document.getElementById('welcomeText').textContent = `${greeting}, Radu`;
+            document.getElementById('welcomeDate').textContent = `${dateStr} • ${timeStr}`;
+        }
+
+        // Update every minute
+        updateWelcome();
+        setInterval(updateWelcome, 60000);
+
+        // ============================================
+        // METRICS CALCULATION
+        // ============================================
+
+        function updateMetrics() {
+            // Calculate active tasks today
+            const today = new Date().toDateString();
+            const todayTasks = [...tasks.backlog, ...tasks.progress].filter(task => {
+                const taskDate = new Date(task.created).toDateString();
+                return taskDate === today;
+            });
+
+            document.getElementById('tasksMetric').textContent = todayTasks.length;
+            document.getElementById('tasksTrend').textContent = 
+                todayTasks.length > 0 ? `↗ ${todayTasks.length} added today` : 'Ready to add tasks';
+
+            // Calculate total active projects
+            const totalProjects = tasks.backlog.length + tasks.progress.length;
+            document.getElementById('projectsMetric').textContent = totalProjects;
+
+            // Days to launch (example: March 15, 2026)
+            const launchDate = new Date('2026-03-15');
+            const today = new Date();
+            const daysToLaunch = Math.ceil((launchDate - today) / (1000 * 60 * 60 * 24));
+            document.getElementById('daysMetric').textContent = daysToLaunch > 0 ? daysToLaunch : '0';
+        }
+
+        // ============================================
+        // ACTIVITY FEED
+        // ============================================
+
+        function logActivity(text) {
+            const timestamp = new Date().toISOString();
+            activity.unshift({ text, timestamp });
+            
+            // Keep only last 50 items
+            if (activity.length > 50) activity = activity.slice(0, 50);
+            
+            storage.set('activity', activity);
+            renderActivity();
+        }
+
+        function renderActivity() {
+            const container = document.getElementById('activityList');
+            container.innerHTML = activity.map(item => `
+                <div class="activity-item">
+                    <div class="activity-text">${item.text}</div>
+                    <div class="activity-time">${formatRelativeTime(item.timestamp)}</div>
+                </div>
+            `).join('');
+        }
+
+        function formatRelativeTime(timestamp) {
+            const now = new Date();
+            const date = new Date(timestamp);
+            const seconds = Math.floor((now - date) / 1000);
+
+            if (seconds < 60) return 'Just now';
+            if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+            if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+            return `${Math.floor(seconds / 86400)}d ago`;
+        }
+
+        // Set initial timestamp
+        document.getElementById('initialTimestamp').textContent = 
+            new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+        // ============================================
+        // PRIORITIES MANAGEMENT
+        // ============================================
+
+        function renderPriorities() {
+            const container = document.getElementById('priorityList');
+            container.innerHTML = priorities.map((priority, index) => `
+                <div class="priority-item">
+                    <div class="priority-checkbox ${priority.completed ? 'checked' : ''}" 
+                         onclick="togglePriority(${index})">
+                        ${priority.completed ? '✓' : ''}
+                    </div>
+                    <div class="priority-text ${priority.completed ? 'completed' : ''}">
+                        ${priority.text}
+                    </div>
+                    <button class="priority-delete" onclick="deletePriority(${index})">✕</button>
+                </div>
+            `).join('');
+        }
+
+        function togglePriority(index) {
+            priorities[index].completed = !priorities[index].completed;
+            storage.set('priorities', priorities);
+            renderPriorities();
+            logActivity(`${priorities[index].completed ? 'Completed' : 'Uncompleted'} priority: ${priorities[index].text}`);
+        }
+
+        function deletePriority(index) {
+            const text = priorities[index].text;
+            priorities.splice(index, 1);
+            storage.set('priorities', priorities);
+            renderPriorities();
+            logActivity(`Deleted priority: ${text}`);
+        }
+
+        document.getElementById('addPriorityForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('priorityInput');
+            const text = input.value.trim();
+            
+            if (text) {
+                priorities.push({ text, completed: false, created: new Date().toISOString() });
+                storage.set('priorities', priorities);
+                renderPriorities();
+                logActivity(`Added priority: ${text}`);
+                input.value = '';
+            }
+        });
+
+        // ============================================
+        // KANBAN BOARD - Tasks Management
+        // ============================================
+
+        function renderKanban() {
+            ['backlog', 'progress', 'done'].forEach(column => {
+                const container = document.getElementById(`${column}Tasks`);
+                const columnTasks = tasks[column] || [];
+                
+                container.innerHTML = columnTasks.map((task, index) => `
+                    <div class="task-card" onclick="editTask('${column}', ${index})">
+                        <div class="task-header">
+                            <div class="task-title">${task.title}</div>
+                            <span class="task-priority ${task.priority}">${task.priority}</span>
+                        </div>
+                        <div class="task-description">${task.description}</div>
+                        <div class="task-meta">
+                            <span>${new Date(task.created).toLocaleDateString()}</span>
+                            <button onclick="deleteTask('${column}', ${index}); event.stopPropagation();" 
+                                    style="background: none; border: none; color: var(--text-tertiary); cursor: pointer;">
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Update count
+                document.getElementById(`${column}Count`).textContent = columnTasks.length;
+            });
+
+            updateMetrics();
+        }
+
+        function addTask(column) {
+            const title = prompt('Task title:');
+            if (!title) return;
+
+            const description = prompt('Task description:');
+            const priority = prompt('Priority (high/medium/low):', 'medium');
+
+            const task = {
+                title,
+                description: description || '',
+                priority: ['high', 'medium', 'low'].includes(priority) ? priority : 'medium',
+                created: new Date().toISOString()
+            };
+
+            tasks[column].push(task);
+            storage.set('tasks', tasks);
+            renderKanban();
+            logActivity(`Added task: ${title}`);
+        }
+
+        function editTask(column, index) {
+            const task = tasks[column][index];
+            const newStatus = prompt(`Move "${task.title}" to:\n1. Backlog\n2. In Progress\n3. Done\n\nEnter 1, 2, or 3:`);
+            
+            const statusMap = { '1': 'backlog', '2': 'progress', '3': 'done' };
+            const newColumn = statusMap[newStatus];
+            
+            if (newColumn && newColumn !== column) {
+                tasks[column].splice(index, 1);
+                tasks[newColumn].push(task);
+                storage.set('tasks', tasks);
+                renderKanban();
+                logActivity(`Moved "${task.title}" to ${newColumn}`);
+            }
+        }
+
+        function deleteTask(column, index) {
+            const task = tasks[column][index];
+            if (confirm(`Delete task: "${task.title}"?`)) {
+                tasks[column].splice(index, 1);
+                storage.set('tasks', tasks);
+                renderKanban();
+                logActivity(`Deleted task: ${task.title}`);
+            }
+        }
+
+        // ============================================
+        // TIMELINE RENDERING
+        // ============================================
+
+        function renderTimeline() {
+            const container = document.getElementById('timelineContent');
+            container.innerHTML = timelineData.map(phase => `
+                <div class="phase ${phase.current ? 'current' : ''}">
+                    <div class="phase-marker"></div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">${phase.title}</div>
+                            <div class="phase-date">${phase.dateRange}</div>
+                        </div>
+                        <div class="phase-description">${phase.description}</div>
+                        <div class="milestones">
+                            ${phase.milestones.map(milestone => `
+                                <div class="milestone ${milestone.completed ? 'completed' : ''}">
+                                    <div class="milestone-check">${milestone.completed ? '✓' : ''}</div>
+                                    <div class="milestone-text">${milestone.text}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============================================
+        // NOTES - Auto-save Textarea
+        // ============================================
+
+        const notesTextarea = document.getElementById('notesTextarea');
+        notesTextarea.value = notes;
+
+        let saveTimeout;
+        notesTextarea.addEventListener('input', () => {
+            const text = notesTextarea.value;
+            document.getElementById('charCount').textContent = `${text.length} characters`;
+
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(() => {
+                storage.set('notes', text);
+                const now = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                document.getElementById('lastSaved').textContent = `Saved at ${now}`;
+            }, 500);
+        });
+
+        // Initial character count
+        document.getElementById('charCount').textContent = `${notes.length} characters`;
+
+        // ============================================
+        // KEYBOARD SHORTCUTS
+        // ============================================
+
+        document.addEventListener('keydown', (e) => {
+            // Cmd/Ctrl + K: Focus search
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+        });
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+
+        renderActivity();
+        renderPriorities();
+        renderKanban();
+        renderTimeline();
+        updateMetrics();
+
+        console.log('🎯 Mission Control initialized');
+    </script>
+</body>
+</html>
