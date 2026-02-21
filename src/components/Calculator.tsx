@@ -97,6 +97,9 @@ export default function Calculator() {
     // Use all products (no type filter for now - all are mortgage products)
     const products = bankProductsData.products;
 
+    // Calculate effective income (50% for dividends)
+    const effectiveIncome = hasDividendIncome ? monthlyIncome * 0.5 : monthlyIncome;
+
     const results = products.map(product => {
       // Calculate effective interest rate
       const effectiveRate = product.rates.fixed_rate || (IRCC + (product.rates.variable_margin || 0));
@@ -108,8 +111,8 @@ export default function Calculator() {
         (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
         (Math.pow(1 + monthlyRate, numPayments) - 1);
 
-      // DTI (Debt-to-Income) ratio
-      const dtiRatio = (monthlyPayment / monthlyIncome) * 100;
+      // DTI (Debt-to-Income) ratio using effective income
+      const dtiRatio = (monthlyPayment / effectiveIncome) * 100;
 
       // Check eligibility (simplified - assume all meet requirements)
       const meetsDTI = dtiRatio <= 40; // Max 40% DTI
@@ -444,8 +447,8 @@ export default function Calculator() {
                                 ×
                               </button>
                               <div className="pr-6">
-                                <strong className="block mb-1">Venit din dividende</strong>
-                                Dacă ai venit din dividende, te putem ajuta. Multe bănci acceptă, dar trebuie să știm din timp pentru a pregăti documentația necesară.
+                                <strong className="block mb-1">Venit din dividende ⓘ</strong>
+                                Pentru dividende, băncile consideră doar <strong>50% din venit</strong> la calculul capacității de rambursare (conform normelor BNR). Exemplu: 10,000 RON dividende = 5,000 RON venit considerat.
                               </div>
                             </div>
                           </>
