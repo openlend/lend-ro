@@ -3,8 +3,8 @@
   "ircc_current": 5.68,
   "euribor_6m_current": 2.5,
   "robor_6m_current": 5.79,
-  "total_banks": 12,
-  "total_products": 23,
+  "total_banks": 13,
+  "total_products": 26,
   "banks": [
     {
       "name": "BCR",
@@ -63,75 +63,52 @@
       "row": 9
     },
     {
-      "name": "CREDIT EUROPE BANK",
-      "full_name": "Credit Europe Bank România",
-      "logo": "/bank-logos/credit-europe.png",
-      "website": "https://www.crediteurope.ro",
-      "row": 10
-    },
-    {
       "name": "PATRIA BANK",
       "full_name": "Patria Bank",
       "logo": "/bank-logos/patria.png",
       "website": "https://www.patriabank.ro",
-      "row": 11
+      "row": 10
     },
     {
       "name": "EXIM BANCA ROMANEASCA",
       "full_name": "Eximbank - Banca Românească",
       "logo": "/bank-logos/exim.png",
       "website": "https://www.eximbank.ro",
-      "row": 12
+      "row": 11
     },
     {
-      "name": "INTESA SAN PAOLO",
+      "name": "INTESA SANPAOLO",
       "full_name": "Intesa Sanpaolo Bank România",
       "logo": "/bank-logos/intesa.png",
       "website": "https://www.intesasanpaolo.ro",
+      "row": 12
+    },
+    {
+      "name": "PROCREDIT BANK",
+      "full_name": "ProCredit Bank România",
+      "logo": "/bank-logos/procredit.png",
+      "website": "https://www.procreditbank.ro",
       "row": 13
+    },
+    {
+      "name": "CEC BANK",
+      "full_name": "CEC Bank",
+      "logo": "/bank-logos/cec.png",
+      "website": "https://www.cec.ro",
+      "row": 14
     }
   ],
   "products": [
     {
       "bank": "BT",
-      "product_type": "Credit Standard cu virare venit",
+      "product_type": "Credit imobiliar ipotecar verde - FIXA 2 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
-        "variable_margin": 3.15,
+        "fixed_rate": 5.05,
+        "fixed_years": 2,
+        "variable_margin": 1.90,
         "index_type": "IRCC",
-        "raw": "IRCC + 3.15%"
-      },
-      "requiresSalaryTransfer": true,
-      "requiresDebitCard": false,
-      "requiresInsurance": false
-    },
-    {
-      "bank": "BT",
-      "product_type": "Creditul Verde cu virare venit",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
-        "variable_margin": 2.95,
-        "index_type": "IRCC",
-        "raw": "IRCC + 2.95%"
-      },
-      "requiresSalaryTransfer": true,
-      "requiresDebitCard": false,
-      "requiresInsurance": false
-    },
-    {
-      "bank": "BT",
-      "product_type": "Credit FIXA 3 ANI cu virare venit",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 5.40,
-        "fixed_years": 3,
-        "variable_margin": 2.10,
-        "index_type": "IRCC",
-        "raw": "5.40% fix 3 ani, apoi IRCC + 2.10%"
+        "raw": "5.05% fix 2 ani, apoi IRCC + 1.90%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
@@ -169,6 +146,21 @@
     },
     {
       "bank": "BCR",
+      "product_type": "Casa Mea NaturA MAX - FIXA 3 ANI",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": 4.79,
+        "fixed_years": 3,
+        "variable_margin": 2.10,
+        "index_type": "IRCC",
+        "raw": "4.79% fix 3 ani, apoi IRCC + 2.10%"
+      },
+      "requiresSalaryTransfer": true,
+      "requiresDebitCard": false,
+      "requiresInsurance": true
+    },
+    {
+      "bank": "BCR",
       "product_type": "Casa Mea PRO - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
@@ -183,32 +175,17 @@
       "requiresInsurance": true
     },
     {
-      "bank": "BCR",
-      "product_type": "Casa Mea MAX - FIXA 3 ANI",
+      "bank": "UNICREDIT",
+      "product_type": "Premium Credit Verde Ipotecar - FIXA 2 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 4.99,
-        "fixed_years": 3,
-        "variable_margin": 2.30,
+        "fixed_rate": 4.59,
+        "fixed_years": 2,
+        "variable_margin": 2.20,
         "index_type": "IRCC",
-        "raw": "4.99% fix 3 ani, apoi IRCC + 2.30%"
+        "raw": "4.59% fix 2 ani, apoi IRCC + 2.20%"
       },
-      "requiresSalaryTransfer": false,
-      "requiresDebitCard": false,
-      "requiresInsurance": true
-    },
-    {
-      "bank": "BCR",
-      "product_type": "Casa Mea NaturA PRO - FIXA 3 ANI",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 5.29,
-        "fixed_years": 3,
-        "variable_margin": 2.60,
-        "index_type": "IRCC",
-        "raw": "5.29% fix 3 ani, apoi IRCC + 2.60%"
-      },
-      "requiresSalaryTransfer": false,
+      "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
       "requiresInsurance": true
     },
@@ -222,21 +199,6 @@
         "variable_margin": 2.30,
         "index_type": "IRCC",
         "raw": "5.29% fix 3 ani, apoi IRCC + 2.30%"
-      },
-      "requiresSalaryTransfer": true,
-      "requiresDebitCard": false,
-      "requiresInsurance": true
-    },
-    {
-      "bank": "UNICREDIT",
-      "product_type": "Creditul Verde cu virare - FIXA 3 ANI",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 4.99,
-        "fixed_years": 3,
-        "variable_margin": 2.20,
-        "index_type": "IRCC",
-        "raw": "4.99% fix 3 ani, apoi IRCC + 2.20%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
@@ -274,14 +236,14 @@
     },
     {
       "bank": "BRD",
-      "product_type": "Habitat Standard - FIXA 3 ANI",
+      "product_type": "Habitat Verde - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": 4.99,
         "fixed_years": 3,
-        "variable_margin": 2.10,
+        "variable_margin": 2.00,
         "index_type": "IRCC",
-        "raw": "4.99% fix 3 ani, apoi IRCC + 2.10%"
+        "raw": "4.99% fix 3 ani, apoi IRCC + 2.00%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
@@ -289,7 +251,7 @@
     },
     {
       "bank": "RAIFFEISEN",
-      "product_type": "Achizitie Clasa A cu salariu - FIXA 3 ANI",
+      "product_type": "Casa Ta - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": 4.70,
@@ -348,21 +310,6 @@
       "requiresInsurance": false
     },
     {
-      "bank": "CREDIT EUROPE BANK",
-      "product_type": "Oferta VIP - VARIABILA",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": null,
-        "fixed_years": null,
-        "variable_margin": 2.51,
-        "index_type": "IRCC",
-        "raw": "IRCC + 2.51%"
-      },
-      "requiresSalaryTransfer": false,
-      "requiresDebitCard": false,
-      "requiresInsurance": false
-    },
-    {
       "bank": "PATRIA BANK",
       "product_type": ">=300k RON cu virare - FIXA 5 ANI",
       "rate_type": "RON",
@@ -379,22 +326,22 @@
     },
     {
       "bank": "EXIM BANCA ROMANEASCA",
-      "product_type": "Discount Pachete - FIXA 3 ANI CLASA A+",
+      "product_type": "Credit Ipotecar Casa - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 4.99,
+        "fixed_rate": 5.20,
         "fixed_years": 3,
-        "variable_margin": 2.29,
+        "variable_margin": 2.50,
         "index_type": "IRCC",
-        "raw": "4.99% fix 3 ani, apoi IRCC + 2.29%"
+        "raw": "5.20% fix 3 ani, apoi IRCC + 2.50%"
       },
-      "requiresSalaryTransfer": false,
+      "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
       "requiresInsurance": false
     },
     {
-      "bank": "INTESA SAN PAOLO",
-      "product_type": "Virare si Asig Viata - FIXA 3 ANI VERDE",
+      "bank": "INTESA SANPAOLO",
+      "product_type": "Credit Verde investitii imobiliare - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": 4.89,
@@ -408,7 +355,7 @@
       "requiresInsurance": true
     },
     {
-      "bank": "INTESA SAN PAOLO",
+      "bank": "INTESA SANPAOLO",
       "product_type": "Virare venit - FIXA 3 ANI VERDE",
       "rate_type": "RON",
       "rates": {
@@ -417,6 +364,36 @@
         "variable_margin": 2.50,
         "index_type": "IRCC",
         "raw": "5.20% fix 3 ani, apoi IRCC + 2.50%"
+      },
+      "requiresSalaryTransfer": true,
+      "requiresDebitCard": false,
+      "requiresInsurance": false
+    },
+    {
+      "bank": "PROCREDIT BANK",
+      "product_type": "Credit imobiliar ProGreen - FIXA 3 ANI",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": 4.89,
+        "fixed_years": 3,
+        "variable_margin": 2.10,
+        "index_type": "IRCC",
+        "raw": "4.89% fix 3 ani, apoi IRCC + 2.10%"
+      },
+      "requiresSalaryTransfer": true,
+      "requiresDebitCard": false,
+      "requiresInsurance": false
+    },
+    {
+      "bank": "CEC BANK",
+      "product_type": "Credit Ipotecar Casa Mea Verde - FIXA 3 ANI",
+      "rate_type": "RON",
+      "rates": {
+        "fixed_rate": 4.89,
+        "fixed_years": 3,
+        "variable_margin": 2.20,
+        "index_type": "IRCC",
+        "raw": "4.89% fix 3 ani, apoi IRCC + 2.20%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
