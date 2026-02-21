@@ -1,9 +1,10 @@
 {
-  "date_updated": "2026-02-20",
+  "date_updated": "2026-02-21",
   "ircc_current": 5.68,
   "euribor_6m_current": 2.5,
+  "robor_6m_current": 5.79,
   "total_banks": 12,
-  "total_products": 24,
+  "total_products": 23,
   "banks": [
     {
       "name": "BCR",
@@ -273,22 +274,7 @@
     },
     {
       "bank": "BRD",
-      "product_type": "Habitat Verde avans >=20% - FIXA 3 ANI",
-      "rate_type": "RON",
-      "rates": {
-        "fixed_rate": 4.89,
-        "fixed_years": 3,
-        "variable_margin": 2.00,
-        "index_type": "IRCC",
-        "raw": "4.89% fix 3 ani, apoi IRCC + 2.00%"
-      },
-      "requiresSalaryTransfer": true,
-      "requiresDebitCard": false,
-      "requiresInsurance": false
-    },
-    {
-      "bank": "BRD",
-      "product_type": "Habitat Refinantare Clasa A - FIXA 3 ANI",
+      "product_type": "Habitat Standard - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": 4.99,
