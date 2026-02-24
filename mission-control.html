@@ -1,0 +1,3535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control — Radu Balas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS VARIABLES - Easy Theme Customization
+           ============================================ */
+        :root {
+            /* Colors */
+            --bg-primary: #050508;
+            --bg-card: rgba(15, 15, 20, 0.6);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-tertiary: rgba(255, 255, 255, 0.4);
+            --accent: #0ea5e9; /* Sky blue - fintech vibe */
+            --accent-glow: rgba(14, 165, 233, 0.3);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 2.5rem;
+            
+            /* Borders */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 20px var(--accent-glow);
+        }
+
+        /* ============================================
+           GLOBAL RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HEADER - Sticky Glassmorphism Navigation
+           ============================================ */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 20, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: var(--space-md) var(--space-xl);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), #06b6d4);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            gap: var(--space-xs);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.25rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .tab {
+            padding: var(--space-xs) var(--space-md);
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tab:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Header Right Section */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-input {
+            width: 280px;
+            padding: var(--space-xs) var(--space-md);
+            padding-left: 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--space-sm);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 0.5rem 0.75rem;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        body.light-theme .theme-toggle {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-theme .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           DASHBOARD TAB
+           ============================================ */
+        .welcome-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .welcome-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .welcome-date {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .metric-card.success::before { background: var(--success); }
+        .metric-card.warning::before { background: var(--warning); }
+        .metric-card.danger::before { background: var(--danger); }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .metric-icon {
+            font-size: 1.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+
+        .metric-trend {
+            font-size: 0.875rem;
+            color: var(--success);
+        }
+
+        .metric-trend.down {
+            color: var(--danger);
+        }
+
+        /* Dashboard Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Activity Feed */
+        .activity-feed {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .activity-list {
+            max-height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .activity-item {
+            padding: var(--space-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent);
+            transition: background 0.2s ease;
+        }
+
+        .activity-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-text {
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Top Priorities */
+        .priorities-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .priority-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .priority-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            transition: background 0.2s ease;
+        }
+
+        .priority-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .priority-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-subtle);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .priority-checkbox.checked {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .priority-text {
+            flex: 1;
+            font-size: 0.875rem;
+        }
+
+        .priority-text.completed {
+            text-decoration: line-through;
+            color: var(--text-tertiary);
+        }
+
+        .priority-delete {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            padding: var(--space-xs);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .priority-item:hover .priority-delete {
+            opacity: 1;
+        }
+
+        .add-priority-form {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .priority-input {
+            flex: 1;
+            padding: var(--space-sm);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           PROJECTS TAB - Kanban Board
+           ============================================ */
+        .kanban-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        @media (max-width: 1024px) {
+            .kanban-board {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kanban-column {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            min-height: 500px;
+        }
+
+        .kanban-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .kanban-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .kanban-count {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.125rem var(--space-xs);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+        }
+
+        .kanban-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            min-height: 300px;
+        }
+
+        .task-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .task-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .task-header {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .task-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .task-priority {
+            padding: 0.125rem var(--space-xs);
+            border-radius: var(--radius-sm);
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .task-priority.high {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .task-priority.medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .task-priority.low {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .task-description {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+            line-height: 1.4;
+        }
+
+        .task-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ============================================
+           TIMELINE TAB
+           ============================================ */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .phase {
+            position: relative;
+            padding-left: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .phase::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: -var(--space-xl);
+            width: 2px;
+            background: var(--border-subtle);
+        }
+
+        .phase:last-child::before {
+            display: none;
+        }
+
+        .phase-marker {
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-subtle);
+            border-radius: 50%;
+        }
+
+        .phase.current .phase-marker {
+            border-color: var(--accent);
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .phase-content {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .phase.current .phase-content {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .phase-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .phase-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .phase-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .phase-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .milestones {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .milestone {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-xs);
+        }
+
+        .milestone-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-subtle);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .milestone.completed .milestone-check {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .milestone-text {
+            font-size: 0.875rem;
+        }
+
+        .milestone.completed .milestone-text {
+            color: var(--text-tertiary);
+            text-decoration: line-through;
+        }
+
+        /* ============================================
+           TEAM TAB
+           ============================================ */
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .agent-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #06b6d4);
+        }
+
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .agent-icon {
+            font-size: 2.5rem;
+        }
+
+        .agent-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .agent-model {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .agent-role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.5;
+        }
+
+        .agent-cost {
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.1);
+            padding: 0.375rem var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .agent-divider {
+            height: 1px;
+            background: var(--border-subtle);
+            margin: var(--space-md) 0;
+        }
+
+        .agent-capability {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-xs) 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .capability-icon {
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        /* Cost Efficiency Section */
+        .efficiency-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .efficiency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .efficiency-item {
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent);
+        }
+
+        .efficiency-title {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .efficiency-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        /* Automation Status */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .status-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+
+        .status-indicator-icon {
+            font-size: 1.25rem;
+            margin-top: 0.125rem;
+        }
+
+        .status-text {
+            flex: 1;
+        }
+
+        .status-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .status-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Workflow */
+        .workflow-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .workflow-step {
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            border-radius: var(--radius-md);
+            padding: var(--space-sm) var(--space-md);
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .workflow-arrow {
+            color: var(--text-tertiary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .workflow-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .workflow-detail {
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-md);
+            border-left: 2px solid var(--accent);
+        }
+
+        .workflow-detail-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .workflow-detail-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Active Automations */
+        .automations-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .automation-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .automation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--border-subtle);
+            transition: all 0.2s ease;
+        }
+
+        .automation-item.active {
+            border-left-color: var(--success);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .automation-item.pending {
+            border-left-color: var(--warning);
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        .automation-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .automation-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .automation-content {
+            flex: 1;
+        }
+
+        .automation-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .automation-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Efficiency Comparison */
+        .efficiency-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .comparison-item {
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+        }
+
+        .comparison-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .comparison-values {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .comparison-before {
+            font-size: 0.875rem;
+            color: var(--danger);
+            text-decoration: line-through;
+        }
+
+        .comparison-after {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .comparison-indicator {
+            font-size: 0.75rem;
+            color: var(--success);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        /* ============================================
+           NOTES TAB
+           ============================================ */
+        .notes-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .notes-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .notes-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        .notes-editor {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .notes-textarea {
+            width: 100%;
+            min-height: 500px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Inter', monospace;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            resize: vertical;
+        }
+
+        .notes-textarea:focus {
+            outline: none;
+        }
+
+        /* ============================================
+           BUTTONS & INPUTS
+           ============================================ */
+        .btn {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-small {
+            padding: 0.375rem var(--space-sm);
+            font-size: 0.75rem;
+        }
+
+        /* ============================================
+           SCROLLBAR STYLING
+           ============================================ */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ============================================
+           LIGHT THEME
+           ============================================ */
+        body.light-theme {
+            --bg-primary: #f8f9fa;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --text-primary: #1a1a1a;
+            --text-secondary: rgba(0, 0, 0, 0.6);
+            --text-tertiary: rgba(0, 0, 0, 0.4);
+        }
+
+        body.light-theme .header {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        body.light-theme .tab:not(.active) {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        body.light-theme .tab:not(.active):hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        body.light-theme .agent-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-theme .agent-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ============================================
+           CRM TAB STYLES
+           ============================================ */
+        .crm-subtab {
+            padding: var(--space-xs) var(--space-md);
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .crm-subtab:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .crm-subtab.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .crm-content {
+            display: none;
+        }
+
+        .crm-content.active {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .client-card, .invoice-card, .expense-card {
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .client-card:hover, .invoice-card:hover, .expense-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge.active {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .status-badge.inactive {
+            background: rgba(107, 114, 128, 0.2);
+            color: #6b7280;
+        }
+
+        .status-badge.draft {
+            background: rgba(107, 114, 128, 0.2);
+            color: #6b7280;
+        }
+
+        .status-badge.sent {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .status-badge.paid {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+
+            .tabs {
+                order: 3;
+                width: 100%;
+                justify-content: space-around;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+            }
+
+            .tab {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.75rem;
+                white-space: nowrap;
+            }
+
+            .search-bar {
+                display: none;
+            }
+
+            .container {
+                padding: var(--space-sm);
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-sm);
+            }
+
+            /* Team Section Mobile */
+            .team-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-md);
+            }
+
+            .agent-card {
+                padding: var(--space-md);
+            }
+
+            .agent-icon {
+                font-size: 2rem;
+            }
+
+            .agent-header {
+                gap: var(--space-sm);
+            }
+
+            .agent-name {
+                font-size: 1rem;
+            }
+
+            .agent-model {
+                font-size: 0.7rem;
+            }
+
+            .agent-capability {
+                font-size: 0.8rem;
+                padding: 0.5rem 0;
+            }
+
+            /* Compact all cards */
+            .metric-card {
+                padding: var(--space-sm);
+            }
+
+            .section-card {
+                padding: var(--space-md);
+            }
+
+            .welcome-bar {
+                padding: var(--space-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER - Navigation
+         ============================================ -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🎯</div>
+                <span>Mission Control</span>
+            </div>
+
+            <nav class="tabs">
+                <button class="tab active" data-tab="dashboard">📊 Dashboard</button>
+                <button class="tab" data-tab="projects">📋 Projects</button>
+                <button class="tab" data-tab="timeline">📅 Timeline</button>
+                <button class="tab" data-tab="team">👥 Team</button>
+                <button class="tab" data-tab="office">🏢 Office</button>
+                <button class="tab" data-tab="crm">💼 CRM</button>
+                <button class="tab" data-tab="notes">📝 Notes</button>
+            </nav>
+
+            <div class="header-right">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search... (⌘K)" id="searchInput">
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+                    <span id="themeIcon">☀️</span>
+                </button>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT CONTAINER
+         ============================================ -->
+    <main class="container">
+        <!-- DASHBOARD TAB -->
+        <div id="dashboard" class="tab-content active">
+            <!-- Welcome Bar -->
+            <div class="welcome-bar">
+                <div class="welcome-text" id="welcomeText">Good morning, Radu</div>
+                <div class="welcome-date" id="welcomeDate"></div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">🎯</span>
+                        <span class="metric-label">lend.ro Revenue</span>
+                    </div>
+                    <div class="metric-value" id="revenueMetric">€0</div>
+                    <div class="metric-trend">🚀 Launching soon</div>
+                </div>
+
+                <div class="metric-card success">
+                    <div class="metric-header">
+                        <span class="metric-icon">📋</span>
+                        <span class="metric-label">Active Projects</span>
+                    </div>
+                    <div class="metric-value" id="projectsMetric">3</div>
+                    <div class="metric-trend">↗ +1 this month</div>
+                </div>
+
+                <div class="metric-card warning">
+                    <div class="metric-header">
+                        <span class="metric-icon">✅</span>
+                        <span class="metric-label">Tasks Today</span>
+                    </div>
+                    <div class="metric-value" id="tasksMetric">0</div>
+                    <div class="metric-trend" id="tasksTrend">Ready to add tasks</div>
+                </div>
+
+                <div class="metric-card danger">
+                    <div class="metric-header">
+                        <span class="metric-icon">⏰</span>
+                        <span class="metric-label">Days to Launch</span>
+                    </div>
+                    <div class="metric-value" id="daysMetric">--</div>
+                    <div class="metric-trend">lend.ro full deployment</div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="metrics-grid" style="margin-top: var(--space-lg);">
+                <!-- Cost Monitor -->
+                <div class="metric-card" style="cursor: pointer;" onclick="window.open('https://birouarhitect.ro/cost-monitor.html', '_blank')">
+                    <div class="metric-header">
+                        <span class="metric-icon">💰</span>
+                        <span class="metric-label">Cost Monitor</span>
+                    </div>
+                    <div class="metric-value" style="font-size: 1.25rem;">Track Costs</div>
+                    <div class="metric-trend">Real-time expense tracking →</div>
+                </div>
+
+                <!-- lend.ro -->
+                <div class="metric-card" style="cursor: pointer;" onclick="window.open('https://lend.ro', '_blank')">
+                    <div class="metric-header">
+                        <span class="metric-icon">🏦</span>
+                        <span class="metric-label">lend.ro</span>
+                    </div>
+                    <div class="metric-value" style="font-size: 1.25rem;">LIVE</div>
+                    <div class="metric-trend">Mortgage platform →</div>
+                </div>
+
+                <!-- birouarhitect.ro -->
+                <div class="metric-card" style="cursor: pointer;" onclick="window.open('https://birouarhitect.ro', '_blank')">
+                    <div class="metric-header">
+                        <span class="metric-icon">🏗️</span>
+                        <span class="metric-label">birouarhitect.ro</span>
+                    </div>
+                    <div class="metric-value" style="font-size: 1.25rem;">LIVE</div>
+                    <div class="metric-trend">Architect directory →</div>
+                </div>
+
+                <!-- Ferma Vlădeasa -->
+                <div class="metric-card" style="cursor: pointer;" onclick="window.open('https://birouarhitect.ro/business-plan-ferma-vladeasa-pdf.html', '_blank')">
+                    <div class="metric-header">
+                        <span class="metric-icon">🏔️</span>
+                        <span class="metric-label">Ferma Vlădeasa</span>
+                    </div>
+                    <div class="metric-value" style="font-size: 1.25rem;">Business Plan</div>
+                    <div class="metric-trend">Mountain farm →</div>
+                </div>
+            </div>
+
+            <!-- Downloads Section -->
+            <div class="section-card" style="margin-top: var(--space-xl);">
+                <h2 class="section-title" style="margin-bottom: var(--space-md);">
+                    <span style="margin-right: var(--space-xs);">📦</span>
+                    Downloads
+                </h2>
+                <div class="metrics-grid">
+                    <!-- MillionPlus V6.0.1 -->
+                    <a href="https://birouarchitect.ro/millionplus-calculators-v6.0.1.zip" 
+                       class="metric-card" 
+                       style="text-decoration: none; display: block;"
+                       download>
+                        <div class="metric-header">
+                            <span class="metric-icon">🔌</span>
+                            <span class="metric-label">MillionPlus V6.0.1</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1rem;">WordPress Plugin</div>
+                        <div class="metric-trend" style="font-size: 0.75rem;">55KB • Production Ready • All 10 issues fixed</div>
+                    </a>
+                    
+                    <!-- Placeholder for more files -->
+                    <div class="metric-card" style="opacity: 0.5; cursor: default;">
+                        <div class="metric-header">
+                            <span class="metric-icon">📄</span>
+                            <span class="metric-label">More Files</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1rem;">Coming Soon</div>
+                        <div class="metric-trend" style="font-size: 0.75rem;">Upload files to /public_html/</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rapoarte Section -->
+            <div class="section-card" style="margin-top: var(--space-xl);">
+                <h2 class="section-title" style="margin-bottom: var(--space-md);">
+                    <span style="margin-right: var(--space-xs);">📊</span>
+                    Rapoarte
+                </h2>
+                <div class="metrics-grid">
+                    <!-- System Review -->
+                    <a href="https://birouarchitect.ro/system-review-2026-02-24.html" 
+                       target="_blank"
+                       class="metric-card" 
+                       style="text-decoration: none; display: block;">
+                        <div class="metric-header">
+                            <span class="metric-icon">🔍</span>
+                            <span class="metric-label">System Review</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1rem;">Feb 24, 2026</div>
+                        <div class="metric-trend" style="font-size: 0.75rem;">Health 8.2/10 • €44-102k potential (90 days)</div>
+                    </a>
+                    
+                    <!-- Mission Control Update -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">💼</span>
+                            <span class="metric-label">Mission Control Update</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1rem;">CRM Live</div>
+                        <div class="metric-trend" style="font-size: 0.75rem;">Clients, Invoices, Expenses, Calculator added</div>
+                    </div>
+                    
+                    <!-- MillionPlus Status -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">✅</span>
+                            <span class="metric-label">MillionPlus Status</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1rem;">V6.0.1 Ready</div>
+                        <div class="metric-trend" style="font-size: 0.75rem;">Production ready • All issues fixed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cost Control Section -->
+            <div class="section-card" style="margin-top: var(--space-xl);">
+                <h2 class="section-title" style="margin-bottom: var(--space-md);">
+                    <span style="margin-right: var(--space-xs);">💵</span>
+                    Cost Control
+                </h2>
+                <div class="metrics-grid">
+                    <div class="metric-card" style="border-left: 3px solid var(--success);">
+                        <div class="metric-header">
+                            <span class="metric-label">Monthly Costs</span>
+                        </div>
+                        <div class="metric-value" id="monthlyCosts">€—</div>
+                        <div class="metric-trend" style="color: var(--success);">▼ Track via Cost Monitor</div>
+                    </div>
+
+                    <div class="metric-card" style="border-left: 3px solid var(--warning);">
+                        <div class="metric-header">
+                            <span class="metric-label">AI/Cloud Spend</span>
+                        </div>
+                        <div class="metric-value" id="aiCosts">€—</div>
+                        <div class="metric-trend">API keys + hosting</div>
+                    </div>
+
+                    <div class="metric-card" style="border-left: 3px solid var(--accent);">
+                        <div class="metric-header">
+                            <span class="metric-label">Tools & Services</span>
+                        </div>
+                        <div class="metric-value" id="toolsCosts">€—</div>
+                        <div class="metric-trend">SaaS subscriptions</div>
+                    </div>
+
+                    <div class="metric-card" style="cursor: pointer;" onclick="window.open('https://birouarhitect.ro/cost-monitor.html', '_blank'); this.style.transform='scale(0.98)';" onmouseout="this.style.transform='scale(1)'">
+                        <div class="metric-header">
+                            <span class="metric-label">View Details</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.25rem;">Full Report</div>
+                        <div class="metric-trend" style="color: var(--accent);">Open Cost Monitor →</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent Team Status -->
+            <div class="section-card" style="margin-top: var(--space-xl);">
+                <h2 class="section-title" style="margin-bottom: var(--space-md);">
+                    <span style="margin-right: var(--space-xs);">🤖</span>
+                    Agent Team
+                </h2>
+                <div class="metrics-grid">
+                    <div class="metric-card" style="border-left: 3px solid var(--accent);">
+                        <div class="metric-header">
+                            <span class="metric-label">🗺️ Atlas</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.25rem; color: var(--success);">Active</div>
+                        <div class="metric-trend">Orchestrator | Sonnet 4.5</div>
+                    </div>
+
+                    <div class="metric-card" style="border-left: 3px solid #8b5cf6;">
+                        <div class="metric-header">
+                            <span class="metric-label">🔍 Research Agent</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.25rem; color: var(--success);">Active</div>
+                        <div class="metric-trend">Market research | DeepSeek</div>
+                    </div>
+
+                    <div class="metric-card" style="border-left: 3px solid #ec4899;">
+                        <div class="metric-header">
+                            <span class="metric-label">✍️ Content Agent</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.25rem; color: var(--success);">Active</div>
+                        <div class="metric-trend">Blog articles | Kimi 2.5</div>
+                    </div>
+
+                    <div class="metric-card" style="border-left: 3px solid #06b6d4;">
+                        <div class="metric-header">
+                            <span class="metric-label">🛠️ Dev Agent</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.25rem; color: var(--success);">Active</div>
+                        <div class="metric-trend">WordPress dev | Sonnet 4.5</div>
+                    </div>
+
+                    <div class="metric-card" style="border-left: 3px solid #3b82f6;">
+                        <div class="metric-header">
+                            <span class="metric-label">🧊 Cold Rich</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.25rem; color: var(--success);">Active</div>
+                        <div class="metric-trend">Email campaigns | Haiku 4.5</div>
+                    </div>
+
+                    <div class="metric-card" style="border-left: 3px solid #f59e0b;">
+                        <div class="metric-header">
+                            <span class="metric-label">🧠 Kai</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.25rem; color: var(--success);">Active</div>
+                        <div class="metric-trend">Meta-learning | Kimi 2.5</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automation Status -->
+            <div class="section-card" style="margin-top: var(--space-xl);">
+                <h2 class="section-title" style="margin-bottom: var(--space-md);">
+                    <span style="margin-right: var(--space-xs);">⚡</span>
+                    Automation Status
+                </h2>
+                <div class="metrics-grid">
+                    <div class="metric-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3);">
+                        <div class="metric-header">
+                            <span class="metric-label">Daily Content</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.5rem; color: var(--success);">Active</div>
+                        <div class="metric-trend" style="color: var(--success);">birouarhitect.ro articles @ 8AM</div>
+                    </div>
+
+                    <div class="metric-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3);">
+                        <div class="metric-header">
+                            <span class="metric-label">Market Research</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.5rem; color: var(--success);">Active</div>
+                        <div class="metric-trend" style="color: var(--success);">Daily trends @ 4AM</div>
+                    </div>
+
+                    <div class="metric-card" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(14, 165, 233, 0.3);">
+                        <div class="metric-header">
+                            <span class="metric-label">Intelligence Brief</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.5rem; color: var(--accent);">Active</div>
+                        <div class="metric-trend" style="color: var(--accent);">Morning summary @ 7AM</div>
+                    </div>
+
+                    <div class="metric-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.05)); border: 1px solid rgba(245, 158, 11, 0.3);">
+                        <div class="metric-header">
+                            <span class="metric-label">Lead Follow-up</span>
+                        </div>
+                        <div class="metric-value" style="font-size: 1.5rem; color: var(--warning);">Pending</div>
+                        <div class="metric-trend" style="color: var(--warning);">Weekly @ Monday 9AM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid: Activity + Priorities -->
+            <div class="dashboard-grid">
+                <!-- Activity Feed -->
+                <div class="activity-feed">
+                    <h2 class="section-title">Recent Activity</h2>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <div class="activity-text">Mission Control dashboard created</div>
+                            <div class="activity-time" id="initialTimestamp"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Priorities -->
+                <div class="priorities-section">
+                    <h2 class="section-title">Top Priorities</h2>
+                    <div class="priority-list" id="priorityList"></div>
+                    <form class="add-priority-form" id="addPriorityForm">
+                        <input type="text" class="priority-input" id="priorityInput" placeholder="Add new priority...">
+                        <button type="submit" class="btn btn-small">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- PROJECTS TAB - All Projects with Full Details -->
+<div id="projects" class="tab-content">
+    <h2 class="section-title" style="margin-bottom: var(--space-lg);">
+        <span style="margin-right: var(--space-xs);">📋</span>
+        Active Projects
+    </h2>
+
+    <!-- Projects Grid -->
+    <div style="display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+        
+        <!-- lend.ro -->
+        <div class="section-card" style="border-left: 4px solid var(--success);">
+            <div style="display: flex; justify-content: between; align-items: start; margin-bottom: var(--space-md);">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-xs);">🏦 lend.ro</h3>
+                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(16, 185, 129, 0.2); color: var(--success); border-radius: 999px; font-size: 0.75rem; font-weight: 600;">LIVE</div>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                Mortgage comparison platform for Romanian market. Connects users with 12 banks + brokers for credit ipotecar.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Tech:</span>
+                    <span style="color: var(--text-primary);">Next.js 15 + Vercel</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Deploy:</span>
+                    <span style="color: var(--text-primary);">Vercel (auto CD)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Banks:</span>
+                    <span style="color: var(--text-primary);">12 (BCR, BRD, ING, Raiffeisen+)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Revenue:</span>
+                    <span style="color: var(--success); font-weight: 600;">Target: Lead gen to brokers</span>
+                </div>
+            </div>
+            
+            <div style="padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); margin-bottom: var(--space-md);">
+                <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Next Steps:</div>
+                <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    <li>SEO optimization (blog content)</li>
+                    <li>Broker partnerships (commission model)</li>
+                    <li>Calculator improvements (IRCC updates)</li>
+                </ul>
+            </div>
+            
+            <a href="https://lend.ro" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: var(--accent); color: white; border-radius: var(--radius-sm); text-decoration: none; font-size: 0.875rem; font-weight: 600;">
+                View Site →
+            </a>
+        </div>
+
+        <!-- birouarhitect.ro -->
+        <div class="section-card" style="border-left: 4px solid var(--success);">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-xs);">🏗️ birouarhitect.ro</h3>
+                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(16, 185, 129, 0.2); color: var(--success); border-radius: 999px; font-size: 0.75rem; font-weight: 600;">LIVE</div>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                Romanian architect directory + blog. Auto-generated articles daily at 8 AM via Content Agent.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Tech:</span>
+                    <span style="color: var(--text-primary);">Next.js 16 + PHP/MySQL</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Deploy:</span>
+                    <span style="color: var(--text-primary);">cPanel (auto via API)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Content:</span>
+                    <span style="color: var(--text-primary);">Daily articles (8 AM cron)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 100px;">Revenue:</span>
+                    <span style="color: var(--success); font-weight: 600;">Directory + ads</span>
+                </div>
+            </div>
+            
+            <div style="padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); margin-bottom: var(--space-md);">
+                <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Next Steps:</div>
+                <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    <li>Architect onboarding campaign</li>
+                    <li>Premium directory listings</li>
+                    <li>SEO keyword expansion</li>
+                </ul>
+            </div>
+            
+            <a href="https://birouarhitect.ro" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: var(--accent); color: white; border-radius: var(--radius-sm); text-decoration: none; font-size: 0.875rem; font-weight: 600;">
+                View Site →
+            </a>
+        </div>
+
+        <!-- MillionPlus -->
+        <div class="section-card" style="border-left: 4px solid var(--accent);">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-xs);">💰 MillionPlus</h3>
+                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(14, 165, 233, 0.2); color: var(--accent); border-radius: 999px; font-size: 0.75rem; font-weight: 600;">DELIVERED</div>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                UK premium finance broker. WordPress plugin with 13 finance calculators (mortgage, bridging, jet, yacht, art+).
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Client:</span>
+                    <span style="color: var(--text-primary);">Marius@radubalas.com</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Deliverables:</span>
+                    <span style="color: var(--text-primary);">Plugin + Excel formulas</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Calculators:</span>
+                    <span style="color: var(--text-primary);">13 (all formulas verified)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Status:</span>
+                    <span style="color: var(--accent); font-weight: 600;">Delivered 24 Feb 2026</span>
+                </div>
+            </div>
+            
+            <div style="padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); margin-bottom: var(--space-md);">
+                <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Built by Dev Agent:</div>
+                <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    <li>2,500+ lines production code</li>
+                    <li>Security audit: 5-star (SQL/XSS/CSRF)</li>
+                    <li>Time: 2h 20min | Cost: $3.70</li>
+                </ul>
+            </div>
+            
+            <a href="https://birouarhitect.ro/millionplus-calculators-v1.1.0.tar.gz" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: var(--accent); color: white; border-radius: var(--radius-sm); text-decoration: none; font-size: 0.875rem; font-weight: 600;">
+                Download Plugin →
+            </a>
+        </div>
+
+        <!-- Ferma Vlădeasa -->
+        <div class="section-card" style="border-left: 4px solid var(--warning);">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-xs);">🏔️ Ferma Vlădeasa</h3>
+                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(245, 158, 11, 0.2); color: var(--warning); border-radius: 999px; font-size: 0.75rem; font-weight: 600;">PLANNING</div>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                20-hectare mountain farm. Subscription model: premium eggs, raw milk, butter, pork. Recurring revenue from 200-350 subscribers.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Location:</span>
+                    <span style="color: var(--text-primary);">80km from Cluj (Vlădeasa)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Investment:</span>
+                    <span style="color: var(--text-primary);">€300-400k (AFIR €50k grant)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Target:</span>
+                    <span style="color: var(--text-primary);">200 subs Y2, 350 subs Y3</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Revenue Y3:</span>
+                    <span style="color: var(--success); font-weight: 600;">+397k lei profit</span>
+                </div>
+            </div>
+            
+            <div style="padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); margin-bottom: var(--space-md);">
+                <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Next Steps:</div>
+                <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    <li>AFIR DR-14 grant application</li>
+                    <li>Infrastructure planning</li>
+                    <li>Partner agreement (Radu + Ghița)</li>
+                </ul>
+            </div>
+            
+            <a href="https://birouarhitect.ro/business-plan-ferma-vladeasa-pdf.html" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: var(--warning); color: black; border-radius: var(--radius-sm); text-decoration: none; font-size: 0.875rem; font-weight: 600;">
+                View Business Plan →
+            </a>
+        </div>
+
+        <!-- LC100 -->
+        <div class="section-card" style="border-left: 4px solid #8b5cf6;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-xs);">🚙 Toyota LC100</h3>
+                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(139, 92, 246, 0.2); color: #8b5cf6; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">ACTIVE</div>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                Personal vehicle asset tracker. Toyota Land Cruiser 100 (4.2 diesel) with off-road capabilities. Technical docs & maintenance logs.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Model:</span>
+                    <span style="color: var(--text-primary);">4.2 diesel (1HD-FTE)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Usage:</span>
+                    <span style="color: var(--text-primary);">Off-road + Ferma Vlădeasa</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Specs:</span>
+                    <span style="color: var(--text-primary);">BFG 33", rear locker, skids</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Docs:</span>
+                    <span style="color: var(--text-primary);">Complete technical logs</span>
+                </div>
+            </div>
+            
+            <div style="padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); margin-bottom: var(--space-md);">
+                <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Documentation:</div>
+                <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    <li>Rear wiper specs (350mm U-hook)</li>
+                    <li>Winch battery (A23/MN21 12V)</li>
+                    <li>Wheel stud rust protection</li>
+                </ul>
+            </div>
+            
+            <span style="display: inline-block; padding: 0.5rem 1rem; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 600;">
+                📁 Internal Docs
+            </span>
+        </div>
+
+        <!-- theflyingengineer.com -->
+        <div class="section-card" style="border-left: 4px solid #6b7280;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-xs);">✈️ theflyingengineer.com</h3>
+                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(107, 114, 128, 0.2); color: #6b7280; border-radius: 999px; font-size: 0.75rem; font-weight: 600;">FUTURE</div>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                Aviation industry directory (UK/US/China/Australia). Radu co-founder (digital strategy). Ready for AI automation takeover.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); font-size: 0.875rem;">
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Tech:</span>
+                    <span style="color: var(--text-primary);">WordPress (ready for automation)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Content:</span>
+                    <span style="color: var(--text-primary);">2-3 blog posts/week (manual)</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Potential:</span>
+                    <span style="color: var(--text-primary);">WP-CLI + REST API ready</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span style="color: var(--text-tertiary); width: 120px;">Status:</span>
+                    <span style="color: #6b7280; font-weight: 600;">Awaiting access</span>
+                </div>
+            </div>
+            
+            <div style="padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); margin-bottom: var(--space-md);">
+                <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Future Automation:</div>
+                <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.875rem;">
+                    <li>Content Agent → daily aviation articles</li>
+                    <li>Research Agent → industry trends</li>
+                    <li>Auto-publish via WP REST API</li>
+                </ul>
+            </div>
+            
+            <a href="https://theflyingengineer.com" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: #6b7280; color: white; border-radius: var(--radius-sm); text-decoration: none; font-size: 0.875rem; font-weight: 600;">
+                View Site →
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+        <!-- TIMELINE TAB -->
+        <div id="timeline" class="tab-content">
+            <div class="timeline" id="timelineContent"></div>
+        </div>
+
+        <!-- CRM TAB -->
+        <div id="crm" class="tab-content">
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2 class="section-title" style="margin-bottom: var(--space-lg);">
+                    <span style="margin-right: var(--space-xs);">💼</span>
+                    CRM - Client & Invoice Management
+                </h2>
+
+                <!-- CRM Sub-tabs -->
+                <div style="display: flex; gap: var(--space-xs); margin-bottom: var(--space-lg); background: rgba(255, 255, 255, 0.03); padding: 0.25rem; border-radius: var(--radius-lg);">
+                    <button class="crm-subtab active" data-crm-tab="clients">👥 Clients</button>
+                    <button class="crm-subtab" data-crm-tab="invoices">🧾 Invoices</button>
+                    <button class="crm-subtab" data-crm-tab="expenses">💸 Expenses</button>
+                    <button class="crm-subtab" data-crm-tab="calculator">🧮 Calculator</button>
+                </div>
+
+                <!-- Clients Tab -->
+                <div id="crmClients" class="crm-content active">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+                        <h3 style="font-size: 1.125rem; font-weight: 600;">Client List</h3>
+                        <button class="btn" onclick="addClient()">+ Add Client</button>
+                    </div>
+                    <div id="clientsList" style="display: grid; gap: var(--space-sm);"></div>
+                </div>
+
+                <!-- Invoices Tab -->
+                <div id="crmInvoices" class="crm-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+                        <h3 style="font-size: 1.125rem; font-weight: 600;">Invoices</h3>
+                        <button class="btn" onclick="addInvoice()">+ Create Invoice</button>
+                    </div>
+
+                    <!-- Revenue Summary -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div style="padding: var(--space-md); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md);">
+                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Monthly Revenue</div>
+                            <div id="monthlyRevenue" style="font-size: 1.5rem; font-weight: 700; color: var(--success);">€0</div>
+                        </div>
+                        <div style="padding: var(--space-md); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: var(--radius-md);">
+                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Outstanding</div>
+                            <div id="outstandingTotal" style="font-size: 1.5rem; font-weight: 700; color: var(--warning);">€0</div>
+                        </div>
+                    </div>
+
+                    <!-- Invoice Filters -->
+                    <div style="display: flex; gap: var(--space-sm); margin-bottom: var(--space-md); flex-wrap: wrap;">
+                        <select id="invoiceFilterStatus" onchange="renderInvoices()" style="padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                            <option value="">All Status</option>
+                            <option value="draft">Draft</option>
+                            <option value="sent">Sent</option>
+                            <option value="paid">Paid</option>
+                        </select>
+                        <select id="invoiceFilterClient" onchange="renderInvoices()" style="padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                            <option value="">All Clients</option>
+                        </select>
+                    </div>
+
+                    <div id="invoicesList" style="display: grid; gap: var(--space-sm);"></div>
+                </div>
+
+                <!-- Expenses Tab -->
+                <div id="crmExpenses" class="crm-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+                        <h3 style="font-size: 1.125rem; font-weight: 600;">Expenses</h3>
+                        <button class="btn" onclick="addExpense()">+ Add Expense</button>
+                    </div>
+
+                    <!-- Expense Summary -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div style="padding: var(--space-md); background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-md);">
+                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Monthly Expenses</div>
+                            <div id="monthlyExpenses" style="font-size: 1.5rem; font-weight: 700; color: var(--danger);">€0</div>
+                        </div>
+                        <div style="padding: var(--space-md); background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: var(--radius-md);">
+                            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Billable Expenses</div>
+                            <div id="billableExpenses" style="font-size: 1.5rem; font-weight: 700; color: var(--accent);">€0</div>
+                        </div>
+                    </div>
+
+                    <!-- Expense Filters -->
+                    <div style="display: flex; gap: var(--space-sm); margin-bottom: var(--space-md); flex-wrap: wrap;">
+                        <select id="expenseFilterCategory" onchange="renderExpenses()" style="padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                            <option value="">All Categories</option>
+                            <option value="Software">Software</option>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Office">Office</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="month" id="expenseFilterMonth" onchange="renderExpenses()" style="padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                    </div>
+
+                    <!-- Category Breakdown (Pie Chart Placeholder) -->
+                    <div style="margin-bottom: var(--space-lg); padding: var(--space-md); background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; margin-bottom: var(--space-sm);">Category Breakdown</h4>
+                        <div id="categoryBreakdown" style="display: grid; gap: var(--space-xs);"></div>
+                    </div>
+
+                    <div id="expensesList" style="display: grid; gap: var(--space-sm);"></div>
+                </div>
+
+                <!-- Calculator Tab -->
+                <div id="crmCalculator" class="crm-content">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: var(--space-lg);">
+                        
+                        <!-- Invoice Calculator -->
+                        <div style="padding: var(--space-lg); background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-md);">🧾 Invoice Calculator</h3>
+                            
+                            <div style="display: grid; gap: var(--space-md);">
+                                <div>
+                                    <label style="display: block; font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Hours</label>
+                                    <input type="number" id="calcHours" placeholder="0" oninput="calculateInvoice()" style="width: 100%; padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Rate (€/hour)</label>
+                                    <input type="number" id="calcRate" placeholder="0" oninput="calculateInvoice()" style="width: 100%; padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Billable Expenses (€)</label>
+                                    <input type="number" id="calcExpenses" placeholder="0" oninput="calculateInvoice()" style="width: 100%; padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">VAT (%)</label>
+                                    <input type="number" id="calcVAT" placeholder="19" value="19" oninput="calculateInvoice()" style="width: 100%; padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                                </div>
+                            </div>
+
+                            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: rgba(14, 165, 233, 0.1); border-radius: var(--radius-md);">
+                                <h4 style="font-size: 0.875rem; font-weight: 600; margin-bottom: var(--space-sm);">Breakdown</h4>
+                                <div style="display: grid; gap: 0.5rem; font-size: 0.875rem;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Subtotal (Hours × Rate):</span>
+                                        <span id="calcSubtotal">€0.00</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>+ Expenses:</span>
+                                        <span id="calcExpensesDisplay">€0.00</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>+ VAT (<span id="calcVATPercent">19</span>%):</span>
+                                        <span id="calcVATAmount">€0.00</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; padding-top: var(--space-sm); border-top: 1px solid var(--border-subtle); font-size: 1.125rem; font-weight: 700; color: var(--accent);">
+                                        <span>Total:</span>
+                                        <span id="calcTotal">€0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profit Calculator -->
+                        <div style="padding: var(--space-lg); background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+                            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-md);">💰 Profit Calculator</h3>
+                            
+                            <div style="display: grid; gap: var(--space-md);">
+                                <div>
+                                    <label style="display: block; font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Month</label>
+                                    <input type="month" id="profitMonth" onchange="calculateProfit()" style="width: 100%; padding: 0.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-primary);">
+                                </div>
+                            </div>
+
+                            <div style="margin-top: var(--space-lg); padding: var(--space-md); background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-md);">
+                                <h4 style="font-size: 0.875rem; font-weight: 600; margin-bottom: var(--space-sm);">Monthly Summary</h4>
+                                <div style="display: grid; gap: 0.5rem; font-size: 0.875rem;">
+                                    <div style="display: flex; justify-content: space-between; color: var(--success);">
+                                        <span>Revenue:</span>
+                                        <span id="profitRevenue">€0.00</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; color: var(--danger);">
+                                        <span>- Expenses:</span>
+                                        <span id="profitExpenses">€0.00</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; padding-top: var(--space-sm); border-top: 1px solid var(--border-subtle); font-size: 1.125rem; font-weight: 700; color: var(--success);">
+                                        <span>Net Profit:</span>
+                                        <span id="profitNet">€0.00</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-secondary);">
+                                        <span>Profit Margin:</span>
+                                        <span id="profitMargin">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- NOTES TAB -->
+        <div id="notes" class="tab-content">
+            <div class="notes-container">
+                <div class="notes-header">
+                    <h2 class="section-title">Notes & Ideas</h2>
+                    <div class="notes-meta">
+                        <span id="charCount">0 characters</span>
+                        <span id="lastSaved">Never saved</span>
+                    </div>
+                </div>
+                <div class="notes-editor">
+                    <textarea class="notes-textarea" id="notesTextarea" placeholder="Start typing your notes here...
+
+Use this space for:
+• Quick thoughts and ideas
+• Meeting notes
+• Project planning
+• Anything you need to remember
+
+Your notes auto-save as you type."></textarea>
+                </div>
+            </div>
+        </div>
+<!-- OFFICE TAB - Virtual Office Style -->
+<div id="office" class="tab-content">
+    <h2 class="section-title" style="margin-bottom: var(--space-md);">
+        <span style="margin-right: var(--space-xs);">🏢</span>
+        Office - Agent Team
+    </h2>
+
+    <!-- Cost Summary at top -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-md); background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
+        <div>
+            <div style="font-size: 1rem; font-weight: 600; color: var(--success);">💰 Monthly Cost: $231</div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Optimized by Kai (19% savings from $286)</div>
+        </div>
+        <div style="text-align: right;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--success);">6 Agents</div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary);">All Systems Active</div>
+        </div>
+    </div>
+
+    <!-- Virtual Office Space -->
+    <div style="background: linear-gradient(135deg, rgba(15, 15, 20, 0.8), rgba(5, 5, 8, 0.9)); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-xl); min-height: 600px; position: relative; overflow: hidden;">
+        
+        <!-- Office Grid Background -->
+        <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, transparent 1px, transparent 40px); opacity: 0.3;"></div>
+
+        <!-- Build Council Room (Center) -->
+        <div style="position: relative; z-index: 1;">
+            <div style="text-align: center; margin-bottom: var(--space-xl);">
+                <div style="display: inline-block; padding: 0.5rem 1.5rem; background: rgba(14, 165, 233, 0.2); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 999px; font-weight: 600; color: var(--accent); margin-bottom: var(--space-md);">
+                    🏛️ Build Council
+                </div>
+            </div>
+
+            <!-- Council Table (Center Oval) -->
+            <div style="margin: 0 auto var(--space-xl); width: 400px; height: 200px; background: linear-gradient(135deg, rgba(100, 100, 100, 0.3), rgba(80, 80, 80, 0.2)); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); position: relative;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.875rem; color: var(--text-tertiary); text-align: center;">
+                    Daily Standup<br/>
+                    <span style="font-size: 0.75rem; color: var(--text-tertiary);">7:00 AM</span>
+                </div>
+            </div>
+
+            <!-- Agents Around Table -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); max-width: 900px; margin: 0 auto;">
+                
+                <!-- Atlas (Top Center) -->
+                <div style="grid-column: 2; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="showAgentInfo('atlas')">
+                    <div style="width: 80px; height: 80px; margin: 0 auto var(--space-sm); background: linear-gradient(135deg, var(--accent), #06b6d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 0 20px rgba(14, 165, 233, 0.5); border: 3px solid rgba(14, 165, 233, 0.3);">
+                        🗺️
+                    </div>
+                    <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">Atlas</div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary);">Orchestrator</div>
+                    <div style="display: inline-block; margin-top: 0.25rem; padding: 0.125rem 0.5rem; background: rgba(14, 165, 233, 0.2); border-radius: 999px; font-size: 0.625rem; color: var(--accent);">Sonnet 4.5</div>
+                </div>
+
+                <!-- Research (Left Top) -->
+                <div style="grid-column: 1; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="showAgentInfo('research')">
+                    <div style="width: 70px; height: 70px; margin: 0 auto var(--space-sm); background: linear-gradient(135deg, #8b5cf6, #6366f1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 15px rgba(139, 92, 246, 0.4); border: 3px solid rgba(139, 92, 246, 0.3);">
+                        🔍
+                    </div>
+                    <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">Research</div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary);">Market Intel</div>
+                    <div style="display: inline-block; margin-top: 0.25rem; padding: 0.125rem 0.5rem; background: rgba(139, 92, 246, 0.2); border-radius: 999px; font-size: 0.625rem; color: #8b5cf6;">DeepSeek</div>
+                </div>
+
+                <!-- Content (Right Top) -->
+                <div style="grid-column: 3; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="showAgentInfo('content')">
+                    <div style="width: 70px; height: 70px; margin: 0 auto var(--space-sm); background: linear-gradient(135deg, #f59e0b, #f97316); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); border: 3px solid rgba(245, 158, 11, 0.3);">
+                        ✍️
+                    </div>
+                    <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">Content</div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary);">Writer</div>
+                    <div style="display: inline-block; margin-top: 0.25rem; padding: 0.125rem 0.5rem; background: rgba(245, 158, 11, 0.2); border-radius: 999px; font-size: 0.625rem; color: #f59e0b;">Kimi 2.5</div>
+                </div>
+
+                <!-- Dev (Left Bottom) -->
+                <div style="grid-column: 1; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="showAgentInfo('dev')">
+                    <div style="width: 70px; height: 70px; margin: 0 auto var(--space-sm); background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); border: 3px solid rgba(16, 185, 129, 0.3);">
+                        🛠️
+                    </div>
+                    <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">Dev</div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary);">Builder</div>
+                    <div style="display: inline-block; margin-top: 0.25rem; padding: 0.125rem 0.5rem; background: rgba(16, 185, 129, 0.2); border-radius: 999px; font-size: 0.625rem; color: var(--success);">Sonnet 4.5</div>
+                </div>
+
+                <!-- Kai (Center Bottom) -->
+                <div style="grid-column: 2; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="showAgentInfo('kai')">
+                    <div style="width: 70px; height: 70px; margin: 0 auto var(--space-sm); background: linear-gradient(135deg, #ec4899, #db2777); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 15px rgba(236, 72, 153, 0.4); border: 3px solid rgba(236, 72, 153, 0.3);">
+                        🧠
+                    </div>
+                    <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">Kai</div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary);">Optimizer</div>
+                    <div style="display: inline-block; margin-top: 0.25rem; padding: 0.125rem 0.5rem; background: rgba(236, 72, 153, 0.2); border-radius: 999px; font-size: 0.625rem; color: #ec4899;">Kimi 2.5</div>
+                </div>
+
+                <!-- Cold Rich (Right Bottom) -->
+                <div style="grid-column: 3; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="showAgentInfo('coldrich')">
+                    <div style="width: 70px; height: 70px; margin: 0 auto var(--space-sm); background: linear-gradient(135deg, #06b6d4, #0891b2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); border: 3px solid rgba(6, 182, 212, 0.3);">
+                        🧊
+                    </div>
+                    <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">Cold Rich</div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary);">Email Specialist</div>
+                    <div style="display: inline-block; margin-top: 0.25rem; padding: 0.125rem 0.5rem; background: rgba(6, 182, 212, 0.2); border-radius: 999px; font-size: 0.625rem; color: #06b6d4;">Haiku 4.5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agent Details Panel (Hidden by default, shows on click) -->
+    <div id="agentDetailsPanel" style="display: none; margin-top: var(--space-lg); padding: var(--space-lg); background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+            <h3 id="agentDetailName" style="font-size: 1.25rem; font-weight: 600;"></h3>
+            <button onclick="hideAgentInfo()" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.5rem;">&times;</button>
+        </div>
+        <div id="agentDetailContent"></div>
+    </div>
+
+    <!-- Daily Schedule -->
+    <div style="margin-top: var(--space-xl); padding: var(--space-lg); background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+        <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: var(--space-md);">⏰ Daily Automation Schedule</h3>
+        <div style="display: grid; gap: var(--space-sm);">
+            <div style="display: flex; align-items: center; padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm);">
+                <span style="font-weight: 600; width: 80px; color: var(--accent);">5:30 AM</span>
+                <span style="color: var(--text-secondary); font-size: 0.875rem;">Health Check - All agents responsive?</span>
+            </div>
+            <div style="display: flex; align-items: center; padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm);">
+                <span style="font-weight: 600; width: 80px; color: var(--accent);">6:00 AM</span>
+                <span style="color: var(--text-secondary); font-size: 0.875rem;">🧠 Kai Security Audit - API keys, credentials</span>
+            </div>
+            <div style="display: flex; align-items: center; padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm);">
+                <span style="font-weight: 600; width: 80px; color: var(--accent);">7:00 AM</span>
+                <span style="color: var(--text-secondary); font-size: 0.875rem;">🔍 Research Brief - Market trends, competitor updates</span>
+            </div>
+            <div style="display: flex; align-items: center; padding: var(--space-sm); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm);">
+                <span style="font-weight: 600; width: 80px; color: var(--accent);">8:00 AM</span>
+                <span style="color: var(--text-secondary); font-size: 0.875rem;">✍️ Content Deploy - Auto-publish articles to birouarhitect.ro</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Agent info database
+const agentInfo = {
+    atlas: {
+        name: '🗺️ Atlas',
+        role: 'Orchestrator & Strategic Lead',
+        model: 'Claude Sonnet 4.5',
+        cost: '$120/month',
+        capabilities: [
+            '🎯 Oversees all sub-agents and delegates tasks',
+            '📊 Makes strategic decisions for business priorities',
+            '✅ Final quality review and approval before deployment',
+            '🔄 Coordinates workflow between Research, Content, Dev teams'
+        ],
+        example: 'Daily: Reviews Research brief → Assigns Content task → QA checks Dev output'
+    },
+    research: {
+        name: '🔍 Research',
+        role: 'Market Intelligence Specialist',
+        model: 'DeepSeek Chat',
+        cost: '$9/month (75% cheaper than Atlas)',
+        capabilities: [
+            '📈 Daily market trend analysis (lend.ro, birouarhitect.ro niches)',
+            '🔎 Competitor tracking (blog posts, pricing, features)',
+            '📊 Google Trends monitoring',
+            '⚡ Ultra-cheap: ~$0.0007 per research task'
+        ],
+        example: 'Morning: Scans 12 competitor blogs → Identifies 3 trending topics → Reports to Atlas'
+    },
+    content: {
+        name: '✍️ Content',
+        role: 'Content Generation Specialist',
+        model: 'Kimi 2.5 (Moonshot)',
+        cost: '$6/month (88% cheaper than Atlas)',
+        capabilities: [
+            '📝 Writes 1800-word SEO-optimized articles',
+            '🌍 Romanian language fluent (native-level quality)',
+            '🔍 200K context window (can read entire competitor sites)',
+            '⚡ Ultra-cheap: ~$0.0028 per article'
+        ],
+        example: 'Daily 8 AM: Generates architect article → Deploys to birouarhitect.ro automatically'
+    },
+    dev: {
+        name: '🛠️ Dev',
+        role: 'Production Code Specialist',
+        model: 'Claude Sonnet 4.5',
+        cost: '$35/month (quality > cost)',
+        capabilities: [
+            '🔒 Production-ready WordPress plugins (zero bugs tolerance)',
+            '⚙️ Security hardened (SQL injection, XSS, CSRF prevention)',
+            '✅ Financial calculator precision (MillionPlus 13 calculators)',
+            '📦 2,500+ lines of code in 2h 20min'
+        ],
+        example: 'MillionPlus project: Built 13 calculators → Security 5-star → Delivered in $3.70'
+    },
+    kai: {
+        name: '🧠 Kai',
+        role: 'Meta-Learning & Optimization',
+        model: 'Kimi 2.5 (Moonshot)',
+        cost: '$20/month',
+        capabilities: [
+            '🔍 Studies OpenClaw documentation deeply',
+            '💡 Finds cost optimization opportunities (found $55/month savings)',
+            '🛡️ Daily security audits (6 AM - API keys, credentials)',
+            '⚡ Weekly system health reports'
+        ],
+        example: 'Feb 2026 audit: Found Dev on Haiku (weak) → Switched to Sonnet → Saved $55/mo'
+    },
+    coldrich: {
+        name: '🧊 Cold Rich',
+        role: 'Email Campaign Specialist',
+        model: 'Claude Haiku 4.5',
+        cost: '$41/month',
+        capabilities: [
+            '📧 Manages 100k+ emails via Instantly.ai',
+            '📈 Tracks open/click/reply rates',
+            '🎯 Engagement-based follow-up sequences',
+            '⚡ Reply rate optimization (15% target vs 3% industry avg)'
+        ],
+        example: 'theflyingengineer.com: 100k emails sent → 25k opens → 3,750 targeted follow-ups'
+    }
+};
+
+function showAgentInfo(agentKey) {
+    const agent = agentInfo[agentKey];
+    const panel = document.getElementById('agentDetailsPanel');
+    const nameEl = document.getElementById('agentDetailName');
+    const contentEl = document.getElementById('agentDetailContent');
+    
+    nameEl.textContent = agent.name;
+    contentEl.innerHTML = `
+        <div style="display: grid; gap: var(--space-md);">
+            <div>
+                <div style="font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Role</div>
+                <div style="font-size: 1rem; font-weight: 500;">${agent.role}</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+                <div>
+                    <div style="font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Model</div>
+                    <div style="font-size: 0.875rem; font-weight: 500;">${agent.model}</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Cost</div>
+                    <div style="font-size: 0.875rem; font-weight: 500; color: var(--success);">${agent.cost}</div>
+                </div>
+            </div>
+            <div>
+                <div style="font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: var(--space-sm);">Capabilities</div>
+                <div style="display: flex; flex-direction: column; gap: var(--space-xs);">
+                    ${agent.capabilities.map(cap => `
+                        <div style="padding: var(--space-xs); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); font-size: 0.875rem;">
+                            ${cap}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            <div style="padding: var(--space-md); background: rgba(14, 165, 233, 0.1); border-left: 3px solid var(--accent); border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 0.25rem;">Example Workflow</div>
+                <div style="font-size: 0.875rem;">${agent.example}</div>
+            </div>
+        </div>
+    `;
+    
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function hideAgentInfo() {
+    document.getElementById('agentDetailsPanel').style.display = 'none';
+}
+</script>
+    </main>
+
+    <!-- ============================================
+         JAVASCRIPT - Application Logic
+         ============================================ -->
+    <script>
+        // ============================================
+        // DATA STRUCTURES & CONFIGURATION
+        // ============================================
+
+        // Timeline roadmap configuration
+        const timelineData = [
+            {
+                title: "Phase 1: Foundation",
+                dateRange: "Feb 2026",
+                description: "Build core infrastructure for lend.ro mortgage comparison platform",
+                current: false,
+                milestones: [
+                    { text: "Design calculator UI/UX", completed: true },
+                    { text: "Implement rate calculation logic", completed: true },
+                    { text: "Create bank product database", completed: true },
+                    { text: "Build responsive frontend", completed: true }
+                ]
+            },
+            {
+                title: "Phase 2: Launch & Early Growth",
+                dateRange: "March 2026",
+                description: "Deploy lend.ro, birouarhitect platforms, and complete MillionPlus V4",
+                current: true,
+                milestones: [
+                    { text: "lend.ro Launch - 13 banks, LIVE on Vercel", completed: true },
+                    { text: "birouarhitect.ro Launch - Auto-content 8AM daily, LIVE", completed: true },
+                    { text: "lend.ro Search Console - 22 pages indexed", completed: true },
+                    { text: "MillionPlus Calculator V4 - Figma redesign (current)", completed: false },
+                    { text: "lend.ro Monthly Rate Updates - Bank rates refresh", completed: false }
+                ]
+            },
+            {
+                title: "Phase 3: Growth & Optimization",
+                dateRange: "April - June 2026",
+                description: "Scale traffic, optimize conversions, and expand product ecosystem",
+                current: false,
+                milestones: [
+                    { text: "Complete MillionPlus V4 deployment", completed: false },
+                    { text: "theflyingengineer.com - WordPress automation", completed: false },
+                    { text: "lend.ro Lead Generation - Email automation via Resend", completed: false },
+                    { text: "Reach 100 qualified leads/month", completed: false },
+                    { text: "€10,000 MRR milestone", completed: false }
+                ]
+            },
+            {
+                title: "Phase 4: Scale & Automation",
+                dateRange: "July - Dec 2026",
+                description: "Expand to whisky platform and multi-agent automation systems",
+                current: false,
+                milestones: [
+                    { text: "singlemalt.ro / maltbook.com - Whisky platform launch", completed: false },
+                    { text: "Multi-agent system optimization", completed: false },
+                    { text: "Implement AI-powered recommendations", completed: false },
+                    { text: "5 active revenue-generating projects", completed: false },
+                    { text: "€300k/year revenue target", completed: false }
+                ]
+            }
+        ];
+
+        // ============================================
+        // STATE MANAGEMENT (LocalStorage)
+        // ============================================
+
+        const storage = {
+            get: (key, defaultValue = null) => {
+                const item = localStorage.getItem(key);
+                return item ? JSON.parse(item) : defaultValue;
+            },
+            set: (key, value) => {
+                localStorage.setItem(key, JSON.stringify(value));
+            }
+        };
+
+        // Initialize data structures with default project data
+        let priorities = storage.get('priorities', [
+            { text: "Complete MillionPlus V4", completed: false, created: new Date().toISOString() },
+            { text: "Test & deploy MillionPlus staging", completed: false, created: new Date().toISOString() },
+            { text: "lend.ro March rate updates", completed: false, created: new Date().toISOString() },
+            { text: "theflyingengineer credentials setup", completed: false, created: new Date().toISOString() },
+            { text: "Multi-agent workflow optimization ✓", completed: true, created: new Date().toISOString() }
+        ]);
+        
+        let tasks = storage.get('tasks', {
+            backlog: [
+                {
+                    title: "theflyingengineer.com Takeover",
+                    description: "WordPress aviation directory automation",
+                    priority: "medium",
+                    created: new Date().toISOString()
+                },
+                {
+                    title: "singlemalt.ro / maltbook.com",
+                    description: "Whisky platform launch",
+                    priority: "low",
+                    created: new Date().toISOString()
+                },
+                {
+                    title: "lend.ro Lead Generation",
+                    description: "Email automation via Resend",
+                    priority: "high",
+                    created: new Date().toISOString()
+                }
+            ],
+            progress: [
+                {
+                    title: "MillionPlus Calculator Plugin V4",
+                    description: "WordPress finance calcs, Figma redesign",
+                    priority: "high",
+                    created: new Date().toISOString()
+                },
+                {
+                    title: "lend.ro Monthly Rate Updates",
+                    description: "Bank rates refresh March 2026",
+                    priority: "medium",
+                    created: new Date().toISOString()
+                }
+            ],
+            done: [
+                {
+                    title: "lend.ro Launch",
+                    description: "13 banks, mortgage calc, GDPR, SEO - LIVE on Vercel",
+                    priority: "high",
+                    created: new Date().toISOString()
+                },
+                {
+                    title: "birouarhitect.ro Launch",
+                    description: "Architect directory, auto-content 8AM daily - LIVE",
+                    priority: "high",
+                    created: new Date().toISOString()
+                },
+                {
+                    title: "lend.ro Search Console",
+                    description: "Domain verified, 22 pages indexed",
+                    priority: "medium",
+                    created: new Date().toISOString()
+                },
+                {
+                    title: "Multi-Agent System",
+                    description: "Atlas + Research + Content + Dev agents operational",
+                    priority: "high",
+                    created: new Date().toISOString()
+                }
+            ]
+        });
+        
+        let activity = storage.get('activity', []);
+        let notes = storage.get('notes', '');
+
+        // ============================================
+        // TAB NAVIGATION
+        // ============================================
+
+        function switchTab(tabName) {
+            // Update active tab button
+            document.querySelectorAll('.tab').forEach(t => {
+                if (t.dataset.tab === tabName) {
+                    t.classList.add('active');
+                } else {
+                    t.classList.remove('active');
+                }
+            });
+
+            // Update active content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            // Log activity
+            const tabButton = document.querySelector(`[data-tab="${tabName}"]`);
+            if (tabButton) {
+                logActivity(`Switched to ${tabButton.textContent} tab`);
+            }
+        }
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                switchTab(tab.dataset.tab);
+            });
+        });
+
+        // ============================================
+        // WELCOME BAR - Dynamic Greeting & Date
+        // ============================================
+
+        function updateWelcome() {
+            const now = new Date();
+            const hour = now.getHours();
+            let greeting = 'Good morning';
+            if (hour >= 12 && hour < 18) greeting = 'Good afternoon';
+            if (hour >= 18) greeting = 'Good evening';
+
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('en-US', options);
+            const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+            document.getElementById('welcomeText').textContent = `${greeting}, Radu`;
+            document.getElementById('welcomeDate').textContent = `${dateStr} • ${timeStr}`;
+        }
+
+        // Update every minute
+        updateWelcome();
+        setInterval(updateWelcome, 60000);
+
+        // ============================================
+        // METRICS CALCULATION
+        // ============================================
+
+        function updateMetrics() {
+            // Revenue (annual)
+            document.getElementById('revenueMetric').textContent = '€300k/year';
+
+            // Calculate total active projects (backlog + in progress)
+            const totalProjects = tasks.backlog.length + tasks.progress.length;
+            document.getElementById('projectsMetric').textContent = totalProjects;
+
+            // Calculate active tasks today
+            const today = new Date().toDateString();
+            const todayTasks = [...tasks.backlog, ...tasks.progress].filter(task => {
+                const taskDate = new Date(task.created).toDateString();
+                return taskDate === today;
+            });
+
+            document.getElementById('tasksMetric').textContent = todayTasks.length;
+            document.getElementById('tasksTrend').textContent = 
+                todayTasks.length > 0 ? `↗ ${todayTasks.length} added today` : 'Ready to add tasks';
+
+            // lend.ro is LIVE - show LIVE status instead of days
+            document.getElementById('daysMetric').textContent = 'LIVE';
+        }
+
+        // ============================================
+        // ACTIVITY FEED
+        // ============================================
+
+        function logActivity(text) {
+            const timestamp = new Date().toISOString();
+            activity.unshift({ text, timestamp });
+            
+            // Keep only last 50 items
+            if (activity.length > 50) activity = activity.slice(0, 50);
+            
+            storage.set('activity', activity);
+            renderActivity();
+        }
+
+        function renderActivity() {
+            const container = document.getElementById('activityList');
+            container.innerHTML = activity.map(item => `
+                <div class="activity-item">
+                    <div class="activity-text">${item.text}</div>
+                    <div class="activity-time">${formatRelativeTime(item.timestamp)}</div>
+                </div>
+            `).join('');
+        }
+
+        function formatRelativeTime(timestamp) {
+            const now = new Date();
+            const date = new Date(timestamp);
+            const seconds = Math.floor((now - date) / 1000);
+
+            if (seconds < 60) return 'Just now';
+            if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+            if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+            return `${Math.floor(seconds / 86400)}d ago`;
+        }
+
+        // Set initial timestamp
+        document.getElementById('initialTimestamp').textContent = 
+            new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+        // ============================================
+        // PRIORITIES MANAGEMENT
+        // ============================================
+
+        function renderPriorities() {
+            const container = document.getElementById('priorityList');
+            container.innerHTML = priorities.map((priority, index) => `
+                <div class="priority-item">
+                    <div class="priority-checkbox ${priority.completed ? 'checked' : ''}" 
+                         onclick="togglePriority(${index})">
+                        ${priority.completed ? '✓' : ''}
+                    </div>
+                    <div class="priority-text ${priority.completed ? 'completed' : ''}">
+                        ${priority.text}
+                    </div>
+                    <button class="priority-delete" onclick="deletePriority(${index})">✕</button>
+                </div>
+            `).join('');
+        }
+
+        function togglePriority(index) {
+            priorities[index].completed = !priorities[index].completed;
+            storage.set('priorities', priorities);
+            renderPriorities();
+            logActivity(`${priorities[index].completed ? 'Completed' : 'Uncompleted'} priority: ${priorities[index].text}`);
+        }
+
+        function deletePriority(index) {
+            const text = priorities[index].text;
+            priorities.splice(index, 1);
+            storage.set('priorities', priorities);
+            renderPriorities();
+            logActivity(`Deleted priority: ${text}`);
+        }
+
+        document.getElementById('addPriorityForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('priorityInput');
+            const text = input.value.trim();
+            
+            if (text) {
+                priorities.push({ text, completed: false, created: new Date().toISOString() });
+                storage.set('priorities', priorities);
+                renderPriorities();
+                logActivity(`Added priority: ${text}`);
+                input.value = '';
+            }
+        });
+
+        // ============================================
+        // KANBAN BOARD - Tasks Management
+        // ============================================
+
+        function renderKanban() {
+            ['backlog', 'progress', 'done'].forEach(column => {
+                const container = document.getElementById(`${column}Tasks`);
+                const columnTasks = tasks[column] || [];
+                
+                container.innerHTML = columnTasks.map((task, index) => `
+                    <div class="task-card" onclick="editTask('${column}', ${index})">
+                        <div class="task-header">
+                            <div class="task-title">${task.title}</div>
+                            <span class="task-priority ${task.priority}">${task.priority}</span>
+                        </div>
+                        <div class="task-description">${task.description}</div>
+                        <div class="task-meta">
+                            <span>${new Date(task.created).toLocaleDateString()}</span>
+                            <button onclick="deleteTask('${column}', ${index}); event.stopPropagation();" 
+                                    style="background: none; border: none; color: var(--text-tertiary); cursor: pointer;">
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Update count
+                document.getElementById(`${column}Count`).textContent = columnTasks.length;
+            });
+
+            updateMetrics();
+        }
+
+        function addTask(column) {
+            const title = prompt('Task title:');
+            if (!title) return;
+
+            const description = prompt('Task description:');
+            const priority = prompt('Priority (high/medium/low):', 'medium');
+
+            const task = {
+                title,
+                description: description || '',
+                priority: ['high', 'medium', 'low'].includes(priority) ? priority : 'medium',
+                created: new Date().toISOString()
+            };
+
+            tasks[column].push(task);
+            storage.set('tasks', tasks);
+            renderKanban();
+            logActivity(`Added task: ${title}`);
+        }
+
+        function editTask(column, index) {
+            const task = tasks[column][index];
+            const newStatus = prompt(`Move "${task.title}" to:\n1. Backlog\n2. In Progress\n3. Done\n\nEnter 1, 2, or 3:`);
+            
+            const statusMap = { '1': 'backlog', '2': 'progress', '3': 'done' };
+            const newColumn = statusMap[newStatus];
+            
+            if (newColumn && newColumn !== column) {
+                tasks[column].splice(index, 1);
+                tasks[newColumn].push(task);
+                storage.set('tasks', tasks);
+                renderKanban();
+                logActivity(`Moved "${task.title}" to ${newColumn}`);
+            }
+        }
+
+        function deleteTask(column, index) {
+            const task = tasks[column][index];
+            if (confirm(`Delete task: "${task.title}"?`)) {
+                tasks[column].splice(index, 1);
+                storage.set('tasks', tasks);
+                renderKanban();
+                logActivity(`Deleted task: ${task.title}`);
+            }
+        }
+
+        // ============================================
+        // TIMELINE RENDERING
+        // ============================================
+
+        function renderTimeline() {
+            const container = document.getElementById('timelineContent');
+            container.innerHTML = timelineData.map(phase => `
+                <div class="phase ${phase.current ? 'current' : ''}">
+                    <div class="phase-marker"></div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">${phase.title}</div>
+                            <div class="phase-date">${phase.dateRange}</div>
+                        </div>
+                        <div class="phase-description">${phase.description}</div>
+                        <div class="milestones">
+                            ${phase.milestones.map(milestone => `
+                                <div class="milestone ${milestone.completed ? 'completed' : ''}">
+                                    <div class="milestone-check">${milestone.completed ? '✓' : ''}</div>
+                                    <div class="milestone-text">${milestone.text}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============================================
+        // NOTES - Auto-save Textarea
+        // ============================================
+
+        const notesTextarea = document.getElementById('notesTextarea');
+        notesTextarea.value = notes;
+
+        let saveTimeout;
+        notesTextarea.addEventListener('input', () => {
+            const text = notesTextarea.value;
+            document.getElementById('charCount').textContent = `${text.length} characters`;
+
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(() => {
+                storage.set('notes', text);
+                const now = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                document.getElementById('lastSaved').textContent = `Saved at ${now}`;
+            }, 500);
+        });
+
+        // Initial character count
+        document.getElementById('charCount').textContent = `${notes.length} characters`;
+
+        // ============================================
+        // KEYBOARD SHORTCUTS
+        // ============================================
+
+        document.addEventListener('keydown', (e) => {
+            // Cmd/Ctrl + K: Focus search
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+        });
+
+        // Office tab - agent visualization only (no kanban needed)
+
+        // ============================================
+        // THEME TOGGLE
+        // ============================================
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.add('light-theme');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                themeIcon.textContent = '🌙';
+            } else {
+                themeIcon.textContent = '☀️';
+            }
+        }
+
+        // ============================================
+        // CRM SYSTEM
+        // ============================================
+
+        // CRM Data Structures with sample data
+        let crmData = storage.get('crmData', {
+            clients: [
+                {
+                    id: 1708876800000,
+                    name: 'MillionPlus Finance',
+                    email: 'marius@radubalas.com',
+                    phone: '+44 20 1234 5678',
+                    rate: 65,
+                    rateType: 'hourly',
+                    status: 'active',
+                    lastInvoice: '2026-02-24T10:00:00.000Z',
+                    created: '2026-02-01T10:00:00.000Z'
+                },
+                {
+                    id: 1708963200000,
+                    name: 'Ferma Vlădeasa',
+                    email: 'ghita@fermavladeasa.ro',
+                    phone: '+40 745 123 456',
+                    rate: 5000,
+                    rateType: 'project',
+                    status: 'active',
+                    lastInvoice: null,
+                    created: '2026-02-10T10:00:00.000Z'
+                }
+            ],
+            invoices: [
+                {
+                    id: 1708963200001,
+                    invoiceNumber: 'INV-001',
+                    clientId: 1708876800000,
+                    date: '2026-02-24T10:00:00.000Z',
+                    dueDate: '2026-03-26T10:00:00.000Z',
+                    hours: 2.33,
+                    rate: 65,
+                    fixedAmount: null,
+                    expenses: [],
+                    total: 151.45,
+                    status: 'sent',
+                    created: '2026-02-24T10:00:00.000Z'
+                }
+            ],
+            expenses: [
+                {
+                    id: 1708876800002,
+                    date: '2026-02-15',
+                    category: 'Software',
+                    amount: 20,
+                    description: 'Anthropic API credits',
+                    receiptNo: '',
+                    billable: false,
+                    clientId: null,
+                    created: '2026-02-15T10:00:00.000Z'
+                },
+                {
+                    id: 1708963200002,
+                    date: '2026-02-20',
+                    category: 'Software',
+                    amount: 9,
+                    description: 'DeepSeek API credits',
+                    receiptNo: '',
+                    billable: false,
+                    clientId: null,
+                    created: '2026-02-20T10:00:00.000Z'
+                }
+            ]
+        });
+
+        // Get next invoice number
+        function getNextInvoiceNumber() {
+            if (crmData.invoices.length === 0) return 'INV-001';
+            const lastNum = Math.max(...crmData.invoices.map(inv => parseInt(inv.invoiceNumber.split('-')[1])));
+            return `INV-${String(lastNum + 1).padStart(3, '0')}`;
+        }
+
+        // CRM Sub-tab Navigation
+        document.querySelectorAll('.crm-subtab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.crm-subtab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.crm-content').forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                const tabName = tab.dataset.crmTab;
+                document.getElementById(`crm${tabName.charAt(0).toUpperCase() + tabName.slice(1)}`).classList.add('active');
+            });
+        });
+
+        // ============================================
+        // CLIENTS MANAGEMENT
+        // ============================================
+
+        function renderClients() {
+            const container = document.getElementById('clientsList');
+            container.innerHTML = crmData.clients.map((client, index) => `
+                <div class="client-card" style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-md); align-items: start;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
+                            <h4 style="font-size: 1rem; font-weight: 600;">${client.name}</h4>
+                            <span class="status-badge ${client.status}">${client.status}</span>
+                        </div>
+                        <div style="display: grid; gap: 0.25rem; font-size: 0.875rem; color: var(--text-secondary);">
+                            <div>📧 ${client.email}</div>
+                            <div>📞 ${client.phone}</div>
+                            <div>💰 Rate: €${client.rate}${client.rateType === 'project' ? '/project' : '/hour'}</div>
+                            ${client.lastInvoice ? `<div>📅 Last invoice: ${new Date(client.lastInvoice).toLocaleDateString()}</div>` : ''}
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-xs);">
+                        <button class="btn btn-small btn-secondary" onclick="editClient(${index})">Edit</button>
+                        <button class="btn btn-small btn-secondary" onclick="deleteClient(${index})" style="background: rgba(239, 68, 68, 0.2); color: var(--danger);">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addClient() {
+            const name = prompt('Client name:');
+            if (!name) return;
+
+            const email = prompt('Email:');
+            const phone = prompt('Phone:');
+            const rate = parseFloat(prompt('Rate (€):') || '0');
+            const rateType = confirm('Hourly rate? (Cancel for project rate)') ? 'hourly' : 'project';
+
+            const client = {
+                id: Date.now(),
+                name,
+                email: email || '',
+                phone: phone || '',
+                rate,
+                rateType,
+                status: 'active',
+                lastInvoice: null,
+                created: new Date().toISOString()
+            };
+
+            crmData.clients.push(client);
+            storage.set('crmData', crmData);
+            renderClients();
+            updateInvoiceClientFilter();
+            logActivity(`Added client: ${name}`);
+        }
+
+        function editClient(index) {
+            const client = crmData.clients[index];
+            
+            const name = prompt('Client name:', client.name);
+            if (!name) return;
+
+            client.name = name;
+            client.email = prompt('Email:', client.email) || client.email;
+            client.phone = prompt('Phone:', client.phone) || client.phone;
+            client.rate = parseFloat(prompt('Rate (€):', client.rate) || client.rate);
+            client.status = confirm('Active? (Cancel for inactive)') ? 'active' : 'inactive';
+
+            storage.set('crmData', crmData);
+            renderClients();
+            updateInvoiceClientFilter();
+            logActivity(`Updated client: ${name}`);
+        }
+
+        function deleteClient(index) {
+            const client = crmData.clients[index];
+            if (confirm(`Delete client "${client.name}"?`)) {
+                crmData.clients.splice(index, 1);
+                storage.set('crmData', crmData);
+                renderClients();
+                updateInvoiceClientFilter();
+                logActivity(`Deleted client: ${client.name}`);
+            }
+        }
+
+        // ============================================
+        // INVOICES MANAGEMENT
+        // ============================================
+
+        function renderInvoices() {
+            const filterStatus = document.getElementById('invoiceFilterStatus').value;
+            const filterClient = document.getElementById('invoiceFilterClient').value;
+
+            let filtered = crmData.invoices;
+            if (filterStatus) filtered = filtered.filter(inv => inv.status === filterStatus);
+            if (filterClient) filtered = filtered.filter(inv => inv.clientId === parseInt(filterClient));
+
+            const container = document.getElementById('invoicesList');
+            container.innerHTML = filtered.map((invoice, index) => {
+                const client = crmData.clients.find(c => c.id === invoice.clientId);
+                return `
+                    <div class="invoice-card" style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-md); align-items: start;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
+                                <h4 style="font-size: 1rem; font-weight: 600;">${invoice.invoiceNumber}</h4>
+                                <span class="status-badge ${invoice.status}">${invoice.status}</span>
+                            </div>
+                            <div style="display: grid; gap: 0.25rem; font-size: 0.875rem; color: var(--text-secondary);">
+                                <div>👤 ${client ? client.name : 'Unknown Client'}</div>
+                                <div>📅 Issue: ${new Date(invoice.date).toLocaleDateString()} | Due: ${new Date(invoice.dueDate).toLocaleDateString()}</div>
+                                ${invoice.hours ? `<div>⏱️ ${invoice.hours}h × €${invoice.rate}/h = €${(invoice.hours * invoice.rate).toFixed(2)}</div>` : ''}
+                                ${invoice.fixedAmount ? `<div>💰 Fixed: €${invoice.fixedAmount.toFixed(2)}</div>` : ''}
+                                ${invoice.expenses && invoice.expenses.length > 0 ? `<div>💸 Expenses: €${invoice.expenses.reduce((sum, e) => sum + e.amount, 0).toFixed(2)}</div>` : ''}
+                                <div style="font-weight: 600; color: var(--accent);">Total: €${invoice.total.toFixed(2)}</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: var(--space-xs);">
+                            <button class="btn btn-small btn-secondary" onclick="editInvoice(${crmData.invoices.indexOf(invoice)})">Edit</button>
+                            <button class="btn btn-small btn-secondary" onclick="deleteInvoice(${crmData.invoices.indexOf(invoice)})" style="background: rgba(239, 68, 68, 0.2); color: var(--danger);">Delete</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            updateInvoiceStats();
+        }
+
+        function addInvoice() {
+            if (crmData.clients.length === 0) {
+                alert('Please add clients first!');
+                return;
+            }
+
+            const clientList = crmData.clients.map((c, i) => `${i + 1}. ${c.name}`).join('\n');
+            const clientIndex = parseInt(prompt(`Select client:\n${clientList}`)) - 1;
+            
+            if (clientIndex < 0 || clientIndex >= crmData.clients.length) return;
+
+            const client = crmData.clients[clientIndex];
+            const type = confirm('Hourly billing? (Cancel for fixed amount)');
+
+            let hours = null, fixedAmount = null, rate = client.rate;
+            
+            if (type) {
+                hours = parseFloat(prompt('Hours worked:') || '0');
+            } else {
+                fixedAmount = parseFloat(prompt('Fixed amount (€):') || '0');
+            }
+
+            const dueDate = prompt('Due date (YYYY-MM-DD):', new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
+
+            const total = hours ? hours * rate : fixedAmount;
+
+            const invoice = {
+                id: Date.now(),
+                invoiceNumber: getNextInvoiceNumber(),
+                clientId: client.id,
+                date: new Date().toISOString(),
+                dueDate: dueDate || new Date().toISOString(),
+                hours,
+                rate,
+                fixedAmount,
+                expenses: [],
+                total,
+                status: 'draft',
+                created: new Date().toISOString()
+            };
+
+            crmData.invoices.push(invoice);
+            client.lastInvoice = invoice.date;
+            storage.set('crmData', crmData);
+            renderInvoices();
+            logActivity(`Created invoice: ${invoice.invoiceNumber}`);
+        }
+
+        function editInvoice(index) {
+            const invoice = crmData.invoices[index];
+            
+            const status = prompt('Status (draft/sent/paid):', invoice.status);
+            if (status && ['draft', 'sent', 'paid'].includes(status)) {
+                invoice.status = status;
+                storage.set('crmData', crmData);
+                renderInvoices();
+                logActivity(`Updated invoice: ${invoice.invoiceNumber}`);
+            }
+        }
+
+        function deleteInvoice(index) {
+            const invoice = crmData.invoices[index];
+            if (confirm(`Delete invoice "${invoice.invoiceNumber}"?`)) {
+                crmData.invoices.splice(index, 1);
+                storage.set('crmData', crmData);
+                renderInvoices();
+                logActivity(`Deleted invoice: ${invoice.invoiceNumber}`);
+            }
+        }
+
+        function updateInvoiceStats() {
+            const now = new Date();
+            const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+            
+            const monthlyInvoices = crmData.invoices.filter(inv => new Date(inv.date) >= monthStart);
+            const monthlyRevenue = monthlyInvoices.reduce((sum, inv) => sum + inv.total, 0);
+            
+            const outstanding = crmData.invoices
+                .filter(inv => inv.status !== 'paid')
+                .reduce((sum, inv) => sum + inv.total, 0);
+
+            document.getElementById('monthlyRevenue').textContent = `€${monthlyRevenue.toFixed(2)}`;
+            document.getElementById('outstandingTotal').textContent = `€${outstanding.toFixed(2)}`;
+        }
+
+        function updateInvoiceClientFilter() {
+            const select = document.getElementById('invoiceFilterClient');
+            select.innerHTML = '<option value="">All Clients</option>' + 
+                crmData.clients.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+        }
+
+        // ============================================
+        // EXPENSES MANAGEMENT
+        // ============================================
+
+        function renderExpenses() {
+            const filterCategory = document.getElementById('expenseFilterCategory').value;
+            const filterMonth = document.getElementById('expenseFilterMonth').value;
+
+            let filtered = crmData.expenses;
+            if (filterCategory) filtered = filtered.filter(exp => exp.category === filterCategory);
+            if (filterMonth) {
+                const [year, month] = filterMonth.split('-');
+                filtered = filtered.filter(exp => {
+                    const expDate = new Date(exp.date);
+                    return expDate.getFullYear() === parseInt(year) && expDate.getMonth() === parseInt(month) - 1;
+                });
+            }
+
+            const container = document.getElementById('expensesList');
+            container.innerHTML = filtered.map((expense, index) => `
+                <div class="expense-card" style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-md); align-items: start;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
+                            <h4 style="font-size: 1rem; font-weight: 600;">€${expense.amount.toFixed(2)}</h4>
+                            <span style="padding: 0.125rem 0.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 999px; font-size: 0.75rem;">${expense.category}</span>
+                            ${expense.billable ? '<span style="padding: 0.125rem 0.5rem; background: rgba(14, 165, 233, 0.2); color: var(--accent); border-radius: 999px; font-size: 0.75rem;">Billable</span>' : ''}
+                        </div>
+                        <div style="display: grid; gap: 0.25rem; font-size: 0.875rem; color: var(--text-secondary);">
+                            <div>${expense.description}</div>
+                            <div>📅 ${new Date(expense.date).toLocaleDateString()}</div>
+                            ${expense.receiptNo ? `<div>🧾 Receipt: ${expense.receiptNo}</div>` : ''}
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-xs);">
+                        <button class="btn btn-small btn-secondary" onclick="deleteExpense(${crmData.expenses.indexOf(expense)})" style="background: rgba(239, 68, 68, 0.2); color: var(--danger);">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+
+            updateExpenseStats();
+            updateCategoryBreakdown();
+        }
+
+        function addExpense() {
+            const date = prompt('Date (YYYY-MM-DD):', new Date().toISOString().split('T')[0]);
+            if (!date) return;
+
+            const category = prompt('Category (Software/Hardware/Travel/Office/Marketing/Other):', 'Office');
+            const amount = parseFloat(prompt('Amount (€):') || '0');
+            const description = prompt('Description:');
+            const receiptNo = prompt('Receipt/Invoice # (optional):');
+            const billable = confirm('Billable to client?');
+
+            const expense = {
+                id: Date.now(),
+                date,
+                category,
+                amount,
+                description: description || '',
+                receiptNo: receiptNo || '',
+                billable,
+                clientId: null,
+                created: new Date().toISOString()
+            };
+
+            crmData.expenses.push(expense);
+            storage.set('crmData', crmData);
+            renderExpenses();
+            logActivity(`Added expense: €${amount.toFixed(2)} - ${category}`);
+        }
+
+        function deleteExpense(index) {
+            const expense = crmData.expenses[index];
+            if (confirm(`Delete expense: €${expense.amount.toFixed(2)} - ${expense.description}?`)) {
+                crmData.expenses.splice(index, 1);
+                storage.set('crmData', crmData);
+                renderExpenses();
+                logActivity(`Deleted expense: €${expense.amount.toFixed(2)}`);
+            }
+        }
+
+        function updateExpenseStats() {
+            const now = new Date();
+            const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+            
+            const monthlyExpenses = crmData.expenses.filter(exp => new Date(exp.date) >= monthStart);
+            const monthlyTotal = monthlyExpenses.reduce((sum, exp) => sum + exp.amount, 0);
+            
+            const billableTotal = crmData.expenses
+                .filter(exp => exp.billable)
+                .reduce((sum, exp) => sum + exp.amount, 0);
+
+            document.getElementById('monthlyExpenses').textContent = `€${monthlyTotal.toFixed(2)}`;
+            document.getElementById('billableExpenses').textContent = `€${billableTotal.toFixed(2)}`;
+        }
+
+        function updateCategoryBreakdown() {
+            const categories = {};
+            crmData.expenses.forEach(exp => {
+                categories[exp.category] = (categories[exp.category] || 0) + exp.amount;
+            });
+
+            const total = Object.values(categories).reduce((sum, val) => sum + val, 0);
+            
+            const container = document.getElementById('categoryBreakdown');
+            container.innerHTML = Object.entries(categories)
+                .sort((a, b) => b[1] - a[1])
+                .map(([category, amount]) => {
+                    const percent = total > 0 ? (amount / total * 100).toFixed(1) : 0;
+                    return `
+                        <div style="display: flex; align-items: center; gap: var(--space-sm);">
+                            <div style="flex: 1; display: flex; justify-content: space-between;">
+                                <span style="font-size: 0.875rem;">${category}</span>
+                                <span style="font-size: 0.875rem; font-weight: 600;">€${amount.toFixed(2)} (${percent}%)</span>
+                            </div>
+                            <div style="width: 200px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 999px; overflow: hidden;">
+                                <div style="width: ${percent}%; height: 100%; background: var(--accent);"></div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+        }
+
+        // ============================================
+        // CALCULATORS
+        // ============================================
+
+        function calculateInvoice() {
+            const hours = parseFloat(document.getElementById('calcHours').value) || 0;
+            const rate = parseFloat(document.getElementById('calcRate').value) || 0;
+            const expenses = parseFloat(document.getElementById('calcExpenses').value) || 0;
+            const vatPercent = parseFloat(document.getElementById('calcVAT').value) || 0;
+
+            const subtotal = hours * rate;
+            const vatAmount = (subtotal + expenses) * (vatPercent / 100);
+            const total = subtotal + expenses + vatAmount;
+
+            document.getElementById('calcSubtotal').textContent = `€${subtotal.toFixed(2)}`;
+            document.getElementById('calcExpensesDisplay').textContent = `€${expenses.toFixed(2)}`;
+            document.getElementById('calcVATPercent').textContent = vatPercent.toFixed(0);
+            document.getElementById('calcVATAmount').textContent = `€${vatAmount.toFixed(2)}`;
+            document.getElementById('calcTotal').textContent = `€${total.toFixed(2)}`;
+        }
+
+        function calculateProfit() {
+            const monthInput = document.getElementById('profitMonth').value;
+            if (!monthInput) return;
+
+            const [year, month] = monthInput.split('-');
+            const monthStart = new Date(parseInt(year), parseInt(month) - 1, 1);
+            const monthEnd = new Date(parseInt(year), parseInt(month), 0);
+
+            const revenue = crmData.invoices
+                .filter(inv => {
+                    const date = new Date(inv.date);
+                    return date >= monthStart && date <= monthEnd && inv.status === 'paid';
+                })
+                .reduce((sum, inv) => sum + inv.total, 0);
+
+            const expenses = crmData.expenses
+                .filter(exp => {
+                    const date = new Date(exp.date);
+                    return date >= monthStart && date <= monthEnd;
+                })
+                .reduce((sum, exp) => sum + exp.amount, 0);
+
+            const profit = revenue - expenses;
+            const margin = revenue > 0 ? (profit / revenue * 100).toFixed(1) : 0;
+
+            document.getElementById('profitRevenue').textContent = `€${revenue.toFixed(2)}`;
+            document.getElementById('profitExpenses').textContent = `€${expenses.toFixed(2)}`;
+            document.getElementById('profitNet').textContent = `€${profit.toFixed(2)}`;
+            document.getElementById('profitMargin').textContent = `${margin}%`;
+        }
+
+        // Set current month by default
+        document.getElementById('profitMonth').value = new Date().toISOString().substr(0, 7);
+        document.getElementById('expenseFilterMonth').value = new Date().toISOString().substr(0, 7);
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+
+        loadTheme();
+        renderActivity();
+        renderPriorities();
+        renderKanban();
+        renderTimeline();
+        updateMetrics();
+        
+        // Initialize CRM
+        renderClients();
+        renderInvoices();
+        renderExpenses();
+        updateInvoiceClientFilter();
+        calculateInvoice();
+        calculateProfit();
+
+        console.log('🎯 Mission Control initialized');
+    </script>
+</body>
+</html>
