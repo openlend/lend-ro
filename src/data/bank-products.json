@@ -1,5 +1,5 @@
 {
-  "date_updated": "2026-02-21",
+  "date_updated": "2026-02-26",
   "ircc_current": 5.68,
   "euribor_6m_current": 2.5,
   "robor_6m_current": 5.79,
@@ -119,11 +119,11 @@
       "product_type": "HL SALARY - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 6.09,
+        "fixed_rate": 5.79,
         "fixed_years": 3,
         "variable_margin": 2.40,
         "index_type": "IRCC",
-        "raw": "6.09% fix 3 ani, apoi IRCC + 2.40%"
+        "raw": "5.79% fix 3 ani, apoi IRCC + 2.40%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
@@ -134,11 +134,11 @@
       "product_type": "HL VIP - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 5.91,
+        "fixed_rate": 5.79,
         "fixed_years": 3,
         "variable_margin": 2.25,
         "index_type": "IRCC",
-        "raw": "5.91% fix 3 ani, apoi IRCC + 2.25%"
+        "raw": "5.79% fix 3 ani, apoi IRCC + 2.25%"
       },
       "requiresSalaryTransfer": false,
       "requiresDebitCard": false,
@@ -224,11 +224,11 @@
       "product_type": "ECO cu salariu cu asig - FIXA 5 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 5.99,
+        "fixed_rate": 4.99,
         "fixed_years": 5,
         "variable_margin": 2.09,
         "index_type": "IRCC",
-        "raw": "5.99% fix 5 ani, apoi IRCC + 2.09%"
+        "raw": "4.99% fix 5 ani, apoi IRCC + 2.09%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
@@ -251,14 +251,14 @@
     },
     {
       "bank": "RAIFFEISEN",
-      "product_type": "Casa Ta - FIXA 3 ANI",
+      "product_type": "Casa Ta - FIXA 5 ANI",
       "rate_type": "RON",
       "rates": {
         "fixed_rate": 4.70,
-        "fixed_years": 3,
+        "fixed_years": 5,
         "variable_margin": 2.00,
         "index_type": "IRCC",
-        "raw": "4.70% fix 3 ani, apoi IRCC + 2.00%"
+        "raw": "4.70% fix 5 ani, apoi IRCC + 2.00%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
