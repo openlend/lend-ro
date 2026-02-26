@@ -30,6 +30,7 @@ export default function HeaderWithFlyouts() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDesktopFlyout, setActiveDesktopFlyout] = useState<string | null>(null);
   const [activeMobileFlyout, setActiveMobileFlyout] = useState<string | null>(null);
+  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const banks = [
     { name: 'BT', slug: 'bt' },
@@ -85,8 +86,14 @@ export default function HeaderWithFlyouts() {
               {/* Produse Flyout */}
               <div
                 className="relative"
-                onMouseEnter={() => setActiveDesktopFlyout('produse')}
-                onMouseLeave={() => setActiveDesktopFlyout(null)}
+                onMouseEnter={() => {
+                  if (closeTimeout) clearTimeout(closeTimeout);
+                  setActiveDesktopFlyout('produse');
+                }}
+                onMouseLeave={() => {
+                  const timeout = setTimeout(() => setActiveDesktopFlyout(null), 300);
+                  setCloseTimeout(timeout);
+                }}
               >
                 <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#00D186] transition-colors">
                   Produse
@@ -100,21 +107,21 @@ export default function HeaderWithFlyouts() {
                       <div>
                         <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Tipuri Credit</h3>
                         <div className="space-y-1">
-                          <Link href="/produse/credit-ipotecar" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
+                          <Link href="/#calculator" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
                             <Home size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Credit ipotecar clasic</div>
                               <div className="text-xs text-gray-500 mt-0.5">Pentru achiziție casă/apartament</div>
                             </div>
                           </Link>
-                          <Link href="/produse/prima-casa" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
+                          <Link href="/#calculator" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
                             <Building size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Credit Prima Casă</div>
                               <div className="text-xs text-gray-500 mt-0.5">Avans redus, dobândă avantajoasă</div>
                             </div>
                           </Link>
-                          <Link href="/produse/refinantare" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
+                          <Link href="/#calculator" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
                             <RefreshCw size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Refinanțare credit</div>
@@ -152,8 +159,14 @@ export default function HeaderWithFlyouts() {
               {/* Bănci Flyout */}
               <div
                 className="relative"
-                onMouseEnter={() => setActiveDesktopFlyout('banci')}
-                onMouseLeave={() => setActiveDesktopFlyout(null)}
+                onMouseEnter={() => {
+                  if (closeTimeout) clearTimeout(closeTimeout);
+                  setActiveDesktopFlyout('banci');
+                }}
+                onMouseLeave={() => {
+                  const timeout = setTimeout(() => setActiveDesktopFlyout(null), 300);
+                  setCloseTimeout(timeout);
+                }}
               >
                 <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#00D186] transition-colors">
                   Bănci
@@ -187,8 +200,14 @@ export default function HeaderWithFlyouts() {
               {/* Resurse Flyout */}
               <div
                 className="relative"
-                onMouseEnter={() => setActiveDesktopFlyout('resurse')}
-                onMouseLeave={() => setActiveDesktopFlyout(null)}
+                onMouseEnter={() => {
+                  if (closeTimeout) clearTimeout(closeTimeout);
+                  setActiveDesktopFlyout('resurse');
+                }}
+                onMouseLeave={() => {
+                  const timeout = setTimeout(() => setActiveDesktopFlyout(null), 300);
+                  setCloseTimeout(timeout);
+                }}
               >
                 <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#00D186] transition-colors">
                   Resurse
