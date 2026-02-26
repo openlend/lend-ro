@@ -167,15 +167,15 @@ export default function Calculator() {
         rel="stylesheet"
       />
       
-      <div className="bg-[#F5F7FA] py-0 md:py-8 lg:py-12 px-0 md:px-4 lg:px-6" style={{ fontFamily: 'Rubik, sans-serif' }}>
-        {/* Container with side-by-side layout on XL screens */}
-        <div className="max-w-full md:max-w-[600px] lg:max-w-[680px] xl:max-w-7xl mx-auto">
-          <div className={`${showResults && bestPerBank.length > 0 ? 'xl:grid xl:grid-cols-[480px_1fr] xl:gap-8 xl:items-start' : ''}`}>
-            {/* Main Card */}
-            <div className={`bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg overflow-hidden ${showResults && bestPerBank.length > 0 ? 'xl:sticky xl:top-8' : ''}`}>
-            <div className="px-6 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10">
+      <div className="bg-[#F5F7FA] py-0 md:py-8 lg:py-12 xl:py-16 px-0 md:px-4 lg:px-6 xl:px-8" style={{ fontFamily: 'Rubik, sans-serif' }}>
+        {/* Container with side-by-side layout on XL screens (>1280px ~= target >1200px) */}
+        <div className="max-w-full md:max-w-[600px] lg:max-w-[700px] xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto">
+          <div className={`${showResults && bestPerBank.length > 0 ? 'xl:grid xl:grid-cols-[2fr_3fr] xl:gap-10 2xl:grid-cols-[35fr_65fr] 2xl:gap-12 xl:items-start' : ''}`}>
+            {/* Main Calculator Card - LEFT (40% on xl, 35% on 2xl) */}
+            <div className={`bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg xl:shadow-xl overflow-hidden ${showResults && bestPerBank.length > 0 ? 'xl:sticky xl:top-8' : ''}`}>
+            <div className="px-6 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10 xl:px-12 xl:py-12">
               {/* Title */}
-              <h2 className="text-2xl font-bold text-[#0B1B3E] mb-1 leading-tight">
+              <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-[#0B1B3E] mb-2 leading-tight">
                 Găsește cel mai bun<br />credit
               </h2>
 
@@ -582,49 +582,50 @@ export default function Calculator() {
             </div>
           </div>
 
-          {/* Results Section - appears on right side on XL screens */}
+          {/* Results Section - RIGHT (60% on xl, 65% on 2xl) - 3 columns grid on desktop */}
           {showResults && bestPerBank.length > 0 && (
-            <div id="search-results" className="mt-6 xl:mt-0 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg p-6 md:p-8 lg:p-10">
-              <h3 className="text-xl md:text-2xl font-bold text-[#0B1B3E] mb-6 md:mb-8">
+            <div id="search-results" className="mt-6 xl:mt-0 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg xl:shadow-xl p-6 md:p-8 lg:p-10 xl:p-10">
+              <h3 className="text-xl md:text-2xl xl:text-3xl font-bold text-[#0B1B3E] mb-6 md:mb-8 xl:mb-10">
                 {bestPerBank.length} {bestPerBank.length === 1 ? 'ofertă găsită' : 'oferte găsite'} pentru tine
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5 xl:gap-6">
                 {bestPerBank.map((bank, index) => (
                   <div 
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 md:p-6 hover:border-[#00D186] hover:shadow-md transition-all"
+                    className="bg-white border border-gray-200 rounded-xl p-5 md:p-6 xl:p-7 hover:border-[#00D186] hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-4 xl:mb-5">
                       <BankLogo bankName={bank.bank} size="md" />
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-[#0B1B3E]">
+                        <div className="text-2xl xl:text-3xl font-bold text-[#0B1B3E]">
                           {formatNumber(Math.round(bank.monthlyPayment))} RON
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-gray-500 mt-1">
                           rată lunară
                         </div>
                       </div>
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-2 text-sm mb-3">
+                    <div className="grid grid-cols-2 gap-3 text-sm mb-4 pb-4 border-b border-gray-100">
                       <div>
-                        <span className="text-gray-500">Dobândă: </span>
-                        <span className="font-semibold text-[#0B1B3E]">
+                        <div className="text-gray-500 text-xs mb-1">Dobândă</div>
+                        <div className="font-semibold text-[#0B1B3E] text-base">
                           {bank.effectiveRate.toFixed(2)}%
-                        </span>
+                        </div>
                       </div>
                       <div>
-                        <span className="text-gray-500">DTI: </span>
-                        <span className={`font-semibold ${bank.dtiRatio > 40 ? 'text-orange-600' : 'text-[#0B1B3E]'}`}>
+                        <div className="text-gray-500 text-xs mb-1">DTI</div>
+                        <div className={`font-semibold text-base ${bank.dtiRatio > 40 ? 'text-orange-600' : 'text-[#0B1B3E]'}`}>
                           {bank.dtiRatio.toFixed(1)}%
-                        </span>
+                        </div>
                       </div>
                     </div>
 
                     {bank.fixedPeriod && (
-                      <div className="text-xs text-gray-500 mb-3">
-                        Perioadă fixă: {bank.fixedPeriod} ani
+                      <div className="text-sm text-gray-600 mb-4 flex items-center gap-2">
+                        <span className="inline-block w-2 h-2 bg-[#00D186] rounded-full"></span>
+                        <span>Perioadă fixă: <strong className="text-[#0B1B3E]">{bank.fixedPeriod} ani</strong></span>
                       </div>
                     )}
 
@@ -633,7 +634,7 @@ export default function Calculator() {
                         setSelectedBank({ bank: bank.bank, monthlyPayment: bank.monthlyPayment });
                         setLeadModalOpen(true);
                       }}
-                      className="w-full bg-[#00D186] hover:bg-[#00b874] text-white font-semibold py-2.5 rounded-lg transition-colors"
+                      className="w-full bg-[#00D186] hover:bg-[#00b874] text-white font-semibold py-3 xl:py-3.5 rounded-lg transition-all duration-300 hover:shadow-md"
                     >
                       Solicită ofertă
                     </button>
