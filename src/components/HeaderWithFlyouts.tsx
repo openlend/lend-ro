@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import BankLogo from './BankLogo';
 import { Home, Building, RefreshCw, Calculator, TrendingUp, BookOpen, HelpCircle, FileText, Phone, Lock } from 'lucide-react';
@@ -30,7 +30,7 @@ export default function HeaderWithFlyouts() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDesktopFlyout, setActiveDesktopFlyout] = useState<string | null>(null);
   const [activeMobileFlyout, setActiveMobileFlyout] = useState<string | null>(null);
-  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const banks = [
     { name: 'BT', slug: 'bt' },
@@ -87,12 +87,11 @@ export default function HeaderWithFlyouts() {
               <div
                 className="relative"
                 onMouseEnter={() => {
-                  if (closeTimeout) clearTimeout(closeTimeout);
+                  if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
                   setActiveDesktopFlyout('produse');
                 }}
                 onMouseLeave={() => {
-                  const timeout = setTimeout(() => setActiveDesktopFlyout(null), 300);
-                  setCloseTimeout(timeout);
+                  closeTimeoutRef.current = setTimeout(() => setActiveDesktopFlyout(null), 300);
                 }}
               >
                 <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#00D186] transition-colors">
@@ -160,12 +159,11 @@ export default function HeaderWithFlyouts() {
               <div
                 className="relative"
                 onMouseEnter={() => {
-                  if (closeTimeout) clearTimeout(closeTimeout);
+                  if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
                   setActiveDesktopFlyout('banci');
                 }}
                 onMouseLeave={() => {
-                  const timeout = setTimeout(() => setActiveDesktopFlyout(null), 300);
-                  setCloseTimeout(timeout);
+                  closeTimeoutRef.current = setTimeout(() => setActiveDesktopFlyout(null), 300);
                 }}
               >
                 <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#00D186] transition-colors">
@@ -201,12 +199,11 @@ export default function HeaderWithFlyouts() {
               <div
                 className="relative"
                 onMouseEnter={() => {
-                  if (closeTimeout) clearTimeout(closeTimeout);
+                  if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
                   setActiveDesktopFlyout('resurse');
                 }}
                 onMouseLeave={() => {
-                  const timeout = setTimeout(() => setActiveDesktopFlyout(null), 300);
-                  setCloseTimeout(timeout);
+                  closeTimeoutRef.current = setTimeout(() => setActiveDesktopFlyout(null), 300);
                 }}
               >
                 <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#00D186] transition-colors">
