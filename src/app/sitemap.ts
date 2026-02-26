@@ -17,6 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/politica-cookies',
   ];
 
+  // Product pages (high SEO value)
+  const productPages = [
+    '/produse/credit-ipotecar',
+    '/produse/prima-casa',
+    '/produse/refinantare',
+  ];
+
   // Bank pages
   const banks = [
     'bt', 'bcr', 'brd', 'ing', 'raiffeisen', 'garanti',
@@ -45,6 +52,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: page.includes('blog') ? 0.8 : 0.7,
+    })),
+    // Product pages (important for SEO - high conversion)
+    ...productPages.map((page) => ({
+      url: `${baseUrl}${page}`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
     })),
     // Bank pages (important for SEO)
     ...banks.map((bank) => ({
