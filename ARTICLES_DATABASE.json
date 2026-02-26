@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-26T11:40:00Z",
+  "articles": [],
+  "schema": {
+    "article": {
+      "id": "string (auto-increment 001, 002, ...)",
+      "slug": "string (kebab-case URL slug)",
+      "title": "string (titlu articol)",
+      "category": "string (credite|banci|legislatie|piata-imobiliara)",
+      "keywords": ["array", "of", "keywords"],
+      "publishedAt": "string (ISO 8601 date)",
+      "url": "string (/blog/[slug])",
+      "sources": ["array", "of", "source", "domains"],
+      "excerpt": "string (first 150 chars)",
+      "relatedArticles": ["array", "of", "article", "ids"]
+    }
+  },
+  "stats": {
+    "totalArticles": 0,
+    "byCategory": {
+      "credite": 0,
+      "banci": 0,
+      "legislatie": 0,
+      "piata-imobiliara": 0
+    },
+    "last30Days": 0
+  }
+}
