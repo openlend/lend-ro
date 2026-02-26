@@ -106,8 +106,11 @@ export default function Calculator() {
       const monthlyRate = effectiveRate / 100 / 12;
       const numPayments = loanPeriod * 12;
 
-      // Monthly payment formula
-      const monthlyPayment = loanAmount * 
+      // Apply down payment to loan amount
+      const loanAfterDownPayment = loanAmount * (1 - effectiveDownPayment / 100);
+
+      // Monthly payment formula (using loan after down payment)
+      const monthlyPayment = loanAfterDownPayment * 
         (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
         (Math.pow(1 + monthlyRate, numPayments) - 1);
 
@@ -133,7 +136,7 @@ export default function Calculator() {
 
     // Sort by monthly payment (best first)
     return results.sort((a, b) => a.monthlyPayment - b.monthlyPayment);
-  }, [loanAmount, loanPeriod, monthlyIncome]);
+  }, [loanAmount, loanPeriod, monthlyIncome, hasDividendIncome, effectiveDownPayment]);
 
   // Get best product per bank (show ALL, not just eligible)
   const bestPerBank = useMemo(() => {
