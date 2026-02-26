@@ -167,11 +167,13 @@ export default function Calculator() {
         rel="stylesheet"
       />
       
-      <div className="bg-[#F5F7FA] py-0 md:py-8 px-0 md:px-4" style={{ fontFamily: 'Rubik, sans-serif' }}>
-        <div className="max-w-full md:max-w-[440px] mx-auto">
-          {/* Main Card */}
-          <div className="bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg overflow-hidden">
-            <div className="px-6 py-6">
+      <div className="bg-[#F5F7FA] py-0 md:py-8 lg:py-12 px-0 md:px-4 lg:px-6" style={{ fontFamily: 'Rubik, sans-serif' }}>
+        {/* Container with side-by-side layout on XL screens */}
+        <div className="max-w-full md:max-w-[600px] lg:max-w-[680px] xl:max-w-7xl mx-auto">
+          <div className={`${showResults && bestPerBank.length > 0 ? 'xl:grid xl:grid-cols-[480px_1fr] xl:gap-8 xl:items-start' : ''}`}>
+            {/* Main Card */}
+            <div className={`bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg overflow-hidden ${showResults && bestPerBank.length > 0 ? 'xl:sticky xl:top-8' : ''}`}>
+            <div className="px-6 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10">
               {/* Title */}
               <h2 className="text-2xl font-bold text-[#0B1B3E] mb-1 leading-tight">
                 Găsește cel mai bun<br />credit
@@ -580,18 +582,18 @@ export default function Calculator() {
             </div>
           </div>
 
-          {/* Results Section */}
+          {/* Results Section - appears on right side on XL screens */}
           {showResults && bestPerBank.length > 0 && (
-            <div id="search-results" className="mt-6 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg p-6">
-              <h3 className="text-xl font-bold text-[#0B1B3E] mb-6">
+            <div id="search-results" className="mt-6 xl:mt-0 bg-white rounded-none md:rounded-2xl shadow-none md:shadow-lg p-6 md:p-8 lg:p-10">
+              <h3 className="text-xl md:text-2xl font-bold text-[#0B1B3E] mb-6 md:mb-8">
                 {bestPerBank.length} {bestPerBank.length === 1 ? 'ofertă găsită' : 'oferte găsite'} pentru tine
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6">
                 {bestPerBank.map((bank, index) => (
                   <div 
                     key={index}
-                    className="border border-gray-200 rounded-lg p-4 hover:border-[#00D186] hover:shadow-md transition-all"
+                    className="border border-gray-200 rounded-lg p-4 md:p-6 hover:border-[#00D186] hover:shadow-md transition-all"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <BankLogo bankName={bank.bank} size="md" />
@@ -640,6 +642,7 @@ export default function Calculator() {
               </div>
             </div>
           )}
+          </div>
 
           {/* Lead Modal */}
           {selectedBank && (
@@ -653,8 +656,7 @@ export default function Calculator() {
               monthlyPayment={selectedBank.monthlyPayment}
             />
           )}
-        </div>
-
+        
         <style jsx global>{`
           .slider-thumb::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -678,6 +680,7 @@ export default function Calculator() {
             box-shadow: 0 2px 6px rgba(0, 209, 134, 0.4);
           }
         `}</style>
+        </div>
       </div>
     </>
   );

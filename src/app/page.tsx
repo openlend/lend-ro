@@ -31,8 +31,8 @@ export default function Home() {
       <main style={{ fontFamily: 'Rubik, sans-serif' }}>
         <HeroSection />
 
-        <section id="calculator" className="py-0 md:py-12 bg-[#F5F7FA]">
-          <div className="max-w-full md:max-w-6xl md:mx-auto md:px-6">
+        <section id="calculator" className="py-0 md:py-12 lg:py-16 bg-[#F5F7FA]">
+          <div className="max-w-full md:max-w-7xl md:mx-auto md:px-6 lg:px-8">
             <Calculator />
           </div>
         </section>
