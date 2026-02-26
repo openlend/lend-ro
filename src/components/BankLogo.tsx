@@ -54,10 +54,10 @@ const bankLogos: Record<string, { image?: string; gradient: string; text: string
     gradient: 'bg-gradient-to-br from-blue-500 to-blue-600',
     text: 'LB'
   },
-  'CREDIT EUROPE BANK': { 
-    image: '/bank-logos/credit-europe.png',
+  'NEXENT BANK': { 
+    image: '/bank-logos/nexent.png',
     gradient: 'bg-gradient-to-br from-blue-800 to-blue-900',
-    text: 'CE'
+    text: 'NX'
   },
   'INTESA SANPAOLO': { 
     image: '/bank-logos/intesa.png',

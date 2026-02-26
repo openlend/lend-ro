@@ -155,21 +155,21 @@ const bankInfo: Record<string, {
       'Evaluare automată (mai puțină flexibilitate)'
     ]
   },
-  'credit-europe': {
-    fullName: 'Credit Europe Bank',
-    description: 'Bancă cu capital turc, parte din Credit Europe Bank Group. Oferă credite ipotecare cu dobânzi competitive și servicii personalizate.',
-    website: 'https://www.crediteurope.ro',
+  'nexent': {
+    fullName: 'Nexent Bank (fost Credit Europe Bank)',
+    description: 'Bancă românească rezultată din fuziunea Credit Europe Bank și Banca Comercială Carpatica (2024). Oferă credite ipotecare cu dobânzi competitive și servicii personalizate.',
+    website: 'https://www.nexentbank.ro',
     phone: '0800 888 123 (gratuit)',
     advantages: [
       'Dobânzi competitive (IRCC + 2.95%)',
-      'Proces de aprobare flexibil',
+      'Rețea extinsă după fuziune',
       'Consultanță personalizată',
       'Credite pentru prima și a doua casă',
       'Parteneriate cu dezvoltatori'
     ],
     considerations: [
-      'Rețea mică de agenții',
-      'Mai puțin cunoscută pe piața românească',
+      'Bancă rebranded recent (2024)',
+      'În proces de integrare a rețelelor',
       'Cerințe standard de eligibilitate'
     ]
   },

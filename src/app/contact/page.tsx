@@ -91,7 +91,7 @@ export default function Contact() {
                   <p className="text-gray-700 leading-relaxed">
                     Comparăm ofertele de la <strong>12+ bănci românești</strong>: 
                     BT, BCR, BRD, ING, Raiffeisen, Garanti, UniCredit, Libra, Patria, 
-                    Credit Europe, Exim, Intesa Sanpaolo. Brokerii noștri au acces direct 
+                    Nexent Bank, Exim, Intesa Sanpaolo. Brokerii noștri au acces direct 
                     la toate acestea.
                   </p>
                 </div>

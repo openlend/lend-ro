@@ -40,7 +40,7 @@ export default function HeaderWithFlyouts() {
     { name: 'BRD', slug: 'brd' },
     { name: 'GARANTI', slug: 'garanti' },
     { name: 'LIBRA BANK', slug: 'libra' },
-    { name: 'CREDIT EUROPE BANK', slug: 'credit-europe' },
+    { name: 'NEXENT BANK', slug: 'nexent' },
     { name: 'INTESA SAN PAOLO', slug: 'intesa' },
     { name: 'PATRIA BANK', slug: 'patria' },
     { name: 'EXIM BANCA ROMANEASCA', slug: 'exim' }

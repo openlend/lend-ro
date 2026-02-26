@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Bank pages
   const banks = [
     'bt', 'bcr', 'brd', 'ing', 'raiffeisen', 'garanti',
-    'unicredit', 'libra', 'credit-europe', 'patria', 'exim', 'intesa'
+    'unicredit', 'libra', 'nexent', 'patria', 'exim', 'intesa'
   ];
 
   // Generate sitemap entries

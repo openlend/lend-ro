@@ -2,8 +2,9 @@
 
 **Date:** February 26, 2026  
 **Completed by:** Kai (Subagent)  
-**Status:** ✅ Deployed to Production  
-**Live URL:** https://lend.ro
+**Status:** ✅ Deployed to Production (v2)  
+**Live URL:** https://lend.ro  
+**Git Commits:** e47673b (v1), 8cb6ef7 (v2)
 
 ---
 
@@ -17,7 +18,7 @@ The website was heavily mobile-first, with cramped layouts on desktop:
 
 ---
 
-## 🎯 Solution Implemented
+## 🎯 Solution Implemented (v2 - Final)
 
 ### 1. **Wider Calculator Layout**
 - **Before:** `max-w-[440px]` on all desktop sizes
