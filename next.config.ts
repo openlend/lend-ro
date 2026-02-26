@@ -14,16 +14,7 @@ const nextConfig: NextConfig = {
     ],
   },
   
-  // Redirects
-  async redirects() {
-    return [
-      {
-        source: '/calculator',
-        destination: '/calculator-test',
-        permanent: false,
-      },
-    ];
-  },
+  // Redirects removed - /calculator is now the main route
 };
 
 export default nextConfig;
