@@ -30,7 +30,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-25',
     readingTime: '5 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&h=675&fit=crop',
     tags: ['BNR', 'IRCC', 'dobanda', 'februarie'],
     featured: true,
   },
@@ -43,7 +43,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-23',
     readingTime: '7 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&h=675&fit=crop',
     tags: ['dobanda', 'refinantare', 'economii', 'negociere'],
   },
   {
@@ -55,7 +55,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-20',
     readingTime: '8 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=675&fit=crop',
     tags: ['prima casa', 'comparatie', 'credit clasic', '2026'],
   },
 
@@ -69,7 +69,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-22',
     readingTime: '6 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=1200&h=675&fit=crop',
     tags: ['banci', 'top 5', 'clasament', 'comparatie'],
   },
   {
@@ -81,7 +81,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-21',
     readingTime: '4 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1589666564459-93cdd3ab856a?w=1200&h=675&fit=crop',
     tags: ['BCR', 'dobanda', 'reducere', 'stiri'],
   },
   {
@@ -93,7 +93,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-19',
     readingTime: '5 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1200&h=675&fit=crop',
     tags: ['ING', 'promotie', 'comision zero', 'martie'],
   },
 
@@ -107,7 +107,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-24',
     readingTime: '9 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=1200&h=675&fit=crop',
     tags: ['prima casa', 'modificari', 'lege', '2026'],
   },
   {
@@ -119,7 +119,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-18',
     readingTime: '6 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1200&h=675&fit=crop',
     tags: ['DAE', 'calcul', 'legislatie', 'dobanda'],
   },
   {
@@ -131,7 +131,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-17',
     readingTime: '10 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=675&fit=crop',
     tags: ['ipoteca', 'juridic', 'obligatii', 'protectie'],
   },
 
@@ -145,7 +145,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-26',
     readingTime: '7 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&h=675&fit=crop',
     tags: ['bucuresti', 'preturi', 'piata', 'crestere'],
   },
   {
@@ -157,7 +157,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-16',
     readingTime: '6 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1200&h=675&fit=crop',
     tags: ['timing', 'cumparare', 'strategie', 'negociere'],
   },
   {
@@ -169,7 +169,7 @@ export const demoArticles: DemoArticle[] = [
     publishedAt: '2026-02-15',
     readingTime: '8 min',
     author: 'Echipa lend.ro',
-    featuredImage: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=338&fit=crop',
+    featuredImage: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=675&fit=crop',
     tags: ['vechi vs nou', 'comparatie', 'renovare', 'investitie'],
   },
 ];

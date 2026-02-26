@@ -35,31 +35,29 @@ export default function ArticlePage({ params }: PageProps) {
       <div className="bg-gradient-to-br from-navy to-sage text-white py-16">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Breadcrumbs */}
-          <div className="flex items-center gap-2 text-sm text-white/60 mb-6 flex-wrap">
-            <Link href="/" className="hover:text-white transition-colors">
+          <nav className="flex items-center gap-2 text-sm text-white/60 mb-6 overflow-x-auto pb-2" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white transition-colors whitespace-nowrap">
               Acasă
             </Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-white transition-colors">
+            <Link href="/blog" className="hover:text-white transition-colors whitespace-nowrap">
               Blog
             </Link>
             <span>/</span>
-            <Link href={`/blog/${category}`} className="hover:text-white transition-colors">
+            <Link href={`/blog/${category}`} className="hover:text-white transition-colors whitespace-nowrap">
               {categoryLabels[category]}
             </Link>
-            <span>/</span>
-            <span className="text-white/80 line-clamp-1">{article.title}</span>
-          </div>
+          </nav>
 
           {/* Category Badge & Meta */}
-          <div className="flex items-center gap-4 mb-6 flex-wrap">
+          <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6 flex-wrap">
             <CategoryBadge category={article.category} />
-            <span className="text-white/60 text-sm">{article.publishedAt}</span>
-            <span className="text-white/60 text-sm">📖 {article.readingTime}</span>
+            <span className="text-white/70 text-xs md:text-sm">{article.publishedAt}</span>
+            <span className="text-white/70 text-xs md:text-sm">📖 {article.readingTime}</span>
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
             {article.title}
           </h1>
 
@@ -76,13 +74,19 @@ export default function ArticlePage({ params }: PageProps) {
           {/* Article Content */}
           <article className="lg:col-span-8">
             {/* Featured Image */}
-            <div className="relative w-full h-96 mb-8 rounded-lg overflow-hidden">
+            <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden bg-gray-100">
               <Image
                 src={article.featuredImage}
                 alt={article.title}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 priority
+                onError={(e) => {
+                  // Fallback to placeholder SVG on error
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/placeholder-bank.svg';
+                }}
               />
             </div>
 
