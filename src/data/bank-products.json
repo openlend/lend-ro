@@ -1,5 +1,5 @@
 {
-  "date_updated": "2026-02-26",
+  "date_updated": "2026-02-27",
   "ircc_current": 5.68,
   "euribor_6m_current": 2.5,
   "robor_6m_current": 5.79,
@@ -106,7 +106,7 @@
       "rates": {
         "fixed_rate": 5.05,
         "fixed_years": 2,
-        "variable_margin": 1.90,
+        "variable_margin": 1.9,
         "index_type": "IRCC",
         "raw": "5.05% fix 2 ani, apoi IRCC + 1.90%"
       },
@@ -121,7 +121,7 @@
       "rates": {
         "fixed_rate": 5.79,
         "fixed_years": 3,
-        "variable_margin": 2.40,
+        "variable_margin": 2.4,
         "index_type": "IRCC",
         "raw": "5.79% fix 3 ani, apoi IRCC + 2.40%"
       },
@@ -151,28 +151,90 @@
       "rates": {
         "fixed_rate": 4.79,
         "fixed_years": 3,
-        "variable_margin": 2.10,
+        "variable_margin": 2.1,
         "index_type": "IRCC",
         "raw": "4.79% fix 3 ani, apoi IRCC + 2.10%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
-      "requiresInsurance": true
+      "requiresInsurance": true,
+      "energy_groups": [
+        {
+          "label": "Clasa A/B",
+          "classes": [
+            "A",
+            "B"
+          ],
+          "dti_margin": 3.3,
+          "rates": {
+            "fixed_rate": 4.79,
+            "fixed_years": 3,
+            "variable_margin": 2.1,
+            "index_type": "IRCC",
+            "raw": "4.79% fix 3 ani, apoi IRCC + 2.10%"
+          }
+        },
+        {
+          "label": "Clasa C",
+          "classes": [
+            "C"
+          ],
+          "dti_margin": 3.5,
+          "rates": {
+            "fixed_rate": 4.99,
+            "fixed_years": 3,
+            "variable_margin": 2.3,
+            "index_type": "IRCC",
+            "raw": "4.99% fix 3 ani, apoi IRCC + 2.30%"
+          }
+        }
+      ]
     },
     {
       "bank": "BCR",
       "product_type": "Casa Mea PRO - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 5.49,
+        "fixed_rate": 4.79,
         "fixed_years": 3,
-        "variable_margin": 2.80,
+        "variable_margin": 2.1,
         "index_type": "IRCC",
-        "raw": "5.49% fix 3 ani, apoi IRCC + 2.80%"
+        "raw": "4.79% fix 3 ani, apoi IRCC + 2.10%"
       },
       "requiresSalaryTransfer": false,
       "requiresDebitCard": false,
-      "requiresInsurance": true
+      "requiresInsurance": true,
+      "energy_groups": [
+        {
+          "label": "Clasa A/B",
+          "classes": [
+            "A",
+            "B"
+          ],
+          "dti_margin": 3.3,
+          "rates": {
+            "fixed_rate": 4.79,
+            "fixed_years": 3,
+            "variable_margin": 2.1,
+            "index_type": "IRCC",
+            "raw": "4.79% fix 3 ani, apoi IRCC + 2.10%"
+          }
+        },
+        {
+          "label": "Clasa C",
+          "classes": [
+            "C"
+          ],
+          "dti_margin": 3.5,
+          "rates": {
+            "fixed_rate": 4.99,
+            "fixed_years": 3,
+            "variable_margin": 2.3,
+            "index_type": "IRCC",
+            "raw": "4.99% fix 3 ani, apoi IRCC + 2.30%"
+          }
+        }
+      ]
     },
     {
       "bank": "UNICREDIT",
@@ -181,58 +243,202 @@
       "rates": {
         "fixed_rate": 4.59,
         "fixed_years": 2,
-        "variable_margin": 2.20,
+        "variable_margin": 2.2,
         "index_type": "IRCC",
         "raw": "4.59% fix 2 ani, apoi IRCC + 2.20%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
-      "requiresInsurance": true
+      "requiresInsurance": true,
+      "energy_groups": [
+        {
+          "label": "Clasa A",
+          "classes": [
+            "A"
+          ],
+          "dti_margin": 2.3,
+          "rates": {
+            "fixed_rate": 4.59,
+            "fixed_years": 2,
+            "variable_margin": 2.2,
+            "index_type": "IRCC",
+            "raw": "4.59% fix 2 ani, apoi IRCC + 2.20%"
+          }
+        },
+        {
+          "label": "Clasa B-H",
+          "classes": [
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "dti_margin": 2.3,
+          "rates": {
+            "fixed_rate": 4.69,
+            "fixed_years": 2,
+            "variable_margin": 2.25,
+            "index_type": "IRCC",
+            "raw": "4.69% fix 2 ani, apoi IRCC + 2.25%"
+          }
+        }
+      ]
     },
     {
       "bank": "UNICREDIT",
       "product_type": "Standard cu virare - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 5.29,
-        "fixed_years": 3,
-        "variable_margin": 2.30,
+        "fixed_rate": 4.59,
+        "fixed_years": 2,
+        "variable_margin": 2.2,
         "index_type": "IRCC",
-        "raw": "5.29% fix 3 ani, apoi IRCC + 2.30%"
+        "raw": "4.59% fix 2 ani, apoi IRCC + 2.20%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
-      "requiresInsurance": true
+      "requiresInsurance": true,
+      "energy_groups": [
+        {
+          "label": "Clasa A",
+          "classes": [
+            "A"
+          ],
+          "dti_margin": 2.3,
+          "rates": {
+            "fixed_rate": 4.59,
+            "fixed_years": 2,
+            "variable_margin": 2.2,
+            "index_type": "IRCC",
+            "raw": "4.59% fix 2 ani, apoi IRCC + 2.20%"
+          }
+        },
+        {
+          "label": "Clasa B-H",
+          "classes": [
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "dti_margin": 2.3,
+          "rates": {
+            "fixed_rate": 4.69,
+            "fixed_years": 2,
+            "variable_margin": 2.25,
+            "index_type": "IRCC",
+            "raw": "4.69% fix 2 ani, apoi IRCC + 2.25%"
+          }
+        }
+      ]
     },
     {
       "bank": "ING",
       "product_type": "Standard cu salariu cu asig - FIXA 5 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 6.29,
-        "fixed_years": 5,
-        "variable_margin": 2.29,
+        "fixed_rate": 4.79,
+        "fixed_years": 3,
+        "variable_margin": 1.89,
         "index_type": "IRCC",
-        "raw": "6.29% fix 5 ani, apoi IRCC + 2.29%"
+        "raw": "4.79% fix 3 ani, apoi IRCC + 1.89%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
-      "requiresInsurance": true
+      "requiresInsurance": true,
+      "energy_groups": [
+        {
+          "label": "Clasa A",
+          "classes": [
+            "A"
+          ],
+          "dti_margin": 2.89,
+          "rates": {
+            "fixed_rate": 4.79,
+            "fixed_years": 3,
+            "variable_margin": 1.89,
+            "index_type": "IRCC",
+            "raw": "4.79% fix 3 ani, apoi IRCC + 1.89%"
+          }
+        },
+        {
+          "label": "Clasa B-H",
+          "classes": [
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "dti_margin": 3.09,
+          "rates": {
+            "fixed_rate": 4.79,
+            "fixed_years": 3,
+            "variable_margin": 1.89,
+            "index_type": "IRCC",
+            "raw": "4.79% fix 3 ani, apoi IRCC + 1.89%"
+          }
+        }
+      ]
     },
     {
       "bank": "ING",
       "product_type": "ECO cu salariu cu asig - FIXA 5 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 4.99,
-        "fixed_years": 5,
-        "variable_margin": 2.09,
+        "fixed_rate": 4.79,
+        "fixed_years": 3,
+        "variable_margin": 1.89,
         "index_type": "IRCC",
-        "raw": "4.99% fix 5 ani, apoi IRCC + 2.09%"
+        "raw": "4.79% fix 3 ani, apoi IRCC + 1.89%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
-      "requiresInsurance": true
+      "requiresInsurance": true,
+      "energy_groups": [
+        {
+          "label": "Clasa A",
+          "classes": [
+            "A"
+          ],
+          "dti_margin": 2.89,
+          "rates": {
+            "fixed_rate": 4.79,
+            "fixed_years": 3,
+            "variable_margin": 1.89,
+            "index_type": "IRCC",
+            "raw": "4.79% fix 3 ani, apoi IRCC + 1.89%"
+          }
+        },
+        {
+          "label": "Clasa B-H",
+          "classes": [
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "dti_margin": 3.09,
+          "rates": {
+            "fixed_rate": 4.79,
+            "fixed_years": 3,
+            "variable_margin": 1.89,
+            "index_type": "IRCC",
+            "raw": "4.79% fix 3 ani, apoi IRCC + 1.89%"
+          }
+        }
+      ]
     },
     {
       "bank": "BRD",
@@ -241,22 +447,58 @@
       "rates": {
         "fixed_rate": 4.99,
         "fixed_years": 3,
-        "variable_margin": 2.00,
+        "variable_margin": 2.1,
         "index_type": "IRCC",
-        "raw": "4.99% fix 3 ani, apoi IRCC + 2.00%"
+        "raw": "4.99% fix 3 ani, apoi IRCC + 2.10%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
-      "requiresInsurance": false
+      "requiresInsurance": false,
+      "energy_groups": [
+        {
+          "label": "Clasa A",
+          "classes": [
+            "A"
+          ],
+          "dti_margin": 2.1,
+          "rates": {
+            "fixed_rate": 4.99,
+            "fixed_years": 3,
+            "variable_margin": 2.1,
+            "index_type": "IRCC",
+            "raw": "4.99% fix 3 ani, apoi IRCC + 2.10%"
+          }
+        },
+        {
+          "label": "Clasa B-H",
+          "classes": [
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "dti_margin": 2.29,
+          "rates": {
+            "fixed_rate": 5.3,
+            "fixed_years": 3,
+            "variable_margin": 2.29,
+            "index_type": "IRCC",
+            "raw": "5.30% fix 3 ani, apoi IRCC + 2.29%"
+          }
+        }
+      ]
     },
     {
       "bank": "RAIFFEISEN",
       "product_type": "Casa Ta - FIXA 5 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 4.70,
+        "fixed_rate": 4.7,
         "fixed_years": 5,
-        "variable_margin": 2.00,
+        "variable_margin": 2.0,
         "index_type": "IRCC",
         "raw": "4.70% fix 5 ani, apoi IRCC + 2.00%"
       },
@@ -269,9 +511,9 @@
       "product_type": "Achizitie Standard cu salariu - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 5.10,
+        "fixed_rate": 5.1,
         "fixed_years": 3,
-        "variable_margin": 2.40,
+        "variable_margin": 2.4,
         "index_type": "IRCC",
         "raw": "5.10% fix 3 ani, apoi IRCC + 2.40%"
       },
@@ -286,7 +528,7 @@
       "rates": {
         "fixed_rate": null,
         "fixed_years": null,
-        "variable_margin": 2.50,
+        "variable_margin": 2.5,
         "index_type": "IRCC",
         "raw": "IRCC + 2.50%"
       },
@@ -316,7 +558,7 @@
       "rates": {
         "fixed_rate": 5.99,
         "fixed_years": 5,
-        "variable_margin": 2.90,
+        "variable_margin": 2.9,
         "index_type": "IRCC",
         "raw": "5.99% fix 5 ani, apoi IRCC + 2.90%"
       },
@@ -329,15 +571,51 @@
       "product_type": "Credit Ipotecar Casa - FIXA 3 ANI",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 5.20,
+        "fixed_rate": 4.99,
         "fixed_years": 3,
-        "variable_margin": 2.50,
+        "variable_margin": 2.29,
         "index_type": "IRCC",
-        "raw": "5.20% fix 3 ani, apoi IRCC + 2.50%"
+        "raw": "4.99% fix 3 ani, apoi IRCC + 2.29%"
       },
       "requiresSalaryTransfer": true,
       "requiresDebitCard": false,
-      "requiresInsurance": false
+      "requiresInsurance": false,
+      "energy_groups": [
+        {
+          "label": "Clasa A",
+          "classes": [
+            "A"
+          ],
+          "dti_margin": 2.29,
+          "rates": {
+            "fixed_rate": 4.99,
+            "fixed_years": 3,
+            "variable_margin": 2.29,
+            "index_type": "IRCC",
+            "raw": "4.99% fix 3 ani, apoi IRCC + 2.29%"
+          }
+        },
+        {
+          "label": "Clasa B-H",
+          "classes": [
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "dti_margin": 2.5,
+          "rates": {
+            "fixed_rate": 5.2,
+            "fixed_years": 3,
+            "variable_margin": 2.5,
+            "index_type": "IRCC",
+            "raw": "5.20% fix 3 ani, apoi IRCC + 2.50%"
+          }
+        }
+      ]
     },
     {
       "bank": "INTESA SANPAOLO",
@@ -359,9 +637,9 @@
       "product_type": "Virare venit - FIXA 3 ANI VERDE",
       "rate_type": "RON",
       "rates": {
-        "fixed_rate": 5.20,
+        "fixed_rate": 5.2,
         "fixed_years": 3,
-        "variable_margin": 2.50,
+        "variable_margin": 2.5,
         "index_type": "IRCC",
         "raw": "5.20% fix 3 ani, apoi IRCC + 2.50%"
       },
@@ -376,7 +654,7 @@
       "rates": {
         "fixed_rate": 4.89,
         "fixed_years": 3,
-        "variable_margin": 2.10,
+        "variable_margin": 2.1,
         "index_type": "IRCC",
         "raw": "4.89% fix 3 ani, apoi IRCC + 2.10%"
       },
@@ -391,7 +669,7 @@
       "rates": {
         "fixed_rate": 4.89,
         "fixed_years": 3,
-        "variable_margin": 2.20,
+        "variable_margin": 2.2,
         "index_type": "IRCC",
         "raw": "4.89% fix 3 ani, apoi IRCC + 2.20%"
       },

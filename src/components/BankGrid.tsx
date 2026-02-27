@@ -3,6 +3,27 @@
 import BankCard from './BankCard';
 import bankData from '@/data/bank-products.json';
 
+const computeRateInfo = (rates: any, rateType: string, ircc: number) => {
+  if (!rates) {
+    return { value: Infinity, label: '' };
+  }
+  const variableMargin = rates.variable_margin ?? 0;
+  const value = rates.fixed_rate ?? (ircc + variableMargin);
+  const label = rates.fixed_rate ? `Dobândă fixă ${rateType}` : `Dobândă variabilă ${rateType}`;
+  return { value, label };
+};
+
+const getBestRateInfo = (product: any, ircc: number) => {
+  let best = computeRateInfo(product.rates, product.rate_type, ircc);
+  (product.energy_groups ?? []).forEach((group: any) => {
+    const candidate = computeRateInfo(group.rates ?? product.rates, product.rate_type, ircc);
+    if (candidate.value < best.value) {
+      best = candidate;
+    }
+  });
+  return best;
+};
+
 interface BankSummary {
   name: string;
   bestRate: number;
@@ -26,14 +47,10 @@ export default function BankGrid() {
     let bestRateType = '';
     
     products.forEach((product: any) => {
-      const rate = product.rates.fixed_rate || 
-                   (bankData.ircc_current + product.rates.variable_margin);
-      
-      if (rate < bestRate) {
-        bestRate = rate;
-        bestRateType = product.rates.fixed_rate 
-          ? `Dobândă fixă ${product.rate_type}`
-          : `Dobândă variabilă ${product.rate_type}`;
+      const info = getBestRateInfo(product, bankData.ircc_current);
+      if (info.value < bestRate) {
+        bestRate = info.value;
+        bestRateType = info.label;
       }
     });
 

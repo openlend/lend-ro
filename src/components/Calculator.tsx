@@ -33,6 +33,19 @@ const InfoIcon = () => (
   </svg>
 );
 
+interface EnergyGroup {
+  label?: string;
+  classes: string[];
+  dti_margin?: number | null;
+  rates: {
+    fixed_rate: number | null;
+    fixed_years: number | null;
+    variable_margin: number | null;
+    index_type: string;
+    raw: string;
+  };
+}
+
 interface BankProduct {
   bank: string;
   product_type: string;
@@ -44,6 +57,7 @@ interface BankProduct {
     index_type: string;
     raw: string;
   };
+  energy_groups?: EnergyGroup[];
 }
 
 interface BankProductsData {
@@ -54,6 +68,16 @@ interface BankProductsData {
 // IRCC from JSON data
 const bankProductsData = bankProducts as unknown as BankProductsData;
 const IRCC = bankProductsData.ircc_current;
+const ENERGY_CLASSES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] as const;
+type EnergyClass = typeof ENERGY_CLASSES[number];
+
+const calculateMonthlyPayment = (principal: number, monthlyRate: number, totalPayments: number) => {
+  if (monthlyRate === 0) {
+    return principal / totalPayments;
+  }
+  const growth = Math.pow(1 + monthlyRate, totalPayments);
+  return principal * (monthlyRate * growth) / (growth - 1);
+};
 
 // Helper function to format numbers with comma separator
 const formatNumber = (num: number): string => {
@@ -70,6 +94,7 @@ export default function Calculator() {
   const [leadModalOpen, setLeadModalOpen] = useState(false);
   const [selectedBank, setSelectedBank] = useState<{ bank: string; monthlyPayment: number } | null>(null);
   const [activeDtiTooltip, setActiveDtiTooltip] = useState<number | null>(null);
+  const [energyClass, setEnergyClass] = useState<EnergyClass>('A');
 
   // Advanced parameters
   const [downPayment, setDownPayment] = useState(15);
@@ -94,49 +119,47 @@ export default function Calculator() {
 
   // Calculate eligible banks with monthly payments
   const eligibleBanks = useMemo(() => {
-    // Use all products (no type filter for now - all are mortgage products)
     const products = bankProductsData.products;
-
-    // Calculate effective income (50% for dividends)
     const effectiveIncome = hasDividendIncome ? monthlyIncome * 0.5 : monthlyIncome;
 
-    const results = products.map(product => {
-      // Calculate effective interest rate
-      const effectiveRate = product.rates.fixed_rate || (IRCC + (product.rates.variable_margin || 0));
+    const results = products.reduce<any[]>((acc, product) => {
+      const activeGroup = product.energy_groups?.find(group => group.classes.includes(energyClass));
+      if (product.energy_groups && !activeGroup) {
+        return acc;
+      }
+
+      const appliedRates = activeGroup?.rates ?? product.rates;
+      const variableMargin = appliedRates.variable_margin ?? product.rates.variable_margin ?? 0;
+      const effectiveRate = appliedRates.fixed_rate ?? (IRCC + variableMargin);
       const monthlyRate = effectiveRate / 100 / 12;
       const numPayments = loanPeriod * 12;
-
-      // Apply down payment to loan amount
       const loanAfterDownPayment = loanAmount * (1 - effectiveDownPayment / 100);
+      const monthlyPayment = calculateMonthlyPayment(loanAfterDownPayment, monthlyRate, numPayments);
 
-      // Monthly payment formula (using loan after down payment)
-      const monthlyPayment = loanAfterDownPayment * 
-        (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
-        (Math.pow(1 + monthlyRate, numPayments) - 1);
+      const dtiMargin = activeGroup?.dti_margin ?? variableMargin;
+      const dtiMonthlyRate = (IRCC + dtiMargin) / 100 / 12;
+      const dtiPayment = calculateMonthlyPayment(loanAfterDownPayment, dtiMonthlyRate, numPayments);
+      const dtiRatio = effectiveIncome > 0 ? (dtiPayment / effectiveIncome) * 100 : Infinity;
 
-      // DTI (Debt-to-Income) ratio using effective income
-      const dtiRatio = (monthlyPayment / effectiveIncome) * 100;
-
-      // Check eligibility (simplified - assume all meet requirements)
-      const meetsDTI = dtiRatio <= 40; // Max 40% DTI
-
-      return {
+      acc.push({
         bank: product.bank,
         productName: product.product_type,
         effectiveRate,
-        fixedPeriod: product.rates.fixed_years,
+        fixedPeriod: appliedRates.fixed_years,
         monthlyPayment,
         dtiRatio,
-        eligible: meetsDTI,
+        eligible: dtiRatio <= 40,
         requiresSalaryTransfer: product.product_type.toLowerCase().includes('virare'),
         requiresDebitCard: false,
-        requiresInsurance: false
-      };
-    });
+        requiresInsurance: false,
+        energyGroupLabel: activeGroup?.label ?? (activeGroup ? activeGroup.classes.join('/') : null)
+      });
 
-    // Sort by monthly payment (best first)
+      return acc;
+    }, []);
+
     return results.sort((a, b) => a.monthlyPayment - b.monthlyPayment);
-  }, [loanAmount, loanPeriod, monthlyIncome, hasDividendIncome, effectiveDownPayment]);
+  }, [loanAmount, loanPeriod, monthlyIncome, hasDividendIncome, effectiveDownPayment, energyClass]);
 
   // Get best product per bank (show ALL, not just eligible)
   const bestPerBank = useMemo(() => {
@@ -236,6 +259,7 @@ export default function Calculator() {
                             setDownPayment(15);
                             setMonthlyIncome(8000);
                             setSecondProperty(false);
+                            setEnergyClass('A');
                             setShowDotsMenu(false);
                           }}
                           className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 transition-colors"
@@ -460,6 +484,23 @@ export default function Calculator() {
                         )}
                       </div>
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-2 font-semibold">Clasă energetică locuință</label>
+                    <div className="grid grid-cols-4 gap-2">
+                      {ENERGY_CLASSES.map((cls) => (
+                        <button
+                          key={cls}
+                          type="button"
+                          onClick={() => setEnergyClass(cls)}
+                          className={`py-2 rounded-lg text-sm font-medium border transition-colors ${energyClass === cls ? 'bg-[#00D186] text-white border-[#00D186] shadow-sm' : 'border-gray-200 text-gray-700 hover:border-[#00D186] hover:text-[#00D186]'}`}
+                        >
+                          {cls}
+                        </button>
+                      ))}
+                    </div>
+                    <p className="mt-1 text-[11px] text-gray-500">Selectează clasa energetică estimată a imobilului.</p>
                   </div>
 
                   {/* Employed at Own Company - appears only if dividend income is checked */}

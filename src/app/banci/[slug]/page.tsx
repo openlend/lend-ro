@@ -266,16 +266,31 @@ export default async function BankPage({ params }: { params: Promise<{ slug: str
                 p.bank.toLowerCase() === bank.fullName.toLowerCase()
   );
 
-  const bestProduct = bankProducts
+  const bankProductVariants = bankProducts.flatMap((product: any) => {
+    if (product.energy_groups?.length) {
+      return product.energy_groups.map((group: any) => ({
+        ...product,
+        variantRates: group.rates ?? product.rates,
+        variantLabel: group.label ?? group.classes.join('/'),
+      }));
+    }
+    return [{
+      ...product,
+      variantRates: product.rates,
+      variantLabel: null,
+    }];
+  });
+
+  const bestProduct = bankProductVariants
     .filter((p: any) => !p.rate_type.toUpperCase().includes('EURO'))
     .sort((a: any, b: any) => {
-      const rateA = a.rates.fixed_rate || a.rates.variable_margin;
-      const rateB = b.rates.fixed_rate || b.rates.variable_margin;
+      const rateA = a.variantRates.fixed_rate ?? (bankData.ircc_current + (a.variantRates.variable_margin ?? 0));
+      const rateB = b.variantRates.fixed_rate ?? (bankData.ircc_current + (b.variantRates.variable_margin ?? 0));
       return rateA - rateB;
     })[0];
 
   const minRate = bestProduct 
-    ? (bestProduct.rates.fixed_rate || `IRCC + ${bestProduct.rates.variable_margin}%`)
+    ? (bestProduct.variantRates.fixed_rate ?? `IRCC + ${bestProduct.variantRates.variable_margin ?? 0}%`)
     : 'N/A';
 
   return (
@@ -375,26 +390,26 @@ export default async function BankPage({ params }: { params: Promise<{ slug: str
                     </tr>
                   </thead>
                   <tbody>
-                    {bankProducts
+                    {bankProductVariants
                       .filter((p: any) => !p.rate_type.toUpperCase().includes('EURO'))
                       .slice(0, 5)
                       .map((product: any, idx: number) => (
                         <tr key={idx} className="border-b border-gray-100 hover:bg-gray-50">
                           <td className="py-4 text-gray-700">
-                            {product.product_type.replace(/\*+/g, '').substring(0, 50)}
+                            {`${product.product_type.replace(/\*+/g, '').substring(0, 50)}${product.variantLabel ? ' • ' + product.variantLabel : ''}`}
                           </td>
                           <td className="py-4">
                             <span className="font-bold text-mint">
-                              {product.rates.fixed_rate 
-                                ? `${product.rates.fixed_rate}%` 
-                                : `IRCC + ${product.rates.variable_margin}%`}
+                              {product.variantRates.fixed_rate 
+                                ? `${product.variantRates.fixed_rate}%` 
+                                : `IRCC + ${product.variantRates.variable_margin ?? 0}%`}
                             </span>
                           </td>
                           <td className="py-4 text-gray-600">
-                            {product.rates.fixed_years ? `${product.rates.fixed_years} ani` : 'Variabilă'}
+                            {product.variantRates.fixed_years ? `${product.variantRates.fixed_years} ani` : 'Variabilă'}
                           </td>
                           <td className="py-4 text-gray-600">
-                            {product.rates.variable_margin}%
+                            {product.variantRates.variable_margin ?? 0}%
                           </td>
                         </tr>
                       ))}
