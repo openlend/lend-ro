@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Footer from '@/components/Footer';
 import BankLogo from '@/components/BankLogo';
+import SeoArticleSection from '@/components/SeoArticleSection';
 import bankData from '@/data/bank-products.json';
 
 const bankInfo: Record<string, {
@@ -427,7 +428,10 @@ export default async function BankPage({ params }: { params: Promise<{ slug: str
 
         </div>
       </main>
-      
+
+      {/* SEO article section for per-bank copy */}
+      <SeoArticleSection bankSlug={slug} bankName={bank.fullName} />
+
       <Footer />
     </>
   );
