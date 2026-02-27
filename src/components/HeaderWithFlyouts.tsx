@@ -225,7 +225,7 @@ export default function HeaderWithFlyouts() {
                               <div className="text-xs text-gray-500 mt-0.5">Tot ce trebuie să știi</div>
                             </div>
                           </Link>
-                          <Link href="/blog" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
+                          <Link href="/faq" className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group">
                             <HelpCircle size={22} className="text-[#00D186] flex-shrink-0 mt-0.5" />
                             <div>
                               <div className="text-sm font-medium text-gray-900 group-hover:text-[#00D186]">Întrebări frecvente</div>

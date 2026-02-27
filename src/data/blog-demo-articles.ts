@@ -7,7 +7,7 @@ export interface DemoArticle {
   publishedAt: string;
   readingTime: string;
   author: string;
-  featuredImage: string;
+  featuredImage?: string; // optional: can be provided in frontmatter or demo data
   tags: string[];
   featured?: boolean;
 }
@@ -18,6 +18,19 @@ export const categoryLabels: Record<string, string> = {
   legislatie: 'Legislație',
   'piata-imobiliara': 'Piață Imobiliară',
 };
+
+// Returns a featured image URL for an article: prefer explicit, fall back to category defaults
+export function getFeaturedImage(article: DemoArticle) {
+  if (article.featuredImage && article.featuredImage.length > 0) return article.featuredImage;
+  const mapping: Record<string, string> = {
+    credite: '/blog/default-credite.svg',
+    banci: '/blog/default-banci.svg',
+    legislatie: '/blog/default-legislatie.svg',
+    'piata-imobiliara': '/blog/default-piata-imobiliara.svg',
+  };
+  return mapping[article.category] || '/blog/default-generic.svg';
+}
+
 
 export const demoArticles: DemoArticle[] = [
   // CREDITE (3 articles)

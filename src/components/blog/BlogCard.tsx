@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { DemoArticle } from '@/data/blog-demo-articles';
+import { DemoArticle, getFeaturedImage } from '@/data/blog-demo-articles';
 import CategoryBadge from './CategoryBadge';
 
 interface BlogCardProps {
@@ -8,13 +8,15 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ article }: BlogCardProps) {
+  const imageSrc = getFeaturedImage(article);
+
   return (
     <Link href={`/blog/${article.category}/${article.slug}`}>
       <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full flex flex-col">
         {/* Featured Image */}
         <div className="relative w-full h-48">
           <Image
-            src={article.featuredImage}
+            src={imageSrc}
             alt={article.title}
             fill
             className="object-cover"

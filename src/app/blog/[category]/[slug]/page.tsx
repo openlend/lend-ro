@@ -3,7 +3,7 @@
 import { use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { demoArticles, categoryLabels, getRelatedArticles } from '@/data/blog-demo-articles';
+import { demoArticles, categoryLabels, getRelatedArticles, getFeaturedImage } from '@/data/blog-demo-articles';
 import CategoryBadge from '@/components/blog/CategoryBadge';
 import ShareButtons from '@/components/blog/ShareButtons';
 import BlogCard from '@/components/blog/BlogCard';
@@ -76,7 +76,7 @@ export default function ArticlePage({ params }: PageProps) {
             {/* Featured Image */}
             <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden bg-gray-100">
               <Image
-                src={article.featuredImage}
+                src={getFeaturedImage(article)}
                 alt={article.title}
                 fill
                 className="object-cover"

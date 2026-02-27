@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { demoArticles, categoryLabels, getFeaturedArticle } from '@/data/blog-demo-articles';
+import { demoArticles, categoryLabels, getFeaturedArticle, getFeaturedImage } from '@/data/blog-demo-articles';
 import BlogCard from '@/components/blog/BlogCard';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import CategoryBadge from '@/components/blog/CategoryBadge';
@@ -141,7 +141,7 @@ export default function BlogPage() {
                     <div className="md:flex">
                       <div className="md:w-1/2 relative h-64 md:h-auto">
                         <img
-                          src={featuredArticle.featuredImage}
+                          src={getFeaturedImage(featuredArticle)}
                           alt={featuredArticle.title}
                           className="w-full h-full object-cover"
                         />
