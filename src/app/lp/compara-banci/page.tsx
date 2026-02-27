@@ -25,6 +25,7 @@ export default function ComparaBanciLP() {
       />
 
       <StructuredData type="website" data={{}} />
+      <link rel="canonical" href="https://lend.ro/instrumente/comparator-banci" />
 
       <main style={{ fontFamily: 'Rubik, sans-serif' }}>
         <section className="py-12 md:py-20 bg-gradient-to-br from-white to-[#F5F7FA] text-center">

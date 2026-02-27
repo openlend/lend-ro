@@ -25,6 +25,7 @@ export default function CalculatorLP() {
       />
 
       <StructuredData type="website" data={{}} />
+      <link rel="canonical" href="https://lend.ro/instrumente/calculator-rate" />
 
       <main style={{ fontFamily: 'Rubik, sans-serif' }}>
         <section className="py-12 md:py-20 bg-gradient-to-br from-[#F5F7FA] to-white text-center">
