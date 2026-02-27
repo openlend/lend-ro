@@ -138,23 +138,72 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Bottom Bar */}
+          {/* Regulatory / legal shortcuts */}
           <div className="pt-8 border-t border-gray-700">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-sm text-gray-400">
-                © {currentYear} lend.ro. Toate drepturile rezervate.
-              </p>
-              <p className="text-xs text-gray-500">
-                Platformă dezvoltată de{' '}
-                <a 
-                  href="https://radubalas.com" 
-                  target="_blank" 
+            <div className="flex flex-col items-center gap-5">
+              {/* Badges */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-3">
+                <a
+                  href="https://anpc.ro/"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#00D186] hover:text-[#00b874] transition-colors"
+                  className="block bg-white rounded-xl p-0.5 hover:opacity-90 transition"
+                  aria-label="ANPC"
                 >
-                  Radu Balaș
+                  <img src="/regulatory/anpc.svg" alt="ANPC" className="h-12 w-auto" />
                 </a>
-              </p>
+
+                <a
+                  href="https://ec.europa.eu/consumers/odr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-white rounded-xl p-0.5 hover:opacity-90 transition"
+                  aria-label="SOL / ODR"
+                >
+                  <img src="/regulatory/sol.svg" alt="SOL / ODR" className="h-12 w-auto" />
+                </a>
+
+                <a
+                  href="https://www.dataprotection.ro/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-white rounded-xl p-0.5 hover:opacity-90 transition"
+                  aria-label="ANSPDCP"
+                >
+                  <img src="/regulatory/anspdcp.svg" alt="ANSPDCP" className="h-12 w-auto" />
+                </a>
+              </div>
+
+              {/* Text links row */}
+              <div className="text-center text-sm text-gray-400">
+                <Link href="/politica-cookies" className="hover:text-[#00D186] transition-colors">Cookies</Link>
+                <span className="mx-2 text-gray-600">|</span>
+                <Link href="/politica-confidentialitate" className="hover:text-[#00D186] transition-colors">GDPR</Link>
+                <span className="mx-2 text-gray-600">|</span>
+                <Link href="/termeni-conditii" className="hover:text-[#00D186] transition-colors">TOS</Link>
+                <span className="mx-2 text-gray-600">|</span>
+                <a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00D186] transition-colors">ANPC</a>
+                <span className="mx-2 text-gray-600">|</span>
+                <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="hover:text-[#00D186] transition-colors">SOL</a>
+                <span className="mx-2 text-gray-600">|</span>
+                <a href="https://www.dataprotection.ro/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00D186] transition-colors">ANSPDCP</a>
+              </div>
+
+              {/* Credits */}
+              <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 pt-2">
+                <p className="text-sm text-gray-400">© {currentYear} lend.ro. Toate drepturile rezervate.</p>
+                <p className="text-xs text-gray-500">
+                  Platformă dezvoltată de{' '}
+                  <a
+                    href="https://radubalas.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#00D186] hover:text-[#00b874] transition-colors"
+                  >
+                    Radu Balaș
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
