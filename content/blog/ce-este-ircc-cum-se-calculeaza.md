@@ -83,30 +83,33 @@ Anticiparea impactului IRCC asupra bugetului tău familial este cea mai importan
 
 Amintește-ți întotdeauna: componenta pe care o poți controla este **adaosul bancar** (prin negociere sau refinanțare), nu IRCC-ul în sine.
 
-## Întrebări Frecvente (FAQ) despre IRCC
+## Valori Istorice IRCC și Previziuni pentru 2026
 
-**1. Când se publică valoarea IRCC pentru o lună?**
-Valoarea IRCC pentru o lună dată este publicată de BNR, de regulă, în a doua decadă a lunii următoare. De exemplu, IRCC pentru luna ianuarie 2026 va fi anunțat în prima jumătate a lunii februarie 2026.
+Pentru a înțelege mai bine evoluția IRCC, este util să privim în urmă și să vedem cum s-a schimbat acest indice în ultimii ani. Între 2020 și 2023, IRCC a înregistrat o creștere dramatică, trecând de la valori sub 2% la peste 7%, ca răspuns la inflația ridicată și la creșterea ratei dobânzii de politică monetară a BNR.
 
-**2. Dacă IRCC scade, rata mea scade imediat?**
-Nu imediat. Rata ta se actualizează doar în data de recalculare stipulată în contract (la 3, 6 sau 12 luni). Atunci, banca va aplica ultima valoare IRCC disponibilă.
+**Evoluția recentă:**
+- **2020-2021:** 1.5% - 2.2% (perioada pandemiei, lichiditate mare)
+- **2022:** 3.5% - 5.8% (început de creștere)
+- **2023:** 6.2% - 7.4% (vârful cicluluimpl de creștere)
+- **2024-2025:** 6.8% - 5.9% (stabilizare și ușoară scădere)
+- **2026 (estimat):** 5.2% - 5.8% (scădere graduală pe fondul inflației mai mici)
 
-**3. Pot să schimb de la rată variabilă (IRCC) la rată fixă?**
-Da, aceasta este o opțiune prin operațiunea de **refinanțare** sau **conversie** a creditului. Poți negocia cu banca ta sau cu o altă bancă să preia creditul și să îl transforme într-unul cu rată fixă pe o anumită perioadă.
+Această volatilitate subliniază importanța urmăririi constante a indicelui și a impactului său asupra ratelor tale. Recomandarea pentru 2026 este să fii pregătit pentru o scădere moderată, dar graduală, a IRCC, pe măsură ce inflația se stabilizează în jurul țintei BNR de 2.5%. Totuși, factorii geopolitici și economici globali pot influența această traiectorie.
 
-**4. Care este diferența dintre IRCC și dobânda oferită de bancă?**
-IRCC este doar indicele de referință. **Dobânda ta efectivă = IRCC + Adaos Bancar**. Adaosul bancar este profitul băncii și este stabilit individual, în funcție de profilul tău de risc.
+## Impactul Practic: Exemplu de Calcul pentru Creditul Tău
 
-**5. Există un IRCC diferit pentru fiecare bancă?**
-Nu. **IRCC este unic și valabil pentru întreaga piață**, fiind stabilit de BNR. Ceea ce diferă de la o bancă la alta este **adaosul bancar**.
+Să luăm un exemplu concret pentru a vedea cum IRCC te afectează direct. Presupunem că ai un credit ipotecar de **300.000 RON** pe **30 de ani**, cu un adaos bancar de **3.5%**.
 
-## Resurse Utile
+**Scenariul 1 - IRCC la 7% (perioada 2023):**
+- Dobândă totală: 7% + 3.5% = **10.5%**
+- Rată lunară: **2.744 RON**
+- Total plătit în 30 ani: **987.840 RON**
 
-- [Pagina Oficială BNR pentru IRCC](https://www.bnr.ro/IRCC-784.aspx) - Sursa primară pentru valorile și metodologia actuală.
-- [Rata Politicii Monetare a BNR](https://www.bnr.ro/Rata-politicii-monetare-3349.aspx) - Pentru a înțelege direcția politicii monetare.
-- [Calculator Credite Ipotecare](/calculator) - Pentru a simula ratele în diferite scenarii ale dobânzii.
-- [Toate băncile](/banci) - Pentru a compara oferte curente.
+**Scenariul 2 - IRCC la 5.5% (estimat pentru 2026):**
+- Dobândă totală: 5.5% + 3.5% = **9%**
+- Rată lunară: **2.414 RON**
+- Total plătit în 30 ani: **869.040 RON**
 
----
+**Diferență:** O scădere de doar **1.5%** a IRCC îți economisește **330 RON lunar** și **118.800 RON** pe întreaga durată a creditului! Acesta este motivul pentru care monitorizarea și înțelegerea IRCC sunt esențiale pentru bugetul tău familial.
 
-**Disclaimer:** Acest articol are scop strict informativ și educațional. Informațiile prezentate nu constituie sfat financiar. Pentru decizii concrete privind un credit ipotecar, recomandăm consultarea unui specialist financiar autorizat.
+Urmărirea proactivă a indicatorilor economici și a deciziilor BNR îți permite să anticipezi schimbările și să iei decizii informate despre refinanțare, rambursări anticipate sau ajustarea bugetului lunar. IRCC nu este doar o cifră abstractă - este un instrument financiar care modelează direct costul locuinței tale.

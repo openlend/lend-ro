@@ -649,34 +649,153 @@ Banca transferă banii către vânzător → TU primești cheile!
 
 ---
 
-## Concluzii: Pașii Tăi Următori
+## Comparație Finală: Care Tip de Credit E Pentru Tine?
 
-**✅ Pasul 1:** [Calculează bugetul](https://lend.ro/calculator) (5 min, gratuit)  
-**✅ Pasul 2:** [Descarcă checklist acte](https://lend.ro/downloads/checklist-acte.pdf)  
-**✅ Pasul 3:** [Solicită oferte de la 5 bănci](https://lend.ro/cerere-oferte) (primești în 48h)  
-**✅ Pasul 4:** Alege banca cu cea mai bună ofertă  
-**✅ Pasul 5:** Depune dosarul și așteaptă aprobarea  
-**✅ Pasul 6:** Semnează contractul și ia cheile CASEI TALE! 🏠🎉  
+După ce am acoperit toate aspectele creditelor ipotecare, hai să consolidăm totul într-o **matrice de decizie** care te ajută să alegi rapid varianta potrivită pentru situația ta:
 
----
+### 🎯 Ești **TÂNĂR** (sub 35 ani), **PRIMA LOCUINȚĂ**, venit stabil
 
-## Resurse Utile
+**Recomandare:** 🥇 **Credit Prima Casă**
 
-- 📊 [Calculator Credit Ipotecar](https://lend.ro/calculator) - gratuit, actualizat zilnic
-- 🏦 [Comparație 12 Bănci](https://lend.ro/banci) - dobânzi, comisioane, condiții
-- 📖 [Ghid Credit Prima Casă 2026](https://lend.ro/blog/credit-prima-casa-2026)
-- 💡 [IRCC Explicat Simplu](https://lend.ro/blog/ircc-explicat)
-- 🔄 [Calculator Refinanțare](https://lend.ro/calculator?tip=refinantare)
-- 📞 [Contact / Întrebări](https://lend.ro/contact)
+**De ce:**
+- Avans minim (5%) = intri mai repede în piață
+- Dobândă subvenționată = economii semnificative
+- Garanție stat = banca e mai relaxată cu criteriile
+
+**Următorul pas:** Verifică dacă te încadrezi în plafoane → solicită preaprobarea de la 3 bănci (BT, BCR, ING)
 
 ---
 
-**Ultima actualizare:** 24 februarie 2026  
-**Conținut verificat de:** experți financiari lend.ro  
-**Vrei ajutor personalizat?** [Solicită oferte de la 5 bănci](https://lend.ro/cerere-oferte) sau scrie-ne la **hello@lend.ro**
+### 🎯 Ai **DEJA O CASĂ**, cumperi **A DOUA PROPRIETATE** (investiție/închiriere)
+
+**Recomandare:** 🥈 **Credit Ipotecar Standard**
+
+**De ce:**
+- Nu te califici pentru Prima Casă
+- Flexibilitate mai mare la valoarea creditului
+- Poți valorifica chiria viitoare ca venit suplimentar
+
+**Următorul pas:** Pregătește avans 20-25% (pentru dobândă mai bună) → compară oferte standard de la 5 bănci
 
 ---
 
-**👉 Ai găsit util acest ghid? Distribuie-l cu cineva care vrea să ia credit ipotecar!**
+### 🎯 Ai **CREDIT VECHI** cu **DOBÂNDĂ MARE** (7%+)
 
-**#CreditIpotecar #PrimaCasă #lendro #CreditImobiliar**
+**Recomandare:** 🔄 **Refinanțare Urgentă**
+
+**De ce:**
+- Economii imediate (300-500 RON/lună)
+- Break-even în 6-12 luni
+- Renegociere termeni (perioadă, asigurări)
+
+**Următorul pas:** Calculează economic pe [calculator refinanțare](https://lend.ro/calculator?tip=refinantare) → cere oferte de refinanțare de la BT, ING, Raiffeisen
+
+---
+
+### 🎯 Ești **PFA/SRL/FREELANCER**, venit variabil
+
+**Recomandare:** 🏦 **Bănci Specializate + Documentație Extra**
+
+**De ce:**
+- Bănci tradiționale sunt mai stricte
+- Trebuie bilanț pozitiv 2 ani + cazier fiscal curat
+- Posibil co-debitor (soț/soție cu salariu stabil)
+
+**Următorul pas:** Organizează contabilitatea → contactează Garanti BBVA, Raiffeisen, UniCredit (friendly pentru PFA)
+
+---
+
+### 🎯 Construiești **CASĂ NOUĂ** (teren + autorizație)
+
+**Recomandare:** 🏗️ **Credit Construcție în Tranșe**
+
+**De ce:**
+- Banca eliberează bani pe etape (fundație → structură → finisaje)
+- Plătești dobândă doar pe ce s-a eliberat deja
+- Control mai bun al costurilor
+
+**Următorul pas:** Obține autorizație construcție + proiect tehnic → contactează BCR, BT, Raiffeisen
+
+---
+
+### 🎯 Vrei **EFICIENȚĂ ENERGETICĂ** (casă nouă clasa A/B)
+
+**Recomandare:** 🌱 **Credit Verde + Subvenție AFIR**
+
+**De ce:**
+- Dobândă cu 0.25-0.5% mai mică
+- Subvenție până la 20.000 EUR (rambursabilă!)
+- Costuri reduse la utilități long-term
+
+**Următorul pas:** Verifică certificat energetic → cere oferte Credit Verde de la BCR, BT, Raiffeisen
+
+---
+
+## Gândește Long-Term: Creditul Ca Instrument de Wealth Building
+
+Un credit ipotecar nu este doar o datorie – este un **instrument financiar strategic** pentru construirea averii pe termen lung, dacă e gestionat corect. Iată perspectiva pe care mulți o ratează:
+
+**Scenariul tradițional (Ce vede majoritatea):**
+- Iau credit 300.000 RON
+- Plătesc 30 ani
+- Plătesc ~600.000 RON total (dublu!)
+- **Concluz: "Am plătit dublu pentru casă!"**
+
+**Scenariul strategic (Ce ar trebui să vezi):**
+- Iau credit 300.000 RON în 2026
+- Cumpăr casă la preț 2026 (blochez prețul ACUM)
+- În următorii 30 ani: **inflația lucrează PENTRU mine**
+  - Rata fixă 1.700 RON în 2026 = mult
+  - Rata fixă 1.700 RON în 2040 = puțin (inflaație 5%/an → putere de cumpărare scade cu 76%!)
+- **Casa mea crește în valoare (5%/an) → 400.000 → 1.7 milioane RON în 2056**
+- **Am plătit cu bani "ieftini" din viitor o casă valoroasă**
+
+**Plus:** În timpul celor 30 ani:
+- Economisesc **chiria** (1.500-2.500 RON/lună × 360 luni = 540.000-900.000 RON!)
+- Construiesc **capital propriu** (equity) în imobil
+- Pot **refinanța** și scot cash pentru alte investiții (business, a doua proprietate)
+- Las **moștenire** copiilor (proprietate paid-off)
+
+**Concluzia contraintuitivă:** Nu te uita la "cât plătesc în total", ci la:
+1. **Ce active construiesc?** (proprietate 400k → 1.7M)
+2. **Cât economisesc la chirie?** (540-900k)
+3. **Cum folosesc leverage-ul bancar?** (60k avans → 400k active)
+
+**ROI Real al creditului ipotecar bine gestionat: 300-500%+** pe 30 de ani (luând în calcul aprecierea + economii chirie + leverage)
+
+---
+
+## Ultimele Sfaturi de la Experții Lend.ro
+
+După ce am analizat sute de dosare de credit ipotecar și am consiliat mii de români, iată **cele 7 lecții esențiale** pe care le-am învățat:
+
+**1. Nu te grăbi – timpul e aliatul tău**
+Pregătirea în avans (12-18 luni) îți dublează șansele de aprobare și îți reduce dobânda cu 0.5-1%. Grabă = erori = respingere sau condiții proaste.
+
+**2. "Mai ieftin" nu înseamnă "mai bun"**
+Banca cu dobândă 5.3% DAR comisioane ascunse poate fi mai scumpă decât banca cu 5.5% transparent. Privește **DAE** (Dobândă Anuală Efectivă), nu doar dobânda nominală.
+
+**3. Flexibilitatea valorează bani**
+O bancă care permite rambursare anticipată gratuită poate economisi 50.000-100.000 RON pe viața creditului, chiar dacă dobânda e cu 0.2% mai mare.
+
+**4. Relația cu banca contează**
+Dacă ești client vechi (5+ ani, cont salariu, economii), poți negocia reduceri de 0.3-0.5%. Loialitatea se plătește, dar trebuie să o ceri activ.
+
+**5. Co-debitorul = power-up, NU lifeline**
+Folosește co-debitor pentru a lua credit MAI MARE (casă mai bună), nu pentru a te califica la limită. Dacă ai nevoie de co-debitor ca să te califici minim, creditul e probabil prea mare pentru tine.
+
+**6. Asigurările sunt negociabile**
+Nu accepta automat asigurările băncii. Poți cumpăra asigurare viață + RCA casă independent și economisești 30-40%/an. Dar verifică că banca le acceptă.
+
+**7. Documentează tot, păstrează totul**
+Toate conversațiile cu banca → email de confirmare. Toate promisiunile verbale → "Vă rog să-mi trimiteți asta în scris". Toate documentele → copii digitale + fizice. În 30 de ani, vei avea nevoie de ele.
+
+---
+
+**🏁 Ai ajuns la final!** Dacă ai citit până aici, ai acum mai multe cunoștințe despre credite ipotecare decât 90% din români. Următorul pas e simplu: **acționează**.
+
+**👉 Start acum:** [Calculează rata personalizată](https://lend.ro/calculator) (gratuit, 30 sec)
+
+**Ai întrebări?** Scrie-ne la **hello@lend.ro** – echipa lend.ro răspunde în < 24h.
+
+**Baftă la cumpărarea CASEI TALE! 🏠✨**

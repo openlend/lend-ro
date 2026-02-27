@@ -75,30 +75,64 @@ Nu aplica la o singură bancă. Folosește **servicii de intermediere** sau soli
 
 > **Sursă oficială:** Pentru a vedea evoluția riscurilor în sector, urmărește [Raportul de Stabilitate Financiară](https://www.bnr.ro/Publicatii-periodice-204.aspx) publicat semestrial de BNR.
 
-## Întrebări Frecvente (FAQ)
+## Erori Comune Care Duc la Respingerea Creditului
 
-**1. Cât timp înainte să încep să mă pregătesc pentru un credit ipotecar în 2026?**
-Îți recomandăm să începi procesul de pregătire cu **minimum 12-18 luni** înainte de data la care intenționezi să depui cererea. Acest timp este necesar pentru a-ți consolida istoricul creditar, a strânge avansul și a-ți organiza documentele de venit, mai ales dacă ești PFA sau SRL.
+Pe lângă pregătirea activă detaliată mai sus, este esențial să cunoști și ce să **eviți**. Multe cereri de credit ipotecar sunt respinse din cauza unor greșeli evitabile, comise din necunoaștere sau grabă.
 
-**2. Ce se întâmplă dacă sunt PFA și am venituri fluctuante?**
-Este o situație comună. Cheia este să demonstrezi o **tendință de creștere sau de stabilitate** pe o perioadă lungă (2-3 ani). Documentele tale fiscale (declarația unică) și situațiile financiare ale firmei sunt cruciale. Un contabil autorizat care să-ți poată întocmi și certifica situațiile financiare este un mare avantaj.
+**Eroare #1: Aplicarea fără verificarea prealabilă a BIR**
+Mulți solicitanți descoperă probleme în istoricul lor creditar abia după ce banca îi respinge. Obține raportul de la Biroul de Credit cu **6 luni înainte**, verifică toate înregistrările și corectează orice eroare. Chiar și o plată întârziată cu 5 zile din trecut poate influența decizia.
 
-**3. Pot obține credit ipotecar dacă am mai multe carduri de credit, dar le plătesc la timp?**
-Da, dar acestea vor fi luate în calcul la stabilirea **gradului tău de îndatorare (GDI)**. Plata la timp este excelentă pentru istoric, dar limita de credit disponibilă (chiar dacă nu o folosești) poate fi considerată o datorie potențială de către unele bănci. Poate fi indicat să închizi cardurile nefolosite înainte de aplicare.
+**Eroare #2: Schimbarea locului de muncă imediat înainte de aplicare**
+Stabilitatea este cheia. Dacă îți schimbi jobul cu 2-3 luni înainte de a aplica, banca va vedea asta ca un risc. Dacă intenționezi să faci o tranziție profesională, fă-o fie cu mult înainte (peste 12 luni), fie amână-o până după obținerea creditului.
 
-**4. De ce este atât de important extrasul de cont bancar personal?**
-Extrasul de cont este dovada practică a modului în care îți gestionezi banii zilnic. Banca verifică dacă veniturile declarate intră efectiv în cont, dacă ai obiceiuri riscante (jocuri de noroc, descoperiri) și dacă îți permiți un trai corespunzător cu veniturile, fără a cheltui peste limite. Arată disciplina și planificarea.
+**Eroare #3: Depunerea unei sume mari în numerar în contul tău recent**
+Dacă strângi avansul prin economii personale, asigură-te că acești bani sunt în contul tău bancar de **minim 3-6 luni**. O sumă mare apărută brusc ridică întrebări despre proveniunea banilor și poate duce la cerințe suplimentare de documentare sau chiar respingere. Dacă primești o sumă din vânzarea altui bun sau o donație, documentează clar și legal originea.
 
-**5. Cine poate fi co-debitor și cum ajută?**
-Un **co-debitor** (de obicei soțul/soția, un părinte) își adaugă veniturile și obligațiile la calculul creditului. Acest lucru poate mări semnificativ suma eligibilă sau poate compensa un venit mai mic sau un istoric imperfect al solicitantului principal. Atenție: co-debitorul răspunde solidar pentru întreaga datorie, iar creditul va apărea în istoricul creditar al ambelor părți.
+**Eroare #4: Subevaluarea cheltuielilor lunare**
+Când completezi formularul de analiză, nu ascunde cheltuieli recurente (rate existente, întreținere, școlarizare). Banca va descoperi oricum aceste costuri din extrasul de cont și lipsa transparenței poate duce la pierderea credibilității. Fii sincer și oferă o imagine completă a situației tale financiare.
 
-## Resurse Utile pentru Pregătire
+**Eroare #5: Alegerea unui imobil cu probleme juridice sau structurale**
+Înainte de a te îndrăgosti de o proprietate, verifică-i actele la Cartea Funciară și starea tehnică. Un imobil cu sarcini, litigii, sau probleme structurale semnificative poate face ca banca să refuze finanțarea, indiferent cât de bun e profilul tău financiar.
 
-*   **Biroul de Credit:** Pentru obținerea gratuită a raportului tău de credit. ([Website Oficial](https://www.birouldecredit.ro/))
-*   **Banca Națională a României (BNR):** Pentru reglementări, rapoarte de stabilitate financiară și dobânzi de referință. ([Website Oficial](https://www.bnr.ro/))
-*   **Autoritatea de Supraveghere Financiară (ASF):** Pentru informații despre asigurările obligatorii aferente creditului. ([Website Oficial](https://asfromania.ro/))
+## Planul Tău de Acțiune pentru 2026
 
-## Disclaimer
+Având toate aceste informații, iată un **plan structurat pe etape**, cu termene clare, pentru a-ți maximiza șansele de aprobare în 2026:
 
-Acest articol are scop informativ și educațional. Conținutul său nu constituie sfat financiar, juridic sau de investiții personalizat. Condițiile pentru **creditele ipotecare** variază în funcție de politica fiecărei bănci, de reglementările BNR aplicabile la momentul solicitării și de situația personală a fiecărui solicitant. Pentru o analiză personalizată și oferte concrete, vă recomandăm să consultați specialiști în credite sau reprezentanți ai instituțiilor financiare autorizate. Înainte de a lua orice decizie financiară semnificativă, efectuați propria cercetare și solicitați consultanță profesională.
+**12-18 luni înainte:**
+- Obține raportul BIR și corectează orice probleme
+- Deschide un cont de economii dedicat avansului
+- Dacă ești PFA/SRL, organizează-ți contabilitatea
+- Începe să plătești toate ratele existente cu 5 zile înainte de scadență
+
+**9-12 luni înainte:**
+- Verifică-ți GDI și închide creditele mici costisitoare
+- Strânge minim 50% din avans în contul bancar
+- Definește zona și tipul de imobil dorit
+- Studiază ofertele băncilor și identifică 3-4 favoriti
+
+**6-9 luni înainte:**
+- Completează avansul necesar + rezervă pentru cheltuieli (notar, asigurări)
+- Dacă ești salariat, verifică cu HR că adeverința va fi disponibilă rapid
+- Dacă ești PFA/SRL, asigură-te că bilanțul pentru anul curent este pregătit
+- Verifică din nou BIR și asigură-te că nu au apărut probleme noi
+
+**3-6 luni înainte:**
+- Începe căutarea activă a imobilului potrivit
+- Pregătește toate documentele necesare în dosare ordonate
+- Contactează un evaluator autorizat pentru o evaluare preliminară
+- Evită orice operațiuni financiare neobișnuite (sume mari în numerar, împrumuturi de la persoane fizice)
+
+**1-3 luni înainte:**
+- Identifică imobilul și negociază prețul
+- Depune cererile la 3-4 bănci simultan pentru a compara oferte
+- Semnează antecontractul de vânzare-cumpărare
+- Asigură-te că vânzătorul are toate actele în regulă
+
+**Săptămâna aplicării:**
+- Depune dosarul complet la banca selectată
+- Răspunde prompt la orice cerere de documente suplimentare
+- Menține o comunicare constantă cu consultantul de credite
+- Așteptă evaluarea și decizia bancii cu încredere, știind că ai făcut tot ce putea fi făcut
+
+Urmând acest plan structurat și evitând erorile comune, șansele tale de aprobare în 2026 cresc dramatic. Nu este vorba doar despre a îndeplini niște cerințe, ci despre a demonstra băncii că ești un partener de încredere, organizat și responsabil financiar pe termen lung. Pregătirea riguroasă este cheia succesului în obținerea unui credit ipotecar.
 ```
