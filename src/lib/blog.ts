@@ -17,6 +17,7 @@ export interface BlogPost {
   category: string;
   readingTime: string;
   featured: boolean;
+  image?: string;
   content: string;
 }
 
@@ -60,6 +61,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
       category: data.category || 'Uncategorized',
       readingTime: data.readingTime || '5 min',
       featured: data.featured || false,
+      image: data.image || data.featuredImage || undefined,
       content: contentHtml,
     };
   } catch (error) {

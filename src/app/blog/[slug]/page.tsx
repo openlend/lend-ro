@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 
@@ -130,6 +131,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Content */}
         <article className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
+            {/* Featured Image */}
+            {post.image && (
+              <div className="relative w-full h-64 md:h-96 mb-10 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 896px"
+                  priority
+                />
+              </div>
+            )}
+
             {/* Blog Content */}
             <div
               className="prose prose-lg prose-slate max-w-none

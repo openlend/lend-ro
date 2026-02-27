@@ -9,6 +9,7 @@ updated: "2026-02-24"
 category: "Ghiduri"
 readingTime: "12 min"
 featured: true
+image: "/blog/ghid-credit-ipotecar-2026.svg"
 ---
 
 # Ghid Complet Credit Ipotecar 2026: Tot Ce Trebuie Să Știi
