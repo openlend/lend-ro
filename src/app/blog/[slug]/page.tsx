@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.image && (
               <div className="relative w-full h-64 md:h-96 mb-10 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
                 <Image
-                  src={post.image.startsWith('/') ? `https://lend.ro${post.image}` : post.image}
+                  src={post.image}
                   alt={post.title}
                   fill
                   className="object-cover"
@@ -156,12 +156,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 prose-headings:font-bold prose-headings:text-[#0A2F2F]
                 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
                 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+                prose-p:text-gray-700 prose-p:leading-8 prose-p:mb-6
                 prose-a:text-[#FF6B2C] prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-[#0A2F2F] prose-strong:font-bold
                 prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
                 prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
-                prose-li:mb-2 prose-li:text-gray-700
+                prose-li:mb-2 prose-li:text-gray-700 prose-li:leading-7
                 prose-blockquote:border-l-4 prose-blockquote:border-[#FF6B2C] prose-blockquote:pl-4 prose-blockquote:italic
                 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
                 prose-pre:bg-gray-900 prose-pre:text-white prose-pre:p-4 prose-pre:rounded-lg
