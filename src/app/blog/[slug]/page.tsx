@@ -92,7 +92,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <main className="min-h-screen bg-white">
         {/* Header */}
-        <div className="bg-gradient-to-b from-[#0A2F2F] to-[#0A2F2F]/95 text-white py-24">
+        <div
+          className="bg-gradient-to-b from-[#0A2F2F] to-[#0A2F2F]/95 text-white py-24"
+          style={{ backgroundColor: '#0A2F2F' }}
+        >
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               {/* Breadcrumb */}
