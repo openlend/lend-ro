@@ -93,13 +93,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <main className="min-h-screen bg-white">
         {/* Header */}
         <div
-          className="bg-gradient-to-b from-[#0A2F2F] to-[#0A2F2F]/95 text-white py-24"
+          className="bg-gradient-to-b from-[#0A2F2F] to-[#0A2F2F]/95 text-white py-12 md:py-20"
           style={{ backgroundColor: '#0A2F2F' }}
         >
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               {/* Breadcrumb */}
-              <div className="flex items-center gap-2 text-sm text-white/60 mb-6">
+              <div className="flex items-center gap-2 text-sm text-white/60 mb-4">
                 <Link href="/" className="hover:text-white transition-colors">
                   Acasă
                 </Link>
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
 
               {/* Category & Meta */}
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-4">
                 <span className="bg-[#FF6B2C] text-white text-sm px-3 py-1 rounded-full">
                   {post.category}
                 </span>
@@ -121,12 +121,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
                 {post.title}
               </h1>
 
               {/* Description */}
-              <p className="text-xl text-white/80 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/80 leading-relaxed">
                 {post.description}
               </p>
             </div>
@@ -134,7 +134,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Content */}
-        <article className="container mx-auto px-4 py-16">
+        <article className="container mx-auto px-4 py-10 md:py-14">
           <div className="max-w-4xl mx-auto">
             {/* Featured Image */}
             {post.image && (
@@ -156,7 +156,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 prose-headings:font-bold prose-headings:text-[#0A2F2F]
                 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
                 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-gray-700 prose-p:leading-8 prose-p:mb-6
+                prose-p:text-gray-700 prose-p:leading-7 prose-p:mb-6
                 prose-a:text-[#FF6B2C] prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-[#0A2F2F] prose-strong:font-bold
                 prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
