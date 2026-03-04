@@ -22,6 +22,18 @@ const faqs = [
   {
     question: 'Cât durează aprobarea unui credit ipotecar?',
     answer: 'Procesul de aprobare durează în medie 7-14 zile lucrătoare. Include: evaluarea dosarului (1-3 zile), evaluarea proprietății (2-5 zile), aprobarea finală (3-7 zile). Dacă actele sunt complete și bine pregătite, procesul poate fi mai rapid. După aprobare, urmează semnarea contractului la notar și deblocarea banilor.'
+  },
+  {
+    question: 'Pot obține credit dacă am un contract pe perioadă determinată?',
+    answer: 'Da, multe bănci acceptă contracte pe perioadă determinată, dar de obicei cer o vechime minimă în muncă (6-12 luni) și ar putea solicita documente suplimentare. Riscul este evaluat în funcție de stabilitatea veniturilor.'
+  },
+  {
+    question: 'Ce costuri ascunse să urmăresc la semnarea contractului?',
+    answer: 'Uită-te la comisioane de analiză dosar, comisioane de administrare, penalități pentru rambursare anticipată, costuri cu evaluarea imobilului, asigurări obligatorii și eventuale taxe bancare lunare. Cere un simulacru de plăți pentru 1-5 ani pentru a vedea costul real.'
+  },
+  {
+    question: 'Pot refinanța pentru a scoate bani din imobil (cash-out)?',
+    answer: 'Da, refinanțarea cu cash-out este posibilă dacă valoarea curentă a imobilului și gradul tău de îndatorare permit. Băncile pot acorda o parte din valoarea imobilului în numerar, dar vei plăti costuri de evaluare, comisioane și poate o dobândă mai mare.'
   }
 ];
 

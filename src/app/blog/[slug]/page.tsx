@@ -33,11 +33,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: post.published,
       modifiedTime: post.updated,
       authors: [post.author],
+      images: post.image ? [ `https://lend.ro${post.image.startsWith('/') ? post.image : `/${post.image}`}` ] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
+      images: post.image ? [ `https://lend.ro${post.image.startsWith('/') ? post.image : `/${post.image}`}` ] : undefined,
     },
     alternates: {
       canonical: `https://lend.ro/blog/${post.slug}`,
@@ -135,7 +137,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.image && (
               <div className="relative w-full h-64 md:h-96 mb-10 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
                 <Image
-                  src={post.image}
+                  src={post.image.startsWith('/') ? `https://lend.ro${post.image}` : post.image}
                   alt={post.title}
                   fill
                   className="object-cover"
