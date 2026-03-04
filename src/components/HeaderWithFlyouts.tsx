@@ -195,6 +195,14 @@ export default function HeaderWithFlyouts() {
                 )}
               </div>
 
+              {/* Blog (link direct) */}
+              <Link 
+                href="/blog" 
+                className="text-sm font-medium text-gray-700 hover:text-[#00D186] transition-colors"
+              >
+                Blog
+              </Link>
+
               {/* Resurse Flyout */}
               <div
                 className="relative"

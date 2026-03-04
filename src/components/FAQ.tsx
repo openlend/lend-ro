@@ -34,6 +34,22 @@ const faqs = [
   {
     question: 'Pot refinanța pentru a scoate bani din imobil (cash-out)?',
     answer: 'Da, refinanțarea cu cash-out este posibilă dacă valoarea curentă a imobilului și gradul tău de îndatorare permit. Băncile pot acorda o parte din valoarea imobilului în numerar, dar vei plăti costuri de evaluare, comisioane și poate o dobândă mai mare.'
+  },
+  {
+    question: 'Ce documente se cer, de obicei, pentru credit ipotecar?',
+    answer: 'În mod tipic: act de identitate, adeverință de venit / extras Revisal (sau documente pentru PFA/SRL), extras de cont, antecontract, acte proprietate, certificat energetic și documente de la evaluator. Lista exactă diferă pe bancă și pe tipul venitului.'
+  },
+  {
+    question: 'Ce înseamnă DAE și de ce contează mai mult decât dobânda?',
+    answer: 'DAE (Dobânda Anuală Efectivă) include nu doar dobânda, ci și costuri precum comisioane și unele taxe recurente. E utilă pentru comparație între oferte, dar verifică și condițiile (perioada dobânzii fixe, comisioane, asigurări, rambursare anticipată).'
+  },
+  {
+    question: 'Pot rambursa anticipat și cum mă ajută?',
+    answer: 'Da. Rambursarea anticipată îți poate reduce costul total al creditului. De regulă poți alege: scazi perioada (cel mai eficient pe termen lung) sau scazi rata. Verifică în contract eventualele comisioane (mai ales pe dobândă fixă) și modul de calcul.'
+  },
+  {
+    question: 'E mai bine să aleg perioada maximă (30 ani) sau mai mică?',
+    answer: 'Perioada mai lungă scade rata lunară (mai ușor de încadrat), dar crește costul total. Perioada mai scurtă crește rata, dar reduce dobânda totală plătită. O strategie des întâlnită: alegi 30 ani pentru flexibilitate și rambursezi anticipat când ai surplus.'
   }
 ];
 
