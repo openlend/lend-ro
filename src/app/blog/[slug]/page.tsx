@@ -1,14 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import { getBlogPostBySlug } from '@/lib/blog';
+
+import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 
-// Render on-demand so content updates and encoding fixes are visible immediately (no stale prerenders).
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+export const revalidate = 3600;
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateStaticParams() {
+  const posts = await getAllBlogPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { 
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
   
@@ -135,14 +138,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="max-w-4xl mx-auto">
             {/* Featured Image */}
             {post.image && (
-              <div className="relative w-full h-64 md:h-96 mb-10 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
-                <Image
+              <div className="w-full mb-10 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
+                <img
                   src={post.image}
                   alt={post.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 896px"
-                  priority
+                  className="w-full h-auto block"
+                  loading="eager"
                 />
               </div>
             )}
