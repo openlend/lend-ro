@@ -176,7 +176,7 @@ Credit Ipotecar Clasic e calea cand:
 
 Vad oameni care tergiverseaza luni de zile intre "care-i mai bun", cand diferenta reala intre ambele (pe toata durata) e mai mica decat o luna de rate in plus. Problema nu-i alegerea - e nepregătire.
 
-Nebunul ala care iti face creditarea e investit sa-ti dea suma pe care o poti suporta. Dacă intri cu calcule goale și speranță, nu datorie calculata, atunci, nu conteaza daca e Prima Casa sau clasic - amandoua or sa doara.
+Nebunul ala care iti face creditarea e investit sa-ti dea suma pe care o poti suporta. Dacă intri cu calcule goale �'i speranță, nu datorie calculata, atunci, nu conteaza daca e Prima Casa sau clasic - amandoua or sa doara.
 
-Alege astazi pe baza situatiei tale, nu pe baza "ce zice vecinul". După aia, calculeaza de 3 ori mai mult decat crezi ca trebuie. Și abia atunci, semneaza.
+Alege astazi pe baza situatiei tale, nu pe baza "ce zice vecinul". După aia, calculeaza de 3 ori mai mult decat crezi ca trebuie. �'i abia atunci, semneaza.
 
