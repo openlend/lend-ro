@@ -421,15 +421,17 @@ export default function Calculator() {
                               className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                               onClick={() => setShowDownPaymentInfo(false)}
                             ></div>
-                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
-                              <button
-                                onClick={() => setShowDownPaymentInfo(false)}
-                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
-                              >
-                                ×
-                              </button>
-                              <div className="pr-6">
-                                {secondLoanTooltip}
+                            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                              <div className="w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp relative">
+                                <button
+                                  onClick={() => setShowDownPaymentInfo(false)}
+                                  className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                                >
+                                  ×
+                                </button>
+                                <div className="pr-6">
+                                  {secondLoanTooltip}
+                                </div>
                               </div>
                             </div>
                           </>
@@ -468,16 +470,18 @@ export default function Calculator() {
                               className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                               onClick={() => setShowDividendInfo(false)}
                             ></div>
-                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
-                              <button
-                                onClick={() => setShowDividendInfo(false)}
-                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
-                              >
-                                ×
-                              </button>
-                              <div className="pr-6">
-                                <strong className="block mb-1">Venit din dividende ⓘ</strong>
-                                Pentru dividende, băncile consideră doar <strong>50% din venit</strong> la calculul capacității de rambursare (conform normelor BNR). Exemplu: 10,000 RON dividende = 5,000 RON venit considerat.
+                            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                              <div className="w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp relative">
+                                <button
+                                  onClick={() => setShowDividendInfo(false)}
+                                  className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                                >
+                                  ×
+                                </button>
+                                <div className="pr-6">
+                                  <strong className="block mb-1">Venit din dividende ⓘ</strong>
+                                  Pentru dividende, băncile consideră doar <strong>50% din venit</strong> la calculul capacității de rambursare (conform normelor BNR). Exemplu: 10,000 RON dividende = 5,000 RON venit considerat.
+                                </div>
                               </div>
                             </div>
                           </>
@@ -573,16 +577,18 @@ export default function Calculator() {
                               className="fixed inset-0 z-40 bg-black bg-opacity-30 animate-fadeIn" 
                               onClick={() => setShowIncomeInfo(false)}
                             ></div>
-                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp">
-                              <button
-                                onClick={() => setShowIncomeInfo(false)}
-                                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
-                              >
-                                ×
-                              </button>
-                              <div className="pr-6">
-                                <strong className="block mb-1">Venit net lunar</strong>
-                                Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
+                            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                              <div className="w-80 max-w-[90vw] p-4 bg-[#0B1B3E] text-white text-sm rounded-xl shadow-2xl animate-slideUp relative">
+                                <button
+                                  onClick={() => setShowIncomeInfo(false)}
+                                  className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-colors text-lg"
+                                >
+                                  ×
+                                </button>
+                                <div className="pr-6">
+                                  <strong className="block mb-1">Venit net lunar</strong>
+                                  Venitul net lunar (după taxe) este folosit pentru calculul gradului de îndatorare. Băncile acceptă max 40-45% din venit pentru rate.
+                                </div>
                               </div>
                             </div>
                           </>
