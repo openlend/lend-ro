@@ -21,6 +21,15 @@ Acest ghid condensat îți oferă o privire clară și practică asupra procesul
 
 Dacă vrei, la final îți pot pregăti o simulare personalizată pe baza veniturilor și avansului tău.
 
+Linkuri utile (interne):
+- Calculează rapid în [calculatorul de rate](/calculator)
+- Compară opțiuni în [lista de bănci](/banci)
+- Vezi comparația scurtă: [Prima Casă vs credit clasic](/blog/prima-casa-vs-credit)
+
+Surse autoritate (externe):
+- [BNR - IRCC (valori și metodologie)](https://www.bnr.ro/IRCC-784.aspx)
+- [OUG 50/2010 (forma consolidată)](https://legislatie.just.ro/Public/DetaliiDocument/120270)
+
 ## Ce este un credit ipotecar?
 
 Creditul ipotecar (credit imobiliar) este un împrumut pe termen lung folosit pentru achiziția, renovarea sau construcția unei locuințe. Imobilul servește drept garanție (ipotecă) până la rambursare.
