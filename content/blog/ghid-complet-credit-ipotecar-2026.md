@@ -1,8 +1,8 @@
 ---
-title: "Ghid Complet Credit Ipotecar 2026: Tot Ce Trebuie Să �'tii"
+title: "Ghid Complet Credit Ipotecar 2026: Tot Ce Trebuie SÄƒ È'tii"
 slug: "ghid-complet-credit-ipotecar-2026"
-description: "Ghid complet credit ipotecar în România 2026: tipuri de credite, condiții, acte necesare, calculul ratei �'i strategii pentru economii."
-keywords: ["credit ipotecar", "ghid 2026", "refinanțare", "Prima Casă"]
+description: "Ghid complet credit ipotecar Ã®n RomÃ¢nia 2026: tipuri de credite, condiÈ›ii, acte necesare, calculul ratei È'i strategii pentru economii."
+keywords: ["credit ipotecar", "ghid 2026", "refinanÈ›are", "Prima CasÄƒ"]
 author: "lend.ro"
 published: "2026-02-24"
 updated: "2026-02-24"
@@ -10,100 +10,100 @@ category: "Ghiduri"
 readingTime: "12 min"
 featured: true
 image: "/images/ghid-credit-ipotecar-2026.jpg"
-imageAlt: "O familie semnând acte la notar  -  simbol al tranzacției imobiliare"
+imageAlt: "O familie semnÃ¢nd acte la notar  -  simbol al tranzacÈ›iei imobiliare"
 imagePlan: "Hero: fotografie semnare notar + calculator de rate. Module: diagrame explicative pentru tipuri de credite, tabel costuri total."
 ---
 
-# Ghid Complet Credit Ipotecar 2026: Tot Ce Trebuie Să �'tii
+# Ghid Complet Credit Ipotecar 2026: Tot Ce Trebuie SÄƒ È'tii
 
-Acest ghid condensat îți oferă o privire clară �'i practică asupra procesului de obținere a unui credit ipotecar în România în 2026: tipuri de produse, criterii de eligibilitate, pa�'i de urmat, calcule utile �'i strategii pentru a economisi mii de lei.
+Acest ghid condensat Ã®È›i oferÄƒ o privire clarÄƒ È'i practicÄƒ asupra procesului de obÈ›inere a unui credit ipotecar Ã®n RomÃ¢nia Ã®n 2026: tipuri de produse, criterii de eligibilitate, paÈ'i de urmat, calcule utile È'i strategii pentru a economisi mii de lei.
 
-Dacă vrei, la final îți pot pregăti o simulare personalizată pe baza veniturilor �'i avansului tău.
+DacÄƒ vrei, la final Ã®È›i pot pregÄƒti o simulare personalizatÄƒ pe baza veniturilor È'i avansului tÄƒu.
 
 ## Ce este un credit ipotecar?
 
-Creditul ipotecar (credit imobiliar) este un împrumut pe termen lung folosit pentru achiziția, renovarea sau construcția unei locuințe. Imobilul serve�'te drept garanție (ipotecă) până la rambursare.
+Creditul ipotecar (credit imobiliar) este un Ã®mprumut pe termen lung folosit pentru achiziÈ›ia, renovarea sau construcÈ›ia unei locuinÈ›e. Imobilul serveÈ'te drept garanÈ›ie (ipotecÄƒ) pÃ¢nÄƒ la rambursare.
 
 Caracteristici rapide:
-- Avans: 5% (Prima Casă) sau 10"-25% pentru credite standard
-- Durată: 5"-30 ani
-- Dobândă: fixă pe perioadă contractuală sau variabilă (IRCC/EURIBOR + marjă)
+- Avans: 5% (Prima CasÄƒ) sau 10"-25% pentru credite standard
+- DuratÄƒ: 5"-30 ani
+- DobÃ¢ndÄƒ: fixÄƒ pe perioadÄƒ contractualÄƒ sau variabilÄƒ (IRCC/EURIBOR + marjÄƒ)
 
 ## Tipuri principale de credite
 
-1. Prima Casă (Noua Casă)  -  avans redus, garanție parțială de stat, plafoane aplicabile.
-2. Credit standard  -  pentru a doua locuință sau când nu te încadrezi la Prima Casă.
-3. Refinanțare  -  transfer de la o bancă la alta pentru condiții mai bune.
-4. Credit construcție/transa  -  eliberare pe etape pentru case noi.
-5. Credit verde  -  condiții preferențiale pentru locuințe eficiente energetic.
+1. Prima CasÄƒ (Noua CasÄƒ)  -  avans redus, garanÈ›ie parÈ›ialÄƒ de stat, plafoane aplicabile.
+2. Credit standard  -  pentru a doua locuinÈ›Äƒ sau cÃ¢nd nu te Ã®ncadrezi la Prima CasÄƒ.
+3. RefinanÈ›are  -  transfer de la o bancÄƒ la alta pentru condiÈ›ii mai bune.
+4. Credit construcÈ›ie/transa  -  eliberare pe etape pentru case noi.
+5. Credit verde  -  condiÈ›ii preferenÈ›iale pentru locuinÈ›e eficiente energetic.
 
-## Condiții de eligibilitate (pe scurt)
+## CondiÈ›ii de eligibilitate (pe scurt)
 
-- Vârstă: 18"-70/75 ani la finalul creditului
-- Grad de îndatorare: în general "-- 40% din venit net
-- Istoric BIR curat (fără restanțe semnificative)
+- VÃ¢rstÄƒ: 18"-70/75 ani la finalul creditului
+- Grad de Ã®ndatorare: Ã®n general "-- 40% din venit net
+- Istoric BIR curat (fÄƒrÄƒ restanÈ›e semnificative)
 - Venituri documentate: salariu, PFA/SRL, chirii etc.
 
 ## Actele necesare (checklist)
 
-Documente personale: CI/pa�'aport, certificat stare civilă (dacă e cazul).
-Documente venit: adeverință salariu (ultimele 3 luni), flutura�'i, bilanț (PFA/SRL).
-Documente imobil: antecontract/contract, extras carte funciară, raport evaluare.
-Extras: pregăte�'te �'i dovada sursei avansului (extras cont + document justificativ).
+Documente personale: CI/paÈ'aport, certificat stare civilÄƒ (dacÄƒ e cazul).
+Documente venit: adeverinÈ›Äƒ salariu (ultimele 3 luni), fluturaÈ'i, bilanÈ› (PFA/SRL).
+Documente imobil: antecontract/contract, extras carte funciarÄƒ, raport evaluare.
+Extras: pregÄƒteÈ'te È'i dovada sursei avansului (extras cont + document justificativ).
 
-## Cum se calculează rata? (varianta u�'oară)
+## Cum se calculeazÄƒ rata? (varianta uÈ'oarÄƒ)
 
-Rata lunară depinde de: suma împrumutată, dobândă anuală, perioada (luni). Cel mai simplu e să folose�'ti un calculator online, dar formula tehnică folose�'te o anuitate constantă.
+Rata lunarÄƒ depinde de: suma Ã®mprumutatÄƒ, dobÃ¢ndÄƒ anualÄƒ, perioada (luni). Cel mai simplu e sÄƒ foloseÈ'ti un calculator online, dar formula tehnicÄƒ foloseÈ'te o anuitate constantÄƒ.
 
-Exemplu: 300.000 RON, 30 ani, dobândă 5.4% "-- rată "-- 1.700 RON.
+Exemplu: 300.000 RON, 30 ani, dobÃ¢ndÄƒ 5.4% "-- ratÄƒ "-- 1.700 RON.
 
-## Costuri adiționale pe care să le iei în calcul
+## Costuri adiÈ›ionale pe care sÄƒ le iei Ã®n calcul
 
 - Evaluare: 300"-500 RON
-- Notariat �'i taxe pentru ipotecă: 500"-3.000 RON
-- Asigurare imobil + asigurare viață (unele bănci cer poliță)  -  500"-1.500 RON/an
-- Comisioane bancare: analiză, administrare (0"-1% în funcție de bancă)
+- Notariat È'i taxe pentru ipotecÄƒ: 500"-3.000 RON
+- Asigurare imobil + asigurare viaÈ›Äƒ (unele bÄƒnci cer poliÈ›Äƒ)  -  500"-1.500 RON/an
+- Comisioane bancare: analizÄƒ, administrare (0"-1% Ã®n funcÈ›ie de bancÄƒ)
 
-## Strategii pentru a obține o dobândă mai bună
+## Strategii pentru a obÈ›ine o dobÃ¢ndÄƒ mai bunÄƒ
 
-- Avans mai mare "-- risc mai mic "-- marjă mai mică
-- Virament salariu + produse bancare "-- reduceri la dobândă
-- Compară oferte la minim 3 bănci �'i folose�'te oferta concurentă ca leviatan de negociere
-- Alege perioada fixă adecvată sectorului economic (dacă te a�'tepți la cre�'teri, fixează pe 5 ani)
+- Avans mai mare "-- risc mai mic "-- marjÄƒ mai micÄƒ
+- Virament salariu + produse bancare "-- reduceri la dobÃ¢ndÄƒ
+- ComparÄƒ oferte la minim 3 bÄƒnci È'i foloseÈ'te oferta concurentÄƒ ca leviatan de negociere
+- Alege perioada fixÄƒ adecvatÄƒ sectorului economic (dacÄƒ te aÈ'tepÈ›i la creÈ'teri, fixeazÄƒ pe 5 ani)
 
-## Rambursare anticipată  -  ce verifici
+## Rambursare anticipatÄƒ  -  ce verifici
 
-- Majoritatea băncilor permit rambursare anticipată parțială; unele percep comision în primii ani.
-- Preferă o bancă care oferă rambursare anticipată gratuită dacă planifici să plăte�'ti extra.
+- Majoritatea bÄƒncilor permit rambursare anticipatÄƒ parÈ›ialÄƒ; unele percep comision Ã®n primii ani.
+- PreferÄƒ o bancÄƒ care oferÄƒ rambursare anticipatÄƒ gratuitÄƒ dacÄƒ planifici sÄƒ plÄƒteÈ'ti extra.
 
-## FAQ (cele mai frecvente întrebări rapide)
+## FAQ (cele mai frecvente Ã®ntrebÄƒri rapide)
 
-- Pot lua credit cu salariu minim? Da, dar alegerea perioadei �'i avansului influențează suma acceptată.
-- PFA/SRL: nevoie de 2 ani de activitate �'i bilanț pozitiv în general.
-- Credit EUR vs RON: EUR poate avea dobândă mai mică, dar aduce risc valutar.
+- Pot lua credit cu salariu minim? Da, dar alegerea perioadei È'i avansului influenÈ›eazÄƒ suma acceptatÄƒ.
+- PFA/SRL: nevoie de 2 ani de activitate È'i bilanÈ› pozitiv Ã®n general.
+- Credit EUR vs RON: EUR poate avea dobÃ¢ndÄƒ mai micÄƒ, dar aduce risc valutar.
 
-## Pa�'i recomandati (timeline 2"-4 săptămâni pentru aplicare)
+## PaÈ'i recomandati (timeline 2"-4 sÄƒptÄƒmÃ¢ni pentru aplicare)
 
-1. Calculează bugetul �'i folose�'te un calculator de rate.
-2. Pregăte�'te actele (1"-3 zile).
-3. Solicită oferte (48"-72 ore) de la 3"-5 bănci.
+1. CalculeazÄƒ bugetul È'i foloseÈ'te un calculator de rate.
+2. PregÄƒteÈ'te actele (1"-3 zile).
+3. SolicitÄƒ oferte (48"-72 ore) de la 3"-5 bÄƒnci.
 4. Depune dosarul complet.
-5. A�'teaptă evaluarea �'i decizia (7"-14 zile).
-6. Semnezi la notar �'i prime�'ti decontarea (1"-3 zile).
+5. AÈ'teaptÄƒ evaluarea È'i decizia (7"-14 zile).
+6. Semnezi la notar È'i primeÈ'ti decontarea (1"-3 zile).
 
 ## Concluzii practice
 
-Un credit ipotecar bine negociat �'i gestionat este unul dintre cele mai eficiente instrumente de acumulare a averii pe termen lung. Cu pregătire, comparație �'i disciplină la plată poți economisi zeci sau sute de mii de lei pe durata creditului.
+Un credit ipotecar bine negociat È'i gestionat este unul dintre cele mai eficiente instrumente de acumulare a averii pe termen lung. Cu pregÄƒtire, comparaÈ›ie È'i disciplinÄƒ la platÄƒ poÈ›i economisi zeci sau sute de mii de lei pe durata creditului.
 
 ---
 
-Imagini & plan de conținut vizual
+Imagini & plan de conÈ›inut vizual
 
-- Hero: semnare notar (alt: "Familie care semnează acte la notar pentru achiziția locuinței").
-- Module: tabel costuri totale, grafic diferență perioadă 20 vs 30 ani, checklist printabil.
+- Hero: semnare notar (alt: "Familie care semneazÄƒ acte la notar pentru achiziÈ›ia locuinÈ›ei").
+- Module: tabel costuri totale, grafic diferenÈ›Äƒ perioadÄƒ 20 vs 30 ani, checklist printabil.
 
 ---
 
-Operatorii buni din piață îți vor spune acela�'i lucru: creditul nu te rupe, lipsa planului te rupe. Dacă intri cu avans minim, fără buffer, cu un cost total pe care nu l-ai calculat, o să simți fiecare fluctuație.
+Operatorii buni din piaÈ›Äƒ Ã®È›i vor spune acelaÈ'i lucru: creditul nu te rupe, lipsa planului te rupe. DacÄƒ intri cu avans minim, fÄƒrÄƒ buffer, cu un cost total pe care nu l-ai calculat, o sÄƒ simÈ›i fiecare fluctuaÈ›ie.
 
-Opinia mea: mai bine mai a�'tepți 3-6 luni �'i îți întăre�'ti dosarul, decât să intri azi într-un credit pe care îl cari 25 de ani cu stres.
+Opinia mea: mai bine mai aÈ'tepÈ›i 3-6 luni È'i Ã®È›i Ã®ntÄƒreÈ'ti dosarul, decÃ¢t sÄƒ intri azi Ã®ntr-un credit pe care Ã®l cari 25 de ani cu stres.

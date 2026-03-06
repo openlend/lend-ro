@@ -31,7 +31,7 @@ Intr-o faza anterioara, am explicat detaliat cum se calculeaza [IRCC si cum afec
 Credit Prima Casa e un produs de stat, creat sa facilitate accesul la locuinta pentru cei care inca nu au castig de creditare imobiliara. E doar pentru locuinta de rezidenta, nu pentru investitii.
 
 ### Conditii de acces:
-- Nu ai avut in proprietate o locuinta pe care s-ai putut incasa chirie (nu conteaza daca ai avut-o ca habitatie, dar daca ai vândut-o inainte de 3 luni, pierzi eligibilitatea)
+- Nu ai avut in proprietate o locuinta pe care s-ai putut incasa chirie (nu conteaza daca ai avut-o ca habitatie, dar daca ai vÃ¢ndut-o inainte de 3 luni, pierzi eligibilitatea)
 - Varsta maxima: 35 ani (unele banci mai acorda pana la 37-40 ani, dar sunt exceptii)
 - Locuinta trebuie sa fie locuinta principala
 - Plafon de pret: ~500.000 RON (depinde de regulamentul anual)
@@ -51,7 +51,7 @@ Credit Prima Casa e un produs de stat, creat sa facilitate accesul la locuinta p
 
 ## Ce e Credit Ipotecar Clasic?
 
-E creditul "normal" pe care ti-l face orice banca pentru orice cumpărare imobiliara (locuinta, casa de vacanța, teren, chiar si investitii). Nu ai restrictii de varsta sau de proprietate anterioara.
+E creditul "normal" pe care ti-l face orice banca pentru orice cumpÄƒrare imobiliara (locuinta, casa de vacanÈ›a, teren, chiar si investitii). Nu ai restrictii de varsta sau de proprietate anterioara.
 
 ### Conditii de acces:
 - Orice varsta intre 18 si 75 de ani
@@ -156,7 +156,7 @@ IRCC = rata variabila, se schimba lunar. Dobanda fixa = ramane la fel pana la sf
 
 Da, dar depinde de contract. Unele impun termenuri scurte de asteptare (3-5 ani) inainte sa poti rambursa fara penalizare. Verifica.
 
-## Concluzia practică
+## Concluzia practicÄƒ
 
 Acum stii diferenta. Prima Casa e o alegere mai buna daca:
 - Ai sub 35 de ani
@@ -174,9 +174,9 @@ Credit Ipotecar Clasic e calea cand:
 
 ## Opinia mea
 
-Vad oameni care tergiverseaza luni de zile intre "care-i mai bun", cand diferenta reala intre ambele (pe toata durata) e mai mica decat o luna de rate in plus. Problema nu-i alegerea - e nepregătire.
+Vad oameni care tergiverseaza luni de zile intre "care-i mai bun", cand diferenta reala intre ambele (pe toata durata) e mai mica decat o luna de rate in plus. Problema nu-i alegerea - e nepregÄƒtire.
 
-Nebunul ala care iti face creditarea e investit sa-ti dea suma pe care o poti suporta. Dacă intri cu calcule goale �'i speranță, nu datorie calculata, atunci, nu conteaza daca e Prima Casa sau clasic - amandoua or sa doara.
+Nebunul ala care iti face creditarea e investit sa-ti dea suma pe care o poti suporta. DacÄƒ intri cu calcule goale È'i speranÈ›Äƒ, nu datorie calculata, atunci, nu conteaza daca e Prima Casa sau clasic - amandoua or sa doara.
 
-Alege astazi pe baza situatiei tale, nu pe baza "ce zice vecinul". După aia, calculeaza de 3 ori mai mult decat crezi ca trebuie. �'i abia atunci, semneaza.
+Alege astazi pe baza situatiei tale, nu pe baza "ce zice vecinul". DupÄƒ aia, calculeaza de 3 ori mai mult decat crezi ca trebuie. È'i abia atunci, semneaza.
 
