@@ -59,7 +59,7 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="bg-gradient-to-br from-navy to-sage text-white py-16">
+      <div className="bg-gradient-to-br from-[#0A2F2F] to-[#0A2F2F]/95 text-white py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">

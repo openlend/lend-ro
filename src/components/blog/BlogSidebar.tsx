@@ -66,7 +66,7 @@ export default function BlogSidebar() {
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h3 className="text-lg font-bold text-navy mb-3">Newsletter</h3>
         <p className="text-sm text-gray-600 mb-4">
-          Primește săptămânal cele mai bune sfaturi despre credite ipotecare.
+          Vrei să știi când scade dobânda sau când o bancă vine cu o ofertă bună? Îți trimitem doar ce merită.
         </p>
         
         {subscribed ? (
