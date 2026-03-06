@@ -1,74 +1,74 @@
 ---
-title: "Cum Scazi DobÃ¢nda la Credit Ipotecar Ã®n 2026: 3 Metode Practice"
-metaTitle: "3 Metode Pentru a Reduce DobÃ¢nda la Credit Ipotecar  -  2026"
-metaDescription: "Trei strategii verificate pentru a reduce costul dobÃ¢nzii la creditul ipotecar Ã®n 2026: refinanÈ›are, renegociere È'i optimizarea rambursÄƒrilor." 
+title: "Cum Scazi Dobânda la Credit Ipotecar în 2026: 3 Metode Practice"
+metaTitle: "3 Metode Pentru a Reduce Dobânda la Credit Ipotecar  -  2026"
+metaDescription: "Trei strategii verificate pentru a reduce costul dobânzii la creditul ipotecar în 2026: refinanțare, renegociere 'i optimizarea rambursărilor." 
 category: "ghiduri-credite"
-keywords: ["refinanÈ›are", "renegociere dobanda", "rambursare anticipata", "IRCC"]
+keywords: ["refinanțare", "renegociere dobanda", "rambursare anticipata", "IRCC"]
 publishDate: "2026-02-22"
 image: "/images/reduce-dobanda-2026.jpg"
-imageAlt: "MÃ¢nÄƒ care taie o sÄƒgeatÄƒ Ã®n jos, simbolizÃ¢nd scÄƒderea dobÃ¢nzii"
-imagePlan: "Hero: ilustraÈ›ie scÄƒdere dobÃ¢ndÄƒ; in-content: studiu de caz grafic Ã®nainte/dupÄƒ; alt text detaliat."
+imageAlt: "Mână care taie o săgeată în jos, simbolizând scăderea dobânzii"
+imagePlan: "Hero: ilustrație scădere dobândă; in-content: studiu de caz grafic înainte/după; alt text detaliat."
 ---
 
-# Cum Scazi DobÃ¢nda la Credit Ipotecar Ã®n 2026  -  3 Metode Practice
+# Cum Scazi Dobânda la Credit Ipotecar în 2026  -  3 Metode Practice
 
-DobÃ¢nda poate face diferenÈ›a Ã®ntre o ratÄƒ rezonabilÄƒ È'i una dificil de suportat. ÃŽn 2026 existÄƒ trei direcÈ›ii principale pentru a reduce costul real al creditului: refinanÈ›are, renegociere cu banca actualÄƒ È'i optimizarea rambursÄƒrilor. Le explicÄƒm pe rÃ¢nd, cu avantaje, costuri È'i paÈ'i concreÈ›i.
+Dobânda poate face diferența între o rată rezonabilă 'i una dificil de suportat. În 2026 există trei direcții principale pentru a reduce costul real al creditului: refinanțare, renegociere cu banca actuală 'i optimizarea rambursărilor. Le explicăm pe rând, cu avantaje, costuri 'i pa'i concreți.
 
-## Metoda 1  -  RefinanÈ›area
+## Metoda 1  -  Refinanțarea
 
-CÃ¢nd sÄƒ o foloseÈ'ti: dacÄƒ poÈ›i obÈ›ine o dobÃ¢ndÄƒ net mai micÄƒ, iar economiile estimate depÄƒÈ'esc costurile de refinanÈ›are (evaluare, notariat, comisioane).
+Când să o folose'ti: dacă poți obține o dobândă net mai mică, iar economiile estimate depă'esc costurile de refinanțare (evaluare, notariat, comisioane).
 
-PaÈ'i:
-1. ComparÄƒ oferte de la minim 4 bÄƒnci.
-2. CalculeazÄƒ break-even (cÃ¢t timp pÃ¢nÄƒ Ã®È›i recuperezi costurile refinanÈ›Äƒrii).
-3. AplicÄƒ È'i, dacÄƒ obÈ›ii ofertÄƒ mai bunÄƒ, finalizeazÄƒ radierea È'i constituirea ipotecii la notar.
+Pa'i:
+1. Compară oferte de la minim 4 bănci.
+2. Calculează break-even (cât timp până îți recuperezi costurile refinanțării).
+3. Aplică 'i, dacă obții ofertă mai bună, finalizează radierea 'i constituirea ipotecii la notar.
 
-Avantaj: reducere directÄƒ a ratei; posibil acces la condiÈ›ii adiÈ›ionale (perioadÄƒ diferitÄƒ, comisioane mai mici).
-Dezavantaj: costuri iniÈ›iale È'i proceduri; evaluare care poate ieÈ'i sub preÈ›ul de cumpÄƒrare.
+Avantaj: reducere directă a ratei; posibil acces la condiții adiționale (perioadă diferită, comisioane mai mici).
+Dezavantaj: costuri inițiale 'i proceduri; evaluare care poate ie'i sub prețul de cumpărare.
 
-## Metoda 2  -  Renegocierea cu banca actualÄƒ
+## Metoda 2  -  Renegocierea cu banca actuală
 
-CÃ¢nd sÄƒ o foloseÈ'ti: dacÄƒ ai istoric de platÄƒ bun, dar refinanÈ›area nu meritÄƒ costurile iniÈ›iale.
+Când să o folose'ti: dacă ai istoric de plată bun, dar refinanțarea nu merită costurile inițiale.
 
-PaÈ'i:
-1. PregÄƒteÈ'te oferte comparate din piaÈ›Äƒ pentru a avea argumente.
-2. SolicitÄƒ o Ã®ntÃ¢lnire cu managerul de cont È'i cere reducerea marjei sau a comisioanelor.
-3. SemneazÄƒ eventuale acte adiÈ›ionale care consfinÈ›esc noile condiÈ›ii.
+Pa'i:
+1. Pregăte'te oferte comparate din piață pentru a avea argumente.
+2. Solicită o întâlnire cu managerul de cont 'i cere reducerea marjei sau a comisioanelor.
+3. Semnează eventuale acte adiționale care consfințesc noile condiții.
 
-Avantaj: procedurÄƒ mai simplÄƒ, costuri mici.
-Dezavantaj: reducerea poate fi modestÄƒ; banca poate oferi doar contraparÈ›i mai puÈ›in atractive.
+Avantaj: procedură mai simplă, costuri mici.
+Dezavantaj: reducerea poate fi modestă; banca poate oferi doar contraparți mai puțin atractive.
 
-## Metoda 3  -  Optimizarea rambursÄƒrilor È'i momentul potrivit
+## Metoda 3  -  Optimizarea rambursărilor 'i momentul potrivit
 
-CÃ¢nd sÄƒ o foloseÈ'ti: oricÃ¢nd  -  este complementarÄƒ celorlalte opÈ›iuni.
+Când să o folose'ti: oricând  -  este complementară celorlalte opțiuni.
 
-PaÈ'i:
-1. RamburseÈ'te anticipat parÈ›ial cÃ¢nd ai lichiditÄƒÈ›i  -  chiar sume mici reduc dobÃ¢nda compusÄƒ.
-2. MonitorizeazÄƒ IRCC/EURIBOR È'i planificÄƒ plÄƒÈ›i adiÈ›ionale cÃ¢nd indicele este Ã®n creÈ'tere.
-3. VerificÄƒ clauzele din contract cu privire la rambursarea anticipatÄƒ (posibile comisioane).
+Pa'i:
+1. Ramburse'te anticipat parțial când ai lichidități  -  chiar sume mici reduc dobânda compusă.
+2. Monitorizează IRCC/EURIBOR 'i planifică plăți adiționale când indicele este în cre'tere.
+3. Verifică clauzele din contract cu privire la rambursarea anticipată (posibile comisioane).
 
-Avantaj: control direct asupra principalului; reduce suma la care se calculeazÄƒ dobÃ¢nda.
-Dezavantaj: necesitÄƒ disciplinÄƒ financiarÄƒ; unele bÄƒnci pot avea limite sau comisioane.
+Avantaj: control direct asupra principalului; reduce suma la care se calculează dobânda.
+Dezavantaj: necesită disciplină financiară; unele bănci pot avea limite sau comisioane.
 
 ## Studiu de caz (sintetic)
 
-Exemplu: credit 350.000 RON  -  combinaÈ›ie de rambursare anticipatÄƒ (30.000 RON), renegociere marjÄƒ (-0.4pp) È'i refinanÈ›are ulterior  -  rezultatul: reducere semnificativÄƒ a ratei È'i recuperare a costurilor Ã®n 6"-12 luni.
+Exemplu: credit 350.000 RON  -  combinație de rambursare anticipată (30.000 RON), renegociere marjă (-0.4pp) 'i refinanțare ulterior  -  rezultatul: reducere semnificativă a ratei 'i recuperare a costurilor în 6"-12 luni.
 
 ## Checklist rapid pentru decizie
 
-- CalculeazÄƒ economiile anuale Ã®n funcÈ›ie de noua dobÃ¢ndÄƒ.
-- EstimeazÄƒ costurile totale ale refinanÈ›Äƒrii.
-- Decide pragul minim de reducere (ex.: 0.5% puncte procentuale) pentru care meritÄƒ refinanÈ›area.
+- Calculează economiile anuale în funcție de noua dobândă.
+- Estimează costurile totale ale refinanțării.
+- Decide pragul minim de reducere (ex.: 0.5% puncte procentuale) pentru care merită refinanțarea.
 
 ---
 
 Imagini & accesibilitate
 
-- Hero: ilustraÈ›ie scÄƒdere dobÃ¢ndÄƒ (alt: "IlustraÈ›ie reprezentÃ¢nd scÄƒderea dobÃ¢nzii la un credit ipotecar").
-- In-content: grafic "Ã®nainte/dupÄƒ" pentru studiul de caz (alt: "Grafic comparativ al ratelor Ã®nainte È'i dupÄƒ optimizare").
+- Hero: ilustrație scădere dobândă (alt: "Ilustrație reprezentând scăderea dobânzii la un credit ipotecar").
+- In-content: grafic "înainte/după" pentru studiul de caz (alt: "Grafic comparativ al ratelor înainte 'i după optimizare").
 
 ---
 
-Most people underestimate un lucru simplu: 0.3-0.5 puncte procentuale la dobÃ¢ndÄƒ nu sunÄƒ mult, dar pe 25-30 de ani e diferenÈ›Äƒ de mii sau zeci de mii.
+Most people underestimate un lucru simplu: 0.3-0.5 puncte procentuale la dobândă nu sună mult, dar pe 25-30 de ani e diferență de mii sau zeci de mii.
 
-Opinia mea: dacÄƒ banca nu Ã®È›i poate explica clar costul total È'i ce se Ã®ntÃ¢mplÄƒ cu rata Ã®n 2-3 scenarii, nu ai ce negocia. SchimbÄƒ abordarea, sau schimbÄƒ banca.
+Opinia mea: dacă banca nu îți poate explica clar costul total 'i ce se întâmplă cu rata în 2-3 scenarii, nu ai ce negocia. Schimbă abordarea, sau schimbă banca.

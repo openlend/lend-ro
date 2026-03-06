@@ -1,75 +1,75 @@
 ---
-title: "Ce Este IRCC È'i Cum se CalculeazÄƒ Ã®n 2026? ExplicaÈ›ie SimplÄƒ È'i PracticÄƒ"
-metaTitle: "IRCC 2026: Ce Este, Cum se CalculeazÄƒ È'i Ce ÃŽnseamnÄƒ pentru Rata Ta"
-metaDescription: "ExplicaÈ›ie clarÄƒ despre IRCC (Indicele de ReferinÈ›Äƒ al Costurilor Creditului) È'i modul Ã®n care afecteazÄƒ ratele ipotecare Ã®n 2026. Exemple concrete È'i paÈ'i practici." 
+title: "Ce Este IRCC 'i Cum se Calculează în 2026? Explicație Simplă 'i Practică"
+metaTitle: "IRCC 2026: Ce Este, Cum se Calculează 'i Ce Înseamnă pentru Rata Ta"
+metaDescription: "Explicație clară despre IRCC (Indicele de Referință al Costurilor Creditului) 'i modul în care afectează ratele ipotecare în 2026. Exemple concrete 'i pa'i practici." 
 category: "explicatii"
 keywords: ["IRCC", "dobanda IRCC", "credit ipotecar", "rata credit"]
 publishDate: "2026-02-22"
 image: "/images/ircc-2026-explained.jpg"
-imageAlt: "Grafic simplificat al evoluÈ›iei IRCC È'i impactul asupra ratei lunare"
-imagePlan: "Hero: grafic linie simplu (2019"-2026). In-content: exemplu tabel comparativ; alt text descriptiv pentru scanare accesibilÄƒ."
+imageAlt: "Grafic simplificat al evoluției IRCC 'i impactul asupra ratei lunare"
+imagePlan: "Hero: grafic linie simplu (2019"-2026). In-content: exemplu tabel comparativ; alt text descriptiv pentru scanare accesibilă."
 ---
 
-# Ce Este IRCC È'i Cum se CalculeazÄƒ Ã®n 2026  -  ExplicaÈ›ie SimplÄƒ
+# Ce Este IRCC 'i Cum se Calculează în 2026  -  Explicație Simplă
 
-DacÄƒ ai un credit ipotecar Ã®n lei sau te gÃ¢ndeÈ'ti sÄƒ iei unul, IRCC este o variabilÄƒ pe care meritÄƒ s-o Ã®nÈ›elegi. ÃŽn esenÈ›Äƒ, IRCC (Indicele de ReferinÈ›Äƒ al Costurilor Creditului) este indicele oficial folosit ca referinÈ›Äƒ pentru calculul dobÃ¢nzii la creditele ipotecare cu ratÄƒ variabilÄƒ acordate persoanelor fizice Ã®n RomÃ¢nia.
+Dacă ai un credit ipotecar în lei sau te gânde'ti să iei unul, IRCC este o variabilă pe care merită s-o înțelegi. În esență, IRCC (Indicele de Referință al Costurilor Creditului) este indicele oficial folosit ca referință pentru calculul dobânzii la creditele ipotecare cu rată variabilă acordate persoanelor fizice în România.
 
-Scopul acestui articol: sÄƒ-È›i ofere o explicaÈ›ie clarÄƒ, paÈ'i practici È'i un exemplu numeric ca sÄƒ Ã®nÈ›elegi cum IRCC È›i-ar putea influenÈ›a rata Ã®n 2026.
+Scopul acestui articol: să-ți ofere o explicație clară, pa'i practici 'i un exemplu numeric ca să înțelegi cum IRCC ți-ar putea influența rata în 2026.
 
-## Pe scurt: De ce conteazÄƒ IRCC?
+## Pe scurt: De ce contează IRCC?
 
-- IRCC este componenta variabilÄƒ din dobÃ¢nda totalÄƒ pe care o plÄƒteÈ'ti (dobÃ¢nda = IRCC + marja bÄƒncii).
-- Valoarea IRCC se publicÄƒ lunar de BNR È'i poate creÈ'te sau scÄƒdea Ã®n funcÈ›ie de condiÈ›iile de piaÈ›Äƒ.
-- DacÄƒ ai contract cu indexare la IRCC, rata ta va fi recalculatÄƒ periodic (de ex. la 3/6/12 luni) pe baza valorii publicate.
+- IRCC este componenta variabilă din dobânda totală pe care o plăte'ti (dobânda = IRCC + marja băncii).
+- Valoarea IRCC se publică lunar de BNR 'i poate cre'te sau scădea în funcție de condițiile de piață.
+- Dacă ai contract cu indexare la IRCC, rata ta va fi recalculată periodic (de ex. la 3/6/12 luni) pe baza valorii publicate.
 
-## Cum se calculeazÄƒ IRCC (metodologie, pe Ã®nÈ›elesul tuturor)
+## Cum se calculează IRCC (metodologie, pe înțelesul tuturor)
 
-BNR foloseÈ'te date raportate de bÄƒnci pentru a construi IRCC. Componenta tehnicÄƒ, pe scurt:
+BNR folose'te date raportate de bănci pentru a construi IRCC. Componenta tehnică, pe scurt:
 
-1. Se colecteazÄƒ rata medie a depozitelor la termen ale clienÈ›ilor non-bancari (ponderare ~60%).
-2. Se colecteazÄƒ rata medie a dobÃ¢nzilor la creditele acordate clienÈ›ilor non-bancari (ponderare ~40%).
-3. Se aplicÄƒ o medie ponderatÄƒ: IRCC "-- 0.6 Ã— (rata depozitelor) + 0.4 Ã— (rata creditelor), rotunjitÄƒ È'i publicatÄƒ.
+1. Se colectează rata medie a depozitelor la termen ale clienților non-bancari (ponderare ~60%).
+2. Se colectează rata medie a dobânzilor la creditele acordate clienților non-bancari (ponderare ~40%).
+3. Se aplică o medie ponderată: IRCC "-- 0.6 × (rata depozitelor) + 0.4 × (rata creditelor), rotunjită 'i publicată.
 
-NotÄƒ: formalitÄƒÈ›ile exacte pot include filtre statistice pentru excluderea valorilor aberrante; pentru detalii metodologice consulta pagina BNR.
+Notă: formalitățile exacte pot include filtre statistice pentru excluderea valorilor aberrante; pentru detalii metodologice consulta pagina BNR.
 
-## IRCC vs. ROBOR vs. EURIBOR  -  care e diferenÈ›a?
+## IRCC vs. ROBOR vs. EURIBOR  -  care e diferența?
 
-- IRCC  -  indice romÃ¢nesc aplicat pentru creditele Ã®n RON Ã®n majoritatea contractelor noi dupÄƒ 2021.
-- ROBOR  -  rata interbancarÄƒ Ã®n lei, folositÄƒ intens Ã®nainte de 2021; acum folosit mai puÈ›in pentru creditele noi.
-- EURIBOR  -  indice pentru Ã®mprumuturi Ã®n euro.
+- IRCC  -  indice românesc aplicat pentru creditele în RON în majoritatea contractelor noi după 2021.
+- ROBOR  -  rata interbancară în lei, folosită intens înainte de 2021; acum folosit mai puțin pentru creditele noi.
+- EURIBOR  -  indice pentru împrumuturi în euro.
 
-Practic: dacÄƒ È›i-ai luat credit Ã®n lei dupÄƒ 2021, cel mai probabil indicele tÄƒu este IRCC.
+Practic: dacă ți-ai luat credit în lei după 2021, cel mai probabil indicele tău este IRCC.
 
-## Ce Ã®nseamnÄƒ IRCC pentru bugetul tÄƒu (exemplu numeric)
+## Ce înseamnă IRCC pentru bugetul tău (exemplu numeric)
 
-Exemplu ilustrativ: credit 300.000 RON pe 30 ani, marjÄƒ bancÄƒ 3.5%.
+Exemplu ilustrativ: credit 300.000 RON pe 30 ani, marjă bancă 3.5%.
 
-- Scenariu A  -  IRCC = 7% "-- dobÃ¢ndÄƒ totalÄƒ = 10.5% "-- ratÄƒ lunarÄƒ "-- 2.744 RON
-- Scenariu B  -  IRCC = 5.5% "-- dobÃ¢ndÄƒ totalÄƒ = 9% "-- ratÄƒ lunarÄƒ "-- 2.414 RON
+- Scenariu A  -  IRCC = 7% "-- dobândă totală = 10.5% "-- rată lunară "-- 2.744 RON
+- Scenariu B  -  IRCC = 5.5% "-- dobândă totală = 9% "-- rată lunară "-- 2.414 RON
 
-DiferenÈ›a de 1,5 puncte procentuale Ã®n IRCC Ã®nseamnÄƒ ~330 RON/lunÄƒ È'i aproape 120.000 RON pe Ã®ntreaga duratÄƒ  -  motiv suficient sÄƒ urmÄƒreÈ'ti indicatorul.
+Diferența de 1,5 puncte procentuale în IRCC înseamnă ~330 RON/lună 'i aproape 120.000 RON pe întreaga durată  -  motiv suficient să urmăre'ti indicatorul.
 
-## Ce poÈ›i face practic Ã®n 2026
+## Ce poți face practic în 2026
 
-- VerificÄƒ frecvent valorile IRCC publicate de BNR.
-- ConsultÄƒ calendarul de recalculare din contractul tÄƒu (3/6/12 luni) pentru a pregÄƒti bugetul.
-- DacÄƒ IRCC creÈ'te mult, analizeazÄƒ refinanÈ›area sau renegocierea marjei cu banca.
-- ConstruieÈ'te un buffer lunar pentru 3"-6 luni de rate Ã®n plus, ca sÄƒ nu fii surprins.
+- Verifică frecvent valorile IRCC publicate de BNR.
+- Consultă calendarul de recalculare din contractul tău (3/6/12 luni) pentru a pregăti bugetul.
+- Dacă IRCC cre'te mult, analizează refinanțarea sau renegocierea marjei cu banca.
+- Construie'te un buffer lunar pentru 3"-6 luni de rate în plus, ca să nu fii surprins.
 
-## Resurse È'i linkuri utile (intern È'i oficial)
+## Resurse 'i linkuri utile (intern 'i oficial)
 
-- BNR  -  pagina IRCC (date oficiale È'i metodologie): https://www.bnr.ro/IRCC-784.aspx
-- Calculator Lend.ro: /calculator (inseraÈ›i link intern la instrumentul vostru)
-
----
-
-SchiÈ›Äƒ de imagini È'i alt text recomandate
-
-- Hero: grafic linie evoluÈ›ie IRCC 2019"-2026  -  alt: "EvoluÈ›ia IRCC 2019"-2026, arÄƒtÃ¢nd vÃ¢rfuri È'i scÄƒderi".
-- ÃŽn conÈ›inut: tabel comparativ scenarii  -  alt: "Tabel cu calcule exemplificative ale ratelor lunare pentru douÄƒ scenarii IRCC".
+- BNR  -  pagina IRCC (date oficiale 'i metodologie): https://www.bnr.ro/IRCC-784.aspx
+- Calculator Lend.ro: /calculator (inserați link intern la instrumentul vostru)
 
 ---
 
-Operatorii din creditare vÄƒd zilnic aceeaÈ'i greÈ'ealÄƒ: oamenii se uitÄƒ la dobÃ¢nda de azi, dar ignorÄƒ cum se miÈ'cÄƒ IRCC È'i cu ce Ã®ntÃ¢rziere se aplicÄƒ Ã®n ratÄƒ.
+Schiță de imagini 'i alt text recomandate
 
-Opinia mea: dacÄƒ nu poÈ›i explica IRCC Ã®n 30 de secunde, nu semna Ã®ncÄƒ. FÄƒ o simulare pe 2-3 scenarii È'i abia dupÄƒ aceea alege.
+- Hero: grafic linie evoluție IRCC 2019"-2026  -  alt: "Evoluția IRCC 2019"-2026, arătând vârfuri 'i scăderi".
+- În conținut: tabel comparativ scenarii  -  alt: "Tabel cu calcule exemplificative ale ratelor lunare pentru două scenarii IRCC".
+
+---
+
+Operatorii din creditare văd zilnic aceea'i gre'eală: oamenii se uită la dobânda de azi, dar ignoră cum se mi'că IRCC 'i cu ce întârziere se aplică în rată.
+
+Opinia mea: dacă nu poți explica IRCC în 30 de secunde, nu semna încă. Fă o simulare pe 2-3 scenarii 'i abia după aceea alege.

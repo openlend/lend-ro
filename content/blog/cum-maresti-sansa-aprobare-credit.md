@@ -1,82 +1,82 @@
 ---
-title: "Cum MÄƒreÈ'ti È'ansa de Aprobare a unui Credit Ipotecar Ã®n 2026  -  Ghid Practic"
-metaTitle: "Cum SÄƒ-È›i CreÈ'ti È'ansele de Aprobare Credit Ipotecar 2026"
-metaDescription: "Ghid pas-cu-pas: documente, strategii È'i calendar de pregÄƒtire pentru a-È›i maximiza È'ansele de aprobare a unui credit ipotecar Ã®n 2026."
-keywords: ["credit ipotecar", "aprobare credit", "dosar credit", "grad de Ã®ndatorare"]
+title: "Cum Măre'ti 'ansa de Aprobare a unui Credit Ipotecar în 2026  -  Ghid Practic"
+metaTitle: "Cum Să-ți Cre'ti 'ansele de Aprobare Credit Ipotecar 2026"
+metaDescription: "Ghid pas-cu-pas: documente, strategii 'i calendar de pregătire pentru a-ți maximiza 'ansele de aprobare a unui credit ipotecar în 2026."
+keywords: ["credit ipotecar", "aprobare credit", "dosar credit", "grad de îndatorare"]
 date: "2024-11-05"
 author: "Echipa Lend"
 category: "ghiduri-credite"
 image: "/images/aprobare-credit-2026.jpg"
-imageAlt: "MÃ¢ini care È›in un dosar de credit organizat, cu documente etichetate"
-imagePlan: "Hero: fotografie cu dosar pregÄƒtit + checklist. In-content: infografic timeline 18 luni, callout pentru BIR."
+imageAlt: "Mâini care țin un dosar de credit organizat, cu documente etichetate"
+imagePlan: "Hero: fotografie cu dosar pregătit + checklist. In-content: infografic timeline 18 luni, callout pentru BIR."
 ---
 
-# Cum MÄƒreÈ'ti È'ansa de Aprobare a unui Credit Ipotecar Ã®n 2026
+# Cum Măre'ti 'ansa de Aprobare a unui Credit Ipotecar în 2026
 
-ObÈ›inerea unui credit ipotecar Ã®n 2026 cere pregÄƒtire: documentaÈ›ie bine organizatÄƒ, stabilitate a veniturilor È'i o strategie clarÄƒ. Acest ghid Ã®È›i oferÄƒ 7 paÈ'i practici, ce trebuie fÄƒcut la 12"-18 luni, 6"-9 luni È'i 1"-3 luni Ã®nainte de aplicare, plus greÈ'elile frecvente de evitat.
+Obținerea unui credit ipotecar în 2026 cere pregătire: documentație bine organizată, stabilitate a veniturilor 'i o strategie clară. Acest ghid îți oferă 7 pa'i practici, ce trebuie făcut la 12"-18 luni, 6"-9 luni 'i 1"-3 luni înainte de aplicare, plus gre'elile frecvente de evitat.
 
-## Rezumat Ã®n 30 de secunde
+## Rezumat în 30 de secunde
 
-- ÃŽncepe pregÄƒtirea cu 12"-18 luni Ã®nainte.
-- CurÄƒÈ›Äƒ istoricul de platÄƒ (Biroul de Credit) È'i menÈ›ine plÄƒÈ›i la timp 24 luni.
-- PÄƒstreazÄƒ avansul Ã®n cont cel puÈ›in 3 luni Ã®nainte de aplicare.
-- DocumenteazÄƒ toate veniturile: salariu, chirii, PFA/SRL.
-- ComparÄƒ oferte la 3"-5 bÄƒnci È'i pregÄƒteÈ'te dosarul complet.
+- Începe pregătirea cu 12"-18 luni înainte.
+- Curăță istoricul de plată (Biroul de Credit) 'i menține plăți la timp 24 luni.
+- Păstrează avansul în cont cel puțin 3 luni înainte de aplicare.
+- Documentează toate veniturile: salariu, chirii, PFA/SRL.
+- Compară oferte la 3"-5 bănci 'i pregăte'te dosarul complet.
 
-## 1. Istoricul de platÄƒ (Biroul de Credit)
+## 1. Istoricul de plată (Biroul de Credit)
 
-- SolicitÄƒ raportul BIR È'i verificÄƒ erorile cu 6"-12 luni Ã®nainte.
-- PlÄƒteÈ'te orice restanÈ›Äƒ; Ã®nregistreazÄƒ plÄƒÈ›i la timp cel puÈ›in 12"-24 luni Ã®nainte.
-- DacÄƒ existÄƒ Ã®nregistrÄƒri vechi, ataÈ'eazÄƒ documente justificative care explicÄƒ contextul (ex. boalÄƒ, concediu medical).
+- Solicită raportul BIR 'i verifică erorile cu 6"-12 luni înainte.
+- Plăte'te orice restanță; înregistrează plăți la timp cel puțin 12"-24 luni înainte.
+- Dacă există înregistrări vechi, ata'ează documente justificative care explică contextul (ex. boală, concediu medical).
 
-## 2. Stabilitate È'i documentare a veniturilor
+## 2. Stabilitate 'i documentare a veniturilor
 
-- SalariaÈ›i: pregÄƒtiÈ›i fluturaÈ'i, adeverinÈ›e ultimele 3"-6 luni È'i extras de cont 6 luni.
-- PFA/SRL: pregÄƒtiÈ›i bilanÈ›uri, declaraÈ›ii fiscale È'i extras bancar al firmei pe 12 luni.
-- Venituri din chirii: contracte de Ã®nchiriere È'i dovada Ã®ncasÄƒrilor Ã®n cont.
+- Salariați: pregătiți flutura'i, adeverințe ultimele 3"-6 luni 'i extras de cont 6 luni.
+- PFA/SRL: pregătiți bilanțuri, declarații fiscale 'i extras bancar al firmei pe 12 luni.
+- Venituri din chirii: contracte de închiriere 'i dovada încasărilor în cont.
 
-## 3. Extrase bancare  -  aratÄƒ responsabilitate financiarÄƒ
+## 3. Extrase bancare  -  arată responsabilitate financiară
 
-- EvitÄƒ descoperiri frecvente sau tranzacÈ›ii neobiÈ'nuite Ã®n ultimele 3"-6 luni.
-- DemonstreazÄƒ economisire regulatÄƒ (inclusiv un cont de rezervÄƒ pentru cheltuieli imediate).
+- Evită descoperiri frecvente sau tranzacții neobi'nuite în ultimele 3"-6 luni.
+- Demonstrează economisire regulată (inclusiv un cont de rezervă pentru cheltuieli imediate).
 
-## 4. Avansul  -  nu doar suma, ci È'i provenienÈ›a
+## 4. Avansul  -  nu doar suma, ci 'i proveniența
 
-- Avans mai mare = risc mai mic pentru bancÄƒ È'i condiÈ›ii mai bune.
-- PÄƒstreazÄƒ banii Ã®n cont minim 3 luni; documenteazÄƒ originea (economii, vÃ¢nzare bunuri, moÈ'tenire).
+- Avans mai mare = risc mai mic pentru bancă 'i condiții mai bune.
+- Păstrează banii în cont minim 3 luni; documentează originea (economii, vânzare bunuri, mo'tenire).
 
-## 5. Scade-È›i gradul de Ã®ndatorare (GDI)
+## 5. Scade-ți gradul de îndatorare (GDI)
 
-- ÃŽnchide sau consolideazÄƒ creditele mici (carduri, IFN) Ã®nainte de aplicare.
-- CalculeazÄƒ GDI: (rata totalÄƒ + rate noi) / venituri nete. Èšinta: sub 40%.
+- Închide sau consolidează creditele mici (carduri, IFN) înainte de aplicare.
+- Calculează GDI: (rata totală + rate noi) / venituri nete. Ținta: sub 40%.
 
-## 6. Imobilul È'i evaluarea
+## 6. Imobilul 'i evaluarea
 
-- Alege proprietÄƒÈ›i cu acte clare (extras CF, fÄƒrÄƒ litigiile).
-- NegociazÄƒ preÈ› realist  -  evaluarea bancarÄƒ poate fi inferioarÄƒ preÈ›ului cerut.
+- Alege proprietăți cu acte clare (extras CF, fără litigiile).
+- Negociază preț realist  -  evaluarea bancară poate fi inferioară prețului cerut.
 
-## 7. Dosarul perfect È'i alegerea bÄƒncii
+## 7. Dosarul perfect 'i alegerea băncii
 
-- AsigurÄƒ-te cÄƒ dosarul este complet: actele personale, actele imobilului, documentele de venit, dovezi avans.
-- Cere oferte de la minim 3 bÄƒnci; nu accepta prima ofertÄƒ fÄƒrÄƒ comparaÈ›ie.
+- Asigură-te că dosarul este complet: actele personale, actele imobilului, documentele de venit, dovezi avans.
+- Cere oferte de la minim 3 bănci; nu accepta prima ofertă fără comparație.
 
 ## Calendar propus (pe etape)
 
-- 12"-18 luni: verificÄƒ BIR, deschide cont separat pentru avans, organizeazÄƒ contabilitatea (PFA/SRL).
-- 6"-9 luni: strÃ¢nge 50% din avans, stabileÈ'te zona imobiliarÄƒ, Ã®nchide credite mici.
-- 3"-6 luni: pregÄƒteÈ'te toate documentele, evitÄƒ tranzacÈ›ii neobiÈ'nuite.
-- 1"-3 luni: aplicÄƒ la 3"-4 bÄƒnci, semneazÄƒ antecontractul, rÄƒspunde rapid solicitÄƒrilor bÄƒncii.
+- 12"-18 luni: verifică BIR, deschide cont separat pentru avans, organizează contabilitatea (PFA/SRL).
+- 6"-9 luni: strânge 50% din avans, stabile'te zona imobiliară, închide credite mici.
+- 3"-6 luni: pregăte'te toate documentele, evită tranzacții neobi'nuite.
+- 1"-3 luni: aplică la 3"-4 bănci, semnează antecontractul, răspunde rapid solicitărilor băncii.
 
 ## Erori comune de evitat
 
-- Depunerea banilor Ã®n cont cu puÈ›in timp Ã®nainte de aplicare (nejustificat).
-- Schimbarea locului de muncÄƒ cu 2"-3 luni Ã®nainte de aplicare.
-- Lipsa transparenÈ›ei asupra cheltuielilor recurente.
-- Alege proprietÄƒÈ›i cu probleme juridice sau structurale.
+- Depunerea banilor în cont cu puțin timp înainte de aplicare (nejustificat).
+- Schimbarea locului de muncă cu 2"-3 luni înainte de aplicare.
+- Lipsa transparenței asupra cheltuielilor recurente.
+- Alege proprietăți cu probleme juridice sau structurale.
 
 ## Resurse utile (linkuri interne sugerate)
 
-- Checklist descÄƒrcabil: /downloads/checklist-acte-credit-ipotecar.pdf
+- Checklist descărcabil: /downloads/checklist-acte-credit-ipotecar.pdf
 - Ghid IRCC: /blog/ce-este-ircc-cum-se-calculeaza
 - Articol: Ghid complet credit ipotecar 2026  -  /blog/ghid-complet-credit-ipotecar-2026
 
@@ -85,10 +85,10 @@ ObÈ›inerea unui credit ipotecar Ã®n 2026 cere pregÄƒtire: documentaÈ›i
 Imagine & accesibilitate
 
 - Hero: dosar organizat + checklist (alt: "Dosar de credit organizat cu etichete: acte personale, venituri, acte imobil").
-- Infografic timeline 18 luni  -  alt: "Plan pas-cu-pas 18 luni pentru pregÄƒtirea unui dosar de credit ipotecar".
+- Infografic timeline 18 luni  -  alt: "Plan pas-cu-pas 18 luni pentru pregătirea unui dosar de credit ipotecar".
 
 ---
 
-Ce vÄƒd constant la dosarele respinse: nu lipsa veniturilor, ci lipsa ordinii. Un act lipsÄƒ, o explicaÈ›ie neclarÄƒ, o lunÄƒ de Ã®ntÃ¢rziere la card. È'i s-a terminat.
+Ce văd constant la dosarele respinse: nu lipsa veniturilor, ci lipsa ordinii. Un act lipsă, o explicație neclară, o lună de întârziere la card. 'i s-a terminat.
 
-Opinia mea: trateazÄƒ dosarul ca pe un proiect. ÃŽl pui la punct cu 60-90 de zile Ã®nainte, nu cu 48 de ore Ã®nainte. Asta Ã®È›i creÈ'te È'ansele mai mult decÃ¢t orice "truc".
+Opinia mea: tratează dosarul ca pe un proiect. Îl pui la punct cu 60-90 de zile înainte, nu cu 48 de ore înainte. Asta îți cre'te 'ansele mai mult decât orice "truc".
