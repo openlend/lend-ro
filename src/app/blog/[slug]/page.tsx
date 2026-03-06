@@ -108,7 +108,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   Blog
                 </Link>
                 <span>/</span>
-                <span className="text-white/80">{post.title}</span>
+                <span className="text-white/80">{post.breadcrumb || post.title}</span>
               </div>
 
               {/* Category & Meta */}

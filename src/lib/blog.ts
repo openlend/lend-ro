@@ -19,6 +19,7 @@ export interface BlogPost {
   readingTime: string;
   featured: boolean;
   image?: string;
+  breadcrumb?: string;
   content: string;
 }
 
@@ -63,6 +64,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
       readingTime: data.readingTime || '5 min',
       featured: data.featured || false,
       image: data.image || data.featuredImage || undefined,
+      breadcrumb: data.breadcrumb || data.breadcrumbTitle || undefined,
       content: contentHtml,
     };
   } catch (error) {

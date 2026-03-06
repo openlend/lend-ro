@@ -14,7 +14,15 @@ const nextConfig: NextConfig = {
     ],
   },
   
-  // Redirects removed - /calculator is now the main route
+  async redirects() {
+    return [
+      {
+        source: '/blog/credit-prima-casa-vs-credit-ipotecar-clasic',
+        destination: '/blog/prima-casa-vs-credit',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
