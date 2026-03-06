@@ -52,11 +52,15 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
     const processedContent = await remark().use(remarkGfm).use(html).process(content);
     const contentHtml = processedContent.toString();
 
+    const keywords = Array.isArray(data.keywords)
+      ? data.keywords.join(', ')
+      : (data.keywords || '');
+
     return {
       slug,
       title: data.title || '',
       description: data.description || '',
-      keywords: data.keywords || '',
+      keywords,
       author: data.author || 'lend.ro',
       published: data.published || '',
       updated: data.updated || data.published || '',
@@ -64,7 +68,15 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
       readingTime: data.readingTime || '5 min',
       featured: data.featured || false,
       image: data.image || data.featuredImage || undefined,
-      breadcrumb: data.breadcrumb || data.breadcrumbTitle || undefined,
+      breadcrumb: (() => {
+        const b = data.breadcrumb || data.breadcrumbTitle;
+        if (!b) return undefined;
+        if (typeof b === 'string') return b;
+        if (Array.isArray(b) && b.length && typeof b[b.length - 1]?.text === 'string') {
+          return b[b.length - 1].text;
+        }
+        return undefined;
+      })(),
       content: contentHtml,
     };
   } catch (error) {
