@@ -10,7 +10,7 @@ category: "Comparatii"
 readingTime: "11 min"
 breadcrumb: "Prima Casa vs credit"
 featured: false
-image: "/images/credit-prima-casa-vs-ipotecar.jpg"
+image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=675&fit=crop"
 imageAlt: "Doua cai diferite pe o harta - simbolizand alegerea dintre doua tipuri de credite"
 imagePlan: "Hero: ilustratie cu doua directii/drumuri diferite. In-content: tabel comparativ, grafic diferente cost total."
 ---
@@ -92,21 +92,21 @@ Daca vezi numere pe alta parte - site-urile bancilor - verifica luna curenta. Sc
 ## Cum alegi? Raspunde la aceste intrebari
 
 ### 1. Ai fost proprietar de locuinta in ultimii 3 ani?
-- **Da**: Mergi direct la Credit Ipotecar Clasic. Prima Casa nu-i pentru tine.
-- **Nu**: Poti alege amandoua variantele (daca indeplinesti restul criteriilor).
+- Da: Mergi direct la Credit Ipotecar Clasic. Prima Casa nu-i pentru tine.
+- Nu: Poti alege amandoua variantele (daca indeplinesti restul criteriilor).
 
 ### 2. Ce varsta ai?
-- **Sub 32 ani**: Prima Casa e o oportunitate de aur. Apuca-te de ea.
-- **32-37 ani**: Depinde de banca - unele inca mai accepta. Verifica imediat cu agentul.
-- **Peste 37 ani**: Prima Casa nu-i pentru tine. Clasic e singura cale.
+- Sub 32 ani: Prima Casa e o oportunitate de aur. Apuca-te de ea.
+- 32-37 ani: Depinde de banca - unele inca mai accepta. Verifica imediat cu agentul.
+- Peste 37 ani: Prima Casa nu-i pentru tine. Clasic e singura cale.
 
 ### 3. Cat din pret poti pune din buzunarul tau?
-- **Doar 5-10%**: Prima Casa - economisesti pe avans.
-- **20%+**: Clasic ti-ar putea aduce o dobanda mai competitiva, pentru ca riscul bancii e mai mic.
+- Doar 5-10%: Prima Casa - economisesti pe avans.
+- 20%+: Clasic ti-ar putea aduce o dobanda mai competitiva, pentru ca riscul bancii e mai mic.
 
 ### 4. Planezi sa cumperi a doua locuinta in viitor?
-- **Da**: Considera Prima Casa acum. Dupa, cand iei a doua, o sa ceri clasic, si vei avea experienta din ambele.
-- **Nu**: Orice fie faci, o sa-ti ajunga.
+- Da: Considera Prima Casa acum. Dupa, cand iei a doua, o sa ceri clasic, si vei avea experienta din ambele.
+- Nu: Orice fie faci, o sa-ti ajunga.
 
 ## Ce poti face cu /calculator
 
@@ -133,27 +133,27 @@ Dupa ce ai ales tipul de credit, ar trebui sa stii mai multe despre structura do
 
 ## 6 Intrebari Frecvente (FAQ)
 
-**1. Pot sa iau Prima Casa si dupa sa vand in 2 ani si sa iau alta?**
+1. Pot sa iau Prima Casa si dupa sa vand in 2 ani si sa iau alta?
 
 Oficial, nu. Daca vinzi intr-o perioada prea scurta dupa cumparare, pierzi garantia de stat si banca iti poate cere rambursare completa. Unele banci accepta vanzari dupa 5 ani. Verifica contractul.
 
-**2. Dobanda la Prima Casa e intr-adevar mai mica?**
+2. Dobanda la Prima Casa e intr-adevar mai mica?
 
 In teorie da, cu 1-2 puncte procentuale. In practica, depinde de oferta bancii la momentul ala. Citeaza oferte din minim 3 banci inainte sa decizi.
 
-**3. Daca iau clasic cu avans de 25%, dobanda va fi mult mai mica?**
+3. Daca iau clasic cu avans de 25%, dobanda va fi mult mai mica?
 
 Posibil. Riscul bancii e mai mic, deci negotiaza mai serios. Incearca.
 
-**4. Daca ma casatoresc sau divorteaza pe parcursul creditului, cum se afecteaza?**
+4. Daca ma casatoresc sau divorteaza pe parcursul creditului, cum se afecteaza?
 
 In Romania, bunurile dobandite in timpul casatoriei sunt in proprietate comuna (daca nu ai contract special). Cand divortiezi, imobilul se imparte (vinde, sau unul dintre voi cumpara cota celuilalt). Creditele raman aceiasi. E un subiect pentru avocat, nu pentru mine.
 
-**5. Care-i diferenta intre IRCC si dobanda fixa?**
+5. Care-i diferenta intre IRCC si dobanda fixa?
 
 IRCC = rata variabila, se schimba lunar. Dobanda fixa = ramane la fel pana la sfarsit. La Prima Casa poti negocia ambele. La clasic, similar. Citeste [IRCC explicat](/blog/ce-este-ircc-cum-se-calculeaza) pentru detalii.
 
-**6. Pot face rambursare anticipata la Prima Casa?**
+6. Pot face rambursare anticipata la Prima Casa?
 
 Da, dar depinde de contract. Unele impun termenuri scurte de asteptare (3-5 ani) inainte sa poti rambursa fara penalizare. Verifica.
 

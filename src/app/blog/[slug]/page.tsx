@@ -158,7 +158,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
                 prose-p:text-gray-700 prose-p:leading-7 prose-p:mb-6
                 prose-a:text-[#FF6B2C] prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-[#0A2F2F] prose-strong:font-bold
+                prose-strong:text-[#0A2F2F] prose-strong:font-semibold
+                prose-em:text-gray-700
                 prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
                 prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
                 prose-li:mb-2 prose-li:text-gray-700 prose-li:leading-7
