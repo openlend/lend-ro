@@ -1,15 +1,12 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/blog';
+import { getBlogPostBySlug } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 
-export async function generateStaticParams() {
-  const posts = await getAllBlogPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+// Render on-demand so content updates and encoding fixes are visible immediately (no stale prerenders).
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -33,13 +30,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: post.published,
       modifiedTime: post.updated,
       authors: [post.author],
-      images: post.image ? [ `https://lend.ro${post.image.startsWith('/') ? post.image : `/${post.image}`}` ] : undefined,
+      images: post.image ? [ (post.image.startsWith('http') ? post.image : `https://lend.ro${post.image.startsWith('/') ? post.image : `/${post.image}`}`) ] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.image ? [ `https://lend.ro${post.image.startsWith('/') ? post.image : `/${post.image}`}` ] : undefined,
+      images: post.image ? [ (post.image.startsWith('http') ? post.image : `https://lend.ro${post.image.startsWith('/') ? post.image : `/${post.image}`}`) ] : undefined,
     },
     alternates: {
       canonical: `https://lend.ro/blog/${post.slug}`,
