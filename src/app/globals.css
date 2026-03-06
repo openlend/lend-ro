@@ -37,6 +37,8 @@ body {
 .prose table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; }
 .prose th { background: #0A2F2F; color: #fff; text-align: left; padding: 0.75rem; }
 .prose td { border: 1px solid #e5e7eb; padding: 0.75rem; }
+.prose a { color: #1a73e8; text-decoration: underline; text-decoration-color: rgba(26,115,232,0.35); }
+.prose a:hover { text-decoration-color: rgba(26,115,232,0.9); }
 .prose blockquote { border-left: 4px solid #FF6B2C; padding-left: 1rem; margin: 1.25rem 0; color: #4b5563; font-style: italic; }
 
 /* Mobile-first spacing */
