@@ -19,13 +19,18 @@ imagePlan: "Hero: ilustratie cu doua directii/drumuri diferite. In-content: tabe
 
 Stai sa ghicesc: cautat pe Google, gasit optiunile de credite, si acum esti confuz intre "Prima Casa" si "Credit Ipotecar Clasic" fiindca nu e clar care-i diferenta, care-ti convine mai mult, si care o sa-ti ruineze bugetul mai incet.
 
-Diferenta nu-i mica. Putina gente realizeaza ca alegerea unui tip de credit versus altul poate insemna 50.000-100.000 RON diferenta pe toata durata. Asa ca am sa-ti explic direct: ce-i fiecare, pe care parametri sa te concentrezi, si cum sa stii care e desemnat pentru situatia ta.
+Diferenta nu-i mica. Putina gente realizeaza ca alegerea unui tip de credit versus altul poate insemna **50.000-100.000 RON** diferenta pe toata durata. Asa ca am sa-ti explic direct: ce-i fiecare, pe care parametri sa te concentrezi, si cum sa stii care e desemnat pentru situatia ta.
 
 ## Inainte de comparatie: ce-i un credit ipotecar (pe scurt)
 
 Ambele variante (Prima Casa si clasica) sunt credite ipotecare - inseamna ca lucrurile functioneaza aproape la fel din punct de vedere tehnic. Ce se schimba? Conditiile de acces, costurile, si garantiile de la stat.
 
 Intr-o faza anterioara, am explicat detaliat cum se calculeaza [IRCC si cum afecteaza rata ta](/blog/ce-este-ircc-cum-se-calculeaza). Daca nu stii inca cum functioneaza indicele, citeste mai intai acel articol - va-ti ajuta sa intelegi mai bine diferenta de dobanda pe care o vei plati intre cele doua tipuri.
+
+Cateva surse autoritate (daca vrei sa verifici direct de la sursa):
+- [BNR - pagina IRCC (metodologie si valori oficiale)](https://www.bnr.ro/IRCC-784.aspx)
+- [FNGCIMM - garantii de stat (programul de garantare)](https://www.fngcimm.ro/)
+- [OUG 50/2010 (informare si reguli pentru credite, forma consolidata)](https://legislatie.just.ro/Public/DetaliiDocument/120270)
 
 ## Ce e Credit Prima Casa (Noua Casa)?
 
