@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
         destination: '/blog/prima-casa-vs-credit',
         permanent: true,
       },
+      {
+        source: '/blog/ghid-complet-credit-ipotecar-2026',
+        destination: '/blog/ghid-ipotecar-2026',
+        permanent: true,
+      },
     ];
   },
 };
