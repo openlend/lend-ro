@@ -186,3 +186,8 @@ Nebunul ala care iti face creditarea e investit sa-ti dea suma pe care o poti su
 
 Alege astazi pe baza situatiei tale, nu pe baza "ce zice vecinul". După aia, calculeaza de 3 ori mai mult decat crezi ca trebuie. Și abia atunci, semneaza.
 
+Daca vrei o verificare rapida, fa 3 lucruri:
+- Ruleaza o simulare in [calculatorul de rate](/calculator)
+- Compara rapid 2-3 optiuni din [lista de banci](/banci)
+- Verifica datele oficiale (de exemplu IRCC) direct la [BNR - IRCC](https://www.bnr.ro/IRCC-784.aspx)
+
