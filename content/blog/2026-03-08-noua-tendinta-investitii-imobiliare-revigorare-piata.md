@@ -22,7 +22,7 @@ Ce înseamnă pentru cititor
 Ce poţi face acum
 
 - Verifică oferta locală; compară 3 oferte de finanţare.
-- Dacă ai deja credit: analizează opţiunile de refinanţare — un broker sau calculatorul nostru te ajută.
+- Dacă ai deja credit: analizează opţiunile de refinanţare - un broker sau calculatorul nostru te ajută.
 
 Internal links:
 - /calculatoare
