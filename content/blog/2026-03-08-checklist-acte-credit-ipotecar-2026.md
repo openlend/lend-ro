@@ -1,6 +1,6 @@
 ---
 title: "Checklist acte pentru credit ipotecar in 2026: ce pregatesti, cand si de ce"
-published: 2026-03-08T07:06:00+01:00
+published: "2026-03-08T07:06:00+01:00"
 description: "Ghid practic (fara dobanzi exacte): ce acte se cer de obicei la credit ipotecar, cum iti organizezi dosarul, ce inseamna DAE/IRCC, ce verifici la avans si cum eviti intarzierile."
 category: "ghid"
 keywords: ["credit ipotecar", "acte credit", "dosar", "avans", "DAE", "IRCC", "evaluare", "antecontract"]

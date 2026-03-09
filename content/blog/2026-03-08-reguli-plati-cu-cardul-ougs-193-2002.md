@@ -1,6 +1,6 @@
 ---
 title: "Reguli noi la platile cu cardul pentru firme: ce prevede OUG 193/2002 si ce amenzi pot aparea"
-published: 2026-03-08T07:06:00+01:00
+published: "2026-03-08T07:06:00+01:00"
 description: "Din 1 ianuarie 2026, modificarile la OUG 193/2002 extind obligatia de a accepta plati prin mijloace moderne de plata. Pe scurt: cine este vizat, ce riscuri exista si ce e util sa verifici ca client."
 category: "news"
 keywords: ["OUG 193/2002", "plati cu cardul", "POS", "ANAF", "amenzi", "mijloace moderne de plata"]

@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               {/* Breadcrumb */}
-              <div className="flex items-center gap-2 text-sm text-white/60 mb-4">
+              <div className="flex flex-wrap items-center gap-2 text-sm text-white/60 mb-4">
                 <Link href="/" className="hover:text-white transition-colors">
                   Acasă
                 </Link>
@@ -107,6 +107,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <Link href="/blog" className="hover:text-white transition-colors">
                   Blog
                 </Link>
+                {post.category && (
+                  <>
+                    <span>/</span>
+                    <Link
+                      href={`/blog/${String(post.category).toLowerCase()}`}
+                      className="hover:text-white transition-colors"
+                    >
+                      {post.category}
+                    </Link>
+                  </>
+                )}
                 <span>/</span>
                 <span className="text-white/80">{post.breadcrumb || post.title}</span>
               </div>
