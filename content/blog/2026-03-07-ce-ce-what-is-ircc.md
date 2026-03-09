@@ -1,5 +1,5 @@
 ---
-title: "Ce este IRCC și de ce contează pentru creditul tău ipotecar"
+title: "Ce este IRCC �'i de ce contează pentru creditul tău ipotecar"
 date: "2026-03-07T13:06:00+02:00"
 slug: "ce-este-ircc-2026-ghid"
 category: "Ghid"
@@ -10,12 +10,12 @@ IRCC este indicele de referință folosit pentru calculul dobânzilor la credite
 
 Ce înseamnă pentru tine
 
-- Dacă IRCC crește, rata variabilă a creditului tău poate crește.
-- Dacă IRCC scade, ai șansa unei rate mai mici.
+- Dacă IRCC cre�'te, rata variabilă a creditului tău poate cre�'te.
+- Dacă IRCC scade, ai �'ansa unei rate mai mici.
 
-Pași practici
+Pa�'i practici
 
-1. Verifică ce indice folosește creditul tău (IRCC vs ROBOR vs fix).
+1. Verifică ce indice folose�'te creditul tău (IRCC vs ROBOR vs fix).
 2. Dacă ai perioadă fixă aproape de expirare, calculează impactul trecerii la variabil.
 3. Compară oferte de refinanțare: o dobândă fixă pe termen scurt poate fi mai avantajoasă în perioade volatile.
 

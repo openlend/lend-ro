@@ -4,19 +4,19 @@ date: "2026-03-07T12:05:00+02:00"
 slug: "ghid-refinantare-credit-2026"
 category: "Ghiduri"
 keywords: ["refinanțare", "credit", "dobândă", "DAE", "economii"]
-summary: "Cum verifici dacă refinanțarea unui credit are sens în 2026: pași concreți, calcule și ce să urmărești."
+summary: "Cum verifici dacă refinanțarea unui credit are sens în 2026: pa�'i concreți, calcule �'i ce să urmăre�'ti."
 ---
 
 De ce contează
 
-Refinanțarea poate reduce rata lunară sau perioada de rambursare. Dar nu este pentru toți: costurile inițiale și DAE pot anula economiile estimate.
+Refinanțarea poate reduce rata lunară sau perioada de rambursare. Dar nu este pentru toți: costurile inițiale �'i DAE pot anula economiile estimate.
 
-Pași concreți
+Pa�'i concreți
 
-1. Compară DAE și dobânda actuală cu oferta nouă.
+1. Compară DAE �'i dobânda actuală cu oferta nouă.
 2. Calculează costul total al refinanțării (comisioane, evaluare, notariat).
 3. Verifică perioada necesară pentru a recupera costurile prin economiile lunare.
-4. Citește clauzele privind penalități la rambursarea anticipată.
+4. Cite�'te clauzele privind penalități la rambursarea anticipată.
 
 Exemplu simplu
 
@@ -28,9 +28,9 @@ Tabel: costuri vs economii
 | Costuri inițiale totale | 1 800 EUR |
 | Luni până la break-even | 12 luni |
 
-Ce urmărești la ofertă
+Ce urmăre�'ti la ofertă
 
-- DAE real, nu doar dobânda afișată.
+- DAE real, nu doar dobânda afi�'ată.
 - Comisioane ascunse la transferul dosarului.
 - Posibilitatea de modificare a dobânzii în primii ani.
 
@@ -41,4 +41,4 @@ Linkuri interne
 
 Opinia noastră
 
-Refinanțarea are sens când break-even este sub 24 de luni și planul tău financiar este stabil. Altfel, rămâi la soluția curentă."
+Refinanțarea are sens când break-even este sub 24 de luni �'i planul tău financiar este stabil. Altfel, rămâi la soluția curentă."

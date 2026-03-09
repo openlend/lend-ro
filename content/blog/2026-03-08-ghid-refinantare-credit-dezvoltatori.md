@@ -7,7 +7,7 @@ keywords: ["refinanțare", "dezvoltatori", "credit imobiliar", "DAE", "IRCC"]
 source_url: ""
 ---
 
-Refinanțarea unui proiect imobiliar poate reduce costurile financiare, amâna plățile scadente și oferi capital pentru modernizări. În acest ghid scurt explicăm semnele că merită să iei în considerare refinanțarea.
+Refinanțarea unui proiect imobiliar poate reduce costurile financiare, amâna plățile scadente �'i oferi capital pentru modernizări. În acest ghid scurt explicăm semnele că merită să iei în considerare refinanțarea.
 
 1. Ai costuri de finanțare mai mari decât media pieței
 
@@ -23,9 +23,9 @@ Dacă există clauze restrictive, renegocierea cu un creditor nou poate aduce fl
 
 Ce verifici
 
-- DAE și comisioane de rambursare anticipată
-- Condiții de garanție și covenanți
-- Perioada de grație și costul total al creditului
+- DAE �'i comisioane de rambursare anticipată
+- Condiții de garanție �'i covenanți
+- Perioada de grație �'i costul total al creditului
 
 Linkuri interne
 

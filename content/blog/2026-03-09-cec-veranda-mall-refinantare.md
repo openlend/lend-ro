@@ -10,16 +10,16 @@ Sursa: https://www.zf.ro/companii/cec-bank-finanteaza-veranda-mall-cu-36-mil-eur
 
 Ce s-a întâmplat
 
-CEC Bank a acordat o finanțare de 36 milioane euro pentru refinanțarea proiectului Veranda Mall. Tranzacția acoperă serviciul datoriei și sprijină dezvoltarea operațională a centrului comercial.
+CEC Bank a acordat o finanțare de 36 milioane euro pentru refinanțarea proiectului Veranda Mall. Tranzacția acoperă serviciul datoriei �'i sprijină dezvoltarea operațională a centrului comercial.
 
 Ce înseamnă pentru tine
 
-Dacă ești proprietar sau investitor în retail sau proiecte imobiliare, o linie de refinanțare de această dimensiune arată că băncile locale încă susțin proiecte comerciale mari. Pentru cumpărătorii de retail, asta poate însemna stabilitate operațională pe termen scurt și menținerea serviciilor în locație.
+Dacă e�'ti proprietar sau investitor în retail sau proiecte imobiliare, o linie de refinanțare de această dimensiune arată că băncile locale încă susțin proiecte comerciale mari. Pentru cumpărătorii de retail, asta poate însemna stabilitate operațională pe termen scurt �'i menținerea serviciilor în locație.
 
 Ce poți face
 
-- Pentru dezvoltatori: folosește exemplul pentru a negocia condiții mai bune la refinanțare.
-- Pentru investitori: verifică covenanții financiari și riscurile legate de fluxuri de numerar.
+- Pentru dezvoltatori: folose�'te exemplul pentru a negocia condiții mai bune la refinanțare.
+- Pentru investitori: verifică covenanții financiari �'i riscurile legate de fluxuri de numerar.
 
 Linkuri interne
 

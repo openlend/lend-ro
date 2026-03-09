@@ -19,13 +19,13 @@ Refinanțarea poate reduce rata lunară sau durata creditului, dar are costuri a
 - Perioada de recuperare: costuri totale / economii lunare.
 - Efectul pe termen lung asupra sumei totale plătite.
 
-3) Pașii practici
+3) Pa�'ii practici
 
 - Cere simulări de la 2-3 bănci.
-- Cere o estimare a comisioanelor și a costurilor bancare în scris.
+- Cere o estimare a comisioanelor �'i a costurilor bancare în scris.
 - Verifică clauzele de rambursare anticipată din contractul vechi.
 
-4) Greșeli frecvente
+4) Gre�'eli frecvente
 
 - Alegi doar dobânda fără să verifici comisioanele.
 - Ignori perioada de recuperare.
@@ -38,5 +38,5 @@ Linkuri interne
 
 Concluzie
 
-Refinanțarea are sens atunci când economisești net după costuri și când scopul este clar (reducere rata, fixare dobândă, scurtare perioadă). Opinia mea: dacă ești la începutul perioadei de credit și reducerea dobânzii e sub 0.5 pp, probabil nu merită.
+Refinanțarea are sens atunci când economise�'ti net după costuri �'i când scopul este clar (reducere rata, fixare dobândă, scurtare perioadă). Opinia mea: dacă e�'ti la începutul perioadei de credit �'i reducerea dobânzii e sub 0.5 pp, probabil nu merită.
 

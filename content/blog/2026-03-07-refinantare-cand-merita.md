@@ -2,7 +2,7 @@
 title: "Refinanțare: când merită să îți schimbi creditul ipotecar"
 date: 2026-03-07T18:07:00+02:00
 tags: [refinanțare, credit-ipotecar, sfaturi]
-summary: "Ghid rapid: când merită să refinanțezi, cum compari oferte și ce costuri ascunse să verifici."
+summary: "Ghid rapid: când merită să refinanțezi, cum compari oferte �'i ce costuri ascunse să verifici."
 ---
 
 Refinanțarea unui credit ipotecar poate reduce rata lunară sau perioada de credit, dar nu este întotdeauna soluția corectă. Înainte să semnezi, verifică costurile totale.
@@ -16,14 +16,14 @@ Când are sens
 Ce costuri să verifici
 
 - Comisioane de reziliere/transfer
-- Evaluare imobiliară și taxe notariale
+- Evaluare imobiliară �'i taxe notariale
 - Costul total pe restul de viață a creditului
 
 Cum compari oferte
 
-- Calculează TAEG și costul total
-- Folosește calculatorul nostru: /calculatoare/refinantare
-- Cere simulări pe aceeași durată și același avans
+- Calculează TAEG �'i costul total
+- Folose�'te calculatorul nostru: /calculatoare/refinantare
+- Cere simulări pe aceea�'i durată �'i acela�'i avans
 
 Linkuri interne
 
@@ -32,4 +32,4 @@ Linkuri interne
 
 Opinia mea
 
-Refinanțarea e utilă când diferența de cost este clară și ai un plan - nu doar confort temporar. Dacă nu ești sigur, cere două simulări și compară costul total.
+Refinanțarea e utilă când diferența de cost este clară �'i ai un plan - nu doar confort temporar. Dacă nu e�'ti sigur, cere două simulări �'i compară costul total.

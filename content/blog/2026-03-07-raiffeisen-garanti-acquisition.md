@@ -8,25 +8,25 @@ keywords: ["Raiffeisen", "Garanti Bank", "banci", "preluare", "credit"]
 
 Sursa: https://www.zf.ro/zf-24/raiffeisen-bank-este-cel-mai-aproape-sa-castige-lupta-pentru-23077974
 
-Raiffeisen ar fi cel mai aproape să cumpere operațiunile Garanti Bank din România. Anunțul ar putea duce la consolidare pe piața bancară locală și la schimbări în produsele pentru clienți.
+Raiffeisen ar fi cel mai aproape să cumpere operațiunile Garanti Bank din România. Anunțul ar putea duce la consolidare pe piața bancară locală �'i la schimbări în produsele pentru clienți.
 
 Ce s-a schimbat
 
-- Sursele raportează că negocierile sunt avansate și Raiffeisen are șanse mari să obțină acordul.
+- Sursele raportează că negocierile sunt avansate �'i Raiffeisen are �'anse mari să obțină acordul.
 
 Ce înseamnă pentru cititor
 
-- Pentru clienți: posibilă schimbare de brand, oferte consolidate, dar și re-evaluarea portofoliilor de credite.
+- Pentru clienți: posibilă schimbare de brand, oferte consolidate, dar �'i re-evaluarea portofoliilor de credite.
 - Pentru solicitanții de credit ipotecar: procesul de validare ar putea fi influențat de standardele Raiffeisen; oferte de refinanțare pot apărea după integrare.
 
 Ce să faci acum
 
-- Dacă ai credit Garanti: verifică comunicările oficiale și nu semna oferte fără să compari costurile totale.
-- Dacă ești în piață pentru un credit: cere oferte pe termen scurt și urmărește promoțiile de refinanțare.
+- Dacă ai credit Garanti: verifică comunicările oficiale �'i nu semna oferte fără să compari costurile totale.
+- Dacă e�'ti în piață pentru un credit: cere oferte pe termen scurt �'i urmăre�'te promoțiile de refinanțare.
 
 Linkuri interne
 
 - /calculatoare (calculator credit ipotecar)
 - /articole/ghid-refinantare (ghid refinanțare)
 
-Nota: știre preluată din Ziarul Financiar - urmărim evoluția și actualizăm dacă apar detalii oficiale.
+Nota: �'tire preluată din Ziarul Financiar - urmărim evoluția �'i actualizăm dacă apar detalii oficiale.

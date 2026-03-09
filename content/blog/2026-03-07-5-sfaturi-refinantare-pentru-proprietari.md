@@ -9,15 +9,15 @@ keywords: ["refinanțare", "proprietari", "credit imobiliar", "DAE"]
 
 Introducere
 
-Refinanțarea poate reduce costul finanțării și oferi timp pentru stabilizarea veniturilor. Următoarele 5 sfaturi te ajută să pregătești dosarul și să negociezi condiții mai bune.
+Refinanțarea poate reduce costul finanțării �'i oferi timp pentru stabilizarea veniturilor. Următoarele 5 sfaturi te ajută să pregăte�'ti dosarul �'i să negociezi condiții mai bune.
 
-1) Verifică DAE și scenariile de cost
+1) Verifică DAE �'i scenariile de cost
 
 Calculează Dobânda Anuală Efectivă pentru orice ofertă. Nu compara doar dobânda nominală.
 
 2) Curăță cash-flow-ul proiectului
 
-Băncile uită de planuri frumoase dacă cifrele nu arată. Arată proiecții realiste de venituri și cheltuieli.
+Băncile uită de planuri frumoase dacă cifrele nu arată. Arată proiecții realiste de venituri �'i cheltuieli.
 
 3) Negociază perioade de grație
 
@@ -27,12 +27,12 @@ Perioadele de grație pe principal sau dobândă pot oferi respiro în perioade 
 
 Sponsorul proiectului, conturi escrow sau garanții corporative pot influența rata.
 
-5) Compară oferte și cereri clare
+5) Compară oferte �'i cereri clare
 
-Pregătește un pachet standardizat cu toate documentele pentru a primi oferte comparabile.
+Pregăte�'te un pachet standardizat cu toate documentele pentru a primi oferte comparabile.
 
 Concluzie
 
-Refinanțarea este pentru proiectele care au nevoie de stabilitate de capital. Fă calculele, negociază și alege oferta care îți lasă marja operațională.
+Refinanțarea este pentru proiectele care au nevoie de stabilitate de capital. Fă calculele, negociază �'i alege oferta care îți lasă marja operațională.
 
-Opinia noastră: refinanțarea corectă poate salva marja proiectului. Dacă poți, cere și o opțiune de revizuire după 12 luni.
+Opinia noastră: refinanțarea corectă poate salva marja proiectului. Dacă poți, cere �'i o opțiune de revizuire după 12 luni.

@@ -10,17 +10,17 @@ Sursa: https://www.zf.ro/banci-si-asigurari/cec-bank-finanteaza-veranda-mall-cu-
 
 Ce s-a întâmplat
 
-CEC Bank a acordat un credit de 36 milioane euro pentru proiectul Veranda Mall. Finanțarea este destinată refinanțării, susținerii dezvoltării și pentru distribuții de capital.
+CEC Bank a acordat un credit de 36 milioane euro pentru proiectul Veranda Mall. Finanțarea este destinată refinanțării, susținerii dezvoltării �'i pentru distribuții de capital.
 
 Ce înseamnă pentru tine
 
-- Dacă ești cumpărător de locuințe sau investitor, un credit bancar mare pentru un proiect comercial arată încredere acumulată în sectorul imobiliar local.
-- Pentru dezvoltatori, o tranzacție de genul poate ușura accesul la finanțare pentru proiecte similare.
+- Dacă e�'ti cumpărător de locuințe sau investitor, un credit bancar mare pentru un proiect comercial arată încredere acumulată în sectorul imobiliar local.
+- Pentru dezvoltatori, o tranzacție de genul poate u�'ura accesul la finanțare pentru proiecte similare.
 
 Ce să faci azi
 
-1. Dacă urmărești oportunități de investiții imobiliare locale, monitorizează proiectele conexe din zonă și cererea de retail.
-2. Dacă vrei credit pentru un proiect sau pentru cumpărare, folosește această perioadă de activitate a pieței ca argument la discuția cu banca.
+1. Dacă urmăre�'ti oportunități de investiții imobiliare locale, monitorizează proiectele conexe din zonă �'i cererea de retail.
+2. Dacă vrei credit pentru un proiect sau pentru cumpărare, folose�'te această perioadă de activitate a pieței ca argument la discuția cu banca.
 
 Linkuri interne recomandate
 
@@ -30,4 +30,4 @@ Linkuri interne recomandate
 
 Comentariu rapid
 
-Tranzacția arată că băncile mari încă susțin proiectele comerciale; pentru piața rezidențială, impactul e indirect, dar pozitiv: finanțare pentru retail stimulează traficul și chiriile din proximitate.
+Tranzacția arată că băncile mari încă susțin proiectele comerciale; pentru piața rezidențială, impactul e indirect, dar pozitiv: finanțare pentru retail stimulează traficul �'i chiriile din proximitate.

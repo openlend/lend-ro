@@ -6,23 +6,23 @@ category: "refinantare"
 keywords: ["refinanțare", "credit ipotecar", "dobânzi", "calcul"]
 ---
 
-Refinanțarea poate reduce rata lunară sau durata creditului. Următorii pași te ajută să decideți corect.
+Refinanțarea poate reduce rata lunară sau durata creditului. Următorii pa�'i te ajută să decideți corect.
 
-1) Verifică-ți soldul și comisioanele de rambursare anticipată.
-2) Compară costul total (DAE) între oferta actuală și cea nouă.
-3) Cere cel puțin 3 oferte scrise și calculează DAE.
-4) Verifică istoricul de plată și pregătește documentele (adeverință venit, extras cont, acte proprietate).
+1) Verifică-ți soldul �'i comisioanele de rambursare anticipată.
+2) Compară costul total (DAE) între oferta actuală �'i cea nouă.
+3) Cere cel puțin 3 oferte scrise �'i calculează DAE.
+4) Verifică istoricul de plată �'i pregăte�'te documentele (adeverință venit, extras cont, acte proprietate).
 5) Include costurile fixe: evaluare, comision creditare, notar, IFN dacă e cazul.
-6) Fă simulări pe 5, 10 și 15 ani - uită-te la cash-flow, nu doar la rată.
-7) Citește termenii: dobândă fixă/variabilă, perioadă de fixare, clauze de indexare.
+6) Fă simulări pe 5, 10 �'i 15 ani - uită-te la cash-flow, nu doar la rată.
+7) Cite�'te termenii: dobândă fixă/variabilă, perioadă de fixare, clauze de indexare.
 
 Ce recomand
 
-- Dacă diferența de DAE este mai mare de 1 punct procentual și costurile inițiale se recuperează în 3 ani, refinanțarea merită pentru majoritatea scenariilor.
+- Dacă diferența de DAE este mai mare de 1 punct procentual �'i costurile inițiale se recuperează în 3 ani, refinanțarea merită pentru majoritatea scenariilor.
 
 Linkuri interne
 
 - /calculatoare (simulator credit)
 - /articole/dae-explicat (cum calculezi DAE)
 
-Opinia mea: refinanțarea e utilă când ai un plan clar (reducere rată sau scurtare durată) și ai validat costul total. Faceți calculele înainte să semnați.
+Opinia mea: refinanțarea e utilă când ai un plan clar (reducere rată sau scurtare durată) �'i ai validat costul total. Faceți calculele înainte să semnați.

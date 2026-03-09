@@ -8,15 +8,15 @@ keywords: ["refinanțare","credit ipotecar","DAE","comparatie rate"]
 
 Rezumat
 
-Refinanțarea poate reduce costul total al unui credit dacă găsești o ofertă cu DAE mai mică sau un calendar de rambursare mai favorabil. Ghidul acesta explică pașii practici, documentele necesare și capcanele de evitat.
+Refinanțarea poate reduce costul total al unui credit dacă găse�'ti o ofertă cu DAE mai mică sau un calendar de rambursare mai favorabil. Ghidul acesta explică pa�'ii practici, documentele necesare �'i capcanele de evitat.
 
-Pași principali
+Pa�'i principali
 
-1. Compară oferta actuală cu cele disponibile: calculează DAE și nu doar rata lunară.
+1. Compară oferta actuală cu cele disponibile: calculează DAE �'i nu doar rata lunară.
 2. Calculează costurile tranzacției: comisioane, evaluare, taxe notariale.
-3. Cere o pre-aprobare și verifică ce garanții suplimentare sau asigurări cere banca.
+3. Cere o pre-aprobare �'i verifică ce garanții suplimentare sau asigurări cere banca.
 4. Negociază termenii: amortizare, perioadă fixă/variabilă, perioadă de grație.
-5. Semnează și urmărește eliberarea fondurilor.
+5. Semnează �'i urmăre�'te eliberarea fondurilor.
 
 Documente necesare
 
@@ -25,9 +25,9 @@ Documente necesare
 - Extras de cont / adeverință venit
 - Evaluare imobil
 
-Ce să urmărești la DAE
+Ce să urmăre�'ti la DAE
 
-DAE include toate costurile relevante. Un DAE aparent mai mic poate ascunde comisioane variabile sau clauze de indexare. Folosește un calculator de DAE înainte de semnare.
+DAE include toate costurile relevante. Un DAE aparent mai mic poate ascunde comisioane variabile sau clauze de indexare. Folose�'te un calculator de DAE înainte de semnare.
 
 Exemplu simplu (tabel)
 

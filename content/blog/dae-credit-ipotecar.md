@@ -1,7 +1,7 @@
 ---
 title: "DAE la credit ipotecar: ce include si cum compari corect"
 slug: "dae-credit-ipotecar"
-description: "Ce intră în DAE pentru un credit ipotecar, cum se calculează și cum compari corect ofertele băncilor pentru a alege cea mai avantajoasă opțiune."
+description: "Ce intră în DAE pentru un credit ipotecar, cum se calculează �'i cum compari corect ofertele băncilor pentru a alege cea mai avantajoasă opțiune."
 keywords: ["DAE", "credit ipotecar", "dobanda efectiva", "comparare credite"]
 author: "lend.ro"
 published: "2026-03-06"
@@ -10,7 +10,7 @@ category: "Credite"
 readingTime: "6 min"
 featured: false
 image: "https://images.unsplash.com/photo-1560184897-6c6b1b2b3a1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
-imageAlt: "Documente si casa — calcularea costurilor unui credit ipotecar"
+imageAlt: "Documente si casa - calcularea costurilor unui credit ipotecar"
 breadcrumb:
   - text: "Home"
     href: "/"
@@ -24,7 +24,7 @@ breadcrumb:
 
 DAE (dobanda anuala efectiva) este indicatorul care arata **costul total anual** al unui credit. Spre deosebire de dobanda nominala, **DAE include si comisioanele si alte costuri obligatorii** legate de imprumut, astfel oferind o baza corecta de comparatie intre oferte.
 
-Am vazut multi clienti surprinsi cand comparau doar dobanda nominala — experienta mea arata ca DAE evita surprizele la semnare.
+Am vazut multi clienti surprinsi cand comparau doar dobanda nominala - experienta mea arata ca DAE evita surprizele la semnare.
 
 ## Ce componente intra, de obicei, in DAE
 

@@ -4,25 +4,25 @@ date: "2026-03-07T08:05:00+02:00"
 slug: "cum-refinantezi-un-credit-ipotecar"
 category: "Ghid"
 keywords: ["refinanțare","credit ipotecar","DAE","IRCC","economisire"]
-summary: "Pași practici pentru refinanțarea unui credit ipotecar: când merită, ce documente sunt necesare și cum calculezi economiile."
+summary: "Pa�'i practici pentru refinanțarea unui credit ipotecar: când merită, ce documente sunt necesare �'i cum calculezi economiile."
 ---
 
 Introducere
 
-Refinanțarea poate reduce rata lunară sau durata creditului. Înainte să aplici, verifică costurile totale: comisioane, taxe și eventuala penalizare de rambursare anticipată.
+Refinanțarea poate reduce rata lunară sau durata creditului. Înainte să aplici, verifică costurile totale: comisioane, taxe �'i eventuala penalizare de rambursare anticipată.
 
 Când merită
 
 - Dobânzile au scăzut semnificativ față de cînd ai luat creditul.
-- Ai crescut veniturile și poți obține condiții mai bune.
+- Ai crescut veniturile �'i poți obține condiții mai bune.
 - Vrei să treci de la dobândă variabilă la una fixă pentru stabilitate.
 
-Pași principali
+Pa�'i principali
 
-1. Verifică oferta curentă a băncilor și calculează DAE reală.
+1. Verifică oferta curentă a băncilor �'i calculează DAE reală.
 2. Compară costurile de refinanțare: comisioane de analiză, evaluare, actele notariale.
-3. Obține preaprobarea de la bancă și pregătește documentele: adeverință salariu, istoricul contului, evaluarea imobilului.
-4. Semnează contractul și asigură-te că primești un calcul clar al economiilor în primul an.
+3. Obține preaprobarea de la bancă �'i pregăte�'te documentele: adeverință salariu, istoricul contului, evaluarea imobilului.
+4. Semnează contractul �'i asigură-te că prime�'ti un calcul clar al economiilor în primul an.
 
 Ce trebuie evitat
 
@@ -31,4 +31,4 @@ Ce trebuie evitat
 
 Verdict
 
-Refinanțarea este utilă dacă urmărești economii clare pe 3-5 ani. Fă calcule simple și cere oferte scrise. Opinia mea: majoritatea proprietarilor economisesc dacă sunt atenți la DAE și la comisioane.
+Refinanțarea este utilă dacă urmăre�'ti economii clare pe 3-5 ani. Fă calcule simple �'i cere oferte scrise. Opinia mea: majoritatea proprietarilor economisesc dacă sunt atenți la DAE �'i la comisioane.

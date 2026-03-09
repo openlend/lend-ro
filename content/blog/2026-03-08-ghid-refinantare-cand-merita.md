@@ -1,24 +1,24 @@
 ---
-title: "Ghid rapid: Ce este refinanțarea și când merită"
+title: "Ghid rapid: Ce este refinanțarea �'i când merită"
 date: "2026-03-08T16:05:00+02:00"
 category: "evergreen"
 keywords: ["refinanțare","credit","DAE","economisire","banci"]
 slug: "ghid-refinantare-cand-merita"
-summary: "Un ghid practic pentru proprietari: când e bine să refinanțezi un credit imobiliar și ce întrebări să pui băncii."
+summary: "Un ghid practic pentru proprietari: când e bine să refinanțezi un credit imobiliar �'i ce întrebări să pui băncii."
 ---
 
 Refinanțarea înseamnă înlocuirea unui credit existent cu unul nou, de obicei pentru a obține o dobândă mai mică, un termen diferit sau pentru a schimba moneda. Scopul este economisirea pe termen lung sau ajustarea plăților la situația curentă.
 
 Ce trebuie să verifici
 
-- DAE comparativ: calculează diferența de cost total între vechiul și noul credit.
+- DAE comparativ: calculează diferența de cost total între vechiul �'i noul credit.
 - Comisioane de rambursare anticipată: unele credite au penalizări care pot anula beneficiul refinanțării.
-- Durata rămasă: refinanțarea pe termen lung reduce rata lunară, dar poate crește costul total.
+- Durata rămasă: refinanțarea pe termen lung reduce rata lunară, dar poate cre�'te costul total.
 
 Când merită
 
 - Dobânda de pe piață a scăzut considerabil față de momentul în care ai luat creditul.
-- Ai nevoie de cash-flow lunar mai bun și accepți un termen mai lung.
+- Ai nevoie de cash-flow lunar mai bun �'i accepți un termen mai lung.
 - Vrei să treci de la dobândă variabilă la fixă pentru predictibilitate.
 
 Ce să întrebi banca

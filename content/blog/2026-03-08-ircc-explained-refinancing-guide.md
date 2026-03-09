@@ -1,5 +1,5 @@
 ---
-title: "Ghid: IRCC, refinanțare și ce trebuie să știi înainte să refaci creditul"
+title: "Ghid: IRCC, refinanțare �'i ce trebuie să �'tii înainte să refaci creditul"
 date: 2026-03-08T14:10:00+02:00
 slug: "ghid-ircc-refinantare"
 category: "ghiduri-financiare"
@@ -7,16 +7,16 @@ keywords: ["IRCC", "refinanțare", "dobândă", "credit ipotecar", "DAE"]
 source_url: ""
 ---
 
-Ce este IRCC și de ce contează pentru cine vrea să refinanțeze un credit ipotecar.
+Ce este IRCC �'i de ce contează pentru cine vrea să refinanțeze un credit ipotecar.
 
 Sumar rapid
 
 - IRCC = indicele de referință pentru creditele acordate populației; influențează costul variabil al dobânzii.
-- Dacă IRCC crește, rata ta poate crește; dacă scade, plătești mai puțin.
+- Dacă IRCC cre�'te, rata ta poate cre�'te; dacă scade, plăte�'ti mai puțin.
 
-Pași practici înainte să refinanțezi
+Pa�'i practici înainte să refinanțezi
 
-1. Compară DAE și nu doar rata: DAE include comisioanele relevante.
+1. Compară DAE �'i nu doar rata: DAE include comisioanele relevante.
 2. Verifică costurile de închidere: evaluare, comision de rambursare anticipată, notariat.
 3. Calculează perioada de recuperare a costurilor: câți ani trebuie să treacă ca refinanțarea să fie profitabilă.
 
@@ -34,7 +34,7 @@ Tabel: exemplu simplu de calcul (costuri vs economii)
 Ce să faci azi
 
 - Cere ofertă de refinanțare de la 2-3 bănci.
-- Cere toate costurile în scris și calculează DAE.
+- Cere toate costurile în scris �'i calculează DAE.
 
 Linkuri interne
 

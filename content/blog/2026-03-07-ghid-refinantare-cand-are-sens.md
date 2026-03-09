@@ -7,16 +7,16 @@ keywords: ["refinantare","credit imobiliar","DAE","cost total","refinantare 2026
 doc: "GOOGLE_DOC_LINK_NEEDS_CREATION"
 ---
 
-Refinanțarea poate reduce rata lunară sau durata creditului, dar are costuri ascunse. Acest ghid explică când merită să refaci contractul și cum calculezi pragul de rentabilitate.
+Refinanțarea poate reduce rata lunară sau durata creditului, dar are costuri ascunse. Acest ghid explică când merită să refaci contractul �'i cum calculezi pragul de rentabilitate.
 
 De ce contează
 
 - Dobânzile au variat recent; refinanțarea poate economisi mii de euro pe termen lung.
 - Trebuie comparat costul total al refinanțării (comisioane, evaluare, taxe) cu beneficiul net.
 
-Pași concreți
+Pa�'i concreți
 
-1. Calculează DAE nou și compară cu DAE actual. 2. Adună toate costurile de refinanțare. 3. Calculează perioada de recuperare: costuri / economii lunare. 4. Dacă perioada de recuperare este sub 36 de luni și plănuiești să rămâi în proprietate, merită analizat.
+1. Calculează DAE nou �'i compară cu DAE actual. 2. Adună toate costurile de refinanțare. 3. Calculează perioada de recuperare: costuri / economii lunare. 4. Dacă perioada de recuperare este sub 36 de luni �'i plănuie�'ti să rămâi în proprietate, merită analizat.
 
 Tabel simplu (exemplu)
 
@@ -26,13 +26,13 @@ Tabel simplu (exemplu)
 | Costuri refinanțare | 3.000 EUR |
 | Perioadă de recuperare | 20 luni |
 
-Ce să urmărești
+Ce să urmăre�'ti
 
 - Penalizări de rambursare anticipată la creditul vechi. - Clausule ascunse în oferta nouă. - Impactul asupra scorului de credit.
 
 Opinia noastră
 
-Refinanțarea merită pentru majoritatea proprietarilor care intenționează să rămână în proprietate mai mult de 3 ani și pot obține o reducere clară a DAE.
+Refinanțarea merită pentru majoritatea proprietarilor care intenționează să rămână în proprietate mai mult de 3 ani �'i pot obține o reducere clară a DAE.
 
 Linkuri interne
 
