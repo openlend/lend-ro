@@ -1,12 +1,12 @@
 ---
 title: "DAE la credit ipotecar: ce include si cum compari corect"
 slug: "dae-credit-ipotecar"
-description: "Ce intră în DAE pentru un credit ipotecar, cum se calculează �'i cum compari corect ofertele băncilor pentru a alege cea mai avantajoasă opțiune."
+description: "Ce intră în DAE pentru un credit ipotecar, cum se calculează și cum compari corect ofertele băncilor ca să alegi corect."
 keywords: ["DAE", "credit ipotecar", "dobanda efectiva", "comparare credite"]
 author: "lend.ro"
 published: "2026-03-06"
 updated: "2026-03-06"
-category: "Credite"
+category: "credite"
 readingTime: "6 min"
 featured: false
 image: "https://images.unsplash.com/photo-1560184897-6c6b1b2b3a1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
@@ -42,7 +42,7 @@ Important: costuri optionale sau serviciile suplimentare alese de client (de exe
 
 Calculul DAE tine cont de fluxurile de numerar: suma imprumutata, ratele lunare, comisioanele platite la inceput si la sfarsit, si frecventa platilor. Formula este standard, dar aplicarea poate varia in functie de costurile incluse.
 
-Daca vrei un calcul rapid, foloseste un /calculator intern pentru a compara scenarii.
+Dacă vrei un calcul rapid, folosește **[calculatorul de credit ipotecar](/calculator)** ca să compari scenarii.
 
 ## Pasii pentru a compara corect oferte ipotecare
 
@@ -89,7 +89,12 @@ Pentru detalii pana la nivel de reglementare, consulta:
 
 ## Concluzie si opinie
 
-DAE ramane cel mai util instrument pentru comparatia intre credite ipotecare. Nu te lasa pacalit de o dobanda nominala mai mica: **uita-te intotdeauna la DAE si la lista completa de costuri**. In practica, cand compari oferte, acorda atentie detaliilor din oferta scrisa si foloseste un /calculator pentru a testa scenarii.
+DAE rămâne cel mai util instrument pentru comparația între credite ipotecare. Nu te lăsa păcălit de o dobândă nominală mai mică: **uită-te întotdeauna la DAE și la lista completă de costuri**. În practică, când compari oferte, acordă atenție detaliilor din oferta scrisă și folosește **[calculatorul](/calculator)** ca să testezi scenarii.
 
-Pentru a explora optiuni bancare, vezi lista noastra de /banci sau citeste alte articole din blog pentru exemple si studii de caz.
+Linkuri utile:
+- Vezi opțiuni: **[lista de bănci](/banci)**
+- Dacă te interesează refinanțarea: **[când merită să refinanțezi](/blog/2026-03-06-ce-cand-sa-refinantezi-credit)**
+- Pentru alegerea dobânzii: **[dobândă fixă vs variabilă](/blog/2026-03-07-dobanda-fixa-vs-variabila-credit-ipotecar-checklist)**
+
+Disclaimer: Acest articol are scop informativ și nu constituie consultanță financiară.
 
