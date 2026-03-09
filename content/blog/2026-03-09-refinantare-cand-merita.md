@@ -1,35 +1,32 @@
 ---
-title: "Refinanțare: când merită și când nu (ghid scurt)"
-date: "2026-03-09T17:05:00+02:00"
+title: "Refinanțare: când merită să-ți muți creditul în 2026"
+date: 2026-03-09T18:10:00+02:00
+tags: [evergreen, refinantare, dobanzile]
 category: evergreen
 slug: refinantare-cand-merita-2026
-keywords: [refinanțare, credit, dobânzi, gospodarire, piața imobiliară]
 ---
 
-Refinanțarea poate reduce rata lunară, scădea durata creditului sau elibera capital. Dar nu merită întotdeauna: costurile de tranzacție, comisioanele și penalitățile pot eroda economiile.
+Sumar rapid
 
-1) Când merită
+Refinanțarea înseamnă mutarea datoriei la altă bancă sau la alt produs pentru a obține costuri totale mai mici, rate mai scăzute sau alte condiții mai bune.
 
-- Dobânda curentă e cu cel puțin 1 punct procentual mai mică.
-- Planifici să rămâi în locuință cel puțin 3–5 ani.
-- Poți reduce semnificativ durata creditului.
+Când merită
 
-2) Când nu merită
+- Dobânda ta actuală e semnificativ mai mare decât oferta de piață.
+- Ai economii sau venituri stabile care reduc costul creditului.
+- Perioada rămasă de rambursare e suficientă ca economiile să acopere comisioanele de refinanțare.
 
-- Ai costuri de exit mari sau penalități de rambursare anticipată.
-- Economiile din dobândă sunt mai mici decât costurile totale.
+Pași practici
 
-3) Pașii practici
+1. Calculează costul total actual vs costul după refinanțare (inclusiv comisioane). Folosește calculatorul nostru.
+2. Verifică dacă există penalități de rambursare anticipată.
+3. Negociază cu cel puțin două bănci; cere oferte scrise.
 
-- Calculează IRR pentru refinanțare.
-- Compară toate costurile: notar, evaluare, comisioane.
-- Negociază oferta cu mai multe bănci.
-
-Linkuri interne
+Linkuri interne recomandate
 
 - /calculatoare/refinantare
-- /ghiduri/cum-alegi-credit
+- /ghiduri/indreptarul-cumparatorului
 
-Opinion
+Opinia noastră
 
-Refinanțarea e o unealtă utilă, dar nu e o soluție automat bună. Fă calculele corect și nu te lăsa sedus doar de o dobândă mai mică.
+Refinanțarea merită când economisești clar peste costurile tranzacției; altfel, rămâi pe actualul produs. În 2026, mișcările pe piața dobânzilor fac verificarea ofertelor obligatorie.
