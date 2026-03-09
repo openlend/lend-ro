@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
@@ -180,6 +180,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 prose-td:border prose-td:border-gray-200 prose-td:p-3"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
+
+            {/* Disclaimer (always) */}
+            <div className="mt-10 rounded-xl border border-amber-200 bg-amber-50 px-6 py-4 text-sm text-amber-900">
+              <strong>Disclaimer:</strong> Informațiile sunt cu scop educațional și nu constituie consultanță financiară.
+              Verifică întotdeauna ofertele oficiale ale băncilor și cere o simulare personalizată înainte de a semna.
+            </div>
 
             {/* CTA Section */}
             <div className="mt-16 bg-gradient-to-r from-[#0A2F2F] to-[#0A2F2F]/90 rounded-2xl p-8 md:p-12 text-center text-white">
