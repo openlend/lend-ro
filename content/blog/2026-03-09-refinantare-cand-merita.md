@@ -1,36 +1,35 @@
 ---
-title: "Refinanțare: când merită să-ți muți creditul ipotecar (ghid practic)"
-date: "2026-03-09T07:05:00+02:00"
-slug: "refinantare-cand-merita"
-category: "ghid-imobiliar"
-keywords: ["refinanțare","credit ipotecar","dobânzi","costuri","economii"]
+title: "Refinanțare: când merită și când nu (ghid scurt)"
+date: "2026-03-09T17:05:00+02:00"
+category: evergreen
+slug: refinantare-cand-merita-2026
+keywords: [refinanțare, credit, dobânzi, gospodarire, piața imobiliară]
 ---
 
-Refinanțarea poate reduce rata lunară sau durata creditului, dar nu este soluția corectă pentru toată lumea. În acest ghid scurt explic ce calcule trebuie să faci și ce riscuri să verifici.
+Refinanțarea poate reduce rata lunară, scădea durata creditului sau elibera capital. Dar nu merită întotdeauna: costurile de tranzacție, comisioanele și penalitățile pot eroda economiile.
 
-1. Când are sens
+1) Când merită
 
-- Dobânzile au scăzut suficient încât economiile lunare să acopere costurile tranzacției.
-- Ai o perioadă mai mare de creditare rămasă; refinanțarea pe termen scurt nu are sens.
+- Dobânda curentă e cu cel puțin 1 punct procentual mai mică.
+- Planifici să rămâi în locuință cel puțin 3–5 ani.
+- Poți reduce semnificativ durata creditului.
 
-2. Ce costuri verifici
+2) Când nu merită
 
-- Comisioane de rambursare anticipată
-- Costuri notariale și evaluare
-- Comisioane bancare noi
+- Ai costuri de exit mari sau penalități de rambursare anticipată.
+- Economiile din dobândă sunt mai mici decât costurile totale.
 
-3. Cum calculezi dacă ai câștig
+3) Pașii practici
 
-- Compară PV al plăților rămase înainte și după refinanțare.
-- Folosește calculatorul nostru: /calculator/refinantare
+- Calculează IRR pentru refinanțare.
+- Compară toate costurile: notar, evaluare, comisioane.
+- Negociază oferta cu mai multe bănci.
 
-4. Sfaturi practice
+Linkuri interne
 
-- Cere oferte la minim 3 bănci.
-- Fii atent la perioadele fixe și la comisioanele ascunse.
+- /calculatoare/refinantare
+- /ghiduri/cum-alegi-credit
 
-Legături interne:
-- /blog/tag/credit-ipotecar
-- /blog/calculator/refinantare
+Opinion
 
-Opinie finală: Dacă economiile estimate depășesc costurile și ai un orizont de timp suficient, refinanțarea merită; altfel rămâi la varianta existentă.
+Refinanțarea e o unealtă utilă, dar nu e o soluție automat bună. Fă calculele corect și nu te lăsa sedus doar de o dobândă mai mică.
