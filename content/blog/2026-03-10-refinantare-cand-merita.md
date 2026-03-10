@@ -1,45 +1,33 @@
 ---
-title: "Refinanţare ipotecară: când merită şi cum te pregăteşti"
-date: "2026-03-10T08:05:00+02:00"
-category: "Ghid"
-keywords: [refinanţare, credit ipotecar, dobânzi, DAE]
-draft: false
+title: "Când merită să refinanțezi un credit ipotecar în 2026"
+date: "2026-03-10T12:05:00+02:00"
+category: "evergreen"
+keywords: ["refinanțare","credit ipotecar","dobânzi","strategii"]
+slug: "cand-merita-refinantare-credit-ipotecar-2026"
 ---
 
-De ce scriem asta
+Refinanțarea poate reduce rata lunară, scădea durata creditului sau elibera lichiditate. Acest ghid scurt explică când are sens să iei în calcul refinanțarea în 2026.
 
-Refinanţarea poate reduce rata lunară sau durata creditului, dar nu e soluţia potrivită pentru toată lumea. Acest ghid explică paşii practici pentru a decide corect.
+1) Când dobânda ta este semnificativ mai mare decât cele din piață
+- Verifică oferta curentă a băncilor; dacă diferența e de cel puțin 1 punct procentual, refinanțarea poate fi rentabilă.
 
-1) Când merită refinanţarea
+2) Când vrei să schimbi tipul de dobândă (fix → variabil sau invers)
+- Asigură-te că înțelegi riscul de creștere a dobânzilor și comisioanele asociate.
 
-- Dacă dobânda nouă e semnificativ mai mică decât cea curentă (regula practică: diferenţă de minim 0.5 puncte procentuale la dobânda fixă sau când DAE scade cu cel puţin 0.8 pp).  
-- Dacă vrei să schimbi tipul de dobândă (variabilă -> fixă) din motive de predictibilitate.  
-- Dacă ai acumulat capital propriu semnificativ şi poţi obţine condiţii mai bune.
+3) Când ai costuri mari ascunse în contractul vechi
+- Unele contracte au comisioane sau clauze care fac refinanțarea neavantajoasă; calculează costurile totale.
 
-2) Ce costuri să verifici
+Cum calculezi rapid dacă merită
+- Calculează costul total al refinanțării (comisioane, evaluare, notar) și compară cu economiile lunare. Timpul de recuperare în luni îți spune dacă are sens.
 
-- Comisioane de analiză şi evaluare imobiliară.  
-- Comision de rambursare anticipată de la banca veche.  
-- Costuri notariale şi taxe de înscriere în Cartea Funciară.
+Ce să urmărești
+- Comision de rambursare anticipată la banca curentă
+- Perioada contractuală rămasă
+- Posibile garanții sau asigurări care trebuie readuse
 
-3) Paşii practici
-
-- Verifică oferta actuală: solicită simulări şi calcule DAE.  
-- Calculează perioada de amortizare a costurilor: cât timp trebuie să rămâi cu noul credit pentru a recupera costurile de refinanţare.  
-- Negociază: băncile pot elimina sau reduce anumite comisioane pentru clienţi cu istoric bun.
-
-Checklist rapid
-
-- [ ] Simulare DAE actuală vs ofertă nouă  
-- [ ] Verificare comisioane de rambursare anticipată  
-- [ ] Evaluare imobiliară actualizată  
-- [ ] Documente identitate, venit, istoric credit
-
-Link intern util
-
-- /calculator/refinantare  
-- /ghid/documente-credit
+Linkuri interne
+- /calculator/pmt
+- /articole/checklist-refinantare
 
 Opinia mea
-
-Refinanţarea are sens când reduci costul net pe termen mediu şi păstrezi flexibilitate. Nu urma doar "diferenta la dobanda" - calculează DAE şi perioada de recuperare a costurilor.
+Dacă economisești peste 12 luni din costul refinanțării în comparație cu situația curentă, merită să vorbești cu un consilier bancar.
