@@ -1,5 +1,5 @@
 ---
-title: "Refinanțarea unui credit ipotecar: când merită și ce verifici"
+title: "Refinanțarea unui credit ipotecar: când merită �'i ce verifici"
 date: "2026-03-10T08:05:00+01:00"
 slug: "refinantare-ghid-cand-merita"
 category: "evergreen"
@@ -19,7 +19,7 @@ Când merită refinanțarea
 
 Ce costuri verifica
 
-- Comisioane de analiză și de acordare.
+- Comisioane de analiză �'i de acordare.
 - Taxe notariale si costuri de evaluare.
 - Eventuale penalizari pentru rambursare anticipata.
 

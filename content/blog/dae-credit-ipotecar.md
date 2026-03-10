@@ -1,7 +1,7 @@
 ---
 title: "DAE la credit ipotecar: ce include si cum compari corect"
 slug: "dae-credit-ipotecar"
-description: "Ce intră în DAE pentru un credit ipotecar, cum se calculează și cum compari corect ofertele băncilor ca să alegi corect."
+description: "Ce intră în DAE pentru un credit ipotecar, cum se calculează �'i cum compari corect ofertele băncilor ca să alegi corect."
 keywords: ["DAE", "credit ipotecar", "dobanda efectiva", "comparare credite"]
 author: "lend.ro"
 published: "2026-03-06"
@@ -42,7 +42,7 @@ Important: costuri optionale sau serviciile suplimentare alese de client (de exe
 
 Calculul DAE tine cont de fluxurile de numerar: suma imprumutata, ratele lunare, comisioanele platite la inceput si la sfarsit, si frecventa platilor. Formula este standard, dar aplicarea poate varia in functie de costurile incluse.
 
-Dacă vrei un calcul rapid, folosește **[calculatorul de credit ipotecar](/calculator)** ca să compari scenarii.
+Dacă vrei un calcul rapid, folose�'te **[calculatorul de credit ipotecar](/calculator)** ca să compari scenarii.
 
 ## Pasii pentru a compara corect oferte ipotecare
 
@@ -89,12 +89,12 @@ Pentru detalii pana la nivel de reglementare, consulta:
 
 ## Concluzie si opinie
 
-DAE rămâne cel mai util instrument pentru comparația între credite ipotecare. Nu te lăsa păcălit de o dobândă nominală mai mică: **uită-te întotdeauna la DAE și la lista completă de costuri**. În practică, când compari oferte, acordă atenție detaliilor din oferta scrisă și folosește **[calculatorul](/calculator)** ca să testezi scenarii.
+DAE rămâne cel mai util instrument pentru comparația între credite ipotecare. Nu te lăsa păcălit de o dobândă nominală mai mică: **uită-te întotdeauna la DAE �'i la lista completă de costuri**. În practică, când compari oferte, acordă atenție detaliilor din oferta scrisă �'i folose�'te **[calculatorul](/calculator)** ca să testezi scenarii.
 
 Linkuri utile:
 - Vezi opțiuni: **[lista de bănci](/banci)**
 - Dacă te interesează refinanțarea: **[când merită să refinanțezi](/blog/2026-03-06-ce-cand-sa-refinantezi-credit)**
 - Pentru alegerea dobânzii: **[dobândă fixă vs variabilă](/blog/2026-03-07-dobanda-fixa-vs-variabila-credit-ipotecar-checklist)**
 
-Disclaimer: Acest articol are scop informativ și nu constituie consultanță financiară.
+Disclaimer: Acest articol are scop informativ �'i nu constituie consultanță financiară.
 
