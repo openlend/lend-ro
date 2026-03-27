@@ -28,6 +28,50 @@ export default function Home() {
         }} 
       />
       
+      {/* SEO Audit: Additional Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "lend.ro",
+            "url": "https://www.lend.ro",
+            "description": "Prima platformă din România pentru compararea creditelor ipotecare",
+            "areaServed": "RO",
+            "serviceType": "Mortgage Comparison"
+          })
+        }}
+      />
+      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Cât este avansul minim pentru un credit ipotecar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Avansul minim este de 15% dacă nu dețineți altă proprietate, sau 5% prin programul Noua Casă."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Cât durează să primesc oferte de credit ipotecar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Prin lend.ro primiți până la 5 oferte competitive în maximum 24 de ore."
+                }
+              }
+            ]
+          })
+        }}
+      />
+      
       <main style={{ fontFamily: 'Rubik, sans-serif' }}>
         <HeroSection />
 
